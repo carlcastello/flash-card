@@ -4,7 +4,7 @@ export default (theme: Theme) => ({
   progressBar: {
     height: theme.spacing(1),
     borderRadius: '5px', 
-    backgroundColor: '#C4C4C4',
+    backgroundColor: theme.palette.secondary.main,
     '& .MuiLinearProgress-bar': {
       backgroundColor: theme.palette.success.main,
     }
