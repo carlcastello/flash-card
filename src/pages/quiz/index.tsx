@@ -2,11 +2,11 @@ import React, { Component, ReactNode } from 'react';
 import { Box, withStyles } from '@material-ui/core';
 
 import ProgressBar from './components/progress-bar';
-import FlashCard from './components/flash-card';
+import QuestionCard from './components/question-card';
 
 import styles from './styles';
 import { IOwnProps } from './types';
-import { EFlashCardType } from './components/flash-card/types';
+import { QuestionCardType } from './components/question-card/types';
 
 class Quiz extends Component<IOwnProps> {
   render(): ReactNode {
@@ -19,8 +19,16 @@ class Quiz extends Component<IOwnProps> {
     return(
       <Box p={5} className={box}>
         <ProgressBar totalQuestion={10} currentQuestion={2}/>
-        <Box py={2.5}>
-          <FlashCard flashCardType={EFlashCardType.QUESTIONAIRE}/>
+        <Box pt={2.5}>
+          <QuestionCard 
+          flashCardType={QuestionCardType.QUESTIONAIRE}
+          questionObject={{
+            question: 'What is the capital city of Sri Lanka?',
+            hint: 'hello world'
+          }}/>
+        </Box>
+        <Box pt={2.5}>
+
         </Box>
       </Box>
     );
