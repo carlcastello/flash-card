@@ -2,33 +2,64 @@ import React, { Component, ReactNode } from 'react';
 import { Box, withStyles } from '@material-ui/core';
 
 import ProgressBar from './components/progress-bar';
-import QuestionCard from './components/question-card';
+import FlashCards from './components/flash-card';
 
 import styles from './styles';
-import { IOwnProps } from './types';
-import { QuestionCardType } from './components/question-card/types';
+import { IOwnProps, IOwnState } from './types';
+import { FlashCardStatus } from './components/flash-card/types';
 
-class Quiz extends Component<IOwnProps> {
+class Quiz extends Component<IOwnProps, IOwnState> {
+
+  state = {
+    questionIndex: 0,
+  }
+
+  onUpdateFlashCard = (flashCardStatus: FlashCardStatus) => {
+    console.log(flashCardStatus);
+  }
+
+  onNextFlashCard = () => {
+    console.log('Hlelo');
+  }
+
+  renderProgressBar(): ReactNode {
+    return (
+      <ProgressBar
+        currentQuestion={this.state.questionIndex}
+        totalQuestion={this.props.flashCards.length}/>
+    );
+  }
+
+  renderFlashCard(): ReactNode {
+    const {
+      props: {
+        flashCards,
+      },
+      state: {
+        questionIndex,
+      }
+    } = this;
+    return (
+      <FlashCards 
+        flashCardObject={flashCards[questionIndex]}
+        updateFlashCard={this.onUpdateFlashCard}
+        nextFlashCard={this.onNextFlashCard}/>
+    )
+  }
+
   render(): ReactNode {
     const {
       classes: {
-        box
+        boxContent,
+        boxContainer
       }
     } = this.props;
 
     return(
-      <Box p={5} className={box}>
-        <ProgressBar totalQuestion={10} currentQuestion={2}/>
-        <Box pt={2.5}>
-          <QuestionCard 
-          flashCardType={QuestionCardType.QUESTIONAIRE}
-          questionObject={{
-            question: 'What is the capital city of Sri Lanka?',
-            hint: 'hello world'
-          }}/>
-        </Box>
-        <Box pt={2.5}>
-
+      <Box className={boxContainer}>
+        <Box className={boxContent}>
+          {this.renderProgressBar()}
+          {this.renderFlashCard()}
         </Box>
       </Box>
     );

@@ -24,6 +24,7 @@ export default createMuiTheme({
     },
     body1: {
       fontFamily: montserrat,
+      fontSize: '2rem'
     }
 
   },

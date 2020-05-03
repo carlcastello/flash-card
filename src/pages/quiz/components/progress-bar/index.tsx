@@ -20,7 +20,7 @@ class ProgressBar extends Component<IOwnProps> {
     const percentage = (currentQuestion / totalQuestion) * 100;
 
     return(
-      <Box>
+      <Box px={5}>
         <Typography variant="subtitle1" className={title}>
           Question {currentQuestion} of {totalQuestion} 
         </Typography>

@@ -5,33 +5,45 @@ import { withStyles, Paper, Typography, Box } from '@material-ui/core';
 import styles from './styles';
 import {
   IOwnProps,
-  QuestionCardType,
-  IQuestionObject,
-  IWordObject
+  QuestionType
 } from './types';
 
 
 class QuestionCard extends Component<IOwnProps> {
 
-  renderWordVariant(wordObject: IWordObject): ReactNode {
+  renderWordVariant(): ReactNode {
+    const {
+      questionObject: {
+        question,
+        subQuestion
+      }
+    } = this.props;
     return (
       <Box py={7} px={2}>
         <Typography variant="h4">
-          {wordObject.word}
+          {question}
         </Typography>
-        <Typography variant="body1">
-          {wordObject.classification}
-        </Typography>
+        {subQuestion ?  
+          <Typography variant="body1">
+            {subQuestion}
+          </Typography> :
+          null
+        }        
       </Box>
     )    
   }
 
 
-  renderQuestionaireVariant(questionObject: IQuestionObject): ReactNode {
+  renderQuestionaireVariant(): ReactNode {
+    const {
+      questionObject: {
+        question
+      }
+    } = this.props;
     return ( 
-      <Box py={7} px={2}>
+      <Box py={10} px={2}>
         <Typography variant="body1">
-          {questionObject.question}
+          {question}
         </Typography>
       </Box>
     )
@@ -39,14 +51,14 @@ class QuestionCard extends Component<IOwnProps> {
 
   renderFlashCard(): ReactNode {
     const {
-      flashCardType,
-      questionObject,
-      wordObject
+      questionObject: {
+        questionType,
+      },
     } = this.props;
-    if (flashCardType === QuestionCardType.WORD && wordObject) {
-      return (this.renderWordVariant(wordObject));
-    } else if (flashCardType === QuestionCardType.QUESTIONAIRE && questionObject) {
-      return (this.renderQuestionaireVariant(questionObject));
+    if (questionType === QuestionType.WORD) {
+      return (this.renderWordVariant());
+    } else if (questionType === QuestionType.QUESTIONAIRE) {
+      return (this.renderQuestionaireVariant());
     }
   }
 
