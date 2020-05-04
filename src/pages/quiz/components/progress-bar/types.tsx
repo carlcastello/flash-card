@@ -3,6 +3,7 @@ export interface IOwnProps {
   totalQuestion: number,
   classes: {
     title: string,
+    progressBarContainer: string,
     progressBar: string,
   }
 }

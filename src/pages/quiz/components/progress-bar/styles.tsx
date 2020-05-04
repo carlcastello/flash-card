@@ -1,9 +1,12 @@
 import { Theme } from "@material-ui/core";
 
 export default (theme: Theme) => ({
+  progressBarContainer: {
+    flexGrow: 1,
+  },
   progressBar: {
     height: theme.spacing(1),
-    borderRadius: '5px', 
+    borderRadius: '5px',
     backgroundColor: theme.palette.secondary.main,
     '& .MuiLinearProgress-bar': {
       backgroundColor: theme.palette.success.main,

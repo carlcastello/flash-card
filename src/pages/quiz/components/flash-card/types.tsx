@@ -17,8 +17,8 @@ export interface IFlashCard {
 }
 
 export interface IOwnProps {
-  updateFlashCard: (flashCardStatus: FlashCardStatus) => void,
-  nextFlashCard: () => void,
+  update: (flashCardStatus: FlashCardStatus) => void,
+  next: () => void,
   flashCardObject: IFlashCard,
   classes: {
 
@@ -26,5 +26,5 @@ export interface IOwnProps {
 }
 
 export interface IOwnState {
-
+  flashCardStatus: FlashCardStatus
 }

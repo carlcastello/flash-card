@@ -2,13 +2,16 @@ import { FlashCardStatus } from "../../types";
 
 export interface IOwnProps {
   flashCardStatus: FlashCardStatus,
-  ref: any,
+  submit: () => void,
+  next: () => void,
   classes: {
-    paper: string,
-    input: string,
+    button: string,
+    correctButton: string,
+    wrongButton: string, 
+    hintButton: string
   }
 }
 
 export interface IOwnState {
-  answer: string
+
 }

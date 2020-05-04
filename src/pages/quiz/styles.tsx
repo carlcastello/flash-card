@@ -15,4 +15,10 @@ export default (theme: Theme) => ({
     justifyContent: 'center',
     backgroundColor: theme.palette.background.default,
   },
+  progressBarContainer: {
+    display: 'flex' as 'flex',
+  },
+  iconButton: {
+    marginLeft: theme.spacing(1),
+  }
 });

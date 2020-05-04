@@ -1,6 +1,7 @@
 import React, { Component, ReactNode } from 'react';
 
-import { withStyles, Paper, Typography, Box } from '@material-ui/core';
+import { withStyles, Paper, Typography, Box, IconButton } from '@material-ui/core';
+import SkipNextIcon from '@material-ui/icons/SkipNext';
 
 import styles from './styles';
 import {
@@ -11,6 +12,22 @@ import {
 
 class QuestionCard extends Component<IOwnProps> {
 
+  renderHint(): ReactNode {
+    const {
+      classes: {
+        boxButtonContainer,
+      }
+    } = this.props;
+
+    return (
+      <Box pr={2} pb={1} className={boxButtonContainer}>
+        <IconButton>
+          <SkipNextIcon/>
+        </IconButton>
+      </Box>
+    );
+  }
+
   renderWordVariant(): ReactNode {
     const {
       questionObject: {
@@ -20,7 +37,7 @@ class QuestionCard extends Component<IOwnProps> {
     } = this.props;
     return (
       <Box py={7} px={2}>
-        <Typography variant="h4">
+        <Typography variant="h2">
           {question}
         </Typography>
         {subQuestion ?  
@@ -33,18 +50,21 @@ class QuestionCard extends Component<IOwnProps> {
     )    
   }
 
-
   renderQuestionaireVariant(): ReactNode {
     const {
       questionObject: {
         question
+      },
+      classes: {
+        boxQuestionaireContainer
       }
     } = this.props;
     return ( 
-      <Box py={10} px={2}>
+      <Box py={10} px={2} className={boxQuestionaireContainer}>
         <Typography variant="body1">
           {question}
         </Typography>
+        {this.renderHint()}
       </Box>
     )
   }

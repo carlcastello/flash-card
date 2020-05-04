@@ -12,15 +12,16 @@ class ProgressBar extends Component<IOwnProps> {
       currentQuestion,
       totalQuestion,
       classes: {
+        progressBarContainer,
         progressBar,
-        title,
+        title        
       }
     } = this.props;
     
     const percentage = (currentQuestion / totalQuestion) * 100;
 
     return(
-      <Box px={5}>
+      <Box className={progressBarContainer}>
         <Typography variant="subtitle1" className={title}>
           Question {currentQuestion} of {totalQuestion} 
         </Typography>

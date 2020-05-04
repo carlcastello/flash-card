@@ -1,9 +1,10 @@
 import React, { Component, ReactNode, ChangeEvent } from 'react';
 
-import { withStyles, Paper, Input, Box, Button, Typography } from '@material-ui/core';
+import { withStyles, Paper, Input, Box } from '@material-ui/core';
 
 import { IOwnProps, IOwnState } from './types';
 import styles from './styles';
+import { FlashCardStatus } from '../../types';
 
 
 class AnswerCard extends Component<IOwnProps, IOwnState> {
@@ -17,59 +18,33 @@ class AnswerCard extends Component<IOwnProps, IOwnState> {
     this.setState({answer: event.target.value})
   }
 
-  onClick = (event: any): void => {
-    event.preventDefault();
-    this.props.onSubmit(this.state.answer);
-  }
-
-  renderInput(): ReactNode {
+  render(): ReactNode {
     const {
-      classes: {
-        paper,
-        input,
+      state: {
+        answer,
+      },
+      props: {
+        flashCardStatus,
+        classes: {
+          paper,
+          input
+        }
       }
-    } = this.props;
+    } = this;
 
     return (
       <Paper className={paper} elevation={3}>
         <Box p={2.5}>
           <Input 
+            value={answer}
             className={input}
             margin='none'
             onChange={this.onInputChange}
+            disabled={flashCardStatus !== FlashCardStatus.DEFAULT}
             disableUnderline
             fullWidth/>
         </Box>
       </Paper>
-    );
-  }
-
-  renderButton(): ReactNode {
-    const {
-      classes: {
-        button
-      }
-    } = this.props;
-
-    return (
-      <Box pt={2.5}>
-        <Paper elevation={3}>
-          <Button className={button} onClick={this.onClick} type="submit">
-            <Typography variant="h6">
-              Submit
-            </Typography>
-          </Button>
-        </Paper>
-      </Box>
-    )
-  }
-
-  render(): ReactNode {
-    return (
-      <form>
-        {this.renderInput()}
-        {this.renderButton()}
-      </form>
     )
   }
 }

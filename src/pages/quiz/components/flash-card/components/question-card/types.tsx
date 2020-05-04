@@ -13,6 +13,8 @@ export interface IQuestionObject {
 export interface IOwnProps {
   questionObject: IQuestionObject
   classes: {
-    paper: string
+    paper: string,
+    boxButtonContainer: string,
+    boxQuestionaireContainer: string
   }
 }
