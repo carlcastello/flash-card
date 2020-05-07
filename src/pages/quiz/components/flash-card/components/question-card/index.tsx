@@ -33,10 +33,13 @@ class QuestionCard extends Component<IOwnProps> {
       questionObject: {
         question,
         subQuestion
+      },
+      classes: {
+        boxQuestionaireContainer
       }
     } = this.props;
     return (
-      <Box py={7} px={2}>
+      <Box py={7} px={2} className={boxQuestionaireContainer}>
         <Typography variant="h2">
           {question}
         </Typography>
@@ -45,7 +48,8 @@ class QuestionCard extends Component<IOwnProps> {
             {subQuestion}
           </Typography> :
           null
-        }        
+        }   
+        {this.renderHint()}     
       </Box>
     )    
   }
