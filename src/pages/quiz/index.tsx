@@ -17,7 +17,7 @@ class Quiz extends Component<IOwnProps, IOwnState> {
   state = {
     questionIndex: 0,
     progressIndex: 0,
-    currentflashCardStatus: FlashCardStatus.DEFAULT,
+    currentFlashCardStatus: FlashCardStatus.DEFAULT,
     quizStatus: QuizStatus.IN_PROGRESS,
   }
 
@@ -30,10 +30,10 @@ class Quiz extends Component<IOwnProps, IOwnState> {
     }
   }
 
-  onUpdateFlashCard = (flashCardStatus: FlashCardStatus) => {
-    this.setState((state, props) => ({
+  onUpdateFlashCard = (currentFlashCardStatus: FlashCardStatus) => {
+    this.setState((state) => ({
         ...state,
-        currentflashCardStatus: flashCardStatus, 
+        currentFlashCardStatus, 
         progressIndex: state.progressIndex + 1
     }));
   }
@@ -44,6 +44,7 @@ class Quiz extends Component<IOwnProps, IOwnState> {
         if (state.questionIndex < props.flashCards.length - 1) {
           return ({ 
             ...state,
+            currentFlashCardStatus: FlashCardStatus.DEFAULT,
             questionIndex: state.questionIndex + 1
           });
         } else {
@@ -60,7 +61,8 @@ class Quiz extends Component<IOwnProps, IOwnState> {
   renderProgressBar(): ReactNode {
     const {
       state: {
-        progressIndex
+        progressIndex,
+        currentFlashCardStatus
       },
       props: {
         flashCards,
@@ -70,9 +72,11 @@ class Quiz extends Component<IOwnProps, IOwnState> {
         }
       }
     } = this;
+    console.log(currentFlashCardStatus)
     return (
       <Box px={5} className={progressBarContainer}>
         <ProgressBar
+          flashCardStatus={currentFlashCardStatus}
           currentQuestion={progressIndex}
           totalQuestion={flashCards.length}/>
         <IconButton className={iconButton} onClick={this.onCloseQuiz}>

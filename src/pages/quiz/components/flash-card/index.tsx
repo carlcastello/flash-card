@@ -56,7 +56,7 @@ class FlashCard extends Component<IOwnProps, IOwnState> {
     )
   }
 
-  onHint = (): void => {
+  onSkip = (): void => {
     const {
       update,
     } = this.props;
@@ -69,15 +69,22 @@ class FlashCard extends Component<IOwnProps, IOwnState> {
 
   renderQuestionCard(): ReactNode {
     const {
-      flashCardObject: {
-        question,
-        subQuestion,
-        questionType,
-        hint
+      state: {
+        flashCardStatus,
+      },
+      props: {
+        flashCardObject: {
+          question,
+          subQuestion,
+          questionType,
+          hint
+        }
       }
-    } = this.props;
+    } = this;
     return (
-      <QuestionCard 
+      <QuestionCard
+        flashCardStatus={flashCardStatus}
+        onSkip={this.onSkip}
         questionObject={{
           question,
           subQuestion,
@@ -89,14 +96,20 @@ class FlashCard extends Component<IOwnProps, IOwnState> {
 
   renderAnswerCard(): ReactNode {
     const {
-      flashCardStatus
-    } = this.state;
+      props: {
+        flashCardObject: {
+          answer,
+        }
+      },
+      state: {
+        flashCardStatus
+      }
+    } = this;
     return (
-      <Box pt={2.5}>
-        <AnswerCard 
-          flashCardStatus={flashCardStatus}
-          ref={this.answerCardRef}/>
-      </Box>
+      <AnswerCard 
+        answer={answer}
+        flashCardStatus={flashCardStatus}
+        ref={this.answerCardRef}/>
     );
   }
 
@@ -109,12 +122,10 @@ class FlashCard extends Component<IOwnProps, IOwnState> {
       },
     } = this;
     return (
-      <Box pt={2.5}>
-        <ButtonCard 
-          flashCardStatus={flashCardStatus}
-          next={onNext}
-          submit={onSubmit}/>
-      </Box>
+      <ButtonCard 
+        flashCardStatus={flashCardStatus}
+        next={onNext}
+        submit={onSubmit}/>
     )
   }
 

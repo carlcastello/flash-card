@@ -9,12 +9,13 @@ import { IOwnProps } from './types';
 class ProgressBar extends Component<IOwnProps> {
   render(): ReactNode {
     const {
+      flashCardStatus,
       currentQuestion,
       totalQuestion,
       classes: {
         progressBarContainer,
         progressBar,
-        title        
+        title
       }
     } = this.props;
     
@@ -28,7 +29,7 @@ class ProgressBar extends Component<IOwnProps> {
         <LinearProgress
           variant="determinate"
           value={percentage}
-          className={progressBar}/>
+          className={[progressBar, flashCardStatus].join(' ')}/>
       </Box>
     );
   }

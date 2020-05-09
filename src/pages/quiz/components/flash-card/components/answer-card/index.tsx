@@ -1,6 +1,6 @@
 import React, { Component, ReactNode, ChangeEvent } from 'react';
 
-import { withStyles, Paper, Input, Box } from '@material-ui/core';
+import { withStyles, Paper, Input, Box, Typography } from '@material-ui/core';
 
 import { IOwnProps, IOwnState } from './types';
 import styles from './styles';
@@ -18,33 +18,93 @@ class AnswerCard extends Component<IOwnProps, IOwnState> {
     this.setState({answer: event.target.value})
   }
 
-  render(): ReactNode {
+  renderInput(): ReactNode {
     const {
       state: {
-        answer,
+        answer
       },
       props: {
         flashCardStatus,
         classes: {
-          paper,
           input
         }
       }
     } = this;
 
     return (
-      <Paper className={paper} elevation={3}>
-        <Box p={2.5}>
-          <Input 
-            value={answer}
-            className={input}
-            margin='none'
-            onChange={this.onInputChange}
-            disabled={flashCardStatus !== FlashCardStatus.DEFAULT}
-            disableUnderline
-            fullWidth/>
-        </Box>
-      </Paper>
+      <Input 
+        value={answer}
+        className={input}
+        margin='none'
+        onChange={this.onInputChange}
+        disabled={flashCardStatus !== FlashCardStatus.DEFAULT}
+        disableUnderline
+        fullWidth/>
+    );
+  }
+
+  renderCorrectAnswer(): ReactNode {
+    const {
+      answer,
+      classes: {
+        input,
+        typography
+      }
+    } = this.props;
+
+    return (
+      <Box>
+        <Typography className={typography} variant="subtitle2">Answer</Typography>
+        <Input
+          value={answer}
+          className={input}
+          margin='none'
+          disabled
+          disableUnderline
+          fullWidth/>
+      </Box>
+    );
+  }
+
+  renderAnswerBox(): ReactNode {
+    const {
+      flashCardStatus,
+    } = this.props;
+
+    switch (flashCardStatus) {
+      case FlashCardStatus.WRONG:
+        return (
+          <Box>
+            {this.renderInput()}
+            <Box pt={1.5}>
+              {this.renderCorrectAnswer()}
+            </Box>
+          </Box>
+        )
+      case FlashCardStatus.HINT:
+        return (this.renderCorrectAnswer())        
+      default:
+        return (this.renderInput())
+    }
+  }
+
+  render(): ReactNode {
+    const {      
+      props: {
+        classes: {
+          paper
+        }
+      }
+    } = this;
+
+    return (
+      <Box pt={2.5}>
+        <Paper className={paper} elevation={3}>
+          <Box p={2.5}>
+            {this.renderAnswerBox()}
+          </Box>
+        </Paper>
+      </Box>
     )
   }
 }

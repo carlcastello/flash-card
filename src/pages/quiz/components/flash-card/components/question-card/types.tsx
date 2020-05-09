@@ -1,3 +1,5 @@
+import { FlashCardStatus } from "../../types";
+
 export enum QuestionType {
   WORD,
   QUESTIONAIRE 
@@ -11,7 +13,9 @@ export interface IQuestionObject {
 }
 
 export interface IOwnProps {
-  questionObject: IQuestionObject
+  flashCardStatus: FlashCardStatus,
+  questionObject: IQuestionObject,
+  onSkip: () => void,
   classes: {
     paper: string,
     boxButtonContainer: string,

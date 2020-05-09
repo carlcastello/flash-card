@@ -5,7 +5,12 @@ export default (theme: Theme) => ({
 
   },
   input: {
-    padding: 0,
-    fontSize: theme.typography.body1.fontSize
+    fontSize: theme.typography.body1.fontSize,
+    '& .MuiInput-input': {
+      padding: 0,
+    }
+  },
+  typography: {
+    lineHeight: 0,
   }
 });

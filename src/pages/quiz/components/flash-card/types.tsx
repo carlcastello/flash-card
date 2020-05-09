@@ -1,10 +1,10 @@
 import { QuestionType } from "./components/question-card/types";
 
 export enum FlashCardStatus {
-  DEFAULT,
-  CORRECT,
-  WRONG,
-  HINT
+  DEFAULT = "DEFAULT",
+  CORRECT = "CORRECT",
+  WRONG = "WRONG",
+  HINT = "HINT"
 }
 
 

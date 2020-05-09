@@ -18,6 +18,12 @@ class Page extends Component {
           subQuestion: 'v. irregular',
           questionType: QuestionType.WORD,
           answer: 'potato'
+        },
+        {
+          question: 'Querer',
+          subQuestion: 'v. irregular',
+          questionType: QuestionType.WORD,
+          answer: 'potato'
         }
       ]}/>
     );

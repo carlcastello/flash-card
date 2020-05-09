@@ -1,5 +1,5 @@
 import React, {Component, ReactNode} from 'react';
-import { withStyles, Typography, Button, Paper } from '@material-ui/core';
+import { withStyles, Typography, Button, Paper, Box } from '@material-ui/core';
 
 import { IOwnProps, IOwnState } from './types';
 import styles from './styles';
@@ -26,48 +26,24 @@ class ButtonCard extends Component<IOwnProps, IOwnState> {
     
   }
 
-  classSwicth = (): number => {
-    const {
-      flashCardStatus
-    } = this.props;
-
-    switch (flashCardStatus) {
-      case FlashCardStatus.HINT:
-        return 2;
-      case FlashCardStatus.WRONG:
-        return 1;
-      case FlashCardStatus.CORRECT:
-      case FlashCardStatus.DEFAULT:
-      default:
-        return 0;
-    }
-  }
-
   render(): ReactNode {
     const {
       flashCardStatus,
       classes: {
-        button,
-        correctButton,
-        wrongButton, 
-        hintButton,
+        button
       }
     } = this.props;
 
-    const buttonColor = [
-      correctButton,
-      wrongButton,
-      hintButton
-    ][this.classSwicth()];
-    
     return (
-      <Paper elevation={3}>
-        <Button className={[button, buttonColor].join(' ')} onClick={this.onClick} type="submit">
-          <Typography variant="h6">
-            {flashCardStatus !== FlashCardStatus.DEFAULT ? 'Next' : 'Submit'}
-          </Typography>
-        </Button>
-      </Paper>
+      <Box pt={2.5}>
+        <Paper elevation={3}>
+          <Button className={[button, flashCardStatus].join(' ')} onClick={this.onClick} type="submit">
+            <Typography variant="h6">
+              {flashCardStatus !== FlashCardStatus.DEFAULT ? 'Next' : 'Submit'}
+            </Typography>
+          </Button>
+        </Paper>
+      </Box>
     )
   }
 } 

@@ -14,6 +14,6 @@ export interface IOwnProps {
 export interface IOwnState {
   questionIndex: number,
   progressIndex: number,
-  currentflashCardStatus: FlashCardStatus,
+  currentFlashCardStatus: FlashCardStatus,
   quizStatus: QuizStatus
 }

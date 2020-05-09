@@ -5,10 +5,7 @@ export interface IOwnProps {
   submit: () => void,
   next: () => void,
   classes: {
-    button: string,
-    correctButton: string,
-    wrongButton: string, 
-    hintButton: string
+    button: string
   }
 }
 

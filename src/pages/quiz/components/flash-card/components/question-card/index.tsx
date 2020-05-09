@@ -8,12 +8,15 @@ import {
   IOwnProps,
   QuestionType
 } from './types';
+import { FlashCardStatus } from '../../types';
 
 
 class QuestionCard extends Component<IOwnProps> {
 
-  renderHint(): ReactNode {
+  renderSkip(): ReactNode {
     const {
+      onSkip,
+      flashCardStatus,
       classes: {
         boxButtonContainer,
       }
@@ -21,7 +24,10 @@ class QuestionCard extends Component<IOwnProps> {
 
     return (
       <Box pr={2} pb={1} className={boxButtonContainer}>
-        <IconButton>
+        <IconButton
+          color="primary"
+          onClick={onSkip}
+          disabled={flashCardStatus !== FlashCardStatus.DEFAULT}>
           <SkipNextIcon/>
         </IconButton>
       </Box>
@@ -49,7 +55,7 @@ class QuestionCard extends Component<IOwnProps> {
           </Typography> :
           null
         }   
-        {this.renderHint()}     
+        {this.renderSkip()}     
       </Box>
     )    
   }
@@ -68,7 +74,7 @@ class QuestionCard extends Component<IOwnProps> {
         <Typography variant="body1">
           {question}
         </Typography>
-        {this.renderHint()}
+        {this.renderSkip()}
       </Box>
     )
   }
