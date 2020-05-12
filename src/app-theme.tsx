@@ -22,6 +22,11 @@ export default createMuiTheme({
       fontFamily: montserrat,
       fontWeight: 700
     },
+
+    h5: {
+      fontFamily: montserrat,
+      fontWeight: 700
+    },
     body1: {
       fontFamily: montserrat,
       fontSize: '2rem'

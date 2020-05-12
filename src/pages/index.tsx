@@ -2,9 +2,10 @@ import React, { Component, ReactNode } from 'react';
 
 import Quiz from './quiz';
 import { QuestionType } from './quiz/components/flash-card/components/question-card/types';
+import Dashboard from './dashboard';
 
 class Page extends Component {
-  render(): ReactNode {
+  renderQuiz(): ReactNode {
     return(
       <Quiz flashCards={[
         {
@@ -26,6 +27,12 @@ class Page extends Component {
           answer: 'potato'
         }
       ]}/>
+    );
+  }
+
+  render(): ReactNode {
+    return(
+      <Dashboard/>
     );
   }
 }
