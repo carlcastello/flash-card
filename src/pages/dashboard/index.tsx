@@ -6,6 +6,7 @@ import { IOwnProps, IOwnState } from './types';
 import styles from './styles';
 
 import Navbar from './components/navbar';
+import SelectionCardGrid from './components/selection-card-grid';
 
 
 class Dashboard extends Component<IOwnProps, IOwnState> {
@@ -13,6 +14,13 @@ class Dashboard extends Component<IOwnProps, IOwnState> {
   renderNavbar(): ReactNode {
     return (
       <Navbar/>
+    );
+  }
+
+  renderDashboardGrid(): ReactNode {
+    return (
+
+      <SelectionCardGrid/>
     );
   }
 
@@ -24,7 +32,10 @@ class Dashboard extends Component<IOwnProps, IOwnState> {
     } = this.props;
     return (
       <Box className={boxContainer}>
-        {this.renderNavbar()}        
+        {this.renderNavbar()}
+        <Box py={5}>
+          {this.renderDashboardGrid()}
+        </Box>
       </Box>
     )
   }

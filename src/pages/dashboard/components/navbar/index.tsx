@@ -9,7 +9,7 @@ import styles from './styles';
 class Navbar extends Component<IOwnProps, IOwnState> {
   render(): ReactNode {
     return (
-      <AppBar>
+      <AppBar position="static">
         <Toolbar>
           <Typography variant="h5">
             FlashCard

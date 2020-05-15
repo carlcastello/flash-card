@@ -4,12 +4,15 @@ const montserrat = 'Montserrat, sans-serif';
 
 export default createMuiTheme({
   palette: {
+    primary: {
+      main: '#4e73df'
+    },
     secondary: {
-      main: '#C4C4C4',
+      main: '#DFDFDF',
     },
 
     background: {
-      default: '#E8E8E8'
+      default: '#f8f9fc'
     }
   },
 
@@ -18,6 +21,10 @@ export default createMuiTheme({
       fontFamily: montserrat,
       fontWeight: 700
     },
+    subtitle2: {
+      fontWeight: 400
+    },
+    
     h2: {
       fontFamily: montserrat,
       fontWeight: 700
@@ -27,6 +34,7 @@ export default createMuiTheme({
       fontFamily: montserrat,
       fontWeight: 700
     },
+    
     body1: {
       fontFamily: montserrat,
       fontSize: '2rem'
