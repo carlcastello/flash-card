@@ -12,8 +12,8 @@ export default (theme: Theme) => ({
   editIconButton: {
     padding: '2px',
     borderRadius: '5px',
-    top: '3px',
-    right: '3px',
+    top: '5px',
+    right: '5px',
     position: 'absolute' as 'absolute'
   }
 }); 

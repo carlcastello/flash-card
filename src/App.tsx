@@ -2,14 +2,19 @@ import React from 'react';
 
 import { ThemeProvider } from '@material-ui/styles';
 
-import AppTheme from './app-theme';
+import WebsiteTheme from './themes/websiteTheme';
+import QuizTheme from './themes/quizTheme';
 
-import Page from './pages';
+import Navbar from './apps/web/components/navbar';
+import Dashboard from './apps/web/pages/dashboard';
+
 
 const App: React.FC = () => {
+  const hello: boolean = false;
   return (
-    <ThemeProvider theme={AppTheme}>
-      <Page/>
+    <ThemeProvider theme={hello ? QuizTheme: WebsiteTheme}>
+      <Navbar/>
+      <Dashboard/>
     </ThemeProvider>
   );
 }

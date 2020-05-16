@@ -1,16 +1,16 @@
 import React, { Component, ReactNode } from 'react';
 
-import { withStyles, Grid, Typography, IconButton } from '@material-ui/core';
-import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline';
-
-import SelectionCard from './selection-card';
+import { withStyles, Box, Grid, Typography, IconButton } from '@material-ui/core';
+import { AddCircleOutline } from '@material-ui/icons';
 
 import { IOwnProps, IOwnState } from './types';
 import styles from './styles';
 
 
+import SelectionCard from '../../components/selection-card';
+ 
+class Dashboard extends Component<IOwnProps, IOwnState> {
 
-class SelectionCardGrid extends Component<IOwnProps, IOwnState> {
   renderSelectionCard(): ReactNode {
     return (
       <Grid container spacing={2}>
@@ -30,7 +30,8 @@ class SelectionCardGrid extends Component<IOwnProps, IOwnState> {
     );
   }
  
-  render(): ReactNode {
+
+  renderDashboardGrid(): ReactNode {
     const {
       classes: {
         titleTypography,
@@ -51,15 +52,28 @@ class SelectionCardGrid extends Component<IOwnProps, IOwnState> {
             Hello World
           </Typography>
           <IconButton className={iconButton}>
-            <AddCircleOutlineIcon/>
+            <AddCircleOutline/>
           </IconButton>
         </Grid>
         <Grid item sm={10}>
           {this.renderSelectionCard()}
         </Grid>
       </Grid>
+    );
+  }
+
+  render(): ReactNode {
+    const {
+      classes: {
+        boxContainer,
+      }
+    } = this.props;
+    return (
+      <Box pt={5} className={boxContainer}>
+        {this.renderDashboardGrid()}
+      </Box>
     )
   }
 }
 
-export default withStyles(styles)(SelectionCardGrid);
+export default withStyles(styles)(Dashboard);
