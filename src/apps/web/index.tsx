@@ -2,13 +2,16 @@ import React, { Component, ReactNode } from 'react';
 
 // import Quiz from './quiz';
 // import { QuestionType } from './quiz/components/flash-card/components/question-card/types';
-import { Box } from '@material-ui/core';
+import { Box, withStyles } from '@material-ui/core';
 
-import Navbar from '../components/navbar';
-import Dashboard from './dashboard';
+import styles from './styles';
+import { IOwnProps } from './types';
 
+import Navbar from './components/navbar';
+import Dashboard from './pages/dashboard';
+import QuizSettings from './pages/quiz-settings';
 
-class Page extends Component {
+class Page extends Component<IOwnProps> {
   // renderQuiz(): ReactNode {
   //   return(
   //     <Quiz flashCards={[
@@ -35,13 +38,22 @@ class Page extends Component {
   // }
 
   render(): ReactNode {
+    const {
+      classes: {
+        boxContainer
+      }
+    } = this.props;
+
     return(
-      <Box>
+      <Box className={boxContainer}>
         <Navbar/>
-        <Dashboard/>
+        <Box pt={5}>
+          {/* <Dashboard/> */}
+          <QuizSettings/>
+        </Box>
       </Box>
     );
   }
 }
 
-export default Page; 
+export default withStyles(styles)(Page); 

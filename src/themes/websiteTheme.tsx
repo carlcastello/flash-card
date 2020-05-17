@@ -19,7 +19,7 @@ export default createMuiTheme({
   typography: {
     subtitle1: {
       fontFamily: montserrat,
-      fontWeight: 700
+      fontSize: '.8rem'
     },
     subtitle2: {
       fontWeight: 400
@@ -27,17 +27,16 @@ export default createMuiTheme({
     
     h2: {
       fontFamily: montserrat,
-      fontWeight: 700
+      color: '#000'
     },
 
     h5: {
       fontFamily: montserrat,
-      fontWeight: 700
     },
     
     body1: {
-      fontFamily: montserrat,
-      fontSize: '2rem'
+      // fontFamily: montserrat,
+      fontWeight: 300
     }
 
   },
