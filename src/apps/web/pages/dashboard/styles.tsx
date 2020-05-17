@@ -1,10 +1,6 @@
 import { Theme } from '@material-ui/core';
 
 export default (theme: Theme) => ({
-  boxContainer: {
-    backgroundColor: theme.palette.background.default,
-    minHeight: '100vh' 
-  },
   titleTypography: {
     display: 'inline' as 'inline',
   },

@@ -1,6 +1,6 @@
 import React, { Component, ReactNode } from 'react';
 
-import { withStyles, Box, Grid, Typography, IconButton } from '@material-ui/core';
+import { withStyles, Grid, Typography, IconButton } from '@material-ui/core';
 import { AddCircleOutline } from '@material-ui/icons';
 
 import { IOwnProps, IOwnState } from './types';
@@ -30,8 +30,7 @@ class Dashboard extends Component<IOwnProps, IOwnState> {
     );
   }
  
-
-  renderDashboardGrid(): ReactNode {
+  render(): ReactNode {
     const {
       classes: {
         titleTypography,
@@ -54,25 +53,12 @@ class Dashboard extends Component<IOwnProps, IOwnState> {
           <IconButton className={iconButton}>
             <AddCircleOutline/>
           </IconButton>
-        </Grid>
+        </Grid> 
         <Grid item sm={10}>
           {this.renderSelectionCard()}
         </Grid>
       </Grid>
     );
-  }
-
-  render(): ReactNode {
-    const {
-      classes: {
-        boxContainer,
-      }
-    } = this.props;
-    return (
-      <Box pt={5} className={boxContainer}>
-        {this.renderDashboardGrid()}
-      </Box>
-    )
   }
 }
 
