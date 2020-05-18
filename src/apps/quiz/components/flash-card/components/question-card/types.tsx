@@ -1,9 +1,5 @@
 import { FlashCardStatus } from "../../types";
-
-export enum QuestionType {
-  WORD,
-  QUESTIONAIRE 
-}
+import { QuestionType } from "../../../../../commons/types";
 
 export interface IQuestionObject {
   question: string,

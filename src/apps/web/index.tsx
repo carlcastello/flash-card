@@ -10,6 +10,7 @@ import { IOwnProps } from './types';
 import Navbar from './components/navbar';
 import Dashboard from './pages/dashboard';
 import QuizSettings from './pages/quiz-settings';
+import { QuestionType } from '../commons/types';
 
 class Page extends Component<IOwnProps> {
   // renderQuiz(): ReactNode {
@@ -47,9 +48,32 @@ class Page extends Component<IOwnProps> {
     return(
       <Box className={boxContainer}>
         <Navbar/>
-        <Box pt={5}>
+        <Box py={5}>
           {/* <Dashboard/> */}
-          <QuizSettings/>
+          <QuizSettings quiz={{
+            title: 'Hello World',
+            description: 'This is a sample quiz',
+            flashcards: [
+              {
+                question: 'What is the capital of Sri Lanka?',
+                hint: 'India',
+                questionType: QuestionType.QUESTIONAIRE,
+                answer: 'potato'
+              },
+              {
+                question: 'Querer',
+                subQuestion: 'v. irregular',
+                questionType: QuestionType.WORD,
+                answer: 'potato'
+              },
+              {
+                question: 'Querer',
+                subQuestion: 'v. irregular',
+                questionType: QuestionType.WORD,
+                answer: 'potato'
+              }
+            ]
+          }}/>
         </Box>
       </Box>
     );

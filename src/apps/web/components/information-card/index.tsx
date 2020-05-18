@@ -1,41 +1,56 @@
 import React, { Component, ReactNode } from 'react';
 
-import { Paper, Typography, Box, withStyles } from '@material-ui/core';
+import { Paper, Typography, Box, withStyles, IconButton } from '@material-ui/core';
+import { Edit } from '@material-ui/icons';
 
 import styles from './styles';
 import { IOwnProps } from './types';
 
 
 class InformationCard extends Component<IOwnProps> {
-  render(): ReactNode {
+
+  renderTitle(): ReactNode {
     const {
       title,
       subtitle,
-      description,
       classes: {
         inlineTypography,
-        titleContainer,
-        paperContainer
+      }
+    } = this.props;
+    return (
+      <Box mb={1}>
+        <Typography 
+          variant="h5"
+          className={inlineTypography}>
+          {title}
+        </Typography>
+        {subtitle ? 
+          <Typography
+            variant="subtitle1"
+            className={inlineTypography}>
+            &nbsp;({subtitle})
+          </Typography> :
+          null}
+      </Box>
+    );
+  }
+
+  render(): ReactNode {
+    const {
+      description,
+      classes: {
+        paperContainer,
+        editIconButton
       }
     } = this.props;
     return (
       <Paper className={paperContainer}>
         <Box p={2}>
-          <Box mb={1}>
-            <Typography 
-              variant="h5"
-              className={inlineTypography}>
-              {title}
-            </Typography>
-            {subtitle ? 
-              <Typography
-                variant="subtitle1"
-                className={inlineTypography}>
-                &nbsp;({subtitle})
-              </Typography> :
-              null}
-          </Box>
-          <Typography variant="body1">
+          {this.renderTitle()}
+          <IconButton className={editIconButton}>
+            <Edit fontSize="small"/>
+          </IconButton>
+          <Typography variant="body2">
             {description}
           </Typography>
         </Box>

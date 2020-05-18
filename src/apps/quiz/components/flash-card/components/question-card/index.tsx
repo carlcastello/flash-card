@@ -5,10 +5,10 @@ import SkipNextIcon from '@material-ui/icons/SkipNext';
 
 import styles from './styles';
 import {
-  IOwnProps,
-  QuestionType
+  IOwnProps
 } from './types';
 import { FlashCardStatus } from '../../types';
+import { QuestionType } from '../../../../../commons/types';
 
 
 class QuestionCard extends Component<IOwnProps> {

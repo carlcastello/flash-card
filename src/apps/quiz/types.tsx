@@ -1,5 +1,6 @@
-import { IFlashCard, FlashCardStatus } from "./components/flash-card/types";
+import { FlashCardStatus } from "./components/flash-card/types";
 import { QuizStatus } from "./enum";
+import { IFlashCard } from "../commons/types";
 
 export interface IOwnProps {
   flashCards: IFlashCard[],

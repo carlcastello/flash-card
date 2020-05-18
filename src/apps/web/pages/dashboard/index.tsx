@@ -1,13 +1,12 @@
 import React, { Component, ReactNode } from 'react';
 
-import { withStyles, Box, Grid, Typography, IconButton } from '@material-ui/core';
-import { AddCircleOutline } from '@material-ui/icons';
+import { withStyles, Grid } from '@material-ui/core';
 
 import { IOwnProps, IOwnState } from './types';
 import styles from './styles';
 
-
-import SelectionCard from '../../components/selection-card';
+import InformationCard from '../../components/information-card';
+import TitleIcon from '../../components/title-icon';
  
 class Dashboard extends Component<IOwnProps, IOwnState> {
 
@@ -15,16 +14,24 @@ class Dashboard extends Component<IOwnProps, IOwnState> {
     return (
       <Grid container spacing={2}>
         <Grid item sm={4}>
-          <SelectionCard/>
+          <InformationCard
+            title="Quiz 1"
+            description="The quick brown fox jumps over the lazy dog."/>
         </Grid>
         <Grid item sm={4}>
-          <SelectionCard/>
+          <InformationCard
+            title="Quiz 2"
+            description="The quick brown fox jumps over the lazy dog."/>
         </Grid>
         <Grid item sm={4}>
-          <SelectionCard/>
+          <InformationCard
+            title="Quiz 3"
+            description="The quick brown fox jumps over the lazy dog."/>
         </Grid>
         <Grid item sm={4}>
-          <SelectionCard/>
+          <InformationCard
+            title="Quiz 4"
+            description="The quick brown fox jumps over the lazy dog."/>
         </Grid>
       </Grid>
     );
@@ -34,8 +41,6 @@ class Dashboard extends Component<IOwnProps, IOwnState> {
   renderDashboardGrid(): ReactNode {
     const {
       classes: {
-        titleTypography,
-        iconButton,
         gridContainer
       }
     } = this.props;
@@ -48,12 +53,10 @@ class Dashboard extends Component<IOwnProps, IOwnState> {
         spacing={2}
         className={gridContainer}>
         <Grid item direction="row" sm={10}>
-          <Typography className={titleTypography} variant="h4">
-            Hello World
-          </Typography>
-          <IconButton className={iconButton}>
-            <AddCircleOutline/>
-          </IconButton>
+          <TitleIcon 
+            onClick={() => { console.log("hello world")}}>
+            Quizes
+          </TitleIcon>
         </Grid>
         <Grid item sm={10}>
           {this.renderSelectionCard()}
@@ -65,13 +68,25 @@ class Dashboard extends Component<IOwnProps, IOwnState> {
   render(): ReactNode {
     const {
       classes: {
-        boxContainer,
+        gridContainer
       }
     } = this.props;
     return (
-      <Box pt={5} className={boxContainer}>
-        {this.renderDashboardGrid()}
-      </Box>
+      <Grid 
+        container
+        direction="row"
+        justify="center"
+        alignItems="center"
+        spacing={2}
+        className={gridContainer}>
+        <Grid item direction="row" sm={10}>
+          <TitleIcon 
+            onClick={() => { console.log("hello world")}}/>
+        </Grid>
+        <Grid item sm={10}>
+          {this.renderSelectionCard()}
+        </Grid>
+      </Grid>
     )
   }
 }

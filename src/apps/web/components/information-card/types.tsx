@@ -4,8 +4,8 @@ export interface IOwnProps {
   description: string,
   classes: {
     inlineTypography: string,
-    titleContainer: string,
-    paperContainer: string
+    paperContainer: string,
+    editIconButton: string
   }
 
 }

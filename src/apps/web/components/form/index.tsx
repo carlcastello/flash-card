@@ -2,15 +2,13 @@ import React, { Component, ReactNode } from 'react';
 import {
   withStyles,
   FormControl,
-  Input,
   OutlinedInput,
   InputLabel,
   FormHelperText,
-  Box
+  Box,
+  Button
 } from '@material-ui/core';
 
-// import Button from '../buttons';
-// import { IVariant, IPadding } from '../buttons/types';
 import styles from './styles';
 import { IOwnProps, IField, IOwnState } from './types';
 
@@ -75,9 +73,9 @@ class Form extends Component<IOwnProps, IOwnState> {
           </FormControl>
         )}
         <Box className={formBottomContainer}>
-          {/* <Button padding={IPadding.MEDIUM} variant={IVariant.PRIMARY} onClick={this.onClick}>
-            Submit
-          </Button> */}
+          <Button onClick={this.onClick}>
+            Save
+          </Button>
         </Box>
       </form> 
     );
