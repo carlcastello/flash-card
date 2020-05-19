@@ -1,13 +1,14 @@
 import React, { Component, ReactNode } from 'react';
 
-import { withStyles, Grid } from '@material-ui/core';
+import { withStyles, Grid, Typography } from '@material-ui/core';
 
 import { IOwnProps, IOwnState } from './types';
 import styles from './styles';
 
 import InformationCard from '../../components/information-card';
 import TitleIcon from '../../components/title-icon';
- 
+
+
 class Dashboard extends Component<IOwnProps, IOwnState> {
 
   renderSelectionCard(): ReactNode {
@@ -55,7 +56,7 @@ class Dashboard extends Component<IOwnProps, IOwnState> {
         <Grid item direction="row" sm={10}>
           <TitleIcon 
             onClick={() => { console.log("hello world")}}>
-            Quizes
+            Carl Castello
           </TitleIcon>
         </Grid>
         <Grid item sm={10}>
@@ -81,7 +82,9 @@ class Dashboard extends Component<IOwnProps, IOwnState> {
         className={gridContainer}>
         <Grid item direction="row" sm={10}>
           <TitleIcon 
-            onClick={() => { console.log("hello world")}}/>
+            onClick={() => { console.log("hello world")}}>
+            Quizes
+          </TitleIcon>  
         </Grid>
         <Grid item sm={10}>
           {this.renderSelectionCard()}

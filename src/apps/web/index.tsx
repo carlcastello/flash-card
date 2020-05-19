@@ -49,8 +49,8 @@ class Page extends Component<IOwnProps> {
       <Box className={boxContainer}>
         <Navbar/>
         <Box py={5}>
-          {/* <Dashboard/> */}
-          <QuizSettings quiz={{
+          <Dashboard/>
+          {/* <QuizSettings quiz={{
             title: 'Hello World',
             description: 'This is a sample quiz',
             flashcards: [
@@ -73,7 +73,7 @@ class Page extends Component<IOwnProps> {
                 answer: 'potato'
               }
             ]
-          }}/>
+          }}/> */}
         </Box>
       </Box>
     );
