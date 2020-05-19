@@ -33,31 +33,31 @@ class App extends Component {
     return (
       <ThemeProvider theme={QuizTheme}>
         <Switch>
-        <Route
-          exact
-          path="/quiz"
-          component={() => 
-            <Quiz flashCards={[
-              {
-                question: 'What is the capital of Sri Lanka?',
-                hint: 'India',
-                questionType: QuestionType.QUESTIONAIRE,
-                answer: 'potato'
-              },
-              {
-                question: 'Querer',
-                subQuestion: 'v. irregular',
-                questionType: QuestionType.WORD,
-                answer: 'potato'
-              },
-              {
-                question: 'Querer',
-                subQuestion: 'v. irregular',
-                questionType: QuestionType.WORD,
-                answer: 'potato'
-              }
-            ]}/>
-          }/>
+          <Route
+            exact
+            path="/quiz"
+            component={() => 
+              <Quiz flashCards={[
+                {
+                  question: 'What is the capital of Sri Lanka?',
+                  hint: 'India',
+                  questionType: QuestionType.QUESTIONAIRE,
+                  answer: 'potato'
+                },
+                {
+                  question: 'Querer',
+                  subQuestion: 'v. irregular',
+                  questionType: QuestionType.WORD,
+                  answer: 'potato'
+                },
+                {
+                  question: 'Querer',
+                  subQuestion: 'v. irregular',
+                  questionType: QuestionType.WORD,
+                  answer: 'potato'
+                }
+              ]}/>
+            }/>
           </Switch>
       </ThemeProvider>
     );
