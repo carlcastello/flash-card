@@ -1,6 +1,6 @@
 import React, { Component, ReactNode } from 'react';
 
-import { withStyles, Grid, Typography } from '@material-ui/core';
+import { withStyles, Grid } from '@material-ui/core';
 
 import { IOwnProps, IOwnState } from './types';
 import styles from './styles';
