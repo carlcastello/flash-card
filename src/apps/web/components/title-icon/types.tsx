@@ -5,3 +5,7 @@ export interface IOwnProps {
     iconButton: string
   }
 }
+
+export interface IOwnState {
+  isToggled: boolean
+}

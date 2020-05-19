@@ -7,3 +7,7 @@ export interface IOwnProps {
     gridContainer: string
   }
 }
+
+export interface IOwnState {
+  isAddQuestion: boolean
+}

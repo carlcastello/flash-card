@@ -2,13 +2,20 @@ import { Theme } from "@material-ui/core";
 
 export default (theme: Theme) => ({
   formControl: {
-    marginBottom: `${theme.spacing(1.5)}px`
+    marginBottom: `${theme.spacing(1.25)}px`
   },
   formInput: {
-    fontSize: '1.25rem',
+    fontSize: '1rem',
+    '& .MuiInputBase-input': {
+      padding: `${theme.spacing(1.5)}px`
+    }
   },
   formLabel: {
-    fontSize: '1.25rem',
+    fontSize: '1rem',
+    top: '-3px',
+    '&.Mui-focused': {
+      top: '0px'
+    }
   },
   formHelperText: {
     // position: 'absolute' as 'absolute',

@@ -5,7 +5,8 @@ export interface IOwnProps {
   classes: {
     inlineTypography: string,
     paperContainer: string,
-    editIconButton: string
+    iconButton: string,
+    iconButtonContainer: string,
   }
 
 }

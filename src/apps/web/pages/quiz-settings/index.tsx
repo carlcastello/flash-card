@@ -1,19 +1,30 @@
 import React, { Component, ReactNode } from 'react';
 
-import { withStyles, Grid, Paper, Box, Typography } from '@material-ui/core';
+import { withStyles, Grid, Paper, Box, Typography, Collapse } from '@material-ui/core';
 
 import Form from "../../components/form";
 import InformationCard from '../../components/information-card';
 import TitleIcon from '../../components/title-icon';
 
-import { IOwnProps } from './types';
+import { IOwnProps, IOwnState } from './types';
 import styles from './styles';
-import { QuizSummaryFields } from './fields';
+import { QuizSummaryFields, QuestionFields } from './fields';
 import { IFlashCard } from '../../../commons/types';
 
 
-class QuizSettings extends Component<IOwnProps> {
+class QuizSettings extends Component<IOwnProps, IOwnState> {
   
+  state: IOwnState = {
+    isAddQuestion: false
+  }
+
+  onTitleIconClick = (): void => {
+    console.log('asd')
+    this.setState((state: IOwnState) => ({
+      isAddQuestion: !state.isAddQuestion
+    }))
+  }
+
   renderQuizSummaryForm(): ReactNode {
     return (
       <Paper elevation={3}>
@@ -31,6 +42,20 @@ class QuizSettings extends Component<IOwnProps> {
     )
   }
 
+  renderQuestionForm(): ReactNode {
+    return (
+      <Box pb={2}>
+        <Paper elevation={3}>
+          <Box p={5}>
+            <Form 
+              fields={QuestionFields}
+              onSuccess={() => {console.log('hello Question')}}/>
+          </Box>
+        </Paper>
+      </Box>
+    );
+  }
+
   renderFlashCards(flashcards: IFlashCard[]): ReactNode {
     return (flashcards.map((flashcard: IFlashCard) => 
       <Grid item sm={6}>
@@ -42,32 +67,48 @@ class QuizSettings extends Component<IOwnProps> {
     ))
   }
 
-  renderQuizQuestions(): ReactNode {
+  renderQuizCards(): ReactNode {
     const {
-      quiz,
-      classes: {
-        questionBoxContainer
-      }
+      quiz
     } = this.props;
     return (
-      <Box padding={5} className={questionBoxContainer}>
-        <Grid 
-          container
-          spacing={2}>
+      <Grid 
+        container
+        spacing={2}>
+          {quiz && quiz.flashcards.length > 0 ?
+            this.renderFlashCards(quiz.flashcards) :
             <Grid item sm={12}>
-              <TitleIcon onClick={() => {console.log('hello world')}}>
-                Quiz Questions
-              </TitleIcon>
+              <Typography variant="h5">
+                No Questions
+              </Typography>          
             </Grid>
-            {quiz && quiz.flashcards.length > 0 ?
-              this.renderFlashCards(quiz.flashcards) :
-              <Grid item sm={12}>
-                <Typography variant="h5">
-                  No Questions
-                </Typography>          
-              </Grid>
-            }
-        </Grid>
+          }
+      </Grid>
+    );
+  }
+
+  renderQuizContainer(): ReactNode {
+    const {
+      state: {
+        isAddQuestion
+      },
+      props: {
+        classes: {
+          questionBoxContainer
+        }
+      }
+    } = this;
+    return (
+      <Box p={5} className={questionBoxContainer}>
+        <Box pb={2}>
+          <TitleIcon onClick={this.onTitleIconClick}>
+            Quiz Questions
+          </TitleIcon>
+        </Box>
+        <Collapse in={isAddQuestion}>
+          {this.renderQuestionForm()}
+        </Collapse>
+        {this.renderQuizCards()}
       </Box>
     );
   }
@@ -90,7 +131,7 @@ class QuizSettings extends Component<IOwnProps> {
           {this.renderQuizSummaryForm()}
         </Grid> 
         <Grid item sm={10}>
-          {this.renderQuizQuestions()}
+          {this.renderQuizContainer()}
         </Grid>
       </Grid>
     )

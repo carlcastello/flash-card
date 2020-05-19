@@ -1,13 +1,21 @@
 import React, { Component, ReactNode } from 'react';
 
 import { Paper, Typography, Box, withStyles, IconButton } from '@material-ui/core';
-import { Edit } from '@material-ui/icons';
+import { Edit, Delete } from '@material-ui/icons';
 
 import styles from './styles';
 import { IOwnProps } from './types';
 
 
 class InformationCard extends Component<IOwnProps> {
+
+  onDelete = (): void => {
+    console.log('Delete')
+  };
+
+  onEdit = (): void => {
+    console.log('Edit');
+  };
 
   renderTitle(): ReactNode {
     const {
@@ -40,16 +48,22 @@ class InformationCard extends Component<IOwnProps> {
       description,
       classes: {
         paperContainer,
-        editIconButton
+        iconButton,
+        iconButtonContainer
       }
     } = this.props;
     return (
-      <Paper className={paperContainer}>
+      <Paper className={paperContainer} elevation={3}>
         <Box p={2}>
           {this.renderTitle()}
-          <IconButton className={editIconButton}>
-            <Edit fontSize="small"/>
-          </IconButton>
+          <Box className={iconButtonContainer}>
+            <IconButton className={iconButton} onClick={this.onEdit}>
+              <Edit fontSize="inherit"/>
+            </IconButton>
+            <IconButton className={iconButton} onClick={this.onDelete}>
+              <Delete fontSize="inherit"/>
+            </IconButton>
+          </Box>
           <Typography variant="body2">
             {description}
           </Typography>
