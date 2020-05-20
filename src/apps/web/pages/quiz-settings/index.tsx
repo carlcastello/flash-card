@@ -127,7 +127,7 @@ class QuizSettings extends Component<IOwnProps, IOwnState> {
         alignItems="center"
         spacing={2}
         className={gridContainer}>
-        <Grid item direction="row" sm={10}>
+        <Grid item sm={10}>
           {this.renderQuizSummaryForm()}
         </Grid> 
         <Grid item sm={10}>

@@ -1,9 +1,5 @@
-export interface IOwnProps {
-  classes: {
-    gridContainer: string
-  }
-};
-
-export interface IOwnState {
-
-};
+export interface IQuizSummary {
+  id: string,
+  title: string,
+  description: string
+} 

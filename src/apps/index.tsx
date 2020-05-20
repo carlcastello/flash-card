@@ -1,6 +1,14 @@
 import React, { Component, ReactNode } from 'react'; 
+
+import { Provider } from 'react-redux';
+import { createStore, applyMiddleware  } from 'redux'
+import thunkMiddleware from 'redux-thunk'
+
 import { ThemeProvider } from '@material-ui/core';
+
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
+
+import MainReducer from './reducer';
 
 import Quiz from './quiz';
 import QuizTheme from './quiz/theme';
@@ -9,6 +17,8 @@ import Web  from './web';
 import WebsiteTheme from './web/theme';
 
 import { QuestionType } from './commons/types';
+
+
 
 class App extends Component {
 
@@ -65,10 +75,12 @@ class App extends Component {
 
   render(): ReactNode {
     return (
-      <BrowserRouter>
-        {this.renderWebSwitch()}
-        {this.renderQuizSwitch()}
-      </BrowserRouter>
+      <Provider store={createStore(MainReducer, applyMiddleware(thunkMiddleware))}>
+        <BrowserRouter>
+          {this.renderWebSwitch()}
+          {this.renderQuizSwitch()}
+        </BrowserRouter>
+      </Provider>
     )
   }
 }
