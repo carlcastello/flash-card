@@ -7,7 +7,7 @@ import styles from './styles';
 
 import InformationCard from '../../../components/information-card';
 import TitleIcon from '../../../components/title-icon';
-import { IQuizSummary } from '../types';
+import { IQuizSummary } from "../../../../commons/types";
 
 
 class Dashboard extends Component<IOwnProps, IOwnState> {

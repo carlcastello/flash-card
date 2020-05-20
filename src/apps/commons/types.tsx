@@ -16,3 +16,9 @@ export interface IQuiz {
   description: string,
   flashcards: IFlashCard[]
 }
+
+export interface IQuizSummary {
+  id: string,
+  title: string,
+  description: string
+} 

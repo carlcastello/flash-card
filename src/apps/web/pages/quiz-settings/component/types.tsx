@@ -1,4 +1,4 @@
-import { IQuiz } from '../../../commons/types';
+import { IQuiz } from '../../../../commons/types';
 
 export interface IOwnProps {
   quiz?: IQuiz,

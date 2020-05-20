@@ -1,11 +1,12 @@
-import { IQuiz } from "./commons/types";
+import { IQuizSummary } from "./commons/types";
+
 
 export interface IQuizState {
 
 }
 
 export interface IPageData {
-  createdQuizes: IQuiz[]
+  createdQuizes: IQuizSummary[]
 }
 
 export interface IWebData {

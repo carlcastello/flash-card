@@ -13,7 +13,7 @@ import { QuestionType } from '../commons/types';
 import QuizSettings from './pages/quiz-settings';
 
 
-class Page extends Component<IOwnProps> {
+class Web extends Component<IOwnProps> {
 
   render(): ReactNode {
     const {
@@ -61,4 +61,4 @@ class Page extends Component<IOwnProps> {
   }
 }
 
-export default withStyles(styles)(Page); 
+export default withStyles(styles)(Web); 

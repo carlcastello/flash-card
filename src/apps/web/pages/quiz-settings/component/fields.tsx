@@ -1,4 +1,4 @@
-import { IField } from "../../components/form/types";
+import { IField } from "../../../components/form/types";
 
 export const QuizSummaryFields: IField[] = [
   {

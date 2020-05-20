@@ -1,4 +1,5 @@
-import { IQuizSummary } from "../types";
+import { IQuizSummary } from "../../../../commons/types";
+
 
 export interface IOwnProps {
   createdQuizes: IQuizSummary[],
