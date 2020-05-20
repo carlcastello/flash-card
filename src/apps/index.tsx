@@ -51,7 +51,7 @@ class App extends Component {
             exact
             path="/quiz"
             component={() => 
-              <Quiz flashCards={[
+              <Quiz flashcards={[
                 {
                   id: '123',
                   question: 'What is the capital of Sri Lanka?',

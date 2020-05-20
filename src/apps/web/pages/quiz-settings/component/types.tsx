@@ -1,11 +1,11 @@
-import { IFlashCard } from '../../../../commons/types';
+import { IFlashcard } from '../../../../commons/types';
 import { RouteComponentProps } from 'react-router-dom';
 
 
 export interface IOwnProps extends RouteComponentProps<any>{
   title: string,
   description: string,
-  flashCards: IFlashCard[],
+  flashcards: IFlashcard[],
   fetchQuiz: (quizId: string) => void,
   saveQuizSummary: () => void,
   saveCreatedQuestion: () => void,

@@ -9,7 +9,7 @@ import TitleIcon from '../../../components/title-icon';
 import { IOwnProps, IOwnState } from './types';
 import styles from './styles';
 import { QuizSummaryFields, QuestionFields } from './fields';
-import { IFlashCard } from '../../../../commons/types';
+import { IFlashcard } from '../../../../commons/types';
 
 
 class QuizSettings extends Component<IOwnProps, IOwnState> {
@@ -74,14 +74,14 @@ class QuizSettings extends Component<IOwnProps, IOwnState> {
     );
   }
 
-  renderFlashCards(flashCards: IFlashCard[]): ReactNode {
-    return (flashCards.map((flashCards: IFlashCard) => 
+  renderFlashcards(flashcards: IFlashcard[]): ReactNode {
+    return (flashcards.map((flashcards: IFlashcard) => 
       <Grid item sm={6}>
         <InformationCard
-          id={flashCards.id}
-          title={flashCards.question}
-          description={flashCards.answer}
-          subtitle={flashCards.subQuestion}
+          id={flashcards.id}
+          title={flashcards.question}
+          description={flashcards.answer}
+          subtitle={flashcards.subQuestion}
           onEdit={() => {}}
           onDelete={() => {}}/>
       </Grid>
@@ -90,14 +90,14 @@ class QuizSettings extends Component<IOwnProps, IOwnState> {
 
   renderQuizCards(): ReactNode {
     const {
-      flashCards
+      flashcards
     } = this.props;
     return (
       <Grid 
         container
         spacing={2}>
-          {flashCards.length > 0 ?
-            this.renderFlashCards(flashCards) :
+          {flashcards.length > 0 ?
+            this.renderFlashcards(flashcards) :
             <Grid item sm={12}>
               <Typography variant="body1">
                 This quiz has no questions.

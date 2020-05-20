@@ -12,7 +12,7 @@ export const descriptionSelector = createSelector(
   (pageData: IPageData) => pageData.description || ''
 );
 
-export const flashCardsSelector = createSelector(
+export const flashcardsSelector = createSelector(
   pageDataSelector,
-  (pageData: IPageData) => pageData.flashCards || []
+  (pageData: IPageData) => pageData.flashcards || []
 );

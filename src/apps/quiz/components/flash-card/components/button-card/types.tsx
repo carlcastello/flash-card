@@ -1,7 +1,7 @@
-import { FlashCardStatus } from "../../types";
+import { FlashcardStatus } from "../../types";
 
 export interface IOwnProps {
-  flashCardStatus: FlashCardStatus,
+  flashcardStatus: FlashcardStatus,
   submit: () => void,
   next: () => void,
   classes: {
