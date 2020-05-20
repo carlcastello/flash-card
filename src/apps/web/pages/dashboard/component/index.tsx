@@ -12,8 +12,17 @@ import { IQuizSummary } from "../../../../commons/types";
 
 class Dashboard extends Component<IOwnProps, IOwnState> {
   
+  onQuizCreate = (): void => {
+    const {
+      history: {
+        push
+      }
+    } = this.props;
 
-  onInformationCardEdit = (id: string): void => {
+    push('/dashboard/quiz');    
+  }
+
+  onQuizEdit = (id: string): void => {
     const {
       history: {
         push
@@ -23,7 +32,7 @@ class Dashboard extends Component<IOwnProps, IOwnState> {
     push(`/dashboard/quiz/${id}`);
   }
 
-  onInformationCardDelete = (id: string): void => {
+  onQuizDelete = (id: string): void => {
     
   }
 
@@ -31,6 +40,7 @@ class Dashboard extends Component<IOwnProps, IOwnState> {
     const {
       fetchCreatedQuizes
     } = this.props;   
+   
     fetchCreatedQuizes();
   }
 
@@ -38,6 +48,7 @@ class Dashboard extends Component<IOwnProps, IOwnState> {
     const {
       createdQuizes
     } = this.props;
+
     return (
       <Grid container spacing={2}>
         {createdQuizes.map((quiz: IQuizSummary) => (
@@ -46,48 +57,21 @@ class Dashboard extends Component<IOwnProps, IOwnState> {
               id={quiz.id}
               title={quiz.title}
               description={quiz.description}
-              onEdit={this.onInformationCardEdit}
-              onDelete={this.onInformationCardDelete}/>
+              onEdit={this.onQuizEdit}
+              onDelete={this.onQuizDelete}/>
           </Grid> 
         ))}
       </Grid>
     );
   }
  
-
-  renderDashboardGrid(): ReactNode {
-    const {
-      classes: {
-        gridContainer
-      }
-    } = this.props;
-    return (
-      <Grid 
-        container
-        direction="row"
-        justify="center"
-        alignItems="center"
-        spacing={2}
-        className={gridContainer}>
-        <Grid item sm={10}>
-          <TitleIcon 
-            onClick={() => { console.log("hello world")}}>
-            Carl Castello
-          </TitleIcon>
-        </Grid>
-        <Grid item sm={10}>
-          {this.renderSelectionCard()}
-        </Grid>
-      </Grid>
-    );
-  }
-
   render(): ReactNode {
     const {
       classes: {
         gridContainer
       }
     } = this.props;
+
     return (
       <Grid 
         container
@@ -98,8 +82,8 @@ class Dashboard extends Component<IOwnProps, IOwnState> {
         className={gridContainer}>
         <Grid item sm={10}>
           <TitleIcon 
-            onClick={() => { console.log("hello world")}}>
-            Quizes
+            onClick={this.onQuizCreate}>
+            My Quizes
           </TitleIcon>  
         </Grid>
         <Grid item sm={10}>
