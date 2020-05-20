@@ -1,4 +1,3 @@
-
 export enum QuestionType {
   WORD,
   QUESTIONAIRE 
