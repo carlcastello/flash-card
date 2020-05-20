@@ -11,6 +11,21 @@ import { IQuizSummary } from "../../../../commons/types";
 
 
 class Dashboard extends Component<IOwnProps, IOwnState> {
+  
+
+  onInformationCardEdit = (id: string): void => {
+    const {
+      history: {
+        push
+      }      
+    } = this.props
+
+    push(`/dashboard/quiz/${id}`);
+  }
+
+  onInformationCardDelete = (id: string): void => {
+    
+  }
 
   componentDidMount() {
     const {
@@ -28,9 +43,12 @@ class Dashboard extends Component<IOwnProps, IOwnState> {
         {createdQuizes.map((quiz: IQuizSummary) => (
           <Grid key={quiz.id} item sm={4}>
             <InformationCard
+              id={quiz.id}
               title={quiz.title}
-              description={quiz.description}/>
-          </Grid>          
+              description={quiz.description}
+              onEdit={this.onInformationCardEdit}
+              onDelete={this.onInformationCardDelete}/>
+          </Grid> 
         ))}
       </Grid>
     );

@@ -9,13 +9,40 @@ import { IOwnProps } from './types';
 
 class InformationCard extends Component<IOwnProps> {
 
-  onDelete = (): void => {
-    console.log('Delete')
+  onDeleteIconClick = (): void => {
+    const {
+      id,
+      onDelete
+    } = this.props;
+    onDelete(id);
   };
 
-  onEdit = (): void => {
-    console.log('Edit');
+  onEditIconClick = (): void => {
+    const {
+      id,
+      onEdit
+    } = this.props;
+    onEdit(id);
   };
+
+  renderButtons(): ReactNode {
+    const {
+      classes: {
+        iconButton,
+        iconButtonContainer
+      }
+    } = this.props;
+    return (
+      <Box className={iconButtonContainer}>
+        <IconButton className={iconButton} onClick={this.onEditIconClick}>
+          <Edit fontSize="inherit"/>
+        </IconButton>
+        <IconButton className={iconButton} onClick={this.onDeleteIconClick}>
+          <Delete fontSize="inherit"/>
+        </IconButton>
+      </Box>
+    );
+  }
 
   renderTitle(): ReactNode {
     const {
@@ -47,23 +74,14 @@ class InformationCard extends Component<IOwnProps> {
     const {
       description,
       classes: {
-        paperContainer,
-        iconButton,
-        iconButtonContainer
+        paperContainer
       }
     } = this.props;
     return (
       <Paper className={paperContainer} elevation={3}>
         <Box p={2}>
           {this.renderTitle()}
-          <Box className={iconButtonContainer}>
-            <IconButton className={iconButton} onClick={this.onEdit}>
-              <Edit fontSize="inherit"/>
-            </IconButton>
-            <IconButton className={iconButton} onClick={this.onDelete}>
-              <Delete fontSize="inherit"/>
-            </IconButton>
-          </Box>
+          {this.renderButtons()}
           <Typography variant="body2">
             {description}
           </Typography>

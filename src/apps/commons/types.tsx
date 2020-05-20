@@ -4,6 +4,7 @@ export enum QuestionType {
 }
 
 export interface IFlashCard {
+  id: string,
   question: string,
   subQuestion?: string,
   hint?: string,
@@ -12,6 +13,7 @@ export interface IFlashCard {
 }
 
 export interface IQuiz {
+  id: string,
   title: string,
   description: string,
   flashcards: IFlashCard[]

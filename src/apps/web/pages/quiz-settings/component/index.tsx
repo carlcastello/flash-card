@@ -74,13 +74,16 @@ class QuizSettings extends Component<IOwnProps, IOwnState> {
     );
   }
 
-  renderFlashCards(flashcards: IFlashCard[]): ReactNode {
-    return (flashcards.map((flashcard: IFlashCard) => 
+  renderFlashCards(flashCards: IFlashCard[]): ReactNode {
+    return (flashCards.map((flashCards: IFlashCard) => 
       <Grid item sm={6}>
         <InformationCard
-          title={flashcard.question}
-          description={flashcard.answer}
-          subtitle={flashcard.subQuestion}/>
+          id={flashCards.id}
+          title={flashCards.question}
+          description={flashCards.answer}
+          subtitle={flashCards.subQuestion}
+          onEdit={() => {}}
+          onDelete={() => {}}/>
       </Grid>
     ))
   }

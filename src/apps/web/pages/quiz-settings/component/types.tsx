@@ -1,11 +1,8 @@
 import { IFlashCard } from '../../../../commons/types';
 import { RouteComponentProps } from 'react-router-dom';
 
-interface MatchParams {
-  quizId?: string,
-}
 
-export interface IOwnProps extends RouteComponentProps<MatchParams>{
+export interface IOwnProps extends RouteComponentProps<any>{
   title: string,
   description: string,
   flashCards: IFlashCard[],
