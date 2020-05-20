@@ -32,7 +32,11 @@ class App extends Component {
             component={Web}/>
           <Route
             exact
-            path="/add-quiz"
+            path="/dashboard/quiz"
+            component={Web}/>
+          <Route
+            exact
+            path="/dashboard/quiz/:quizId"
             component={Web}/>
         </Switch>
       </ThemeProvider>

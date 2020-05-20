@@ -19,13 +19,31 @@ class QuizSettings extends Component<IOwnProps, IOwnState> {
   }
 
   onTitleIconClick = (): void => {
-    console.log('asd')
     this.setState((state: IOwnState) => ({
       isAddQuestion: !state.isAddQuestion
     }))
   }
 
+  componentDidMount(): void {
+    const {
+      match: {
+        params: {
+          quizId
+        }
+      },
+      fetchQuiz
+    } = this.props;
+
+    if (quizId) {
+      fetchQuiz(quizId);
+    }
+  }
+
   renderQuizSummaryForm(): ReactNode {
+    const {
+      title,
+      description
+    } = this.props;
     return (
       <Paper elevation={3}>
         <Box p={5}>
@@ -35,7 +53,7 @@ class QuizSettings extends Component<IOwnProps, IOwnState> {
             </Typography>
           </Box>
           <Form 
-            fields={QuizSummaryFields}
+            fields={QuizSummaryFields(title, description)}
             onSuccess={() => {console.log('hello world')}}/>
         </Box>
       </Paper>
@@ -69,17 +87,17 @@ class QuizSettings extends Component<IOwnProps, IOwnState> {
 
   renderQuizCards(): ReactNode {
     const {
-      quiz
+      flashCards
     } = this.props;
     return (
       <Grid 
         container
         spacing={2}>
-          {quiz && quiz.flashcards.length > 0 ?
-            this.renderFlashCards(quiz.flashcards) :
+          {flashCards.length > 0 ?
+            this.renderFlashCards(flashCards) :
             <Grid item sm={12}>
-              <Typography variant="h5">
-                No Questions
+              <Typography variant="body1">
+                This quiz has no questions.
               </Typography>          
             </Grid>
           }

@@ -2,6 +2,7 @@ export interface IField {
   id: string,
   label: string,
   type: string,
+  value?: string,
   helperText?: string,
   required?: boolean,
   validator?: (value: string) => string | boolean

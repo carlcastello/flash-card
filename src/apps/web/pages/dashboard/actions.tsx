@@ -1,6 +1,6 @@
 import { FETCH_PAGE_DATA } from "../actions";
 
-const TEST_FETCH_CREATED_QUIZES = new Promise((resolve) => {
+const MOCK_FETCH_CREATED_QUIZES = new Promise((resolve) => {
   setTimeout(() => {
     resolve({
       createdQuizes: [
@@ -36,7 +36,7 @@ const TEST_FETCH_CREATED_QUIZES = new Promise((resolve) => {
 
 export const fetchCreatedQuizes = () => {
   return (dispatch: any) => {
-    return TEST_FETCH_CREATED_QUIZES.then((value) => {
+    return MOCK_FETCH_CREATED_QUIZES.then((value) => {
       dispatch({type: FETCH_PAGE_DATA, payload: value})
     })
   }

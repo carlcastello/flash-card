@@ -13,7 +13,7 @@ export default (theme: Theme) => ({
   formLabel: {
     fontSize: '1rem',
     top: '-3px',
-    '&.Mui-focused': {
+    '&.MuiInputLabel-shrink': {
       top: '0px'
     }
   },

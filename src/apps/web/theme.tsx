@@ -30,6 +30,10 @@ export default createMuiTheme({
       color: '#000'
     },
 
+    h4: {
+      fontWeight: 400
+    },
+    
     h5: {
       fontFamily: montserrat,
     },

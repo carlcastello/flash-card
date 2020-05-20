@@ -9,7 +9,6 @@ import { IOwnProps } from './types';
 
 import Navbar from './components/navbar';
 import Dashboard from './pages/dashboard';
-import { QuestionType } from '../commons/types';
 import QuizSettings from './pages/quiz-settings';
 
 
@@ -28,32 +27,8 @@ class Web extends Component<IOwnProps> {
         <Box py={5}>
           <BrowserRouter>
           <Route exact path="/" component={Dashboard}/>
-          <Route exact path="/add-quiz" component={() => 
-            <QuizSettings quiz={{
-              title: 'Hello World',
-              description: 'This is a sample quiz',
-              flashcards: [
-                {
-                  question: 'What is the capital of Sri Lanka?',
-                  hint: 'India',
-                  questionType: QuestionType.QUESTIONAIRE,
-                  answer: 'potato'
-                },
-                {
-                  question: 'Querer',
-                  subQuestion: 'v. irregular',
-                  questionType: QuestionType.WORD,
-                  answer: 'potato'
-                },
-                {
-                  question: 'Querer',
-                  subQuestion: 'v. irregular',
-                  questionType: QuestionType.WORD,
-                  answer: 'potato'
-                }
-              ]
-            }}/>
-          }/>
+          <Route exact path="/dashboard/quiz" component={QuizSettings}/>
+          <Route exact path="/dashboard/quiz/:quizId" component={QuizSettings}/>
           </BrowserRouter>
         </Box>  
       </Box>
@@ -62,3 +37,29 @@ class Web extends Component<IOwnProps> {
 }
 
 export default withStyles(styles)(Web); 
+
+
+// quiz={{
+//   title: 'Hello World',
+//   description: 'This is a sample quiz',
+//   flashcards: [
+//     {
+//       question: 'What is the capital of Sri Lanka?',
+//       hint: 'India',
+//       questionType: QuestionType.QUESTIONAIRE,
+//       answer: 'potato'
+//     },
+//     {
+//       question: 'Querer',
+//       subQuestion: 'v. irregular',
+//       questionType: QuestionType.WORD,
+//       answer: 'potato'
+//     },
+//     {
+//       question: 'Querer',
+//       subQuestion: 'v. irregular',
+//       questionType: QuestionType.WORD,
+//       answer: 'potato'
+//     }
+//   ]
+// }}
