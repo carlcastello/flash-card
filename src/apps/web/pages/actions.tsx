@@ -1,0 +1,3 @@
+export const FETCH_PAGE_DATA = 'FETCH_PAGE_DATA_ACTION';
+
+export const SET_PAGE_LOADING = 'SET_PAGE_LOADING';

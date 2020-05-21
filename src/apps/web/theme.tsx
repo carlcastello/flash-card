@@ -7,10 +7,6 @@ export default createMuiTheme({
     primary: {
       main: '#4e73df'
     },
-    secondary: {
-      main: '#DFDFDF',
-    },
-
     background: {
       default: '#f8f9fc'
     }
@@ -19,7 +15,7 @@ export default createMuiTheme({
   typography: {
     subtitle1: {
       fontFamily: montserrat,
-      fontWeight: 700
+      fontSize: '.8rem'
     },
     subtitle2: {
       fontWeight: 400
@@ -27,17 +23,24 @@ export default createMuiTheme({
     
     h2: {
       fontFamily: montserrat,
-      fontWeight: 700
+      color: '#000'
     },
 
+    h3: {
+      fontWeight: 300,
+      fontFamily: montserrat, 
+    },
+    h4: {
+      fontWeight: 400
+    },
+    
     h5: {
       fontFamily: montserrat,
-      fontWeight: 700
     },
     
     body1: {
-      fontFamily: montserrat,
-      fontSize: '2rem'
+      // fontFamily: montserrat,
+      fontWeight: 300
     }
 
   },

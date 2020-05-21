@@ -1,8 +1,9 @@
-import { IFlashCard, FlashCardStatus } from "./components/flash-card/types";
+import { FlashcardStatus } from "./components/flash-card/types";
 import { QuizStatus } from "./enum";
+import { IFlashcard } from "../commons/types";
 
 export interface IOwnProps {
-  flashCards: IFlashCard[],
+  flashcards: IFlashcard[],
   classes: {
     boxContent: string,
     boxContainer: string,
@@ -14,6 +15,6 @@ export interface IOwnProps {
 export interface IOwnState {
   questionIndex: number,
   progressIndex: number,
-  currentFlashCardStatus: FlashCardStatus,
+  currentFlashcardStatus: FlashcardStatus,
   quizStatus: QuizStatus
 }

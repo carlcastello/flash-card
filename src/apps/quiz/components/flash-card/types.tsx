@@ -1,30 +1,21 @@
-import { QuestionType } from "./components/question-card/types";
+import { IFlashcard } from "../../../commons/types";
 
-export enum FlashCardStatus {
+export enum FlashcardStatus {
   DEFAULT = "DEFAULT",
   CORRECT = "CORRECT",
   WRONG = "WRONG",
   HINT = "HINT"
 }
 
-
-export interface IFlashCard {
-  question: string,
-  subQuestion?: string,
-  hint?: string,
-  questionType: QuestionType,
-  answer: string,
-}
-
 export interface IOwnProps {
-  update: (flashCardStatus: FlashCardStatus) => void,
+  update: (flashcardStatus: FlashcardStatus) => void,
   next: () => void,
-  flashCardObject: IFlashCard,
+  flashcardObject: IFlashcard,
   classes: {
 
   }
 }
 
 export interface IOwnState {
-  flashCardStatus: FlashCardStatus
+  flashcardStatus: FlashcardStatus
 }

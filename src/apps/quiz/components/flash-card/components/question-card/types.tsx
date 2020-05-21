@@ -1,9 +1,5 @@
-import { FlashCardStatus } from "../../types";
-
-export enum QuestionType {
-  WORD,
-  QUESTIONAIRE 
-}
+import { FlashcardStatus } from "../../types";
+import { QuestionType } from "../../../../../commons/types";
 
 export interface IQuestionObject {
   question: string,
@@ -13,7 +9,7 @@ export interface IQuestionObject {
 }
 
 export interface IOwnProps {
-  flashCardStatus: FlashCardStatus,
+  flashcardStatus: FlashcardStatus,
   questionObject: IQuestionObject,
   onSkip: () => void,
   classes: {

@@ -5,10 +5,10 @@ import SkipNextIcon from '@material-ui/icons/SkipNext';
 
 import styles from './styles';
 import {
-  IOwnProps,
-  QuestionType
+  IOwnProps
 } from './types';
-import { FlashCardStatus } from '../../types';
+import { FlashcardStatus } from '../../types';
+import { QuestionType } from '../../../../../commons/types';
 
 
 class QuestionCard extends Component<IOwnProps> {
@@ -16,7 +16,7 @@ class QuestionCard extends Component<IOwnProps> {
   renderSkip(): ReactNode {
     const {
       onSkip,
-      flashCardStatus,
+      flashcardStatus,
       classes: {
         boxButtonContainer,
       }
@@ -27,7 +27,7 @@ class QuestionCard extends Component<IOwnProps> {
         <IconButton
           color="primary"
           onClick={onSkip}
-          disabled={flashCardStatus !== FlashCardStatus.DEFAULT}>
+          disabled={flashcardStatus !== FlashcardStatus.DEFAULT}>
           <SkipNextIcon/>
         </IconButton>
       </Box>
@@ -79,7 +79,7 @@ class QuestionCard extends Component<IOwnProps> {
     )
   }
 
-  renderFlashCard(): ReactNode {
+  renderFlashcard(): ReactNode {
     const {
       questionObject: {
         questionType,
@@ -100,7 +100,7 @@ class QuestionCard extends Component<IOwnProps> {
     } = this.props;
     return (
       <Paper className={paper} elevation={3}>
-        {this.renderFlashCard()}
+        {this.renderFlashcard()}
       </Paper>
     );
   }
