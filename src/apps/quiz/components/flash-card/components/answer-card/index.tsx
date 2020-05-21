@@ -4,7 +4,7 @@ import { withStyles, Paper, Input, Box, Typography } from '@material-ui/core';
 
 import { IOwnProps, IOwnState } from './types';
 import styles from './styles';
-import { FlashCardStatus } from '../../types';
+import { FlashcardStatus } from '../../types';
 
 
 class AnswerCard extends Component<IOwnProps, IOwnState> {
@@ -24,7 +24,7 @@ class AnswerCard extends Component<IOwnProps, IOwnState> {
         answer
       },
       props: {
-        flashCardStatus,
+        flashcardStatus,
         classes: {
           input
         }
@@ -37,7 +37,7 @@ class AnswerCard extends Component<IOwnProps, IOwnState> {
         className={input}
         margin='none'
         onChange={this.onInputChange}
-        disabled={flashCardStatus !== FlashCardStatus.DEFAULT}
+        disabled={flashcardStatus !== FlashcardStatus.DEFAULT}
         disableUnderline
         fullWidth/>
     );
@@ -68,11 +68,11 @@ class AnswerCard extends Component<IOwnProps, IOwnState> {
 
   renderAnswerBox(): ReactNode {
     const {
-      flashCardStatus,
+      flashcardStatus,
     } = this.props;
 
-    switch (flashCardStatus) {
-      case FlashCardStatus.WRONG:
+    switch (flashcardStatus) {
+      case FlashcardStatus.WRONG:
         return (
           <Box>
             {this.renderInput()}
@@ -81,7 +81,7 @@ class AnswerCard extends Component<IOwnProps, IOwnState> {
             </Box>
           </Box>
         )
-      case FlashCardStatus.HINT:
+      case FlashcardStatus.HINT:
         return (this.renderCorrectAnswer())        
       default:
         return (this.renderInput())

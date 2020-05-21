@@ -2,7 +2,7 @@ import { Theme } from '@material-ui/core';
 
 export default (theme: Theme) => ({
   titleTypography: {
-    display: 'inline' as 'inline',
+    display: 'inline' as 'inline'
   },
   iconButton: {
     padding: `${theme.spacing(1)}px`,
