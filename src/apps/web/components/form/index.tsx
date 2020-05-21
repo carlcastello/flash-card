@@ -34,20 +34,44 @@ class Form extends Component<IOwnProps, IOwnState> {
     this.props.onSuccess();
   }
 
+  renderInput({id, label, value, validator} : IField): ReactNode {
+    const {
+      props: {
+        classes: {
+          formInput
+        }
+      },
+      state: {
+        fields: stateFields
+      }
+    } = this;
+
+    return (
+      <OutlinedInput 
+        className={formInput}
+        id={id}
+        label={label}
+        value={id in stateFields ? stateFields[id].value : value }
+        onChange={
+          this.onInputChange(id, validator)
+        }/>
+    )
+  }
+
   render(): ReactNode {
     const {
       fields,
       classes: {
         formControl,
         formLabel,
-        formInput,
         formHelperText,
         formBottomContainer
       }
     } = this.props;
     const {
       fields: stateFields
-    } = this.state
+    } = this.state;
+  
     return (
       <form>
         {fields.map((field: IField, index: number) => 
@@ -59,9 +83,7 @@ class Form extends Component<IOwnProps, IOwnState> {
             key={`form-${index}`}
             error={!!stateFields[field.id] && !!stateFields[field.id].error}>
             <InputLabel className={formLabel} htmlFor={field.id}>{field.label}</InputLabel>
-            <OutlinedInput  className={formInput} id={field.id} label={field.label} onChange={
-              this.onInputChange(field.id, field.validator)
-            }/>
+            {this.renderInput(field)}
             {field.helperText ? 
               <FormHelperText className={formHelperText}>{field.helperText}</FormHelperText> :
                null

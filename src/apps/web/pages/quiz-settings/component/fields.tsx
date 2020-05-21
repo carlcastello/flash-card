@@ -1,10 +1,11 @@
-import { IField } from "../../components/form/types";
+import { IField } from "../../../components/form/types";
 
-export const QuizSummaryFields: IField[] = [
+export const QuizSummaryFields = (title: string, description: string) => ([
   {
     id: 'quiz-title',
     label: 'Title',
     type: 'text',
+    value: title,
     required: true,
     validator: (value: string) => {
       if (!value) {
@@ -19,6 +20,7 @@ export const QuizSummaryFields: IField[] = [
     id: 'quiz-description',
     label: 'Description',
     type: 'text',
+    value: description,
     validator: (value: string) => {
       if (!/[a-zA-Z\- ]+/.test(value)) {
         return 'Last Name is invalid.'
@@ -26,7 +28,7 @@ export const QuizSummaryFields: IField[] = [
       return false; // Form is Valid: Returns No Error Message
     }
   },
-]
+]);
 
 export const QuestionFields: IField[] = [
   {

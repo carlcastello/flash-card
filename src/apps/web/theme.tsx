@@ -7,10 +7,6 @@ export default createMuiTheme({
     primary: {
       main: '#4e73df'
     },
-    secondary: {
-      main: '#DFDFDF',
-    },
-
     background: {
       default: '#f8f9fc'
     }
@@ -30,6 +26,14 @@ export default createMuiTheme({
       color: '#000'
     },
 
+    h3: {
+      fontWeight: 300,
+      fontFamily: montserrat, 
+    },
+    h4: {
+      fontWeight: 400
+    },
+    
     h5: {
       fontFamily: montserrat,
     },

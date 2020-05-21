@@ -1,8 +1,8 @@
-import { FlashCardStatus } from "../../types";
+import { FlashcardStatus } from "../../types";
 
 export interface IOwnProps {
   answer: string,
-  flashCardStatus: FlashCardStatus,
+  flashcardStatus: FlashcardStatus,
   ref: any,
   classes: {
     paper: string,
