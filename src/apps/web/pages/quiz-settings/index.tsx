@@ -4,12 +4,12 @@ import QuizSettings from './component';
 import { IReduxState } from '../../../types';
 
 import { fetchQuiz, saveQuizSummary, saveCreatedQuestion } from './actions';
-import { titleSelector, descriptionSelector, flashcardsSelector } from './selectors';
+import { quizQuestionsSelector, quizSummarySelector, requiredDataSelector } from './selectors';
 
 const mapStateToProps = (state: IReduxState) => ({
-  title: titleSelector(state),
-  description: descriptionSelector(state),
-  flashcards: flashcardsSelector(state)
+  requiredData: requiredDataSelector(state),
+  quizSummary: quizSummarySelector(state),
+  quizQuestions: quizQuestionsSelector(state)
 });
 
 const mapDispatchToProps = {

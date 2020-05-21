@@ -26,24 +26,29 @@ class QuizSettings extends Component<IOwnProps, IOwnState> {
 
   componentDidMount(): void {
     const {
+      requiredData,
+      fetchQuiz,
       match: {
         params: {
           quizId
         }
       },
-      fetchQuiz
     } = this.props;
 
-    if (quizId) {
+    console.log(requiredData)
+    if (quizId && requiredData.length !== 0) {
       fetchQuiz(quizId);
     }
   }
 
   renderQuizSummaryForm(): ReactNode {
     const {
-      title,
-      description
+      quizSummary
     } = this.props;
+
+    const title = quizSummary?.title || '';
+    const description = quizSummary?.description || '';
+
     return (
       <Paper elevation={3}>
         <Box p={5}>
@@ -90,8 +95,11 @@ class QuizSettings extends Component<IOwnProps, IOwnState> {
 
   renderQuizCards(): ReactNode {
     const {
-      flashcards
+      quizQuestions
     } = this.props;
+
+    const flashcards = quizQuestions?.flashcards || [];
+
     return (
       <Grid 
         container

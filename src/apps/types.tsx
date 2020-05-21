@@ -5,16 +5,23 @@ export interface IQuizState {
 
 }
 
+export interface IComponentLoadingState {
+  [componentName: string]: boolean,
+}
+
+
 export interface IPageData {
   createdQuizes?: IQuizSummary[],
 
   // Quiz Setting
-  title?: string,
-  description?: string,
-  flashcards?: IFlashcard[],
+  quizSummary?: IQuizSummary,
+  quizQuestions?: {
+    flashcards: IFlashcard[],    
+  }
 }
 
 export interface IWebData {
+  componentLoading: IComponentLoadingState,
   pageData: IPageData
 }
 

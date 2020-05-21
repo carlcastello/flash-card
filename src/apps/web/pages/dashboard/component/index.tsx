@@ -38,10 +38,13 @@ class Dashboard extends Component<IOwnProps, IOwnState> {
 
   componentDidMount() {
     const {
+      requiredData,
       fetchCreatedQuizes
     } = this.props;   
-   
-    fetchCreatedQuizes();
+
+    if (requiredData.length !== 0) {
+      fetchCreatedQuizes();
+    }
   }
 
   renderSelectionCard(): ReactNode {

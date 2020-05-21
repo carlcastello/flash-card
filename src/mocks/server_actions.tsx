@@ -4,7 +4,7 @@ import { IQuiz } from "../apps/commons/types";
 export const MOCK_FETCH_CREATED_QUIZES = new Promise((resolve) => {
   setTimeout(() => {
     resolve({
-      createdQuizes: MOCK_QUIZES.map(({ id, title, description }: IQuiz) => ({ id, title, description }))
+      createdQuizes: MOCK_QUIZES.map(({ id, quizSummary: {title, description} }: IQuiz) => ({ id, title, description }))
     })
   }, 500);
 });
@@ -12,6 +12,10 @@ export const MOCK_FETCH_CREATED_QUIZES = new Promise((resolve) => {
 
 export const MOCK_FETCH_QUIZ = (quizId: string) => new Promise((resolve) => {
   setTimeout(() => {
-    resolve(MOCK_QUIZES.filter(({ id }: IQuiz) => id === quizId)[0])
+    resolve(MOCK_QUIZES
+      .filter(({ id }: IQuiz) =>
+        id === quizId)
+      [0]
+    )
   }, 500)
 });
