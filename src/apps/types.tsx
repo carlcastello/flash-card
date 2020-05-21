@@ -5,6 +5,11 @@ export interface IQuizState {
 
 }
 
+export interface IComponentLoadingState {
+  [componentName: string]: boolean,
+}
+
+
 export interface IPageData {
   createdQuizes?: IQuizSummary[],
 
@@ -15,6 +20,7 @@ export interface IPageData {
 }
 
 export interface IWebData {
+  componentLoading: IComponentLoadingState,
   pageData: IPageData
 }
 

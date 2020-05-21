@@ -26,15 +26,17 @@ class QuizSettings extends Component<IOwnProps, IOwnState> {
 
   componentDidMount(): void {
     const {
+      title,
+      fetchQuiz,
       match: {
         params: {
           quizId
         }
       },
-      fetchQuiz
     } = this.props;
 
-    if (quizId) {
+    // prevents re-fetch if the quiz title is located in the pageData
+    if (quizId && title === "") {
       fetchQuiz(quizId);
     }
   }
