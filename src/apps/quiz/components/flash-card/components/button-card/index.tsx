@@ -3,7 +3,7 @@ import { withStyles, Typography, Button, Paper, Box } from '@material-ui/core';
 
 import { IOwnProps, IOwnState } from './types';
 import styles from './styles';
-import { FlashCardStatus } from '../../types';
+import { FlashcardStatus } from '../../types';
 
 class ButtonCard extends Component<IOwnProps, IOwnState> {
 
@@ -12,13 +12,13 @@ class ButtonCard extends Component<IOwnProps, IOwnState> {
 
     const {
       props: { 
-        flashCardStatus,
+        flashcardStatus,
         submit,
         next,
       }
     } = this;
 
-    if (flashCardStatus === FlashCardStatus.DEFAULT) {
+    if (flashcardStatus === FlashcardStatus.DEFAULT) {
       submit();
     } else {
       next();
@@ -28,7 +28,7 @@ class ButtonCard extends Component<IOwnProps, IOwnState> {
 
   render(): ReactNode {
     const {
-      flashCardStatus,
+      flashcardStatus,
       classes: {
         button
       }
@@ -37,9 +37,9 @@ class ButtonCard extends Component<IOwnProps, IOwnState> {
     return (
       <Box pt={2.5}>
         <Paper elevation={3}>
-          <Button className={[button, flashCardStatus].join(' ')} onClick={this.onClick} type="submit">
+          <Button className={[button, flashcardStatus].join(' ')} onClick={this.onClick} type="submit">
             <Typography variant="h6">
-              {flashCardStatus !== FlashCardStatus.DEFAULT ? 'Next' : 'Submit'}
+              {flashcardStatus !== FlashcardStatus.DEFAULT ? 'Next' : 'Submit'}
             </Typography>
           </Button>
         </Paper>

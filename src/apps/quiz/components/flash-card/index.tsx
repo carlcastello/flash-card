@@ -6,38 +6,38 @@ import QuestionCard from './components/question-card';
 import AnswerCard from './components/answer-card';
 import ButtonCard from './components/button-card';
 
-import { IOwnProps, IOwnState, FlashCardStatus } from './types';
+import { IOwnProps, IOwnState, FlashcardStatus } from './types';
 import styles from './styles';
 
 
-class FlashCard extends Component<IOwnProps, IOwnState> {
+class Flashcard extends Component<IOwnProps, IOwnState> {
 
   answerCardRef: any = createRef();   
 
   state = {
-    flashCardStatus: FlashCardStatus.DEFAULT,
+    flashcardStatus: FlashcardStatus.DEFAULT,
   }
 
   onSubmit = (): void => {
     const answer = this.answerCardRef.current.state.answer;
 
     const {
-      flashCardObject: {
+      flashcardObject: {
         answer: correctAnswer
       },
       update,
     } = this.props;
-    var flashCardStatus: FlashCardStatus = FlashCardStatus.DEFAULT;
+    var flashcardStatus: FlashcardStatus = FlashcardStatus.DEFAULT;
 
     if (answer === correctAnswer) {
-      flashCardStatus = FlashCardStatus.CORRECT;
+      flashcardStatus = FlashcardStatus.CORRECT;
     } else {
-      flashCardStatus = FlashCardStatus.WRONG;
+      flashcardStatus = FlashcardStatus.WRONG;
     }
 
     this.setState(
-      { flashCardStatus },
-      () => update(flashCardStatus)
+      { flashcardStatus },
+      () => update(flashcardStatus)
     );
   }
 
@@ -48,7 +48,7 @@ class FlashCard extends Component<IOwnProps, IOwnState> {
     } = this.props;
 
     this.setState(
-      { flashCardStatus: FlashCardStatus.DEFAULT },
+      { flashcardStatus: FlashcardStatus.DEFAULT },
       () => {
         next();
         this.answerCardRef.current.setState({answer: ''});
@@ -60,20 +60,20 @@ class FlashCard extends Component<IOwnProps, IOwnState> {
     const {
       update,
     } = this.props;
-    var flashCardStatus: FlashCardStatus = FlashCardStatus.HINT;
+    var flashcardStatus: FlashcardStatus = FlashcardStatus.HINT;
     this.setState(
-      { flashCardStatus },
-      () => update(flashCardStatus)
+      { flashcardStatus },
+      () => update(flashcardStatus)
     );
   }
 
   renderQuestionCard(): ReactNode {
     const {
       state: {
-        flashCardStatus,
+        flashcardStatus,
       },
       props: {
-        flashCardObject: {
+        flashcardObject: {
           question,
           subQuestion,
           questionType,
@@ -83,7 +83,7 @@ class FlashCard extends Component<IOwnProps, IOwnState> {
     } = this;
     return (
       <QuestionCard
-        flashCardStatus={flashCardStatus}
+        flashcardStatus={flashcardStatus}
         onSkip={this.onSkip}
         questionObject={{
           question,
@@ -97,18 +97,18 @@ class FlashCard extends Component<IOwnProps, IOwnState> {
   renderAnswerCard(): ReactNode {
     const {
       props: {
-        flashCardObject: {
+        flashcardObject: {
           answer,
         }
       },
       state: {
-        flashCardStatus
+        flashcardStatus
       }
     } = this;
     return (
       <AnswerCard 
         answer={answer}
-        flashCardStatus={flashCardStatus}
+        flashcardStatus={flashcardStatus}
         ref={this.answerCardRef}/>
     );
   }
@@ -118,12 +118,12 @@ class FlashCard extends Component<IOwnProps, IOwnState> {
       onSubmit,
       onNext,
       state: {
-        flashCardStatus
+        flashcardStatus
       },
     } = this;
     return (
       <ButtonCard 
-        flashCardStatus={flashCardStatus}
+        flashcardStatus={flashcardStatus}
         next={onNext}
         submit={onSubmit}/>
     )
@@ -142,4 +142,4 @@ class FlashCard extends Component<IOwnProps, IOwnState> {
   }
 }
 
-export default withStyles(styles)(FlashCard);
+export default withStyles(styles)(Flashcard);

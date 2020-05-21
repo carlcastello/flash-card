@@ -1,9 +1,9 @@
-import { FlashCardStatus } from "../flash-card/types";
+import { FlashcardStatus } from "../flash-card/types";
 
 export interface IOwnProps {
   currentQuestion: number,
   totalQuestion: number,
-  flashCardStatus: FlashCardStatus,
+  flashcardStatus: FlashcardStatus,
   classes: {
     title: string,
     progressBarContainer: string,

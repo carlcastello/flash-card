@@ -1,4 +1,4 @@
-import { FlashCardStatus } from "../../types";
+import { FlashcardStatus } from "../../types";
 import { QuestionType } from "../../../../../commons/types";
 
 export interface IQuestionObject {
@@ -9,7 +9,7 @@ export interface IQuestionObject {
 }
 
 export interface IOwnProps {
-  flashCardStatus: FlashCardStatus,
+  flashcardStatus: FlashcardStatus,
   questionObject: IQuestionObject,
   onSkip: () => void,
   classes: {

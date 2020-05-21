@@ -12,7 +12,7 @@ class Navbar extends Component<IOwnProps, IOwnState> {
       <AppBar position="static">
         <Toolbar>
           <Typography variant="h5">
-            FlashCard
+            Flashcard
           </Typography>
         </Toolbar>
       </AppBar>

@@ -8,12 +8,15 @@ export default (theme: Theme) => ({
     borderLeft: `5px solid ${theme.palette.primary.main}`, 
     position: 'relative' as 'relative'
   },
-  editIconButton: {
+  iconButton: {
     padding: '2px',
     borderRadius: '5px',
+    marginLeft: '3px',
+    fontSize: '1rem'
+  },
+  iconButtonContainer: {
     top: '5px',
     right: '5px',
     position: 'absolute' as 'absolute'
-  }
-  
+  }  
 });
