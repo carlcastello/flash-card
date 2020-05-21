@@ -12,11 +12,15 @@ export interface IFlashcard {
   answer: string,
 }
 
-export interface IQuiz {
+export interface IQuiz {  
   id: string,
-  title: string,
-  description: string,
-  flashcards: IFlashcard[]
+  quizSummary: {
+    title: string,
+    description: string,
+  },
+  quizQuestions: {
+    flashcards: IFlashcard[]
+  }
 }
 
 export interface IQuizSummary {
