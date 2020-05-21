@@ -1,18 +1,24 @@
 import { createSelector } from "reselect";
 import { pageDataSelector } from "../selectors";
 import { IPageData } from "../../../types";
+import { QUIZ_SUMMARY, QUIZ_QUESTIONS } from "../../common/constants";
 
-export const titleSelector = createSelector(
+
+export const quizSummarySelector = createSelector(
   pageDataSelector,
-  (pageData: IPageData) => pageData.title || ''
+  (pageData: IPageData) => pageData.quizSummary
 );
 
-export const descriptionSelector = createSelector(
+export const quizQuestionsSelector = createSelector(
   pageDataSelector,
-  (pageData: IPageData) => pageData.description || ''
+  (pageData: IPageData) => pageData.quizQuestions
 );
 
-export const flashcardsSelector = createSelector(
+export const requiredDataSelector = createSelector(
   pageDataSelector,
-  (pageData: IPageData) => pageData.flashcards || []
-);
+  (pageData: IPageData) => {
+    const requiredData = [QUIZ_SUMMARY, QUIZ_QUESTIONS];
+    const pageDataKeys = Object.keys(pageData);
+    return requiredData.filter(item => !pageDataKeys.includes(item));
+  }
+)
