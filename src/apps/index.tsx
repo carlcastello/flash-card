@@ -32,7 +32,11 @@ class App extends Component {
             component={Web}/>
           <Route
             exact
-            path="/add-quiz"
+            path="/dashboard/quiz"
+            component={Web}/>
+          <Route
+            exact
+            path="/dashboard/quiz/:quizId"
             component={Web}/>
         </Switch>
       </ThemeProvider>
@@ -47,20 +51,23 @@ class App extends Component {
             exact
             path="/quiz"
             component={() => 
-              <Quiz flashCards={[
+              <Quiz flashcards={[
                 {
+                  id: '123',
                   question: 'What is the capital of Sri Lanka?',
                   hint: 'India',
                   questionType: QuestionType.QUESTIONAIRE,
                   answer: 'potato'
                 },
                 {
+                  id: '222',
                   question: 'Querer',
                   subQuestion: 'v. irregular',
                   questionType: QuestionType.WORD,
                   answer: 'potato'
                 },
                 {
+                  id: '333',
                   question: 'Querer',
                   subQuestion: 'v. irregular',
                   questionType: QuestionType.WORD,

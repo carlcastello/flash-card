@@ -1,15 +1,27 @@
-import { IQuizSummary } from "./commons/types";
+import { IQuizSummary, IQuiz, IFlashcard } from "./commons/types";
 
 
 export interface IQuizState {
 
 }
 
+export interface IComponentLoadingState {
+  [componentName: string]: boolean,
+}
+
+
 export interface IPageData {
-  createdQuizes: IQuizSummary[]
+  createdQuizes?: IQuizSummary[],
+
+  // Quiz Setting
+  quizSummary?: IQuizSummary,
+  quizQuestions?: {
+    flashcards: IFlashcard[],    
+  }
 }
 
 export interface IWebData {
+  componentLoading: IComponentLoadingState,
   pageData: IPageData
 }
 

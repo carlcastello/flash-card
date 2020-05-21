@@ -3,13 +3,12 @@ import { FETCH_PAGE_DATA } from './actions';
 import { IPageData } from '../../types';
 
 export const defaultPageState: IPageData = {
-  createdQuizes: []
 }
 
+// Page data refreshes on every page.
 export const pageDataReducer = createReducer(defaultPageState, {
-  [FETCH_PAGE_DATA]: (state: IPageData, action) => {
+  [FETCH_PAGE_DATA]: (_: IPageData, action) => {
     return ({
-      ...state,
       ...action.payload
     })
   },

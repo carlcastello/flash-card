@@ -1,7 +1,9 @@
 import { IQuizSummary } from "../../../../commons/types";
+import { RouteComponentProps } from "react-router-dom";
 
 
-export interface IOwnProps {
+export interface IOwnProps extends RouteComponentProps<any> {
+  requiredData: string[],
   createdQuizes: IQuizSummary[],
   fetchCreatedQuizes: () => void,
   classes: {

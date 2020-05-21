@@ -4,8 +4,8 @@ import { Box, withStyles, IconButton } from '@material-ui/core';
 import CloseIcon from '@material-ui/icons/Close';
 
 import ProgressBar from './components/progress-bar';
-import FlashCards from './components/flash-card';
-import { FlashCardStatus } from './components/flash-card/types';
+import Flashcards from './components/flash-card';
+import { FlashcardStatus } from './components/flash-card/types';
 import CompletionCard from './components/completion-card';
 
 import styles from './styles';
@@ -17,7 +17,7 @@ class Quiz extends Component<IOwnProps, IOwnState> {
   state = {
     questionIndex: 0,
     progressIndex: 0,
-    currentFlashCardStatus: FlashCardStatus.DEFAULT,
+    currentFlashcardStatus: FlashcardStatus.DEFAULT,
     quizStatus: QuizStatus.IN_PROGRESS,
   }
 
@@ -30,21 +30,21 @@ class Quiz extends Component<IOwnProps, IOwnState> {
     }
   }
 
-  onUpdateFlashCard = (currentFlashCardStatus: FlashCardStatus) => {
+  onUpdateFlashcard = (currentFlashcardStatus: FlashcardStatus) => {
     this.setState((state) => ({
         ...state,
-        currentFlashCardStatus, 
+        currentFlashcardStatus, 
         progressIndex: state.progressIndex + 1
     }));
   }
 
-  onNextFlashCard = () => {
+  onNextFlashcard = () => {
     this.setState(
       (state, props) => {
-        if (state.questionIndex < props.flashCards.length - 1) {
+        if (state.questionIndex < props.flashcards.length - 1) {
           return ({ 
             ...state,
-            currentFlashCardStatus: FlashCardStatus.DEFAULT,
+            currentFlashcardStatus: FlashcardStatus.DEFAULT,
             questionIndex: state.questionIndex + 1
           });
         } else {
@@ -62,23 +62,23 @@ class Quiz extends Component<IOwnProps, IOwnState> {
     const {
       state: {
         progressIndex,
-        currentFlashCardStatus
+        currentFlashcardStatus
       },
       props: {
-        flashCards,
+        flashcards,
         classes: {
           progressBarContainer,
           iconButton
         }
       }
     } = this;
-    console.log(currentFlashCardStatus)
+    console.log(currentFlashcardStatus)
     return (
       <Box px={5} className={progressBarContainer}>
         <ProgressBar
-          flashCardStatus={currentFlashCardStatus}
+          flashcardStatus={currentFlashcardStatus}
           currentQuestion={progressIndex}
-          totalQuestion={flashCards.length}/>
+          totalQuestion={flashcards.length}/>
         <IconButton className={iconButton} onClick={this.onCloseQuiz}>
           <CloseIcon/>
         </IconButton>
@@ -86,10 +86,10 @@ class Quiz extends Component<IOwnProps, IOwnState> {
     );
   }
 
-  renderFlashCard(): ReactNode {
+  renderFlashcard(): ReactNode {
     const {
       props: {
-        flashCards,
+        flashcards,
       },
       state: {
         questionIndex,
@@ -97,10 +97,10 @@ class Quiz extends Component<IOwnProps, IOwnState> {
     } = this;
 
     return (
-      <FlashCards 
-        flashCardObject={flashCards[questionIndex]}
-        update={this.onUpdateFlashCard}
-        next={this.onNextFlashCard}/>
+      <Flashcards 
+        flashcardObject={flashcards[questionIndex]}
+        update={this.onUpdateFlashcard}
+        next={this.onNextFlashcard}/>
     )
   }
 
@@ -130,7 +130,7 @@ class Quiz extends Component<IOwnProps, IOwnState> {
             this.renderCompletionCard() :
             <Box>
               {this.renderProgressBar()}
-              {this.renderFlashCard()}
+              {this.renderFlashcard()}
             </Box>
           }
         </Box>
