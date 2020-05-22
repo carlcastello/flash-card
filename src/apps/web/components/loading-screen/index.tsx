@@ -10,6 +10,7 @@ class LoadingScreen extends Component<IOwnProps> {
 
   render(): ReactNode {
     const {
+      children,
       classes: {
         boxContainer,
         boxContent,
@@ -22,7 +23,7 @@ class LoadingScreen extends Component<IOwnProps> {
       <Box className={boxContainer}>
         <Box className={boxContent}>
           <Typography variant="h5" className={typography}>
-            Fetching Data...
+            {children}
           </Typography>
           <LinearProgress color="secondary" className={linearProgressBar}/>
         </Box>

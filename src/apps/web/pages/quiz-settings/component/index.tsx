@@ -5,6 +5,8 @@ import {
   Grid,
 } from '@material-ui/core';
 
+import LoadingSreen from '../../../components/loading-screen';
+ 
 import { IOwnProps, IOwnState } from './types';
 import styles from './styles';
 
@@ -53,25 +55,30 @@ class QuizSettings extends Component<IOwnProps, IOwnState> {
 
   render(): ReactNode {
     const {
+      isFullPageLoading,
       classes: {
         gridContainer
       }
     } = this.props
     return (
-      <Grid 
-        container
-        direction="row"
-        justify="center"
-        alignItems="center"
-        spacing={2}
-        className={gridContainer}>
-        <Grid item sm={10}>
-          {this.renderQuizSummaryForm()}
+      isFullPageLoading ?
+        <LoadingSreen>
+          Fetching Quiz Settings Data...
+        </LoadingSreen> :
+        <Grid 
+          container
+          direction="row"
+          justify="center"
+          alignItems="center"
+          spacing={2}
+          className={gridContainer}>
+          <Grid item sm={10}>
+            {this.renderQuizSummaryForm()}
+          </Grid> 
+          <Grid item sm={10}>
+            {this.renderQuizContainer()}
+          </Grid>
         </Grid> 
-        <Grid item sm={10}>
-          {this.renderQuizContainer()}
-        </Grid>
-      </Grid>
     )
   }
 }

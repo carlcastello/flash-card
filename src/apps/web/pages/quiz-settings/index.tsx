@@ -4,9 +4,10 @@ import QuizSettings from './component';
 import { IReduxState } from '../../../types';
 
 import { fetchQuiz } from './actions';
-import { requiredDataSelector } from './selectors';
+import { requiredDataSelector, isFullPageLoading } from './selectors';
 
 const mapStateToProps = (state: IReduxState) => ({
+  isFullPageLoading: isFullPageLoading(state),
   requiredData: requiredDataSelector(state),
 });
 

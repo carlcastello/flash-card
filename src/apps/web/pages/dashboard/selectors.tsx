@@ -1,9 +1,15 @@
 import { createSelector } from 'reselect'
 
 import { pageDataSelector } from '../selectors';
-import { IPageData } from '../../../types';
-import { CREATED_QUIZES } from '../../common/constants';
+import { IPageData, IWebData } from '../../../types';
+import { CREATED_QUIZES, DASHBOARD } from '../../common/constants';
+import { webDataSelector } from '../../selectors';
 
+
+export const isFullPageLoading = createSelector(
+  webDataSelector,
+  (webData: IWebData) => webData.componentLoading[DASHBOARD]
+)
 
 export const createdQuizesSelector = createSelector(
   pageDataSelector,

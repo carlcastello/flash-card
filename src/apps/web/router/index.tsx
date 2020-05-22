@@ -7,7 +7,6 @@ import styles from './styles';
 import { IOwnProps } from './types';
 
 import Navbar from '../components/navbar';
-import LoadingScreen from '../components/loading-screen';
 
 import Dashboard from '../pages/dashboard';
 import QuizSettings from '../pages/quiz-settings';
@@ -27,15 +26,8 @@ class Router extends Component<IOwnProps> {
     );
   }
 
-  renderLoading = () => {
-    return (
-      <LoadingScreen/>
-    );
-  }
-
   render(): ReactNode {
     const {
-      isFullPageLoading,
       classes: {
         boxContainer
       }
@@ -44,7 +36,7 @@ class Router extends Component<IOwnProps> {
     return(
       <Box className={boxContainer}>
         <Navbar/>
-        {isFullPageLoading ? this.renderLoading() : this.renderPage()}
+        {this.renderPage()}
       </Box>
     );
   }
