@@ -3,16 +3,17 @@ import { connect } from "react-redux";
 import { IReduxState } from "../../../../../types";
 
 import QuizSummary from './component';
-import { saveQuizSummary } from './actions';
+import { saveQuizSummary, createQuizSummary } from './actions';
 import { quizSummarySelector } from './selectors';
 
 
 const mapStateToProps = (state: IReduxState) => ({
-  quizSummarySelector
+  quizSummary: quizSummarySelector(state)
 });
 
 const mapDispatchToProps = {
   saveQuizSummary,
+  createQuizSummary,
 }
 
 export default connect(

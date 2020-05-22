@@ -8,13 +8,36 @@ import {
 } from '@material-ui/core';
 
 import Form from '../../../../../components/form';
-import { QuizSummaryFields } from './fields';
+import { IFormResponse } from '../../../../../components/form/types';
+import { IQuizSummary } from '../../../../../../commons/types';
 
+import { QuizSummaryFields } from './fields';
 import { IOwnProps } from './types';
 import styles from './styles';
 
 
 class QuizSummary extends Component<IOwnProps> {
+
+  onFormSubmit = (data: IFormResponse) => {
+
+    const {
+      quizId,
+      createQuizSummary,
+      saveQuizSummary,
+    } = this.props;
+
+    const quizSummary: IQuizSummary = {
+      title: data['quiz-title'],
+      description: data['quiz-description'],
+    }
+
+    if (quizId) {
+      saveQuizSummary(quizId, quizSummary);
+    } else {
+      createQuizSummary(quizSummary);
+    }
+  }
+
   render(): ReactNode {
     const {
       quizSummary
@@ -33,7 +56,7 @@ class QuizSummary extends Component<IOwnProps> {
           </Box>
           <Form 
             fields={QuizSummaryFields(title, description)}
-            onSuccess={() => {console.log('hello world')}}/>
+            onSuccess={this.onFormSubmit}/>
         </Box>
       </Paper>
     );
