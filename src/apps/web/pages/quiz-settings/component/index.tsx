@@ -12,6 +12,7 @@ import styles from './styles';
 
 import QuizQuestions from '../components/quiz-questions';
 import QuizSummary from '../components/quiz-summary';
+import { Redirect } from 'react-router-dom';
 
 
 class QuizSettings extends Component<IOwnProps, IOwnState> {
@@ -22,28 +23,32 @@ class QuizSettings extends Component<IOwnProps, IOwnState> {
       fetchQuiz,
       match: {
         params: {
-          quizId
+          quizId: urlQuizId
         }
       },
     } = this.props;
 
-    if (quizId && requiredData.length !== 0) {
-      fetchQuiz(quizId);
+    if (urlQuizId && requiredData.length !== 0) {
+      fetchQuiz(urlQuizId);
     }
   }
 
   renderQuizSummaryForm(): ReactNode {
     const {
-      match: {
-        params: {
-          quizId
-        }
+      quiz: {
+        id,
+        quizSummary,
       },
+      createQuizSummary,
+      saveQuizSummary,
     } = this.props;
 
-
     return (
-      <QuizSummary quizId={quizId}/>
+      <QuizSummary
+        quizId={id}
+        quizSummary={quizSummary}
+        onCreateQuizSummary={createQuizSummary}
+        onSaveQuizSummary={saveQuizSummary}/>
     )
   }
 
@@ -53,33 +58,68 @@ class QuizSettings extends Component<IOwnProps, IOwnState> {
     );
   }
 
-  render(): ReactNode {
+
+  renderGrid(): ReactNode {
     const {
-      isFullPageLoading,
+      match: {
+        params: {
+          quizId: urlQuizId
+        }
+      },
       classes: {
         gridContainer
       }
-    } = this.props
+    } = this.props;
+
     return (
-      isFullPageLoading ?
-        <LoadingSreen>
-          Fetching Quiz Settings Data...
-        </LoadingSreen> :
-        <Grid 
-          container
-          direction="row"
-          justify="center"
-          alignItems="center"
-          spacing={2}
-          className={gridContainer}>
-          <Grid item sm={10}>
-            {this.renderQuizSummaryForm()}
-          </Grid> 
+      <Grid 
+        container
+        direction="row"
+        justify="center"
+        alignItems="center"
+        spacing={2}
+        className={gridContainer}>
+        <Grid item sm={10}>
+          {this.renderQuizSummaryForm()}
+        </Grid> 
+        {urlQuizId ? 
           <Grid item sm={10}>
             {this.renderQuizContainer()}
-          </Grid>
-        </Grid> 
+          </Grid> :
+          null}
+      </Grid> 
     )
+  }
+
+  render(): ReactNode {
+    const {
+      isFullPageLoading,
+      creatingQuizSummary,
+      quiz: {
+        id: quizId
+      },
+      match: {
+        params: {
+          quizId: urlQuizId
+        }
+      },
+    } = this.props
+
+    if (quizId && !urlQuizId) {
+      return (
+        <Redirect to={`/dashboard/quiz/${quizId}`}/>
+      )
+    }
+    console.log(creatingQuizSummary)
+    if (isFullPageLoading || creatingQuizSummary) {
+      return (
+        <LoadingSreen>
+          {isFullPageLoading ? 'Loading Quiz Data...' : 'Saving Created Quiz...'}
+        </LoadingSreen>          
+      )        
+    }
+ 
+      return (this.renderGrid())
   }
 }
 

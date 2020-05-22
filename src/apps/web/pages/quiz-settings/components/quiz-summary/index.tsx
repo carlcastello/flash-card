@@ -1,22 +1,66 @@
-import { connect } from "react-redux";
+import React, { Component, ReactNode } from 'react';
 
-import { IReduxState } from "../../../../../types";
+import { 
+  withStyles,
+  Paper,
+  Box,
+  Typography
+} from '@material-ui/core';
 
-import QuizSummary from './component';
-import { saveQuizSummary, createQuizSummary } from './actions';
-import { quizSummarySelector } from './selectors';
+import Form from '../../../../components/form';
+import { IFormResponse } from '../../../../components/form/types';
+import { IQuizSummary } from '../../../../../commons/types';
+
+import { QuizSummaryFields } from './fields';
+import { IOwnProps } from './types';
+import styles from './styles';
 
 
-const mapStateToProps = (state: IReduxState) => ({
-  quizSummary: quizSummarySelector(state)
-});
+class QuizSummary extends Component<IOwnProps> {
 
-const mapDispatchToProps = {
-  saveQuizSummary,
-  createQuizSummary,
+  onFormSubmit = (data: IFormResponse) => {
+
+    const {
+      quizId,
+      onCreateQuizSummary,
+      onSaveQuizSummary,
+    } = this.props;
+
+    const quizSummary: IQuizSummary = {
+      title: data['quiz-title'],
+      description: data['quiz-description'],
+    }
+
+    if (quizId) {
+      onSaveQuizSummary(quizId, quizSummary);
+    } else {
+      onCreateQuizSummary(quizSummary);
+    }
+  }
+
+  render(): ReactNode {
+    const {
+      quizSummary
+    } = this.props;
+
+    const title = quizSummary?.title || '';
+    const description = quizSummary?.description || '';
+
+    return (
+      <Paper elevation={3}>
+        <Box p={5}>
+          <Box pb={2}>
+            <Typography variant="h4">
+              Quiz Summary
+            </Typography>
+          </Box>
+          <Form 
+            fields={QuizSummaryFields(title, description)}
+            onSuccess={this.onFormSubmit}/>
+        </Box>
+      </Paper>
+    );
+  }
 }
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(QuizSummary); 
+export default withStyles(styles)(QuizSummary);

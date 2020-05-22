@@ -14,6 +14,7 @@ export interface IPageData {
   createdQuizes?: IQuizSummaryCard[],
 
   // Quiz Setting
+  id?: string,
   quizSummary?: IQuizSummary,
   quizQuestions?: {
     flashcards: IFlashcard[],    
