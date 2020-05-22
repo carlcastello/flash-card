@@ -30,8 +30,13 @@ class Form extends Component<IOwnProps, IOwnState> {
     const {
       fields,
     } = this.state
-    console.log(fields)
-    this.props.onSuccess();
+
+    this.props.onSuccess(
+      Object.keys(fields).reduce(
+        (prev, curr) => ({...prev, [curr]: fields[curr].value }),
+        {}
+      )
+    );
   }
 
   renderInput({id, label, value, validator} : IField): ReactNode {
