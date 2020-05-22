@@ -2,7 +2,7 @@ import React, { Component, ReactNode } from 'react';
 
 import { withStyles, Grid } from '@material-ui/core';
 
-import { IQuizSummary } from "../../../../commons/types";
+import { IQuizSummaryCard } from "../../../../commons/types";
 
 import { IOwnProps, IOwnState } from './types';
 import styles from './styles';
@@ -56,12 +56,12 @@ class Dashboard extends Component<IOwnProps, IOwnState> {
 
     return (
       <Grid container spacing={2}>
-        {createdQuizes.map((quiz: IQuizSummary) => (
-          <Grid key={quiz.id} item sm={4}>
+        {createdQuizes.map(({id, quizSummary}: IQuizSummaryCard) => (
+          <Grid key={id} item sm={4}>
             <InformationCard
-              id={quiz.id}
-              title={quiz.title}
-              description={quiz.description}
+              id={id}
+              title={quizSummary.title}
+              description={quizSummary.description}
               onEdit={this.onQuizEdit}
               onDelete={this.onQuizDelete}/>
           </Grid> 

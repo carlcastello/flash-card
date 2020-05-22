@@ -31,8 +31,17 @@ class QuizSettings extends Component<IOwnProps, IOwnState> {
   }
 
   renderQuizSummaryForm(): ReactNode {
+    const {
+      match: {
+        params: {
+          quizId
+        }
+      },
+    } = this.props;
+
+
     return (
-      <QuizSummary/>
+      <QuizSummary quizId={quizId}/>
     )
   }
 

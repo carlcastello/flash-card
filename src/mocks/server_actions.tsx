@@ -4,7 +4,7 @@ import { IQuiz } from "../apps/commons/types";
 export const MOCK_FETCH_CREATED_QUIZES = new Promise((resolve) => {
   setTimeout(() => {
     resolve({
-      createdQuizes: MOCK_QUIZES.map(({ id, quizSummary: {title, description} }: IQuiz) => ({ id, title, description }))
+      createdQuizes: MOCK_QUIZES.map(({ id, quizSummary }: IQuiz) => ({ id, quizSummary }))
     })
   }, 500);
 });

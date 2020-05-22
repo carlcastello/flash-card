@@ -20,6 +20,7 @@ import InformationCard from '../../../../../components/information-card';
 import { QuestionFields } from './fields';
 import { IOwnProps, IOwnState } from './types';
 import styles from './styles'
+import { IFormResponse } from '../../../../../components/form/types';
 
 
 class QuizQuestion extends Component<IOwnProps, IOwnState> {
@@ -30,6 +31,7 @@ class QuizQuestion extends Component<IOwnProps, IOwnState> {
 
   onOpenCloseClick = (): void => {
     this.setState((state: IOwnState) => ({
+      ...state,
       hasQuestionForm: !state.hasQuestionForm
     }))
   }
@@ -47,7 +49,7 @@ class QuizQuestion extends Component<IOwnProps, IOwnState> {
         }
       }
     } = this;
- 
+
     return (
       <Box pb={2}>
         <Paper elevation={3} className={paperContainer}>
@@ -59,7 +61,7 @@ class QuizQuestion extends Component<IOwnProps, IOwnState> {
                 <Close/>
               </IconButton>
             </Fade>
-            <Fade in={!hasQuestionForm}>
+            <Fade in={!hasQuestionForm}> 
               <Button
                 color="primary"
                 onClick={this.onOpenCloseClick}
@@ -71,7 +73,7 @@ class QuizQuestion extends Component<IOwnProps, IOwnState> {
               <Box py={2.5}>
                 <Form 
                   fields={QuestionFields}
-                  onSuccess={() => {console.log('hello Question')}}/>
+                  onSuccess={(hello: IFormResponse) => {console.log('hello Question')}}/>
               </Box>
             </Collapse> 
           </Box>

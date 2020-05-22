@@ -14,17 +14,18 @@ export interface IFlashcard {
 
 export interface IQuiz {  
   id: string,
-  quizSummary: {
-    title: string,
-    description: string,
-  },
+  quizSummary: IQuizSummary,
   quizQuestions: {
     flashcards: IFlashcard[]
   }
 }
 
 export interface IQuizSummary {
-  id: string,
   title: string,
   description: string
 } 
+
+export interface IQuizSummaryCard {
+  id: string,
+  quizSummary: IQuizSummary
+}
