@@ -6,21 +6,15 @@ import {
   Paper,
   Box,
   Typography,
-  Collapse,
-  Button,
-  Fade,
-  IconButton
 } from '@material-ui/core';
-import { Close } from '@material-ui/icons';
 
 import Form from "../../../components/form";
-import InformationCard from '../../../components/information-card';
-import TitleIcon from '../../../components/title-icon';
 
 import { IOwnProps, IOwnState } from './types';
 import styles from './styles';
-import { QuizSummaryFields, QuestionFields } from './fields';
-import { IFlashcard } from '../../../../commons/types';
+import { QuizSummaryFields } from './fields';
+
+import QuizQuestions from './components/quiz-questions';
 
 
 class QuizSettings extends Component<IOwnProps, IOwnState> {
@@ -76,102 +70,9 @@ class QuizSettings extends Component<IOwnProps, IOwnState> {
     )
   }
 
-  renderQuestionForm(): ReactNode {
-    const {
-      state: {
-        hasQuestionForm
-      },
-      props: {
-        classes: {
-          createQuestionPaper,
-          openCreateQuestionButton,
-          closeCreateQuestionButton
-        }
-      }
-    } = this;
-    
-    return (
-      <Box pb={2}>
-        <Paper elevation={3} className={createQuestionPaper}>
-          <Box px={5} py={2.5}>
-            <Fade in={hasQuestionForm}>
-              <IconButton onClick={this.onOpenCloseClick} className={closeCreateQuestionButton}>
-                <Close/>
-              </IconButton>
-            </Fade>
-            <Fade in={!hasQuestionForm}>
-              <Button color="primary" onClick={this.onOpenCloseClick} className={openCreateQuestionButton}>
-                Add Question 
-              </Button>
-            </Fade>        
-           <Collapse in={hasQuestionForm}>
-              <Box py={2.5}>
-                <Form 
-                  fields={QuestionFields}
-                  onSuccess={() => {console.log('hello Question')}}/>
-              </Box>
-            </Collapse> 
-          </Box>
-        </Paper>
-    </Box>
-    );
-  }
-
-  renderFlashcards(flashcards: IFlashcard[]): ReactNode {
-    return (flashcards.map((flashcards: IFlashcard) => 
-      <Grid item sm={6}>
-        <InformationCard
-          id={flashcards.id}
-          title={flashcards.question}
-          description={flashcards.answer}
-          subtitle={flashcards.subQuestion}
-          onEdit={() => {}}
-          onDelete={() => {}}/>
-      </Grid>
-    ))
-  }
-
-  renderQuizCards(): ReactNode {
-    const {
-      quizQuestions
-    } = this.props;
-
-    const flashcards = quizQuestions?.flashcards || [];
-
-    return (
-      <Grid 
-        container
-        spacing={2}>
-          {flashcards.length > 0 ?
-            this.renderFlashcards(flashcards) :
-            <Grid item sm={12}>
-              <Typography variant="body1">
-                This quiz has no questions.
-              </Typography>          
-            </Grid>
-          }
-      </Grid>
-    );
-  }
-
   renderQuizContainer(): ReactNode {
-    const {
-      props: {
-        classes: {
-          questionBoxContainer
-        }
-      }
-    } = this;
     return (
-      <Box p={5} className={questionBoxContainer}>
-        <Box pb={2}>
-          <TitleIcon onClick={this.onOpenCloseClick}>
-            Quiz Questions
-          </TitleIcon>
-        </Box>
-        {this.renderQuestionForm()}
-        {this.renderQuizCards()}
-      </Box>
+      <QuizQuestions/>
     );
   }
 
