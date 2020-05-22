@@ -2,12 +2,14 @@ import React, { Component, ReactNode } from 'react';
 
 import { withStyles, Grid } from '@material-ui/core';
 
+import { IQuizSummary } from "../../../../commons/types";
+
 import { IOwnProps, IOwnState } from './types';
 import styles from './styles';
 
 import InformationCard from '../../../components/information-card';
 import TitleIcon from '../../../components/title-icon';
-import { IQuizSummary } from "../../../../commons/types";
+import AddCard from '../../../components/add-card';
 
 
 class Dashboard extends Component<IOwnProps, IOwnState> {
@@ -64,6 +66,9 @@ class Dashboard extends Component<IOwnProps, IOwnState> {
               onDelete={this.onQuizDelete}/>
           </Grid> 
         ))}
+        <Grid item sm={4}>
+          <AddCard onClick={this.onQuizCreate}/>
+        </Grid>
       </Grid>
     );
   }

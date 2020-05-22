@@ -5,7 +5,7 @@ export const MOCK_QUIZES: IQuiz[] = [
     id: '489ebf1e-91b3-4cfb-9f07-3792310ded9d',
     quizSummary: {
       title: 'Quiz 1',
-      description: 'The quick brown fox jumps over the lazy dog.',
+      description: 'The quick ',
     },
     quizQuestions: {
       flashcards: []
@@ -15,7 +15,7 @@ export const MOCK_QUIZES: IQuiz[] = [
     id: 'cc85cf81-8abb-4a1d-b308-8baaddcc0d90',
     quizSummary: {
       title: 'Quiz 2',
-      description: 'The quick brown fox jumps over the lazy dog.',
+      description: 'The quick over the lazy dog.',
     },
     quizQuestions: {
       flashcards: []

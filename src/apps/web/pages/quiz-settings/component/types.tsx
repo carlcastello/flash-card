@@ -13,10 +13,13 @@ export interface IOwnProps extends RouteComponentProps<any>{
   saveCreatedQuestion: () => void,
   classes: {
     questionBoxContainer: string,
-    gridContainer: string
+    gridContainer: string,
+    createQuestionPaper: string,
+    openCreateQuestionButton: string,
+    closeCreateQuestionButton: string
   }
 }
 
 export interface IOwnState {
-  isAddQuestion: boolean
+  hasQuestionForm: boolean
 }
