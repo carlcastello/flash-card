@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import { IReduxState } from '../../../../../../types';
+import { IReduxState } from '../../../../../types';
 
 import QuizQuestion from './component';
 import { quizQuestionsSelector } from './selector';

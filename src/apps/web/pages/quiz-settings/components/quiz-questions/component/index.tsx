@@ -13,9 +13,9 @@ import {
 } from '@material-ui/core';
 import { Close } from '@material-ui/icons';
 
-import { IFlashcard } from '../../../../../../../commons/types';
-import Form from '../../../../../../components/form';
-import InformationCard from '../../../../../../components/information-card';
+import { IFlashcard } from '../../../../../../commons/types';
+import Form from '../../../../../components/form';
+import InformationCard from '../../../../../components/information-card';
 
 import { QuestionFields } from './fields';
 import { IOwnProps, IOwnState } from './types';
