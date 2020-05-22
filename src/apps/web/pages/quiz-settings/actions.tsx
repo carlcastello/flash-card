@@ -16,11 +16,3 @@ export const fetchQuiz = (quizId: string) => {
   };
 }
 
-export const saveQuizSummary = () => {
-
-}
-
-export const saveCreatedQuestion = () => {
-
-}
-

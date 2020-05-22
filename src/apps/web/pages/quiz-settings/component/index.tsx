@@ -3,32 +3,17 @@ import React, { Component, ReactNode } from 'react';
 import {
   withStyles,
   Grid,
-  Paper,
-  Box,
-  Typography,
 } from '@material-ui/core';
-
-import Form from "../../../components/form";
 
 import { IOwnProps, IOwnState } from './types';
 import styles from './styles';
-import { QuizSummaryFields } from './fields';
 
-import QuizQuestions from './components/quiz-questions';
+import QuizQuestions from '../components/quiz-questions';
+import QuizSummary from '../components/quiz-summary';
 
 
 class QuizSettings extends Component<IOwnProps, IOwnState> {
   
-  state: IOwnState = {
-    hasQuestionForm: false,
-  }
-
-  onOpenCloseClick = (): void => {
-    this.setState((state: IOwnState) => ({
-      hasQuestionForm: !state.hasQuestionForm
-    }))
-  }
-
   componentDidMount(): void {
     const {
       requiredData,
@@ -40,33 +25,14 @@ class QuizSettings extends Component<IOwnProps, IOwnState> {
       },
     } = this.props;
 
-    console.log(requiredData)
     if (quizId && requiredData.length !== 0) {
       fetchQuiz(quizId);
     }
   }
 
   renderQuizSummaryForm(): ReactNode {
-    const {
-      quizSummary
-    } = this.props;
-
-    const title = quizSummary?.title || '';
-    const description = quizSummary?.description || '';
-
     return (
-      <Paper elevation={3}>
-        <Box p={5}>
-          <Box pb={2}>
-            <Typography variant="h4">
-              Quiz Summary
-            </Typography>
-          </Box>
-          <Form 
-            fields={QuizSummaryFields(title, description)}
-            onSuccess={() => {console.log('hello world')}}/>
-        </Box>
-      </Paper>
+      <QuizSummary/>
     )
   }
 
