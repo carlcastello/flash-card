@@ -110,7 +110,7 @@ class QuizSettings extends Component<IOwnProps, IOwnState> {
         <Redirect to={`/dashboard/quiz/${quizId}`}/>
       )
     }
-    console.log(creatingQuizSummary)
+
     if (isFullPageLoading || creatingQuizSummary) {
       return (
         <LoadingSreen>

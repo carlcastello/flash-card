@@ -1,5 +1,6 @@
-import { MOCK_QUIZES } from "./server_data";
-import { IQuiz, IQuizSummary } from "../apps/commons/types";
+import { MOCK_QUIZES } from './server_data';
+import { IQuiz, IQuizSummary } from '../apps/commons/types';
+
 
 export const MOCK_FETCH_CREATED_QUIZES = new Promise((resolve) => {
   setTimeout(() => {
@@ -38,3 +39,11 @@ export const MOCK_CREATE_QUIZ = (quizSummary: IQuizSummary) => new Promise((reso
     resolve(newQuiz);
   }, 800);
 })
+
+export const MOCK_SAVE_QUIZ_SUMMARY = (quizId: string, quizSummary: IQuizSummary) => new Promise((resolve) => {
+  setTimeout(() => {
+    // MOCK_QUIZES
+    //   .filter(({ id }: IQuiz) => id === quizId)
+    //   .map  
+  }, 800);
+});

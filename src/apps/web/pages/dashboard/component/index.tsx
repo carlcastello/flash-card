@@ -22,7 +22,7 @@ class Dashboard extends Component<IOwnProps, IOwnState> {
       }
     } = this.props;
 
-    push('/dashboard/quiz');    
+    push('/dashboard/quiz');
   }
 
   onQuizEdit = (id: string): void => {

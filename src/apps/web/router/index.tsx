@@ -17,11 +17,9 @@ class Router extends Component<IOwnProps> {
   renderPage = (): ReactNode => {
     return (
       <Box py={5}>
-        <BrowserRouter>
-          <Route exact path="/" component={Dashboard}/>
-          <Route exact path="/dashboard/quiz" component={QuizSettings}/>
-          <Route exact path="/dashboard/quiz/:quizId" component={QuizSettings}/>
-        </BrowserRouter>
+        <Route exact path='/' component={Dashboard}/>
+        <Route exact path='/dashboard/quiz' component={QuizSettings}/>
+        <Route exact path='/dashboard/quiz/:quizId' component={QuizSettings}/>
       </Box>  
     );
   }
@@ -35,8 +33,10 @@ class Router extends Component<IOwnProps> {
 
     return(
       <Box className={boxContainer}>
-        <Navbar/>
-        {this.renderPage()}
+        <BrowserRouter>
+          <Navbar/>
+          {this.renderPage()}
+        </BrowserRouter>
       </Box>
     );
   }
