@@ -1,4 +1,4 @@
-import { IFlashcard } from '../../../../../../commons/types';
+import { IFlashcard } from '../../../../../commons/types';
 
 export interface IOwnProps {
   quizQuestions?: {
