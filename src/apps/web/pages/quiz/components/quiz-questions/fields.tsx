@@ -48,7 +48,7 @@ export const QuestionFields: IField[] = [
     id: 'answer',
     label: 'Answer',
     type: 'text',
-    required: false,
+    required: true,
     validator: (value: string) => {
       if (!value) {
         return 'Quiz title is Required.'

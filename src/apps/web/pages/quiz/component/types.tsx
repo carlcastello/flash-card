@@ -1,5 +1,5 @@
 import { RouteComponentProps } from 'react-router-dom';
-import { IQuizSummary, IFlashcard } from '../../../../commons/types';
+import { IQuizSummary, IFlashcard, IQuizQuestion } from '../../../../commons/types';
 
 
 export interface IOwnProps extends RouteComponentProps<any> {
@@ -17,6 +17,9 @@ export interface IOwnProps extends RouteComponentProps<any> {
   fetchQuiz: (quizId: string) => void,
   createQuizSummary: (quizSummary: IQuizSummary) => void,
   saveQuizSummary: (quizId: string, quizSummary: IQuizSummary) => void,
+  createQuestion: (quizId: string, question: IQuizQuestion) => void,
+  saveQuestion: (quizId: string, questionId: string, question: IQuizQuestion) => void,
+
   classes: {
     gridContainer: string,
   }

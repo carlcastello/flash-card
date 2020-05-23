@@ -3,7 +3,7 @@ import QuizSettings from './component';
 
 import { IReduxState } from '../../../types';
 
-import { fetchQuiz, createQuizSummary, saveQuizSummary } from './actions';
+import { fetchQuiz, createQuizSummary, saveQuizSummary, createQuestion, saveQuestion } from './actions';
 import { requiredDataSelector, isFullPageLoading, isCreatingQuizSummary } from './selectors';
 import { pageDataSelector } from '../selectors';
 
@@ -19,6 +19,8 @@ const mapDispatchToProps = {
   fetchQuiz,
   createQuizSummary,
   saveQuizSummary,
+  createQuestion,
+  saveQuestion,
 }
 
 export default connect(

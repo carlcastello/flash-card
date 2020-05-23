@@ -1,8 +1,20 @@
-import { FETCH_PAGE_DATA } from "../actions";
-import { MOCK_FETCH_QUIZ, MOCK_CREATE_QUIZ, MOCK_SAVE_QUIZ_SUMMARY } from "../../../../mocks/server_actions";
-import { setComponentLoading } from "../../common/actions";
-import { QUIZ, CREATE_QUIZ_SUMMARY_FORM, SAVE_QUIZ_SUMMARY_FORM } from "../../common/constants";
-import { IQuizSummary } from "../../../commons/types";
+import { FETCH_PAGE_DATA } from '../actions';
+import {
+  MOCK_FETCH_QUIZ,
+  MOCK_CREATE_QUIZ,
+  MOCK_SAVE_QUIZ_SUMMARY,
+  MOCK_CREATE_QUESTION,
+  MOCK_SAVE_QUESTION
+} from '../../../../mocks/server_actions';
+import { setComponentLoading } from '../../common/actions';
+import {
+  QUIZ,
+  CREATE_QUIZ_SUMMARY_FORM,
+  SAVE_QUIZ_SUMMARY_FORM,
+  SAVE_QUESTION_FORM,
+  CREATE_QUESTION_FORM
+} from '../../common/constants';
+import { IQuizSummary, IQuizQuestion } from '../../../commons/types';
 
 
 export const fetchQuiz = (quizId: string) => {
@@ -40,4 +52,31 @@ export const saveQuizSummary = (quizId: string, quizSummary: IQuizSummary) => {
       dispatch(setLoadingFunction(false));
     })
   };
+}
+
+export const createQuestion = (quizId: string, question: IQuizQuestion) => {
+  const setLoadingFunction = setComponentLoading(CREATE_QUESTION_FORM);
+
+  return (dispatch: any) => {
+    dispatch(setLoadingFunction(true));
+
+    return MOCK_CREATE_QUESTION(quizId, question).then((payload) => {
+      console.log(payload)
+      dispatch({ type: FETCH_PAGE_DATA, payload });
+      dispatch(setLoadingFunction(false));
+    })
+  };
+}
+
+export const saveQuestion = (quizId: string, questionId: string, question: IQuizQuestion) => {
+  const setLoadingFunction = setComponentLoading(SAVE_QUESTION_FORM);
+
+  return (dispatch: any, getState: any) => {
+    dispatch(setLoadingFunction(true));
+
+    return MOCK_SAVE_QUESTION(quizId, questionId, question).then((payload) => {
+      dispatch({ type: FETCH_PAGE_DATA, payload });
+      dispatch(setLoadingFunction(false));
+    })
+  }; 
 }

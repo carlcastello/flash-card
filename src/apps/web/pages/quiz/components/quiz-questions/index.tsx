@@ -36,6 +36,20 @@ class QuizQuestion extends Component<IOwnProps, IOwnState> {
     }))
   }
 
+  onCreateQuestion = (response: IFormResponse): void => {
+    const {
+      quizId,
+      createQuestion
+    } = this.props;
+
+    createQuestion(quizId, { 
+      question: response['question'],
+      subQuestion: response['sub-question'],
+      hint: response['hint'],
+      answer: response['answer']
+    });
+  }
+
   renderForm(): ReactNode {
     const {
       state: {
@@ -73,7 +87,7 @@ class QuizQuestion extends Component<IOwnProps, IOwnState> {
               <Box py={2.5}>
                 <Form 
                   fields={QuestionFields}
-                  onSuccess={(hello: IFormResponse) => {console.log('hello Question')}}/>
+                  onSuccess={this.onCreateQuestion}/>
               </Box>
             </Collapse> 
           </Box>

@@ -53,9 +53,25 @@ class Quiz extends Component<IOwnProps, IOwnState> {
   }
 
   renderQuizContainer(): ReactNode {
-    return (
-      <QuizQuestions/>
-    );
+    const {
+      quiz: {
+        id,
+        quizQuestions,
+      },
+      createQuestion,
+      saveQuestion,
+    } = this.props;
+
+
+    if (id) { // Checked if ID exist before rendering 
+      return (
+        <QuizQuestions
+          quizId={id}
+          quizQuestions={quizQuestions}
+          createQuestion={createQuestion}
+          saveQuestion={saveQuestion}/>
+      );
+    }
   }
 
 

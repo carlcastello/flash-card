@@ -29,3 +29,10 @@ export interface IQuizSummaryCard {
   id: string,
   quizSummary: IQuizSummary
 }
+
+export interface IQuizQuestion {
+  question: string,
+  subQuestion?: string,
+  hint?: string,
+  answer: string,
+}
