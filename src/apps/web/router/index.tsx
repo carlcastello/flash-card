@@ -9,7 +9,7 @@ import { IOwnProps } from './types';
 import Navbar from '../components/navbar';
 
 import Dashboard from '../pages/dashboard';
-import QuizSettings from '../pages/quiz-settings';
+import QuizSettings from '../pages/quiz';
 
 
 class Router extends Component<IOwnProps> {

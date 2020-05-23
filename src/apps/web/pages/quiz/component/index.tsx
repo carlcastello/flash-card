@@ -15,7 +15,7 @@ import QuizSummary from '../components/quiz-summary';
 import { Redirect } from 'react-router-dom';
 
 
-class QuizSettings extends Component<IOwnProps, IOwnState> {
+class Quiz extends Component<IOwnProps, IOwnState> {
   
   componentDidMount(): void {
     const {
@@ -123,4 +123,4 @@ class QuizSettings extends Component<IOwnProps, IOwnState> {
   }
 }
 
-export default withStyles(styles)(QuizSettings);
+export default withStyles(styles)(Quiz);
