@@ -1,13 +1,11 @@
-import { IQuizQuestion, IFlashcard } from '../../../../../commons/types';
+import { IQuestionBase, IQuestionCard } from '../../../../../commons/types';
 
 export interface IOwnProps {
   quizId: string,
-  quizQuestions?: {
-    flashcards: IFlashcard[],
-  }
+  quizQuestions: IQuestionCard[]
 
-  createQuestion: (quizId: string, question: IQuizQuestion) => void,
-  saveQuestion: (quizId: string, questionId: string, question: IQuizQuestion) => void,
+  createQuestion: (quizId: string, question: IQuestionBase) => void,
+  saveQuestion: (quizId: string, questionId: string, question: IQuestionBase) => void,
   classes: {
     questionContainer: string,
     paperContainer: string,

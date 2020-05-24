@@ -14,7 +14,7 @@ import {
   SAVE_QUESTION_FORM,
   CREATE_QUESTION_FORM
 } from '../../common/constants';
-import { IQuizSummary, IQuizQuestion } from '../../../commons/types';
+import { IQuizSummary, IQuestionBase } from '../../../commons/types';
 
 
 export const fetchQuiz = (quizId: string) => {
@@ -54,7 +54,7 @@ export const saveQuizSummary = (quizId: string, quizSummary: IQuizSummary) => {
   };
 }
 
-export const createQuestion = (quizId: string, question: IQuizQuestion) => {
+export const createQuestion = (quizId: string, question: IQuestionBase) => {
   const setLoadingFunction = setComponentLoading(CREATE_QUESTION_FORM);
 
   return (dispatch: any) => {
@@ -68,7 +68,7 @@ export const createQuestion = (quizId: string, question: IQuizQuestion) => {
   };
 }
 
-export const saveQuestion = (quizId: string, questionId: string, question: IQuizQuestion) => {
+export const saveQuestion = (quizId: string, questionId: string, question: IQuestionBase) => {
   const setLoadingFunction = setComponentLoading(SAVE_QUESTION_FORM);
 
   return (dispatch: any, getState: any) => {

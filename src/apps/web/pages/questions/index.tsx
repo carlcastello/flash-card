@@ -4,7 +4,7 @@ import { IReduxState } from '../../../types';
 import Question from './component';
 
 const mapStateToProps = (state: IReduxState) => ({
-
+  
 })
 
 export default connect(

@@ -67,7 +67,7 @@ class Quiz extends Component<IOwnProps, IOwnState> {
       return (
         <QuizQuestions
           quizId={id}
-          quizQuestions={quizQuestions}
+          quizQuestions={quizQuestions || []}
           createQuestion={createQuestion}
           saveQuestion={saveQuestion}/>
       );

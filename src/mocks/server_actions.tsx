@@ -1,5 +1,5 @@
 import { MOCK_QUIZES } from './server_data';
-import { IQuiz, IQuizSummary, IQuizQuestion, QuestionType } from '../apps/commons/types';
+import { IQuiz, IQuizSummary, IQuestionBase, QuestionType } from '../apps/commons/types';
 
 
 export const MOCK_FETCH_CREATED_QUIZES = new Promise((resolve) => {
@@ -34,7 +34,7 @@ function create_UUID(){
 
 export const MOCK_CREATE_QUIZ = (quizSummary: IQuizSummary) => new Promise((resolve) => {
   setTimeout(() => {
-    const newQuiz = { id: create_UUID(), quizSummary, quizQuestions: { flashcards: []} };
+    const newQuiz = { id: create_UUID(), quizSummary, quizQuestions: [] };
     MOCK_QUIZES.push(newQuiz);
     resolve(newQuiz);
   }, 800);
@@ -50,19 +50,19 @@ export const MOCK_SAVE_QUIZ_SUMMARY = (quizId: string, quizSummary: IQuizSummary
 
 
 
-export const MOCK_CREATE_QUESTION = (quizId: string, question: IQuizQuestion) => new Promise((resolve) => {
+export const MOCK_CREATE_QUESTION = (quizId: string, question: IQuestionBase) => new Promise((resolve) => {
   setTimeout(() => {
     const quiz: IQuiz = MOCK_QUIZES
       .filter(({ id }: IQuiz) => id === quizId)
       .map(({ id, quizSummary, quizQuestions }: IQuiz) => ({
-        id, quizSummary, quizQuestions: { flashcards: [...quizQuestions.flashcards, {id: create_UUID(), ...question, questionType: QuestionType.QUESTIONAIRE}] } 
+        id, quizSummary, quizQuestions: [...quizQuestions, {id: create_UUID(), ...question, questionType: QuestionType.QUESTIONAIRE}] 
       }))
       [0]
     resolve(quiz);
   }, 800);
 });
 
-export const MOCK_SAVE_QUESTION = (quizId: string, questionId: string, question: IQuizQuestion) => new Promise((resolve) => {
+export const MOCK_SAVE_QUESTION = (quizId: string, questionId: string, question: IQuestionBase) => new Promise((resolve) => {
   setTimeout(() => {
     resolve(question);
   }, 800);

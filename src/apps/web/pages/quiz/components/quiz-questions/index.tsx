@@ -13,7 +13,7 @@ import {
 } from '@material-ui/core';
 import { Close } from '@material-ui/icons';
 
-import { IFlashcard } from '../../../../../commons/types';
+import { IQuestionCard } from '../../../../../commons/types';
 import Form from '../../../../components/form';
 import InformationCard from '../../../../components/information-card';
 
@@ -101,20 +101,18 @@ class QuizQuestion extends Component<IOwnProps, IOwnState> {
       quizQuestions
     } = this.props;
 
-    const flashcards = quizQuestions?.flashcards || [];
-
     return (
       <Grid 
         container
         spacing={2}>
-          {flashcards.length > 0 ?
-            (flashcards.map((flashcards: IFlashcard) => 
+          {quizQuestions.length > 0 ?
+            (quizQuestions.map((questionCard: IQuestionCard) => 
               <Grid item sm={6}>
                 <InformationCard
-                  id={flashcards.id}
-                  title={flashcards.question}
-                  description={flashcards.answer}
-                  subtitle={flashcards.subQuestion}
+                  id={questionCard.id}
+                  title={questionCard.question}
+                  description={questionCard.answer}
+                  subtitle={questionCard.subQuestion}
                   onEdit={() => {}}
                   onDelete={() => {}}/>
               </Grid>
