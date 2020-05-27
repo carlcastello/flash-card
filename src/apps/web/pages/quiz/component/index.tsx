@@ -54,12 +54,16 @@ class Quiz extends Component<IOwnProps, IOwnState> {
 
   renderQuizContainer(): ReactNode {
     const {
+      history: {
+        push
+      },
       quiz: {
         id,
         quizQuestions,
       },
       createQuestion,
       saveQuestion,
+      deleteQuestion
     } = this.props;
 
 
@@ -69,7 +73,9 @@ class Quiz extends Component<IOwnProps, IOwnState> {
           quizId={id}
           quizQuestions={quizQuestions || []}
           createQuestion={createQuestion}
-          saveQuestion={saveQuestion}/>
+          saveQuestion={saveQuestion}
+          deleteQuestion={deleteQuestion}
+          push={push}/>
       );
     }
   }

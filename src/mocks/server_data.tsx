@@ -7,7 +7,20 @@ export const MOCK_QUIZES: IQuiz[] = [
       title: 'Quiz 1',
       description: 'The quick ',
     },
-    quizQuestions: []
+    quizQuestions: [{
+      answer: 'salad',
+      hint: 'potato',
+      id: '54e104b1-9b56-461b-8bca-21bd5288180c',
+      question: 'hello',
+      subQuestion: 'world'
+    },
+    {
+      answer: 'Lazy',
+      hint: 'The',
+      id: 'b9128862-9149-4ec4-8847-4a68eda4d8a2',
+      question: 'Jumps',
+      subQuestion: 'Ove',
+    }]
   },
   {
     id: 'cc85cf81-8abb-4a1d-b308-8baaddcc0d90',

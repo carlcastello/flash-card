@@ -17,6 +17,7 @@ export interface IOwnProps extends RouteComponentProps<any> {
   saveQuizSummary: (quizId: string, quizSummary: IQuizSummary) => void,
   createQuestion: (quizId: string, question: IQuestionBase) => void,
   saveQuestion: (quizId: string, questionId: string, question: IQuestionBase) => void,
+  deleteQuestion: (quizId: string, questionId: string) => void,
 
   classes: {
     gridContainer: string,

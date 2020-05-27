@@ -4,7 +4,8 @@ import {
   MOCK_CREATE_QUIZ,
   MOCK_SAVE_QUIZ_SUMMARY,
   MOCK_CREATE_QUESTION,
-  MOCK_SAVE_QUESTION
+  MOCK_SAVE_QUESTION,
+  MOCK_DELETE_QUESTION
 } from '../../../../mocks/server_actions';
 import { setComponentLoading } from '../../common/actions';
 import {
@@ -12,7 +13,8 @@ import {
   CREATE_QUIZ_SUMMARY_FORM,
   SAVE_QUIZ_SUMMARY_FORM,
   SAVE_QUESTION_FORM,
-  CREATE_QUESTION_FORM
+  CREATE_QUESTION_FORM,
+  DELETE_QUESTION_FORM
 } from '../../common/constants';
 import { IQuizSummary, IQuestionBase } from '../../../commons/types';
 
@@ -79,4 +81,14 @@ export const saveQuestion = (quizId: string, questionId: string, question: IQues
       dispatch(setLoadingFunction(false));
     })
   }; 
+}
+
+export const deleteQuestion = (quizId: string, questionId: string) => {
+  const setLoadingFunction = setComponentLoading(DELETE_QUESTION_FORM);
+  return (dispatch: any) => {
+    return MOCK_DELETE_QUESTION(quizId, questionId).then((payload) => {
+      dispatch({ type: FETCH_PAGE_DATA, payload });
+      dispatch(setLoadingFunction(false));
+    })
+  }
 }

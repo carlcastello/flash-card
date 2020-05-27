@@ -1,12 +1,14 @@
 import { IField } from "../../../../components/form/types";
+import { IQuestionBase } from "../../../../../commons/types";
 
 
-export const QuestionFields: IField[] = [
+export const QuestionFields = (questionBase: IQuestionBase): IField[] => ([
   {
     id: 'question',
     label: 'Question',
     type: 'text',
     required: true,
+    value: questionBase.question,
     validator: (value: string) => {
       if (!value) {
         return 'Quiz title is Required.'
@@ -21,6 +23,7 @@ export const QuestionFields: IField[] = [
     label: 'Sub Question',
     type: 'text',
     required: false,
+    value: questionBase.subQuestion,
     validator: (value: string) => {
       if (!value) {
         return 'Quiz title is Required.'
@@ -35,6 +38,7 @@ export const QuestionFields: IField[] = [
     label: 'Hint',
     type: 'text',
     required: false,
+    value: questionBase.hint,
     validator: (value: string) => {
       if (!value) {
         return 'Quiz title is Required.'
@@ -49,6 +53,7 @@ export const QuestionFields: IField[] = [
     label: 'Answer',
     type: 'text',
     required: true,
+    value: questionBase.answer,
     validator: (value: string) => {
       if (!value) {
         return 'Quiz title is Required.'
@@ -58,4 +63,4 @@ export const QuestionFields: IField[] = [
       return false; // Form is Valid: Returns No Error Message
     },
   }
-];
+]);

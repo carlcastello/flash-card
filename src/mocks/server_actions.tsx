@@ -1,5 +1,5 @@
 import { MOCK_QUIZES } from './server_data';
-import { IQuiz, IQuizSummary, IQuestionBase, QuestionType } from '../apps/commons/types';
+import { IQuiz, IQuizSummary, IQuestionBase, QuestionType, IQuestion } from '../apps/commons/types';
 
 
 export const MOCK_FETCH_CREATED_QUIZES = new Promise((resolve) => {
@@ -64,6 +64,36 @@ export const MOCK_CREATE_QUESTION = (quizId: string, question: IQuestionBase) =>
 
 export const MOCK_SAVE_QUESTION = (quizId: string, questionId: string, question: IQuestionBase) => new Promise((resolve) => {
   setTimeout(() => {
-    resolve(question);
+    const quiz: IQuiz = MOCK_QUIZES
+    .filter(({ id }: IQuiz) => id === quizId)
+    .map(({ id, quizSummary, quizQuestions }: IQuiz) => {
+      const newQuestions = quizQuestions.map((quizQuestion: IQuestion) => quizQuestion.id === questionId ? {...quizQuestion, ...question } : quizQuestion);
+      return ({
+        id,
+        quizSummary,
+        quizQuestions: newQuestions
+      })
+    })
+    [0]
+
+
+    resolve(quiz);
   }, 800);
+});
+
+export const MOCK_DELETE_QUESTION = (quizId: string, questionId: string,) => new Promise((resolve) => {
+  setTimeout(() => {
+    const quiz: IQuiz = MOCK_QUIZES
+    .filter(({ id }: IQuiz) => id === quizId)
+    .map(({ id, quizSummary, quizQuestions }: IQuiz) => {
+      const newQuestions = quizQuestions.filter((quizQuestion: IQuestion) => quizQuestion.id !== questionId);
+      return ({
+        id,
+        quizSummary,
+        quizQuestions: newQuestions
+      })
+    })
+    [0]
+    resolve(quiz);
+  })
 });

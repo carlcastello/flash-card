@@ -16,9 +16,17 @@ export default (theme: Theme) => ({
     top: 0,
     left: 0
   },
-  closeFormButton: {
+  closeButton: {
     position: 'absolute' as 'absolute',
     top: `${theme.spacing(.5)}px`,
     right: `${theme.spacing(.5)}px`,
+  },
+  modalContainer: {
+    display: 'flex' as 'flex',
+    justifyContent: 'center' as 'center',
+    alignItems: 'center' as 'center'
+  },
+  modalPaperContainer: {
+    maxWidth: `${theme.spacing(60)}px`
   }
 });
