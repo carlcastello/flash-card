@@ -21,12 +21,4 @@ export default (theme: Theme) => ({
     top: `${theme.spacing(.5)}px`,
     right: `${theme.spacing(.5)}px`,
   },
-  modalContainer: {
-    display: 'flex' as 'flex',
-    justifyContent: 'center' as 'center',
-    alignItems: 'center' as 'center'
-  },
-  modalPaperContainer: {
-    maxWidth: `${theme.spacing(60)}px`
-  }
 });

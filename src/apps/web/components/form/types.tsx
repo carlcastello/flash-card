@@ -24,6 +24,7 @@ export interface IFormResponse {
 }
 
 export interface IOwnProps {
+  isLoading: boolean,
   fields: IField[],
   onSuccess: (reponse: IFormResponse) => void,
   classes: {
@@ -31,6 +32,7 @@ export interface IOwnProps {
     formLabel: string,
     formInput: string,
     formHelperText: string,
-    formBottomContainer: string
+    formBottomContainer: string,
+    // fullwidth: string,
   }
 }

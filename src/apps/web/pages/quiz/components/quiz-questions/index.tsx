@@ -1,4 +1,4 @@
-import React, { Component, ReactNode, ReactElement } from 'react';
+import React, { Component, ReactNode } from 'react';
 
 import {
   withStyles,
@@ -10,7 +10,7 @@ import {
   Button,
   Typography,
   Grid,
-  Modal,
+  LinearProgress
 } from '@material-ui/core';
 import { Close } from '@material-ui/icons';
 
@@ -22,6 +22,7 @@ import { QuestionFields } from './fields';
 import { IOwnProps, IOwnState } from './types';
 import styles from './styles'
 import { IFormResponse } from '../../../../components/form/types';
+import WebModal from '../../../../components/styled-modal';
 
 
 class QuizQuestion extends Component<IOwnProps, IOwnState> {
@@ -105,23 +106,9 @@ class QuizQuestion extends Component<IOwnProps, IOwnState> {
       }
     } = this;
 
-    deleteQuestion(quizId, toggledQuestionId);
-  }
-
-  renderCloseIcon(callBack = () => {}): ReactElement {
-    const {
-      classes: {
-        closeButton
-      }
-    } = this.props;
-
-    return (
-      <IconButton 
-        onClick={callBack}
-        className={closeButton}>
-        <Close/>
-      </IconButton>
-    )
+    deleteQuestion(quizId, toggledQuestionId).then(() => 
+      this.onDeleteQuestionToggleClick('')()
+    );
   }
 
   renderCreateForm(): ReactNode {
@@ -130,9 +117,11 @@ class QuizQuestion extends Component<IOwnProps, IOwnState> {
         createQuestionFormOpen,
       },
       props: {
+        isCreatingQuestion,
         classes: {
           paperContainer,
           openFormButton,
+          closeButton
         }
       }
     } = this;
@@ -142,7 +131,11 @@ class QuizQuestion extends Component<IOwnProps, IOwnState> {
         <Paper elevation={3} className={paperContainer}>
           <Box px={5} py={2.5}>
             <Fade in={createQuestionFormOpen}>
-              {this.renderCloseIcon(this.onCreateQuestionToggleClick)}
+              <IconButton 
+                onClick={this.onCreateQuestionToggleClick}
+                className={closeButton}>
+                <Close/>
+              </IconButton>
             </Fade>
             <Fade in={!createQuestionFormOpen}> 
               <Button
@@ -155,6 +148,7 @@ class QuizQuestion extends Component<IOwnProps, IOwnState> {
             <Collapse in={createQuestionFormOpen}>
               <Box py={2.5}>
                 <Form 
+                  isLoading={isCreatingQuestion}
                   fields={QuestionFields(this.emptyQuestion)}
                   onSuccess={this.onCreateQuestion}/>
               </Box>
@@ -199,81 +193,75 @@ class QuizQuestion extends Component<IOwnProps, IOwnState> {
 
   renderEditModal(): ReactNode {
     const {
+      props: {
+        isSavingQuestion,
+      },
       state: {
         editQuestionFormOpen,
         toggledQuestion
       },
-      props: {
-        classes: {
-          modalContainer,
-          modalPaperContainer
-        }
-      }
     } = this;
 
     return (
-      <Modal
-        open={editQuestionFormOpen}
-        onClose={this.onEditQuestionToggleClick('')}
-        className={modalContainer}>
-          <Paper elevation={3} className={modalPaperContainer}>
-            <Box p={5} position="relative">
-              {this.renderCloseIcon(this.onEditQuestionToggleClick(''))}
-              <Box pb={2}>
-                <Typography variant='h4'>
-                  Edit Question
-                </Typography>
-              </Box>
-              <Form 
-                fields={QuestionFields(toggledQuestion)}
-                onSuccess={this.onEditQuestion}/>
-              </Box>
-          </Paper>
-      </Modal>
+      <WebModal
+       isOpen={editQuestionFormOpen}
+       onIgnore={this.onEditQuestionToggleClick('')}>
+        <Box pb={2}>
+          <Typography variant='h4'>
+            Edit Question
+          </Typography>
+        </Box>
+        <Form 
+          isLoading={isSavingQuestion}
+          fields={QuestionFields(toggledQuestion)}
+          onSuccess={this.onEditQuestion}/>
+      </WebModal>
+    );
+  }
+
+  renderDeleteModalButtons(): ReactNode {
+    return (
+      <Grid container spacing={2}>
+        <Grid item xs={6}>
+          <Button onClick={this.onDeleteQuestionToggleClick('')} fullWidth>
+            No
+          </Button>
+        </Grid>
+        <Grid item xs={6}>
+          <Button onClick={this.onDeleteQuestion} color="secondary" fullWidth>
+            Yes
+          </Button>
+        </Grid>
+      </Grid>
     );
   }
 
   renderDeleteModal(): ReactNode {
     const {
+      props: {
+        isDeletingQuestion,
+      },
       state: {
         deleteQuestionFormOpen    
       },
-      props: {
-        classes: {
-          modalContainer,
-          modalPaperContainer
-        }
-      }
     } = this;
-
+    console.log('asdasd', isDeletingQuestion)
     return (
-      <Modal
-        open={deleteQuestionFormOpen}
-        onClose={this.onDeleteQuestionToggleClick('')}
-        className={modalContainer}>
-        <Paper elevation={3} className={modalPaperContainer}>
-          <Box p={5} position="relative">
-            {this.renderCloseIcon(this.onDeleteQuestionToggleClick(''))}
-            <Box pb={2}>
-              <Typography variant="h4" align="center">
-                Are you sure to delete this question?
-              </Typography>
-            </Box>
-            <Grid container spacing={2}>
-              <Grid item xs={6}>
-                <Button onClick={this.onDeleteQuestionToggleClick('')} fullWidth>
-                  No
-                </Button>
-              </Grid>
-              <Grid item xs={6}>
-                <Button onClick={this.onDeleteQuestion} color="secondary" fullWidth>
-                  Yes
-                </Button>
-              </Grid>
-            </Grid>
-          </Box>
-        </Paper>
-      </Modal>
+      <WebModal 
+        isOpen={deleteQuestionFormOpen}
+        onIgnore={this.onDeleteQuestionToggleClick('')}>
+        <Box pb={4}>
+          <Typography variant="h4" align="center">
+            Are you sure to delete this question?
+          </Typography>
+        </Box>
+        {isDeletingQuestion ?
+          <Box width="100%" flex flexDirection="row">
+            <LinearProgress color="secondary"/>
+          </Box>  :
+          this.renderDeleteModalButtons()
+        }
+      </WebModal>
     );
   }
 

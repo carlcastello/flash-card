@@ -63,7 +63,6 @@ export const createQuestion = (quizId: string, question: IQuestionBase) => {
     dispatch(setLoadingFunction(true));
 
     return MOCK_CREATE_QUESTION(quizId, question).then((payload) => {
-      console.log(payload)
       dispatch({ type: FETCH_PAGE_DATA, payload });
       dispatch(setLoadingFunction(false));
     })
@@ -86,6 +85,8 @@ export const saveQuestion = (quizId: string, questionId: string, question: IQues
 export const deleteQuestion = (quizId: string, questionId: string) => {
   const setLoadingFunction = setComponentLoading(DELETE_QUESTION_FORM);
   return (dispatch: any) => {
+    dispatch(setLoadingFunction(true));
+
     return MOCK_DELETE_QUESTION(quizId, questionId).then((payload) => {
       dispatch({ type: FETCH_PAGE_DATA, payload });
       dispatch(setLoadingFunction(false));

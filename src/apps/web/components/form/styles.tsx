@@ -26,5 +26,8 @@ export default (theme: Theme) => ({
     alignItems: 'center',
     flexDirection: 'row ' as 'row',
     justifyContent: 'end',
+  },
+  fullwidth: {
+    width: '100%'
   }
 });

@@ -5,6 +5,10 @@ import { IQuizSummary, IQuestionCard, IQuestionBase } from '../../../../commons/
 export interface IOwnProps extends RouteComponentProps<any> {
   isFullPageLoading: boolean,
   creatingQuizSummary: boolean,
+  savingQuizSummary: boolean,
+  isCreatingQuestion: boolean,
+  isSavingQuestion: boolean,
+  isDeletingQuestion: boolean,
 
   requiredData: string[],
   quiz: {
@@ -12,12 +16,12 @@ export interface IOwnProps extends RouteComponentProps<any> {
     quizSummary?: IQuizSummary,
     quizQuestions?: IQuestionCard[]
   },
-  fetchQuiz: (quizId: string) => void,
-  createQuizSummary: (quizSummary: IQuizSummary) => void,
-  saveQuizSummary: (quizId: string, quizSummary: IQuizSummary) => void,
-  createQuestion: (quizId: string, question: IQuestionBase) => void,
-  saveQuestion: (quizId: string, questionId: string, question: IQuestionBase) => void,
-  deleteQuestion: (quizId: string, questionId: string) => void,
+  fetchQuiz: (quizId: string) => Promise<any>,
+  createQuizSummary: (quizSummary: IQuizSummary) => Promise<any>,
+  saveQuizSummary: (quizId: string, quizSummary: IQuizSummary) => Promise<any>,
+  createQuestion: (quizId: string, question: IQuestionBase) => Promise<any>,
+  saveQuestion: (quizId: string, questionId: string, question: IQuestionBase) => Promise<any>,
+  deleteQuestion: (quizId: string, questionId: string) => Promise<any>,
 
   classes: {
     gridContainer: string,

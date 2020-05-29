@@ -42,9 +42,10 @@ export const MOCK_CREATE_QUIZ = (quizSummary: IQuizSummary) => new Promise((reso
 
 export const MOCK_SAVE_QUIZ_SUMMARY = (quizId: string, quizSummary: IQuizSummary) => new Promise((resolve) => {
   setTimeout(() => {
-    // MOCK_QUIZES
-    //   .filter(({ id }: IQuiz) => id === quizId)
-    //   .map  
+    const hello = MOCK_QUIZES
+        .filter(({ id }: IQuiz) => id === quizId)
+        .map((quiz) => ({...quiz, quizSummary}))[0]
+    resolve(hello);
   }, 800);
 });
 
@@ -95,5 +96,5 @@ export const MOCK_DELETE_QUESTION = (quizId: string, questionId: string,) => new
     })
     [0]
     resolve(quiz);
-  })
+  }, 1000)
 });

@@ -6,17 +6,18 @@ export interface IOwnProps {
   quizQuestions: IQuestionCard[],
   push: (path: string) => void,
 
-  createQuestion: (quizId: string, question: IQuestionBase) => void,
-  saveQuestion: (quizId: string, questionId: string, question: IQuestionBase) => void,
-  deleteQuestion: (quizId: string, questionId: string,) => void
+  createQuestion: (quizId: string, question: IQuestionBase) => Promise<any>,
+  saveQuestion: (quizId: string, questionId: string, question: IQuestionBase) => Promise<any>,
+  deleteQuestion: (quizId: string, questionId: string,) => Promise<any>
+  isCreatingQuestion: boolean,
+  isSavingQuestion: boolean,
+  isDeletingQuestion: boolean,
 
   classes: {
     questionContainer: string,
     paperContainer: string,
     openFormButton: string,
     closeButton: string,
-    modalContainer: string,
-    modalPaperContainer: string,
   }
 }
 

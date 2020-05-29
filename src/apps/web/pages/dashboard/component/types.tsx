@@ -6,7 +6,7 @@ export interface IOwnProps extends RouteComponentProps<any> {
   isFullPageLoading: boolean,
   requiredData: string[],
   createdQuizes: IQuizSummaryCard[],
-  fetchCreatedQuizes: () => void,
+  fetchCreatedQuizes: () => Promise<any>,
   classes: {
     gridContainer: string
   }

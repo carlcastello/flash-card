@@ -35,6 +35,7 @@ class Quiz extends Component<IOwnProps, IOwnState> {
 
   renderQuizSummaryForm(): ReactNode {
     const {
+      savingQuizSummary,
       quiz: {
         id,
         quizSummary,
@@ -45,6 +46,7 @@ class Quiz extends Component<IOwnProps, IOwnState> {
 
     return (
       <QuizSummary
+        isLoading={savingQuizSummary}
         quizId={id}
         quizSummary={quizSummary}
         onCreateQuizSummary={createQuizSummary}
@@ -61,6 +63,9 @@ class Quiz extends Component<IOwnProps, IOwnState> {
         id,
         quizQuestions,
       },
+      isCreatingQuestion,
+      isSavingQuestion,
+      isDeletingQuestion,
       createQuestion,
       saveQuestion,
       deleteQuestion
@@ -74,6 +79,9 @@ class Quiz extends Component<IOwnProps, IOwnState> {
           quizQuestions={quizQuestions || []}
           createQuestion={createQuestion}
           saveQuestion={saveQuestion}
+          isCreatingQuestion={isCreatingQuestion}
+          isSavingQuestion={isSavingQuestion}
+          isDeletingQuestion={isDeletingQuestion}
           deleteQuestion={deleteQuestion}
           push={push}/>
       );
