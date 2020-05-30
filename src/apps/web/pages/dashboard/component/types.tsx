@@ -8,7 +8,8 @@ export interface IOwnProps extends RouteComponentProps<any> {
   createdQuizes: IQuizSummaryCard[],
   fetchCreatedQuizes: () => Promise<any>,
   classes: {
-    gridContainer: string
+    gridContainer: string,
+    informationCardLink: string,
   }
 };
 

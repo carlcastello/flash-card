@@ -10,6 +10,7 @@ import styles from './styles';
 import InformationCard from '../../../components/information-card';
 import AddCard from '../../../components/add-card';
 import LoadingScreen from '../../../components/loading-screen';
+import { Link } from 'react-router-dom';
 
 
 class Dashboard extends Component<IOwnProps, IOwnState> {
@@ -51,34 +52,34 @@ class Dashboard extends Component<IOwnProps, IOwnState> {
 
   renderSelectionCard(): ReactNode {
     const {
-      createdQuizes
+      createdQuizes,
+      classes: {
+        informationCardLink
+      }
     } = this.props;
 
     return (
       <Grid container spacing={2}>
         {createdQuizes.map(({id, quizSummary}: IQuizSummaryCard) => (
           <Grid key={id} item sm={4}>
-            <InformationCard
-              id={id}
-              title={quizSummary.title}
-              description={quizSummary.description}
-              onEdit={this.onQuizEdit}
-              onDelete={this.onQuizDelete}/>
+            <Link to={`/quiz/${id}`} className={informationCardLink}>
+              <InformationCard
+                hasHoverEffect
+                id={id}
+                title={quizSummary.title}
+                description={quizSummary.description}
+                onEdit={this.onQuizEdit}
+                onDelete={this.onQuizDelete}/>
+            </Link>
           </Grid> 
         ))}
         <Grid item sm={4}>
-          <AddCard onClick={this.onQuizCreate}/>
+          <AddCard onClick={this.onQuizCreate} hasHoverEffect/>
         </Grid>
       </Grid>
     );
   }
  
-  // renderDeleteModal(): ReactNode {
-  //   return (
-
-  //   )
-  // }
-
   renderDashboard(): ReactNode {
     const {
       classes: {

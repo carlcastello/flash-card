@@ -5,11 +5,15 @@ export interface IOwnProps {
   description: string,
   onEdit: (id: string) => void,
   onDelete: (id: string) => void,
+  hasHoverEffect?: boolean,
   classes: {
     inlineTypography: string,
     paperContainer: string,
     iconButton: string,
     iconButtonContainer: string,
   }
+}
 
+export interface IOwnState {
+  paperElevation: number,
 }

@@ -4,10 +4,14 @@ import { Paper, Typography, Box, withStyles, IconButton } from '@material-ui/cor
 import { Edit, Delete } from '@material-ui/icons';
 
 import styles from './styles';
-import { IOwnProps } from './types';
+import { IOwnProps, IOwnState } from './types';
 
 
-class InformationCard extends Component<IOwnProps> {
+class InformationCard extends Component<IOwnProps, IOwnState> {
+
+  state: IOwnState = {
+    paperElevation: 3,
+  }
 
   onDeleteIconClick = (): void => {
     const {
@@ -24,6 +28,16 @@ class InformationCard extends Component<IOwnProps> {
     } = this.props;
     onEdit(id);
   };
+
+  onMouseHoverAction = (paperElevation: number) => (): void => {
+    const {
+      hasHoverEffect
+    } = this.props;
+
+    if (hasHoverEffect) {
+      this.setState({ paperElevation });
+    }
+  }
 
   renderButtons(): ReactNode {
     const {
@@ -72,19 +86,30 @@ class InformationCard extends Component<IOwnProps> {
 
   render(): ReactNode {
     const {
-      description,
-      classes: {
-        paperContainer
+      props: {
+        description,
+        children,
+        classes: {
+          paperContainer
+        }
+      },
+      state: {
+        paperElevation
       }
-    } = this.props;
+    } = this;
     return (
-      <Paper className={paperContainer} elevation={3}>
+      <Paper
+        className={paperContainer}
+        elevation={paperElevation}
+        onMouseOver={this.onMouseHoverAction(6)}
+        onMouseOut={this.onMouseHoverAction(3)}>
         <Box p={2}>
           {this.renderTitle()}
           {this.renderButtons()}
           <Typography variant="body2">
             {description}
           </Typography>
+          {children}
         </Box>
       </Paper>
     );
