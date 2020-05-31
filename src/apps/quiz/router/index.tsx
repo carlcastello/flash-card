@@ -1,6 +1,6 @@
 import React, { Component, ReactNode } from 'react';
 import { Switch, Route } from 'react-router-dom';
-import Quiz from '../component';
+import Quiz from '../pages/quiz';
 
 
 class Router extends Component {

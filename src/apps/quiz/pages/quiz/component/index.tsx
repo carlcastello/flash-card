@@ -3,10 +3,10 @@ import React, { Component, ReactNode } from 'react';
 import { Box, withStyles, IconButton } from '@material-ui/core';
 import CloseIcon from '@material-ui/icons/Close';
 
-import ProgressBar from '../components/progress-bar';
-import Flashcards from '../components/flash-card';
-import { FlashcardStatus } from '../components/flash-card/types';
-import CompletionCard from '../components/completion-card';
+import ProgressBar from '../../../components/progress-bar';
+import Flashcards from '../../../components/flash-card';
+import { FlashcardStatus } from '../../../components/flash-card/types';
+import CompletionCard from '../../../components/completion-card';
 
 import styles from './styles';
 import { IOwnProps, IOwnState } from './types';
