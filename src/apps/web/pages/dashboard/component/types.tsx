@@ -9,7 +9,6 @@ export interface IOwnProps extends RouteComponentProps<any> {
   fetchCreatedQuizes: () => Promise<any>,
   classes: {
     gridContainer: string,
-    informationCardLink: string,
   }
 };
 

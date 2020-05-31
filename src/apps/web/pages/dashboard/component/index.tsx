@@ -10,7 +10,6 @@ import styles from './styles';
 import InformationCard from '../../../components/information-card';
 import AddCard from '../../../components/add-card';
 import LoadingScreen from '../../../components/loading-screen';
-import { Link } from 'react-router-dom';
 
 
 class Dashboard extends Component<IOwnProps, IOwnState> {
@@ -25,11 +24,21 @@ class Dashboard extends Component<IOwnProps, IOwnState> {
     push('/dashboard/quiz');
   }
 
+  onQuizClick = (quizId: string) => (): void => {
+    const {
+      history: {
+        push
+      }
+    } = this.props;
+
+    push(`/quiz/${quizId}`);
+  }
+
   onQuizEdit = (id: string): void => {
     const {
       history: {
         push
-      }      
+      }
     } = this.props
 
     push(`/dashboard/quiz/${id}`);
@@ -53,24 +62,20 @@ class Dashboard extends Component<IOwnProps, IOwnState> {
   renderSelectionCard(): ReactNode {
     const {
       createdQuizes,
-      classes: {
-        informationCardLink
-      }
     } = this.props;
 
     return (
       <Grid container spacing={2}>
         {createdQuizes.map(({id, quizSummary}: IQuizSummaryCard) => (
           <Grid key={id} item sm={4}>
-            <Link to={`/quiz/${id}`} className={informationCardLink}>
-              <InformationCard
-                hasHoverEffect
-                id={id}
-                title={quizSummary.title}
-                description={quizSummary.description}
-                onEdit={this.onQuizEdit}
-                onDelete={this.onQuizDelete}/>
-            </Link>
+            <InformationCard
+              hasHoverEffect
+              id={id}
+              title={quizSummary.title}
+              description={quizSummary.description}
+              onEdit={this.onQuizEdit}
+              onDelete={this.onQuizDelete}
+              onClick={this.onQuizClick(id)}/>
           </Grid> 
         ))}
         <Grid item sm={4}>

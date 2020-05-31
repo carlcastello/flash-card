@@ -6,6 +6,7 @@ export interface IOwnProps {
   onEdit: (id: string) => void,
   onDelete: (id: string) => void,
   hasHoverEffect?: boolean,
+  onClick?: () => void,
   classes: {
     inlineTypography: string,
     paperContainer: string,

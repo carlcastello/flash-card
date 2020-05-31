@@ -1,4 +1,4 @@
-import React, { Component, ReactNode } from 'react';
+import React, { Component, ReactNode, MouseEvent } from 'react';
 
 import { Paper, Typography, Box, withStyles, IconButton } from '@material-ui/core';
 import { Edit, Delete } from '@material-ui/icons';
@@ -13,19 +13,27 @@ class InformationCard extends Component<IOwnProps, IOwnState> {
     paperElevation: 3,
   }
 
-  onDeleteIconClick = (): void => {
+  onCardClick = (): void => {
+    
+  }
+
+  onDeleteIconClick = (event: MouseEvent): void => {
     const {
       id,
       onDelete
     } = this.props;
+
+    event.stopPropagation();
     onDelete(id);
   };
 
-  onEditIconClick = (): void => {
+  onEditIconClick = (event: MouseEvent): void => {
     const {
       id,
       onEdit
     } = this.props;
+
+    event.stopPropagation();
     onEdit(id);
   };
 
@@ -89,6 +97,7 @@ class InformationCard extends Component<IOwnProps, IOwnState> {
       props: {
         description,
         children,
+        onClick,
         classes: {
           paperContainer
         }
@@ -101,6 +110,7 @@ class InformationCard extends Component<IOwnProps, IOwnState> {
       <Paper
         className={paperContainer}
         elevation={paperElevation}
+        onClick={onClick}
         onMouseOver={this.onMouseHoverAction(6)}
         onMouseOut={this.onMouseHoverAction(3)}>
         <Box p={2}>

@@ -4,7 +4,4 @@ export default (theme: Theme) => ({
   gridContainer: {
     width: '100%'
   },
-  informationCardLink: {
-    textDecoration: 'none' as 'none',
-  }
 });
