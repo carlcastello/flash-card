@@ -10,8 +10,8 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import MainReducer from './reducer';
 
-import Quiz from './quiz';
-import QuizTheme from './quiz/theme';
+import Module from './module';
+import ModuleTheme from './module/theme';
 
 import Web  from './web';
 
@@ -39,12 +39,12 @@ class App extends Component {
 
   renderQuizSwitch(): ReactNode {
     return (
-      <ThemeProvider theme={QuizTheme}>
+      <ThemeProvider theme={ModuleTheme}>
         <Switch>
           <Route
             exact
             path="/quiz/:quizId"
-            component={Quiz}/>
+            component={Module}/>
           </Switch>
       </ThemeProvider>
     );
