@@ -2,11 +2,12 @@ import { connect } from 'react-redux';
 
 import Quiz from './component';
 import { IReduxState } from '../../../types';
-import { QuestionType } from '../../../commons/types';
+import { questionsSelectors } from './selectors';
 
 
 const mapStateToProps = (state: IReduxState) => ({
-  quiz: []
+  questions: questionsSelectors(state),
+  // quiz: pageDataSelector(state)
   // flashcards: [
   //   {
   //     id: '123',

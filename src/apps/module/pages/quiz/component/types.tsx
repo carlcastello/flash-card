@@ -1,9 +1,9 @@
 import { FlashcardStatus } from "../../../components/flash-card/types";
 import { QuizStatus } from "./enum";
-import { IFlashcard } from "../../../../commons/types";
+import { IQuestionCard } from "../../../../commons/types";
 
 export interface IOwnProps {
-  flashcards: IFlashcard[],
+  questions: IQuestionCard[]
   classes: {
     boxContent: string,
     boxContainer: string,

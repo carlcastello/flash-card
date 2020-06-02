@@ -80,16 +80,17 @@ class QuestionCard extends Component<IOwnProps> {
   }
 
   renderFlashcard(): ReactNode {
-    const {
-      questionObject: {
-        questionType,
-      },
-    } = this.props;
-    if (questionType === QuestionType.WORD) {
-      return (this.renderWordVariant());
-    } else if (questionType === QuestionType.QUESTIONAIRE) {
-      return (this.renderQuestionaireVariant());
-    }
+    // const {
+    //   questionObject: {
+    //     questionType,
+    //   },
+    // } = this.props;
+    // if (questionType === QuestionType.WORD) {
+    //   return (this.renderWordVariant());
+    // } else if (questionType === QuestionType.QUESTIONAIRE) {
+    //   return (this.renderQuestionaireVariant());
+    // }
+    return (this.renderWordVariant())
   }
 
   render(): ReactNode {

@@ -22,11 +22,12 @@ class Flashcard extends Component<IOwnProps, IOwnState> {
     const answer = this.answerCardRef.current.state.answer;
 
     const {
-      flashcardObject: {
+      question: {
         answer: correctAnswer
       },
       update,
     } = this.props;
+
     var flashcardStatus: FlashcardStatus = FlashcardStatus.DEFAULT;
 
     if (answer === correctAnswer) {
@@ -73,10 +74,9 @@ class Flashcard extends Component<IOwnProps, IOwnState> {
         flashcardStatus,
       },
       props: {
-        flashcardObject: {
+        question: {
           question,
           subQuestion,
-          questionType,
           hint
         }
       }
@@ -88,8 +88,7 @@ class Flashcard extends Component<IOwnProps, IOwnState> {
         questionObject={{
           question,
           subQuestion,
-          hint,
-          questionType
+          hint
         }}/>
     );
   }
@@ -97,7 +96,7 @@ class Flashcard extends Component<IOwnProps, IOwnState> {
   renderAnswerCard(): ReactNode {
     const {
       props: {
-        flashcardObject: {
+        question: {
           answer,
         }
       },

@@ -4,5 +4,8 @@ import { IModuleState } from '../../types';
 
 export const pageDataSelector = createSelector(
   moduleDataSelector,
-  (moduleData: IModuleState) => moduleData.pageData,
+  (moduleData: IModuleState) => {
+    console.log(moduleData)
+    return moduleData.pageData;
+  }
 )

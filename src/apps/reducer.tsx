@@ -5,6 +5,6 @@ import moduleDataReducer from './module/reducers';
 
 
 export default combineReducers({
-  quiz: moduleDataReducer,
+  module: moduleDataReducer,
   web: webDataReducer
 });

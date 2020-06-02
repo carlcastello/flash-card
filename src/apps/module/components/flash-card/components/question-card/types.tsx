@@ -5,7 +5,7 @@ export interface IQuestionObject {
   question: string,
   subQuestion?: string,
   hint?: string,
-  questionType: QuestionType,
+  // questionType: QuestionType,
 }
 
 export interface IOwnProps {

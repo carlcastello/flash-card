@@ -1,4 +1,4 @@
-import { IFlashcard } from "../../../commons/types";
+import { IQuestionCard } from "../../../commons/types";
 
 export enum FlashcardStatus {
   DEFAULT = "DEFAULT",
@@ -10,7 +10,7 @@ export enum FlashcardStatus {
 export interface IOwnProps {
   update: (flashcardStatus: FlashcardStatus) => void,
   next: () => void,
-  flashcardObject: IFlashcard,
+  question: IQuestionCard,
   classes: {
 
   }
