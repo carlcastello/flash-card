@@ -4,5 +4,5 @@ import { IPageData } from '../../../types';
 
 export const questionsSelectors = createSelector(
   pageDataSelector,
-  (pageData: IPageData) => pageData.quizQuestions || []
+  (pageData: IPageData) => pageData.quizQuestions
 );

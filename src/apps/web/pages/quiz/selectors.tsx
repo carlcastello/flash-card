@@ -1,9 +1,6 @@
 import { createSelector } from 'reselect';
-import { pageDataSelector } from '../selectors';
-import { IPageData, IWebData } from '../../../types';
+import { IWebData } from '../../../types';
 import {
-  QUIZ_SUMMARY,
-  QUIZ_QUESTIONS,
   QUIZ,
   CREATE_QUIZ_SUMMARY_FORM,
   SAVE_QUIZ_SUMMARY_FORM,
@@ -41,13 +38,4 @@ export const isSavingQuestion = createSelector(
 export const isDeletingQuestion = createSelector(
   webDataSelector,
   (webData: IWebData) => webData.componentLoading[DELETE_QUESTION_FORM]
-);
-
-export const requiredDataSelector = createSelector(
-  pageDataSelector,
-  (pageData: IPageData) => {
-    const requiredData = [QUIZ_SUMMARY, QUIZ_QUESTIONS];
-    const pageDataKeys = Object.keys(pageData);
-    return requiredData.filter(item => !pageDataKeys.includes(item));
-  }
 );

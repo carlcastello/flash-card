@@ -1,9 +1,15 @@
-import { FlashcardStatus } from "../../../components/flash-card/types";
-import { QuizStatus } from "./enum";
-import { IQuestionCard } from "../../../../commons/types";
+import { FlashcardStatus } from '../../../components/flash-card/types';
+import { RouteComponentProps } from 'react-router-dom';
+import { IQuestionCard } from '../../../../commons/types';
 
-export interface IOwnProps {
-  questions: IQuestionCard[]
+import { QuizStatus } from './enum';
+
+export interface IOwnProps extends RouteComponentProps<any> {
+  questions: IQuestionCard[],
+  requiredData: string[],
+
+  fetchQuiz: (quizId: string) => void,
+
   classes: {
     boxContent: string,
     boxContainer: string,

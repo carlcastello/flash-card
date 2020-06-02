@@ -73,7 +73,7 @@ class Quiz extends Component<IOwnProps, IOwnState> {
         }
       }
     } = this;
-    console.log(currentFlashcardStatus)
+
     return (
       <Box px={5} className={progressBarContainer}>
         <ProgressBar
@@ -109,6 +109,22 @@ class Quiz extends Component<IOwnProps, IOwnState> {
     return (
       <CompletionCard/>
     )
+  }
+
+  componentDidMount() {
+    const {
+      requiredData,
+      fetchQuiz,
+      match: {
+        params: {
+          quizId
+        }
+      },
+    } = this.props;
+
+    if (quizId && requiredData.length !== 0) {
+      fetchQuiz(quizId);
+    }
   }
 
   render(): ReactNode {

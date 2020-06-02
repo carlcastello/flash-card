@@ -12,7 +12,6 @@ import {
   deleteQuestion
 } from './actions';
 import {
-  requiredDataSelector,
   isFullPageLoading,
   isCreatingQuizSummary,
   isSavingQuizSummary,
@@ -20,11 +19,18 @@ import {
   isSavingQuestion,
   isDeletingQuestion
 } from './selectors';
-import { pageDataSelector } from '../selectors';
+import {
+  pageDataSelector,
+  requiredDataSelector
+} from '../selectors';
+import {
+  QUIZ_SUMMARY,
+  QUIZ_QUESTIONS
+} from '../../common/constants';
 
 const mapStateToProps = (state: IReduxState) => ({
   isFullPageLoading: isFullPageLoading(state),
-  requiredData: requiredDataSelector(state),
+  requiredData: requiredDataSelector([QUIZ_SUMMARY, QUIZ_QUESTIONS])(state),
   creatingQuizSummary: isCreatingQuizSummary(state),
   savingQuizSummary: isSavingQuizSummary(state),
   isCreatingQuestion: isCreatingQuestion(state),

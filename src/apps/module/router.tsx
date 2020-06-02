@@ -9,7 +9,7 @@ class Router extends Component {
       <Switch>
         <Route 
           exact
-          path='/quiz/:quidId'
+          path='/quiz/:quizId'
           component={Quiz}/>
       </Switch>
     );
