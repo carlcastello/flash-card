@@ -40,18 +40,21 @@ class QuestionCard extends Component<IOwnProps> {
         subQuestion
       },
       classes: {
-        boxQuestionaireContainer
+        boxQuestionaireContainer,
+        questionTypography
       }
     } = this.props;
     return (
-      <Box py={3} px={2} className={boxQuestionaireContainer}>
-        <Typography variant="h3">
+      <Box py={4} px={2} className={boxQuestionaireContainer}>
+        <Typography variant="h3" className={questionTypography}>
           {question}
         </Typography>
         {subQuestion ?  
-          <Typography variant="body1">
-            {subQuestion}
-          </Typography> :
+          <Box mt={0.5}>
+            <Typography variant="body1">
+              {subQuestion}
+            </Typography>
+          </Box> :
           null
         }   
         {this.renderSkip()}     

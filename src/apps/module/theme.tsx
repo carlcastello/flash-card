@@ -32,7 +32,8 @@ export default createMuiTheme({
 
     h3: {
       fontFamily: montserrat,
-      fontWeight: 400
+      fontWeight: 500,
+      fontSize: '2.5rem'
     },
 
     h4: {

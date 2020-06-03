@@ -20,6 +20,20 @@ export const MOCK_QUIZES: IQuiz[] = [
       id: 'b9128862-9149-4ec4-8847-4a68eda4d8a2',
       question: 'Jumps',
       subQuestion: 'Ove',
+    },
+    {
+      answer: 'Potato Salad',
+      hint: 'The',
+      id: 'b9128862-9149-4ec4-8847-4a68eda4d8a2',
+      question: 'What is the capital city of Potato Head?',
+      subQuestion: 'hello  world',
+    },
+    {
+      answer: 'Lazy',
+      hint: 'The',
+      id: 'b9128862-9149-4ec4-8847-4a68eda4d8a2',
+      question: 'Jumps',
+      subQuestion: 'Ove',
     }]
   },
   {

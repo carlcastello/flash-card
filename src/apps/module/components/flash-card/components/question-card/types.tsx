@@ -15,6 +15,7 @@ export interface IOwnProps {
   classes: {
     paper: string,
     boxButtonContainer: string,
-    boxQuestionaireContainer: string
+    boxQuestionaireContainer: string,
+    questionTypography: string
   }
 }

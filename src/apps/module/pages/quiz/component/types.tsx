@@ -22,5 +22,6 @@ export interface IOwnState {
   questionIndex: number,
   progressIndex: number,
   currentFlashcardStatus: FlashcardStatus,
-  quizStatus: QuizStatus
+  quizStatus: QuizStatus,
+  confirmModalToogle: boolean
 }

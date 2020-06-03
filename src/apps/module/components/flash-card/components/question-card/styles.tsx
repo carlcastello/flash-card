@@ -12,5 +12,9 @@ export default (theme: Theme) => ({
   },
   boxQuestionaireContainer: {
     position: 'relative' as 'relative'
+  },
+  questionTypography: {
+    maxWidth: '600px',
+    margin: '0 auto'
   }
 });
