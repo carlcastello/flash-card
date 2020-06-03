@@ -7,14 +7,14 @@ export default (theme: Theme) => ({
   progressBar: {
     height: theme.spacing(1),
     borderRadius: '5px',
-    backgroundColor: theme.palette.secondary.main,
-    '& .MuiLinearProgress-bar': {
+    backgroundColor: '#d6d6d6',
+    '& > div': {
       backgroundColor: theme.palette.success.main,
     },
-    '&.WRONG .MuiLinearProgress-bar': {
+    '&.WRONG > div': {
       backgroundColor: theme.palette.error.main,
     },
-    '&.HINT .MuiLinearProgress-bar': {
+    '&.HINT > div': {
       backgroundColor: theme.palette.warning.main,
     }
   },

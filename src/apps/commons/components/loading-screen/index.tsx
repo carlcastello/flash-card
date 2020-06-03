@@ -22,7 +22,7 @@ class LoadingScreen extends Component<IOwnProps> {
     return (
       <Box className={boxContainer}>
         <Box className={boxContent}>
-          <Typography variant="h5" className={typography}>
+          <Typography variant="h4" className={typography}>
             {children}
           </Typography>
           <LinearProgress color="secondary" className={linearProgressBar}/>

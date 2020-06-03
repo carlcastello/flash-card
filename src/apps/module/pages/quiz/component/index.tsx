@@ -11,6 +11,7 @@ import CompletionCard from '../../../components/completion-card';
 import styles from './styles';
 import { IOwnProps, IOwnState } from './types';
 import { QuizStatus } from './enum';
+import LoadingScreen from '../../../../commons/components/loading-screen';
 
 class Quiz extends Component<IOwnProps, IOwnState> {
 
@@ -133,26 +134,35 @@ class Quiz extends Component<IOwnProps, IOwnState> {
         quizStatus,
       },
       props: {
-          classes: {
+        requiredData,
+        classes: {
           boxContent,
           boxContainer
         }
       }
     } = this;
 
-    return(
-      <Box className={boxContainer}>
-        <Box className={boxContent}>
-          {quizStatus === QuizStatus.COMPLETED ? 
-            this.renderCompletionCard() :
-            <Box>
-              {this.renderProgressBar()}
-              {this.renderFlashcard()}
-            </Box>
-          }
+    if (requiredData.length !== 0) {
+      return (
+        <LoadingScreen>
+          Loading Quiz...
+        </LoadingScreen>
+      )  
+    } else {
+      return(
+        <Box className={boxContainer}>
+          <Box className={boxContent}>
+            {quizStatus === QuizStatus.COMPLETED ? 
+              this.renderCompletionCard() :
+              <Box>
+                {this.renderProgressBar()}
+                {this.renderFlashcard()}
+              </Box>
+            }
+          </Box>
         </Box>
-      </Box>
-    );
+      );
+    }
   }
 }
 

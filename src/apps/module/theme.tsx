@@ -7,9 +7,9 @@ export default createMuiTheme({
     primary: {
       main: '#4e73df'
     },
-    secondary: {
-      main: '#DFDFDF',
-    },
+    // secondary: {
+    //   main: '#DFDFDF',
+    // },
 
     background: {
       default: '#f8f9fc'
@@ -30,6 +30,15 @@ export default createMuiTheme({
       fontWeight: 700
     },
 
+    h3: {
+      fontFamily: montserrat,
+      fontWeight: 400
+    },
+
+    h4: {
+      fontWeight: 400
+    },
+    
     h5: {
       fontFamily: montserrat,
       fontWeight: 700
@@ -37,7 +46,7 @@ export default createMuiTheme({
     
     body1: {
       fontFamily: montserrat,
-      fontSize: '2rem'
+      fontSize: '1.5rem'
     }
 
   },

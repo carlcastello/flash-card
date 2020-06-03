@@ -25,7 +25,6 @@ class QuestionCard extends Component<IOwnProps> {
     return (
       <Box pr={2} pb={1} className={boxButtonContainer}>
         <IconButton
-          color="primary"
           onClick={onSkip}
           disabled={flashcardStatus !== FlashcardStatus.DEFAULT}>
           <SkipNextIcon/>
@@ -45,8 +44,8 @@ class QuestionCard extends Component<IOwnProps> {
       }
     } = this.props;
     return (
-      <Box py={7} px={2} className={boxQuestionaireContainer}>
-        <Typography variant="h2">
+      <Box py={3} px={2} className={boxQuestionaireContainer}>
+        <Typography variant="h3">
           {question}
         </Typography>
         {subQuestion ?  
@@ -70,7 +69,7 @@ class QuestionCard extends Component<IOwnProps> {
       }
     } = this.props;
     return ( 
-      <Box py={10} px={2} className={boxQuestionaireContainer}>
+      <Box py={5} px={2} className={boxQuestionaireContainer}>
         <Typography variant="body1">
           {question}
         </Typography>
@@ -79,7 +78,7 @@ class QuestionCard extends Component<IOwnProps> {
     )
   }
 
-  renderFlashcard(): ReactNode {
+  renderQuestionCard(): ReactNode {
     // const {
     //   questionObject: {
     //     questionType,
@@ -101,7 +100,7 @@ class QuestionCard extends Component<IOwnProps> {
     } = this.props;
     return (
       <Paper className={paper} elevation={3}>
-        {this.renderFlashcard()}
+        {this.renderQuestionCard()}
       </Paper>
     );
   }

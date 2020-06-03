@@ -32,17 +32,14 @@ import { QUESTIONS } from '../../common/constants';
   //     answer: 'potato'
   //   }
   // ]
-const mapStateToProps = (state: IReduxState) => {
-  console.log( requiredDataSelector([QUESTIONS])(state))
-  return ({
-    questions: questionsSelectors(state),
-    requiredData: requiredDataSelector([QUESTIONS])(state),
-})
-}
+const mapStateToProps = (state: IReduxState) => ({
+  questions: questionsSelectors(state),
+  requiredData: requiredDataSelector([QUESTIONS])(state),
+});
 
 const mapDispatchToProps = {
   fetchQuiz
-}
+};
 
 
 export default connect(
