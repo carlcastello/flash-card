@@ -4,9 +4,9 @@ import {
   Box,
   withStyles,
   IconButton,
-  Modal,
   Typography,
-  Paper
+  Button,
+
 } from '@material-ui/core';
 import CloseIcon from '@material-ui/icons/Close';
 
@@ -19,6 +19,7 @@ import styles from './styles';
 import { IOwnProps, IOwnState } from './types';
 import { QuizStatus } from './enum';
 import LoadingScreen from '../../../../commons/components/loading-screen';
+import StyledModal from '../../../components/styled-modal';
 
 
 class Quiz extends Component<IOwnProps, IOwnState> {
@@ -33,11 +34,22 @@ class Quiz extends Component<IOwnProps, IOwnState> {
 
   onCloseQuiz = () => {
     const {
-      quizStatus,
-    } = this.state;
+      state: {
+        quizStatus,
+      },
+      props: {
+        history: {
+          push
+        }
+      }
+    } = this;
+
+
     if (quizStatus === QuizStatus.COMPLETED) {
       console.log('Close Quiz');
-    } 
+    } else {
+      push('/')
+    }
   }
 
   onCloseIconToggle = () => {
@@ -162,17 +174,18 @@ class Quiz extends Component<IOwnProps, IOwnState> {
     const {
       confirmModalToogle
     } = this.state;
-
+    
     return (
-      <Modal
-        open={confirmModalToogle}
-        onClose={this.onCloseIconToggle}>
-        <Paper elevation={3}>
+      <StyledModal
+        isOpen={confirmModalToogle}
+        onIgnore={this.onCloseIconToggle}
+        onConfirm={this.onCloseQuiz}>
+        <Box pb={4}>
           <Typography>
-            Hello World
-          </Typography> 
-        </Paper>
-      </Modal>
+            Are you sure you want to close this quiz?
+          </Typography>
+        </Box>
+      </StyledModal>
     )
   }
 

@@ -245,7 +245,6 @@ class QuizQuestion extends Component<IOwnProps, IOwnState> {
         deleteQuestionFormOpen    
       },
     } = this;
-    console.log('asdasd', isDeletingQuestion)
     return (
       <WebModal 
         isOpen={deleteQuestionFormOpen}

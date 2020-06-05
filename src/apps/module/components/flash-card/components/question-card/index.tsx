@@ -8,7 +8,6 @@ import {
   IOwnProps
 } from './types';
 import { FlashcardStatus } from '../../types';
-import { QuestionType } from '../../../../../commons/types';
 
 
 class QuestionCard extends Component<IOwnProps> {

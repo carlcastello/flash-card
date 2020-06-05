@@ -14,7 +14,7 @@ export interface IOwnProps extends RouteComponentProps<any> {
     boxContent: string,
     boxContainer: string,
     progressBarContainer: string,
-    iconButton: string
+    iconButton: string,
   }
 }
 
