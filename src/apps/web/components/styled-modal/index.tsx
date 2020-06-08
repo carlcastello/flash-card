@@ -6,7 +6,8 @@ import {
   Box,
   Grid,
   Button,
-  IconButton
+  IconButton,
+  LinearProgress
 } from '@material-ui/core';
 import { Close } from '@material-ui/icons';
 
@@ -55,12 +56,46 @@ class StyledModal extends Component<IOwnProps> {
     )
   }
   
+  renderButtons(): ReactNode {
+    const {
+      onIgnore,
+      onConfirm
+    } = this.props;
+
+    return (
+      <Grid 
+        container
+        spacing={1}
+        justify="flex-end">
+        <Grid item>
+          <Button onClick={onIgnore}>
+            No
+          </Button>
+        </Grid>
+        <Grid item>
+          <Button onClick={onConfirm} color="secondary">
+            Yes
+          </Button>
+        </Grid>
+      </Grid>
+    );
+  }
+
+  renderLoadingBar(): ReactNode {
+    return (
+      <Box width="100%" flex flexDirection="row" pb={2.5}>
+        <LinearProgress color="secondary"/>
+      </Box>
+    )
+  }
 
   render(): ReactNode {
     const {
       isOpen,
+      onConfirm,
       onIgnore,
       children,
+      isLoading,
       classes: {
         modalContainer,
         modalPaperContainer
@@ -75,9 +110,15 @@ class StyledModal extends Component<IOwnProps> {
         <Paper
           elevation={3}
           className={modalPaperContainer}>
-          <Box p={5} position="relative">
+          <Box px={5} pt={5} pb={onConfirm ? 2.5 : 5} position="relative">
             {this.renderCloseIcon()}
             {children}
+            {!isLoading && onConfirm ?
+              this.renderButtons() :
+              null}
+            {isLoading ? 
+              this.renderLoadingBar() :
+              null}
           </Box>
         </Paper>
       </Modal>

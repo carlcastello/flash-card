@@ -10,10 +10,15 @@ import styles from './styles';
 import InformationCard from '../../../components/information-card';
 import AddCard from '../../../components/add-card';
 import LoadingScreen from '../../../../commons/components/loading-screen';
-
+import WebModal from '../../../components/styled-modal';
 
 class Dashboard extends Component<IOwnProps, IOwnState> {
   
+  state = {
+    toggleModuleId: '',
+    moduleModalOpen: false,
+  }
+
   onQuizCreate = (): void => {
     const {
       history: {
@@ -44,9 +49,28 @@ class Dashboard extends Component<IOwnProps, IOwnState> {
     push(`/dashboard/quiz/${id}`);
   }
 
-  onQuizDelete = (id: string): void => {
-    
+  onQuizDelete = (): void => {
+    const {
+      state: {
+        toggleModuleId,
+      },
+      props: {
+        deleteCreatedQuiz
+      }
+    } = this;
+
+    deleteCreatedQuiz(toggleModuleId).then(() => 
+      this.onQuizDeleteToggle('')
+    )
   }
+
+  onQuizDeleteToggle = (moduleId: string): void => {
+    this.setState((state) => ({
+      ...state,
+      toggleModuleId: moduleId,
+      moduleModalOpen: !state.moduleModalOpen,
+    })
+  )}
 
   componentDidMount() {
     const {
@@ -57,6 +81,31 @@ class Dashboard extends Component<IOwnProps, IOwnState> {
     if (requiredData.length !== 0) {
       fetchCreatedQuizes();
     }
+  }
+
+  renderDeleteModal(): ReactNode {
+    const {
+      state: {
+        moduleModalOpen
+      },
+      props: {
+        isDeletingQuiz
+      }
+    } = this;
+
+    return (
+      <WebModal 
+        isOpen={moduleModalOpen}
+        onIgnore={() => this.onQuizDeleteToggle('')}
+        onConfirm={this.onQuizDelete}
+        isLoading={isDeletingQuiz}>
+        <Box pb={4}>
+          <Typography variant="h4" align="center">
+            Are you sure to delete this Quiz?
+          </Typography>
+        </Box>
+      </WebModal>
+    )
   }
 
   renderSelectionCard(): ReactNode {
@@ -74,7 +123,7 @@ class Dashboard extends Component<IOwnProps, IOwnState> {
               title={quizSummary.title}
               description={quizSummary.description}
               onEdit={this.onQuizEdit}
-              onDelete={this.onQuizDelete}
+              onDelete={this.onQuizDeleteToggle}
               onClick={this.onQuizClick(id)}/>
           </Grid> 
         ))}
@@ -109,7 +158,7 @@ class Dashboard extends Component<IOwnProps, IOwnState> {
             {this.renderSelectionCard()}
           </Grid>
         </Grid>
-        {/* {this.renderDeleteModal()} */}
+        {this.renderDeleteModal()}
       </Box>
     );
   }

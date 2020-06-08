@@ -12,3 +12,4 @@ export const DELETE_QUESTION_FORM = 'deleteQuizQuestionForm'
 
 export const DASHBOARD = 'dashboard';
 export const CREATED_QUIZES = 'createdQuizes';
+export const DELETE_CREATED_QUIZ = 'deleteCreatedQuiz';

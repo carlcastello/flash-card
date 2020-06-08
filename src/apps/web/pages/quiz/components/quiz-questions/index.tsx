@@ -45,7 +45,7 @@ class QuizQuestion extends Component<IOwnProps, IOwnState> {
     }))
   }
 
-  onEditQuestionToggleClick = (questionId: string) => (): void => {
+  onEditQuestionToggleClick = (questionId: string): void => {
     const {
       quizQuestions,
     } = this.props;
@@ -58,7 +58,7 @@ class QuizQuestion extends Component<IOwnProps, IOwnState> {
     }))
   }
 
-  onDeleteQuestionToggleClick = (questionId: string) => (): void => {
+  onDeleteQuestionToggleClick = (questionId: string): void => {
     this.setState((state: IOwnState) => ({
       ...state,
       deleteQuestionFormOpen: !state.deleteQuestionFormOpen,
@@ -107,7 +107,7 @@ class QuizQuestion extends Component<IOwnProps, IOwnState> {
     } = this;
 
     deleteQuestion(quizId, toggledQuestionId).then(() => 
-      this.onDeleteQuestionToggleClick('')()
+      this.onDeleteQuestionToggleClick('')
     );
   }
 
@@ -176,8 +176,8 @@ class QuizQuestion extends Component<IOwnProps, IOwnState> {
                   title={questionCard.question}
                   description={questionCard.answer}
                   subtitle={questionCard.subQuestion}
-                  onEdit={this.onEditQuestionToggleClick(questionCard.id)}
-                  onDelete={this.onDeleteQuestionToggleClick(questionCard.id)}/>
+                  onEdit={this.onEditQuestionToggleClick}
+                  onDelete={this.onDeleteQuestionToggleClick}/>
               </Grid>
             )) :
             <Grid item sm={12}>
@@ -205,7 +205,7 @@ class QuizQuestion extends Component<IOwnProps, IOwnState> {
     return (
       <WebModal
        isOpen={editQuestionFormOpen}
-       onIgnore={this.onEditQuestionToggleClick('')}>
+       onIgnore={() => this.onEditQuestionToggleClick('')}>
         <Box pb={2}>
           <Typography variant='h4'>
             Edit Question
@@ -216,23 +216,6 @@ class QuizQuestion extends Component<IOwnProps, IOwnState> {
           fields={QuestionFields(toggledQuestion)}
           onSuccess={this.onEditQuestion}/>
       </WebModal>
-    );
-  }
-
-  renderDeleteModalButtons(): ReactNode {
-    return (
-      <Grid container spacing={2}>
-        <Grid item xs={6}>
-          <Button onClick={this.onDeleteQuestionToggleClick('')} fullWidth>
-            No
-          </Button>
-        </Grid>
-        <Grid item xs={6}>
-          <Button onClick={this.onDeleteQuestion} color="secondary" fullWidth>
-            Yes
-          </Button>
-        </Grid>
-      </Grid>
     );
   }
 
@@ -248,18 +231,14 @@ class QuizQuestion extends Component<IOwnProps, IOwnState> {
     return (
       <WebModal 
         isOpen={deleteQuestionFormOpen}
-        onIgnore={this.onDeleteQuestionToggleClick('')}>
+        onIgnore={() => this.onDeleteQuestionToggleClick('')}
+        onConfirm={this.onDeleteQuestion}
+        isLoading={isDeletingQuestion}>
         <Box pb={4}>
           <Typography variant="h4" align="center">
             Are you sure to delete this question?
           </Typography>
         </Box>
-        {isDeletingQuestion ?
-          <Box width="100%" flex flexDirection="row">
-            <LinearProgress color="secondary"/>
-          </Box>  :
-          this.renderDeleteModalButtons()
-        }
       </WebModal>
     );
   }
