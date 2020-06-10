@@ -13,13 +13,14 @@ import CloseIcon from '@material-ui/icons/Close';
 import ProgressBar from '../../../components/progress-bar';
 import Flashcards from '../../../components/flash-card';
 import { FlashcardStatus } from '../../../components/flash-card/types';
-import CompletionCard from '../../../components/completion-card';
+import CompletionScreen from '../components/completion-screen';
 
 import styles from './styles';
 import { IOwnProps, IOwnState } from './types';
 import { QuizStatus } from './enum';
 import LoadingScreen from '../../../../commons/components/loading-screen';
 import StyledModal from '../../../components/styled-modal';
+import EmptyScreen from '../components/empty-screen';
 
 
 class Quiz extends Component<IOwnProps, IOwnState> {
@@ -32,23 +33,40 @@ class Quiz extends Component<IOwnProps, IOwnState> {
     confirmModalToogle: false
   }
 
+  redirectToDashboard = () => {
+    const {
+      history: {
+        push
+      }
+    } = this.props;
+    push('/')
+  }
+
+  onEditQuiz = () => {
+    const {
+      match: {
+        params: {
+          quizId
+        }
+      },
+      history: {
+        push
+      }
+    } = this.props;
+
+    push(`/dashboard/quiz/${quizId}`)
+  }
+
   onCloseQuiz = () => {
     const {
-      state: {
-        quizStatus,
-      },
-      props: {
-        history: {
-          push
-        }
-      }
-    } = this;
+      quizStatus,
+    } = this.state;
 
-
-    if (quizStatus === QuizStatus.COMPLETED) {
-      console.log('Close Quiz');
-    } else {
-      push('/')
+    if (
+      quizStatus === QuizStatus.COMPLETED ||
+      quizStatus === QuizStatus.STOPPED
+    ) {
+      this.redirectToDashboard()
     }
   }
 
@@ -61,6 +79,16 @@ class Quiz extends Component<IOwnProps, IOwnState> {
     );
   }
 
+  onConfirmModal = () => {
+    this.setState(
+      (state) => ({
+        ...state,
+        quizStatus: QuizStatus.STOPPED
+      }),
+      this.onCloseQuiz
+    )
+  }
+
   onUpdateFlashcard = (currentFlashcardStatus: FlashcardStatus) => {
     this.setState((state) => ({
         ...state,
@@ -69,25 +97,35 @@ class Quiz extends Component<IOwnProps, IOwnState> {
     }));
   }
 
-  onNextFlashcard = () => {
+  onReviewToggle = () => {
+    this.setState({
+      quizStatus: QuizStatus.REVIEW,
+      progressIndex: 0,
+      questionIndex: 0
+    });
+  }
 
-    this.setState(
-      (state, { questions }) => {
-        if (state.questionIndex < questions.length - 1) {
-          return ({ 
-            ...state,
-            currentFlashcardStatus: FlashcardStatus.DEFAULT,
-            questionIndex: state.questionIndex + 1
-          });
-        } else {
-          return ({ 
-            ...state,
-            quizStatus: QuizStatus.COMPLETED,
-          });
-        }
+  onNextFlashcard = () => {
+    const {
+      props: {
+        questions
       },
-      () => this.onCloseQuiz()
-    )
+      state: {
+        questionIndex
+      }
+    } = this
+
+    if (questionIndex < questions.length - 1) {
+      this.setState((state) => ({
+        ...state,
+        currentFlashcardStatus: FlashcardStatus.DEFAULT,
+        questionIndex: state.questionIndex + 1
+      }));
+    } else {
+      this.setState({
+        quizStatus: QuizStatus.COMPLETED
+      })
+    }
   }
 
   renderProgressBar(): ReactNode {
@@ -111,7 +149,9 @@ class Quiz extends Component<IOwnProps, IOwnState> {
           flashcardStatus={currentFlashcardStatus}
           currentQuestion={progressIndex}
           totalQuestion={questions.length}/>
-        <IconButton className={iconButton} onClick={this.onCloseIconToggle}>
+        <IconButton
+          className={iconButton}
+          onClick={this.onCloseIconToggle}>
           <CloseIcon/>
         </IconButton>
       </Box>
@@ -136,35 +176,19 @@ class Quiz extends Component<IOwnProps, IOwnState> {
     )
   }
 
-  renderCompletionCard(): ReactNode {
-    return (
-      <CompletionCard/>
-    )
-  }
-
   renderContainer(): ReactNode {
     const {
-      state: {
-        quizStatus,
-      },
-      props: {
-        classes: {
-          boxContent,
-          boxContainer
-        }
+      classes: {
+        boxContent,
+        boxContainer
       }
-    } = this;
+    } = this.props;
 
     return(
       <Box className={boxContainer}>
         <Box className={boxContent}>
-          {quizStatus === QuizStatus.COMPLETED ? 
-            this.renderCompletionCard() :
-            <Box>
-              {this.renderProgressBar()}
-              {this.renderFlashcard()}
-            </Box>
-          }
+          {this.renderProgressBar()}
+          {this.renderFlashcard()}
         </Box>
       </Box>
     );
@@ -179,7 +203,7 @@ class Quiz extends Component<IOwnProps, IOwnState> {
       <StyledModal
         isOpen={confirmModalToogle}
         onIgnore={this.onCloseIconToggle}
-        onConfirm={this.onCloseQuiz}>
+        onConfirm={this.onConfirmModal}>
         <Box pb={4}>
           <Typography>
             Are you sure you want to close this quiz?
@@ -206,9 +230,15 @@ class Quiz extends Component<IOwnProps, IOwnState> {
   }
 
   render(): ReactNode {
-  const {
-      requiredData,
-    } = this.props;
+    const {
+      props: {
+        requiredData,
+        questions,
+      },
+      state: {
+        quizStatus
+      }
+    } = this;
 
     if (requiredData.length !== 0) {
       return (
@@ -216,6 +246,18 @@ class Quiz extends Component<IOwnProps, IOwnState> {
           Loading Quiz...
         </LoadingScreen>
       )  
+    } else if (questions.length === 0) {
+      return (
+        <EmptyScreen
+         onClose={this.redirectToDashboard}
+         onAddQuestion={this.onEditQuiz}/>
+      )
+    } else if (quizStatus === QuizStatus.COMPLETED) {
+      return (
+        <CompletionScreen 
+          onClose={this.redirectToDashboard}
+          onReview={this.onReviewToggle}/>
+      )
     } else {
       return (
         <Box>
