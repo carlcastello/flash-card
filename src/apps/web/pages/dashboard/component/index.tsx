@@ -141,7 +141,10 @@ class Dashboard extends Component<IOwnProps, IOwnState> {
       }
     } = this.props;
     return (
-      <Box>
+      <Box
+        display="flex"
+        flexDirection="row"
+        justifyContent="center">
         <Grid 
           container
           direction="row"

@@ -26,5 +26,6 @@ export interface IWebData {
 
 export interface IReduxState {
   module: IModuleState,
-  web: IWebData
+  web: IWebData,
+  api: string
 }

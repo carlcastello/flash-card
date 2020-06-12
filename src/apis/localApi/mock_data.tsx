@@ -1,4 +1,5 @@
-import { IQuiz } from "../apps/commons/types";
+import { IQuiz } from "../../apps/commons/types";
+
 
 export const MOCK_QUIZES: IQuiz[] = [
   {
