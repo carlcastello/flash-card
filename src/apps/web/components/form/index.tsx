@@ -14,7 +14,7 @@ import styles from './styles';
 import { IOwnProps, IField, IOwnState } from './types';
 
 
-class Form extends Component<IOwnProps, IOwnState> {
+export class Form extends Component<IOwnProps, IOwnState> {
 
   state: IOwnState = {
     fields: {}

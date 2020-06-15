@@ -7,7 +7,7 @@ import WebRouter from './router';
 import theme from './theme';
 import styles from './styles';
 
-class Web extends Component {
+export class Web extends Component {
 
   render(): ReactNode {
     return (
