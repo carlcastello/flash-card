@@ -75,7 +75,7 @@ export class Form extends Component<IOwnProps, IOwnState> {
 
   renderLoadingBar(): ReactNode {
     return (
-      <Box mt={2} width="100%" flex flexDirection="row">
+      <Box mt={2} width="100%" display="flex" flexDirection="row">
         <LinearProgress color="secondary"/>
       </Box>
     );
