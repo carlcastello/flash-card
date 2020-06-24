@@ -7,14 +7,10 @@ import styles from './styles';
 import { IOwnProps, IOwnState } from './types';
 
 
-class InformationCard extends Component<IOwnProps, IOwnState> {
+export class InformationCard extends Component<IOwnProps, IOwnState> {
 
   state: IOwnState = {
     paperElevation: 3,
-  }
-
-  onCardClick = (): void => {
-    
   }
 
   onDeleteIconClick = (event: MouseEvent): void => {

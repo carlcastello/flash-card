@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Web APP The Button Container Shows Button 1`] = `
+exports[`Form The Button Container Shows Button 1`] = `
 <form>
   <WithStyles(ForwardRef(FormControl))
     className="form-control"
@@ -34,7 +34,7 @@ exports[`Web APP The Button Container Shows Button 1`] = `
 </form>
 `;
 
-exports[`Web APP The Button Container Shows Loading 1`] = `
+exports[`Form The Button Container Shows Loading 1`] = `
 <form>
   <WithStyles(ForwardRef(FormControl))
     className="form-control"

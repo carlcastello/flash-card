@@ -4,10 +4,7 @@ import { IModuleState, IPageData } from '../../types';
 
 export const pageDataSelector = createSelector(
   moduleDataSelector,
-  (moduleData: IModuleState) => {
-    console.log("module", moduleData)
-    return moduleData.pageData;
-  }
+  (moduleData: IModuleState) => moduleData.pageData
 )
 
 export const requiredDataSelector = (requiredData: string[]) => createSelector(

@@ -15,7 +15,7 @@ import { Close } from '@material-ui/icons';
 import styles from './styles';
 import { IOwnProps } from './types'
 
-class StyledModal extends Component<IOwnProps> {
+export class StyledModal extends Component<IOwnProps> {
 
   renderCloseIcon(): ReactElement {
     const {
@@ -31,28 +31,6 @@ class StyledModal extends Component<IOwnProps> {
         className={closeButton}>
         <Close/>
       </IconButton>
-    )
-  }
-
-  renderGridButton(): ReactNode {
-    const {
-      onIgnore,
-      onConfirm
-    } = this.props
-    
-    return (
-      <Grid container spacing={2}>
-        <Grid item xs={6}>
-          <Button onClick={onIgnore} fullWidth>
-            No
-          </Button>
-        </Grid>
-        <Grid item xs={6}>
-          <Button onClick={onConfirm} color="secondary" fullWidth>
-            Yes
-          </Button>
-        </Grid>
-      </Grid>
     )
   }
   
@@ -83,7 +61,7 @@ class StyledModal extends Component<IOwnProps> {
 
   renderLoadingBar(): ReactNode {
     return (
-      <Box width="100%" flex flexDirection="row" pb={2.5}>
+      <Box width="100%" flex={true} flexDirection="row" pb={2.5}>
         <LinearProgress color="secondary"/>
       </Box>
     )

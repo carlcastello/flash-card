@@ -6,7 +6,7 @@ import { Form }  from '../index';
 import { Button, LinearProgress } from '@material-ui/core';
 
 
-describe("Web APP", () => {
+describe("Form", () => {
 
   const inputValidator = (value: string) => {
     if (!/[0-9]+/.test(value)) {

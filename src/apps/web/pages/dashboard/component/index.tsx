@@ -12,7 +12,7 @@ import AddCard from '../../../components/add-card';
 import LoadingScreen from '../../../../commons/components/loading-screen';
 import WebModal from '../../../components/styled-modal';
 
-class Dashboard extends Component<IOwnProps, IOwnState> {
+export class Dashboard extends Component<IOwnProps, IOwnState> {
   
   state = {
     toggleModuleId: '',
@@ -59,9 +59,10 @@ class Dashboard extends Component<IOwnProps, IOwnState> {
       }
     } = this;
 
-    deleteCreatedQuiz(toggleModuleId).then(() => 
-      this.onQuizDeleteToggle('')
-    )
+    deleteCreatedQuiz(toggleModuleId)
+      .then(() => 
+        this.onQuizDeleteToggle('')
+      ).catch(() => {});
   }
 
   onQuizDeleteToggle = (moduleId: string): void => {
