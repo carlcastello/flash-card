@@ -21,7 +21,7 @@ import StyledModal from '../../../components/styled-modal';
 import EmptyScreen from '../components/empty-screen';
 
 
-export class Quiz extends Component<IOwnProps, IOwnState> {
+export class QuizMainPage extends Component<IOwnProps, IOwnState> {
 
   state = {
     questionIndex: 0,
@@ -267,4 +267,4 @@ export class Quiz extends Component<IOwnProps, IOwnState> {
   }
 }
 
-export default withStyles(styles)(Quiz);
+export default withStyles(styles)(QuizMainPage);
