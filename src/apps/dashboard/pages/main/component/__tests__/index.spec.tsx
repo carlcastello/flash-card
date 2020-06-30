@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Dashboard } from "../index";
+import { Main } from "../index";
 import { shallow } from "enzyme";
 import toJson from "enzyme-to-json";
 import LoadingScreen from "../../../../../commons/components/loading-screen";
@@ -8,7 +8,7 @@ import StyledModal from "../../../../components/styled-modal";
 import AddCard from "../../../../components/add-card";
 import InformationCard from "../../../../components/information-card";
 
-describe("Dashboard", () => {
+describe("The Main Dashboard", () => {
   const id = "489ebf1e-91b3-4cfb-9f07-3792310ded9d";
 
   let wrapper: any;
@@ -25,7 +25,7 @@ describe("Dashboard", () => {
     deleteQuizFunction = jest.fn().mockResolvedValue(null);
 
     wrapper = shallow(
-      <Dashboard
+      <Main
         isFullPageLoading={false}
         requiredData={["Hello World"]}
         createdQuizes={[
@@ -52,7 +52,7 @@ describe("Dashboard", () => {
     instance = wrapper.instance();
   });
 
-  describe("The Dashboard", () => {
+  describe("The Render Funcion", () => {
     it("show a loading screen", () => {
       wrapper.setProps({ isFullPageLoading: true })
       wrapper.update();

@@ -12,7 +12,7 @@ import AddCard from '../../../components/add-card';
 import LoadingScreen from '../../../../commons/components/loading-screen';
 import WebModal from '../../../components/styled-modal';
 
-export class Dashboard extends Component<IOwnProps, IOwnState> {
+export class Main extends Component<IOwnProps, IOwnState> {
   
   state = {
     toggleModuleId: '',
@@ -182,4 +182,4 @@ export class Dashboard extends Component<IOwnProps, IOwnState> {
   }
 }
 
-export default withStyles(styles)(Dashboard);
+export default withStyles(styles)(Main);

@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 
-import webDataReducer from './web/reducers';
+import webDataReducer from './dashboard/reducers';
 import moduleDataReducer from './module/reducers';
 
 

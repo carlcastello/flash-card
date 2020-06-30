@@ -13,7 +13,7 @@ import MainReducer from './reducer';
 import Module from './module';
 import ModuleTheme from './module/theme';
 
-import Web  from './web';
+import Dashboard  from './dashboard';
 
 
 class App extends Component {
@@ -24,15 +24,15 @@ class App extends Component {
         <Route
           exact
           path='/'
-          component={Web}/>
+          component={Dashboard}/>
         <Route
           exact
           path='/dashboard/quiz'
-          component={Web}/>
+          component={Dashboard}/>
         <Route
           exact
           path='/dashboard/quiz/:quizId'
-          component={Web}/>
+          component={Dashboard}/>
       </Switch>
     );
   }

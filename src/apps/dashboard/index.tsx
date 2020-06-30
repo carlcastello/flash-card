@@ -3,11 +3,11 @@ import { ThemeProvider, Box, withStyles } from '@material-ui/core';
 
 import Navbar from './components/navbar';
 
-import WebRouter from './router';
+import DashboardRouter from './router';
 import theme from './theme';
 import styles from './styles';
 
-export class Web extends Component {
+export class Dashboard extends Component {
 
   render(): ReactNode {
     return (
@@ -15,7 +15,7 @@ export class Web extends Component {
         <Box>
           <Navbar/>
           <Box py={5}>
-            <WebRouter/>
+            <DashboardRouter/>
           </Box>
         </Box>
       </ThemeProvider>
@@ -23,4 +23,4 @@ export class Web extends Component {
   }
 }
 
-export default withStyles(styles)(Web);
+export default withStyles(styles)(Dashboard);
