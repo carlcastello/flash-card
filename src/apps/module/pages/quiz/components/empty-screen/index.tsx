@@ -12,7 +12,7 @@ import styles from './styles';
 import { IOwnProps } from './types';
 
 
-class EmptyScreen extends Component<IOwnProps> {
+export class EmptyScreen extends Component<IOwnProps> {
 
   renderCloseIcon(): ReactNode {
     const {

@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`The Button Card The render function shows the next button 1`] = `
+<Styled(MuiBox)
+  pt={2.5}
+>
+  <WithStyles(ForwardRef(Paper))
+    elevation={3}
+  >
+    <WithStyles(ForwardRef(Button))
+      className="button CORRECT"
+      onClick={[Function]}
+      type="submit"
+    >
+      <WithStyles(ForwardRef(Typography))
+        variant="h6"
+      >
+        Next
+      </WithStyles(ForwardRef(Typography))>
+    </WithStyles(ForwardRef(Button))>
+  </WithStyles(ForwardRef(Paper))>
+</Styled(MuiBox)>
+`;
+
+exports[`The Button Card The render function shows the submit button 1`] = `
+<Styled(MuiBox)
+  pt={2.5}
+>
+  <WithStyles(ForwardRef(Paper))
+    elevation={3}
+  >
+    <WithStyles(ForwardRef(Button))
+      className="button DEFAULT"
+      onClick={[Function]}
+      type="submit"
+    >
+      <WithStyles(ForwardRef(Typography))
+        variant="h6"
+      >
+        Submit
+      </WithStyles(ForwardRef(Typography))>
+    </WithStyles(ForwardRef(Button))>
+  </WithStyles(ForwardRef(Paper))>
+</Styled(MuiBox)>
+`;

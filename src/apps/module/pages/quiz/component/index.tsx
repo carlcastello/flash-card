@@ -5,8 +5,6 @@ import {
   withStyles,
   IconButton,
   Typography,
-  Button,
-
 } from '@material-ui/core';
 import CloseIcon from '@material-ui/icons/Close';
 
@@ -23,7 +21,7 @@ import StyledModal from '../../../components/styled-modal';
 import EmptyScreen from '../components/empty-screen';
 
 
-class Quiz extends Component<IOwnProps, IOwnState> {
+export class Quiz extends Component<IOwnProps, IOwnState> {
 
   state = {
     questionIndex: 0,
@@ -128,6 +126,22 @@ class Quiz extends Component<IOwnProps, IOwnState> {
     }
   }
 
+  componentDidMount() {
+    const {
+      requiredData,
+      fetchQuiz,
+      match: {
+        params: {
+          quizId
+        }
+      },
+    } = this.props;
+
+    if (quizId && requiredData.length !== 0) {
+      fetchQuiz(quizId);
+    }
+  }
+
   renderProgressBar(): ReactNode {
     const {
       state: {
@@ -211,22 +225,6 @@ class Quiz extends Component<IOwnProps, IOwnState> {
         </Box>
       </StyledModal>
     )
-  }
-
-  componentDidMount() {
-    const {
-      requiredData,
-      fetchQuiz,
-      match: {
-        params: {
-          quizId
-        }
-      },
-    } = this.props;
-
-    if (quizId && requiredData.length !== 0) {
-      fetchQuiz(quizId);
-    }
   }
 
   render(): ReactNode {

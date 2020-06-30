@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[` the render function renders 1`] = `
+<Styled(MuiBox)
+  className="progress-bar-container"
+>
+  <WithStyles(ForwardRef(Typography))
+    className="tittle"
+    variant="subtitle1"
+  >
+    Question 
+    3
+     of 
+    4
+  </WithStyles(ForwardRef(Typography))>
+  <WithStyles(ForwardRef(LinearProgress))
+    className="progress-bar CORRECT"
+    value={75}
+    variant="determinate"
+  />
+</Styled(MuiBox)>
+`;

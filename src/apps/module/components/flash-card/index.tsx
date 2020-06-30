@@ -10,7 +10,7 @@ import { IOwnProps, IOwnState, FlashcardStatus } from './types';
 import styles from './styles';
 
 
-class Flashcard extends Component<IOwnProps, IOwnState> {
+export class Flashcard extends Component<IOwnProps, IOwnState> {
 
   answerCardRef: any = createRef();   
 

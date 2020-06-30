@@ -14,7 +14,7 @@ import { Close } from '@material-ui/icons';
 import styles from './styles';
 import { IOwnProps } from './types'
 
-class StyledModal extends Component<IOwnProps> {
+export class StyledModal extends Component<IOwnProps> {
 
   renderCloseIcon(): ReactElement {
     const {

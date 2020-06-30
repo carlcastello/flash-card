@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`The Completion Screen The render Function shows the main container 1`] = `
+<Styled(MuiBox)
+  alignItems="center"
+  display="flex"
+  height="100vh"
+  justifyContent="center"
+  position="relative"
+>
+  <Styled(MuiBox)
+    padding={5}
+    position="relative"
+  >
+    <Styled(MuiBox)
+      position="absolute"
+      right="0"
+      top="0"
+    >
+      <WithStyles(ForwardRef(IconButton))
+        onClick={[MockFunction]}
+      >
+        <CloseIcon />
+      </WithStyles(ForwardRef(IconButton))>
+    </Styled(MuiBox)>
+    <WithStyles(ForwardRef(Typography))
+      variant="h3"
+    >
+      Quiz Complete!!
+    </WithStyles(ForwardRef(Typography))>
+    <Styled(MuiBox)
+      display="flex"
+      justifyContent="center"
+      mt={3}
+      px={5}
+    >
+      <WithStyles(ForwardRef(Button))
+        color="primary"
+        onClick={[MockFunction]}
+        size="large"
+        variant="outlined"
+      >
+        Review
+      </WithStyles(ForwardRef(Button))>
+    </Styled(MuiBox)>
+  </Styled(MuiBox)>
+</Styled(MuiBox)>
+`;

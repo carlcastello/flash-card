@@ -14,7 +14,7 @@ import styles from './styles';
 import { FlashcardStatus } from '../../types';
 
 
-class AnswerCard extends Component<IOwnProps, IOwnState> {
+export class AnswerCard extends Component<IOwnProps, IOwnState> {
 
   state: IOwnState = {
     answer: '',
@@ -23,15 +23,15 @@ class AnswerCard extends Component<IOwnProps, IOwnState> {
 
   onInputChange = (event: ChangeEvent<HTMLInputElement>): void => {
     event.preventDefault();
-    this.setState({answer: event.target.value})
+    this.setState({answer: event.target.value});
   }
 
   onEnter = () => {
-    this.setState({ hideAnswer: false })
+    this.setState({ hideAnswer: false });
   }
 
   onExit = () => {
-    this.setState({ hideAnswer: true })
+    this.setState({ hideAnswer: true });
   }
 
   renderInput(): ReactNode {
@@ -109,7 +109,7 @@ class AnswerCard extends Component<IOwnProps, IOwnState> {
           </Box>
         </Collapse>
       </Box>     
-    ) 
+    );
   }
 
   render(): ReactNode {
@@ -129,7 +129,7 @@ class AnswerCard extends Component<IOwnProps, IOwnState> {
           </Box>
         </Paper>
       </Box>
-    )
+    );
   }
 }
 

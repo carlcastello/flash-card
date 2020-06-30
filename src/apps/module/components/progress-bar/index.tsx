@@ -6,7 +6,7 @@ import styles from './styles';
 import { IOwnProps } from './types';
 
 
-class ProgressBar extends Component<IOwnProps> {
+export class ProgressBar extends Component<IOwnProps> {
   render(): ReactNode {
     const {
       flashcardStatus,

@@ -5,7 +5,7 @@ import { IOwnProps, IOwnState } from './types';
 import styles from './styles';
 import { FlashcardStatus } from '../../types';
 
-class ButtonCard extends Component<IOwnProps, IOwnState> {
+export class ButtonCard extends Component<IOwnProps, IOwnState> {
 
   onClick = (event: any): void => {
     event.preventDefault();
