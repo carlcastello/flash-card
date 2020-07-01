@@ -1,7 +1,5 @@
 export interface IOwnProps {
-
-}
-
-export interface IOwnState {
-  
+  classes: {
+    link: string
+  }
 }

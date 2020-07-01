@@ -1,25 +1,26 @@
-import { IFlashcard, IQuizSummary } from '../../../../commons/types';
 import { RouteComponentProps } from 'react-router-dom';
+import { IQuizSummary, IFlashcard } from '../../../../commons/types';
 
 
-export interface IOwnProps extends RouteComponentProps<any>{
+export interface IOwnProps extends RouteComponentProps<any> {
+  isFullPageLoading: boolean,
+  creatingQuizSummary: boolean,
+
   requiredData: string[],
-  quizSummary?: IQuizSummary,
-  quizQuestions?: {
-    flashcards: IFlashcard[]
+  quiz: {
+    id?: string,
+    quizSummary?: IQuizSummary,
+    quizQuestions?: {
+      flashcards: IFlashcard[]
+    }
   },
   fetchQuiz: (quizId: string) => void,
-  saveQuizSummary: () => void,
-  saveCreatedQuestion: () => void,
+  createQuizSummary: (quizSummary: IQuizSummary) => void,
+  saveQuizSummary: (quizId: string, quizSummary: IQuizSummary) => void,
   classes: {
-    questionBoxContainer: string,
     gridContainer: string,
-    createQuestionPaper: string,
-    openCreateQuestionButton: string,
-    closeCreateQuestionButton: string
   }
 }
 
 export interface IOwnState {
-  hasQuestionForm: boolean
 }

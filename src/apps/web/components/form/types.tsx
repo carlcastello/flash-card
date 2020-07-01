@@ -19,9 +19,13 @@ export interface IOwnState {
   }
 }
 
+export interface IFormResponse {
+  [id: string]: string,
+}
+
 export interface IOwnProps {
   fields: IField[],
-  onSuccess: () => void,
+  onSuccess: (reponse: IFormResponse) => void,
   classes: {
     formControl: string,
     formLabel: string,

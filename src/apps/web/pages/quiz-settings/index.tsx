@@ -3,19 +3,22 @@ import QuizSettings from './component';
 
 import { IReduxState } from '../../../types';
 
-import { fetchQuiz, saveQuizSummary, saveCreatedQuestion } from './actions';
-import { quizQuestionsSelector, quizSummarySelector, requiredDataSelector } from './selectors';
+import { fetchQuiz, createQuizSummary, saveQuizSummary } from './actions';
+import { requiredDataSelector, isFullPageLoading, isCreatingQuizSummary } from './selectors';
+import { pageDataSelector } from '../selectors';
 
 const mapStateToProps = (state: IReduxState) => ({
+  isFullPageLoading: isFullPageLoading(state),
   requiredData: requiredDataSelector(state),
-  quizSummary: quizSummarySelector(state),
-  quizQuestions: quizQuestionsSelector(state)
+  creatingQuizSummary: isCreatingQuizSummary(state),
+
+  quiz: pageDataSelector(state),
 });
 
 const mapDispatchToProps = {
   fetchQuiz,
+  createQuizSummary,
   saveQuizSummary,
-  saveCreatedQuestion
 }
 
 export default connect(

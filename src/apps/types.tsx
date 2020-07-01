@@ -1,4 +1,4 @@
-import { IQuizSummary, IQuiz, IFlashcard } from "./commons/types";
+import { IQuizSummary, IFlashcard, IQuizSummaryCard } from "./commons/types";
 
 
 export interface IQuizState {
@@ -11,9 +11,10 @@ export interface IComponentLoadingState {
 
 
 export interface IPageData {
-  createdQuizes?: IQuizSummary[],
+  createdQuizes?: IQuizSummaryCard[],
 
   // Quiz Setting
+  id?: string,
   quizSummary?: IQuizSummary,
   quizQuestions?: {
     flashcards: IFlashcard[],    

@@ -2,7 +2,7 @@ import React, { Component, ReactNode } from 'react';
 
 import { withStyles, Grid } from '@material-ui/core';
 
-import { IQuizSummary } from "../../../../commons/types";
+import { IQuizSummaryCard } from "../../../../commons/types";
 
 import { IOwnProps, IOwnState } from './types';
 import styles from './styles';
@@ -10,6 +10,7 @@ import styles from './styles';
 import InformationCard from '../../../components/information-card';
 import TitleIcon from '../../../components/title-icon';
 import AddCard from '../../../components/add-card';
+import LoadingScreen from '../../../components/loading-screen';
 
 
 class Dashboard extends Component<IOwnProps, IOwnState> {
@@ -21,7 +22,7 @@ class Dashboard extends Component<IOwnProps, IOwnState> {
       }
     } = this.props;
 
-    push('/dashboard/quiz');    
+    push('/dashboard/quiz');
   }
 
   onQuizEdit = (id: string): void => {
@@ -56,12 +57,12 @@ class Dashboard extends Component<IOwnProps, IOwnState> {
 
     return (
       <Grid container spacing={2}>
-        {createdQuizes.map((quiz: IQuizSummary) => (
-          <Grid key={quiz.id} item sm={4}>
+        {createdQuizes.map(({id, quizSummary}: IQuizSummaryCard) => (
+          <Grid key={id} item sm={4}>
             <InformationCard
-              id={quiz.id}
-              title={quiz.title}
-              description={quiz.description}
+              id={id}
+              title={quizSummary.title}
+              description={quizSummary.description}
               onEdit={this.onQuizEdit}
               onDelete={this.onQuizDelete}/>
           </Grid> 
@@ -75,29 +76,34 @@ class Dashboard extends Component<IOwnProps, IOwnState> {
  
   render(): ReactNode {
     const {
+      isFullPageLoading,
       classes: {
         gridContainer
       }
     } = this.props;
 
     return (
-      <Grid 
-        container
-        direction="row"
-        justify="center"
-        alignItems="center"
-        spacing={2}
-        className={gridContainer}>
-        <Grid item sm={10}>
-          <TitleIcon 
-            onClick={this.onQuizCreate}>
-            My Quizes
-          </TitleIcon>  
+      isFullPageLoading ?
+        <LoadingScreen>
+          Fetching Dashboard Data...
+        </LoadingScreen> :
+        <Grid 
+          container
+          direction="row"
+          justify="center"
+          alignItems="center"
+          spacing={2}
+          className={gridContainer}>
+          <Grid item sm={10}>
+            <TitleIcon 
+              onClick={this.onQuizCreate}>
+              My Quizes
+            </TitleIcon>  
+          </Grid>
+          <Grid item sm={10}>
+            {this.renderSelectionCard()}
+          </Grid>
         </Grid>
-        <Grid item sm={10}>
-          {this.renderSelectionCard()}
-        </Grid>
-      </Grid>
     )
   }
 }

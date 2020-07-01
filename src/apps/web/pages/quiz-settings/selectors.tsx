@@ -1,18 +1,18 @@
-import { createSelector } from "reselect";
-import { pageDataSelector } from "../selectors";
-import { IPageData } from "../../../types";
-import { QUIZ_SUMMARY, QUIZ_QUESTIONS } from "../../common/constants";
+import { createSelector } from 'reselect';
+import { pageDataSelector } from '../selectors';
+import { IPageData, IWebData } from "../../../types";
+import { QUIZ_SUMMARY, QUIZ_QUESTIONS, QUIZ, CREATE_QUIZ_SUMMARY_FORM } from "../../common/constants";
+import { webDataSelector } from "../../selectors";
 
+export const isFullPageLoading = createSelector(
+  webDataSelector,
+  (webData: IWebData) => webData.componentLoading[QUIZ]
+)
 
-export const quizSummarySelector = createSelector(
-  pageDataSelector,
-  (pageData: IPageData) => pageData.quizSummary
-);
-
-export const quizQuestionsSelector = createSelector(
-  pageDataSelector,
-  (pageData: IPageData) => pageData.quizQuestions
-);
+export const isCreatingQuizSummary = createSelector(
+  webDataSelector,
+  (webData: IWebData) => webData.componentLoading[CREATE_QUIZ_SUMMARY_FORM]
+)
 
 export const requiredDataSelector = createSelector(
   pageDataSelector,

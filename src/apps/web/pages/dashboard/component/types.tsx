@@ -1,10 +1,11 @@
-import { IQuizSummary } from "../../../../commons/types";
+import { IQuizSummaryCard } from "../../../../commons/types";
 import { RouteComponentProps } from "react-router-dom";
 
 
 export interface IOwnProps extends RouteComponentProps<any> {
+  isFullPageLoading: boolean,
   requiredData: string[],
-  createdQuizes: IQuizSummary[],
+  createdQuizes: IQuizSummaryCard[],
   fetchCreatedQuizes: () => void,
   classes: {
     gridContainer: string
