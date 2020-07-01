@@ -11,15 +11,14 @@ import CloseIcon from '@material-ui/icons/Close';
 import ProgressBar from '../../../components/progress-bar';
 import Flashcards from '../../../components/flash-card';
 import { FlashcardStatus } from '../../../components/flash-card/types';
-import CompletionScreen from '../../completion';
+import CompletionScreen from '../../../components/completion-screen';
+import LoadingScreen from '../../../../commons/components/loading-screen';
+import StyledModal from '../../../components/styled-modal';
+import EmptyScreen from '../../../components/empty-screen';
 
 import styles from './styles';
 import { IOwnProps, IOwnState } from './types';
 import { QuizStatus } from './enum';
-import LoadingScreen from '../../../../commons/components/loading-screen';
-import StyledModal from '../../../components/styled-modal';
-import EmptyScreen from '../../empty';
-import { Redirect } from 'react-router-dom';
 
 
 export class MainQuizPage extends Component<IOwnProps, IOwnState> {
@@ -41,20 +40,20 @@ export class MainQuizPage extends Component<IOwnProps, IOwnState> {
     push('/')
   }
 
-  // onEditQuiz = () => {
-  //   const {
-  //     match: {
-  //       params: {
-  //         quizId
-  //       }
-  //     },
-  //     history: {
-  //       push
-  //     }
-  //   } = this.props;
+  onEditQuiz = () => {
+    const {
+      match: {
+        params: {
+          quizId
+        }
+      },
+      history: {
+        push
+      }
+    } = this.props;
 
-  //   push(`/dashboard/quiz/${quizId}`)
-  // }
+    push(`/dashboard/quiz/${quizId}`)
+  }
 
   onCloseQuiz = () => {
     const {
@@ -233,11 +232,6 @@ export class MainQuizPage extends Component<IOwnProps, IOwnState> {
       props: {
         requiredData,
         questions,
-        match: {
-          params: {
-            quizId
-          }
-        }
       },
       state: {
         quizStatus
@@ -252,11 +246,15 @@ export class MainQuizPage extends Component<IOwnProps, IOwnState> {
       )  
     } else if (questions.length === 0) {
       return (
-        <Redirect to={`/quiz/${quizId}/empty-screen`} />
+        <EmptyScreen
+          onClose={this.redirectToDashboard}
+          onEdit={this.onEditQuiz}/>
       )
     } else if (quizStatus === QuizStatus.COMPLETED) {
       return (
-        <Redirect to={`/quiz/${quizId}/completion-screen`} />
+        <CompletionScreen 
+          onClose={this.redirectToDashboard}
+          onReview={this.onReviewToggle}/>
       )
     } else {
       return (

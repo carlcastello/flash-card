@@ -14,38 +14,18 @@ import { IOwnProps } from './types';
 
 export class EmptyPage extends Component<IOwnProps> {
 
-  redirectToDashboard = () => {
-    const {
-      history: {
-        push
-      }
-    } = this.props;
-    push('/')
-  }
-
-  onEditQuiz = () => {
-    const {
-      match: {
-        params: {
-          quizId
-        }
-      },
-      history: {
-        push
-      }
-    } = this.props;
-
-    push(`/dashboard/quiz/${quizId}`)
-  }
-
   renderCloseIcon(): ReactNode {
+    const {
+      onClose
+    } = this.props;
+
     return (
       <Box
         position="absolute"
         top="0"
         right="0">
         <IconButton
-          onClick={this.redirectToDashboard}>
+          onClick={onClose}>
           <Close/>
         </IconButton>
       </Box>
@@ -53,6 +33,10 @@ export class EmptyPage extends Component<IOwnProps> {
   }
 
   renderButton(): ReactNode {
+    const {
+      onEdit,
+    } = this.props;
+
     return (
       <Box
         mt={3}
@@ -63,7 +47,7 @@ export class EmptyPage extends Component<IOwnProps> {
           variant="outlined"
           color="primary"
           size="large"
-          onClick={this.onEditQuiz}>
+          onClick={onEdit}>
           Add Questions              
         </Button>
       </Box>

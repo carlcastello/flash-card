@@ -1,10 +1,10 @@
 import React from "react";
 import { shallow } from "enzyme";
 
-import { QuizMainPage } from "../index";
+import { MainQuizPage } from "../index";
 import toJson from "enzyme-to-json";
 import LoadingScreen from "../../../../../commons/components/loading-screen";
-import EmptyScreen from "../../../empty";
+import EmptyScreen from "../../../../components/empty-screen";
 import { QuizStatus } from "../enum";
 import { FlashcardStatus } from "../../../../components/flash-card/types";
 
@@ -24,7 +24,7 @@ describe("The Quiz Main Page Component", () => {
     push = jest.fn();
 
     wrapper = shallow(
-      <QuizMainPage
+      <MainQuizPage
         questions={[]}
         requiredData={[]}
         fetchQuiz={fetchQuizFunction}
@@ -49,7 +49,7 @@ describe("The Quiz Main Page Component", () => {
     it("calls fetch quiz function if requiredData and quizId", () => {
       
       wrapper = shallow (
-        <QuizMainPage
+        <MainQuizPage
           questions={[]}
           requiredData={["hello"]}
           fetchQuiz={fetchQuizFunction}
@@ -75,7 +75,7 @@ describe("The Quiz Main Page Component", () => {
     it("doesn't call fetch quiz function if quizId but not requiredData", () => {
       fetchQuizFunction = jest.fn();
       wrapper = shallow (
-        <QuizMainPage
+        <MainQuizPage
           questions={[]}
           requiredData={[]}
           fetchQuiz={fetchQuizFunction}
@@ -100,7 +100,7 @@ describe("The Quiz Main Page Component", () => {
     it("doesn't call fetch quiz function if not quizId and not requiredData", () => {
       fetchQuizFunction = jest.fn();
       wrapper = shallow (
-        <QuizMainPage
+        <MainQuizPage
           questions={[]}
           requiredData={[]}
           fetchQuiz={fetchQuizFunction}
@@ -123,7 +123,7 @@ describe("The Quiz Main Page Component", () => {
     it("doesn't call fetch quiz function if requiredData but not quizId", () => {
       fetchQuizFunction = jest.fn();
       wrapper = shallow (
-        <QuizMainPage
+        <MainQuizPage
           questions={[]}
           requiredData={["hello"]}
           fetchQuiz={fetchQuizFunction}
