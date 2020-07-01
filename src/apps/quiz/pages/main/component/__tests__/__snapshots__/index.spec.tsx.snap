@@ -1,26 +1,26 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`The Quiz Component The render function shows a loading screen if requiredData length is not 0 1`] = `
+exports[`The Quiz Main Page Component The render function shows a loading screen if requiredData length is not 0 1`] = `
 <WithStyles(LoadingScreen)>
   Loading Quiz...
 </WithStyles(LoadingScreen)>
 `;
 
-exports[`The Quiz Component The render function shows a loading screen if requiredData length is not 0 2`] = `
-<WithStyles(EmptyScreen)
-  onAddQuestion={[Function]}
+exports[`The Quiz Main Page Component The render function shows a loading screen if requiredData length is not 0 2`] = `
+<WithStyles(EmptyPage)
   onClose={[Function]}
+  onEdit={[Function]}
 />
 `;
 
-exports[`The Quiz Component The render function shows an empty screen if question length is 0 1`] = `
-<WithStyles(EmptyScreen)
-  onAddQuestion={[Function]}
+exports[`The Quiz Main Page Component The render function shows an empty screen if question length is 0 1`] = `
+<WithStyles(EmptyPage)
   onClose={[Function]}
+  onEdit={[Function]}
 />
 `;
 
-exports[`The Quiz Component The render function shows an empty screen if question length is 0 2`] = `
+exports[`The Quiz Main Page Component The render function shows an empty screen if question length is 0 2`] = `
 <Styled(MuiBox)>
   <Styled(MuiBox)
     className="box-container"
@@ -75,9 +75,9 @@ exports[`The Quiz Component The render function shows an empty screen if questio
 </Styled(MuiBox)>
 `;
 
-exports[`The Quiz Component The render function shows the completion screen if quizStatus is complete 1`] = `
-<WithStyles(EmptyScreen)
-  onAddQuestion={[Function]}
+exports[`The Quiz Main Page Component The render function shows the completion screen if quizStatus is complete 1`] = `
+<WithStyles(EmptyPage)
   onClose={[Function]}
+  onEdit={[Function]}
 />
 `;

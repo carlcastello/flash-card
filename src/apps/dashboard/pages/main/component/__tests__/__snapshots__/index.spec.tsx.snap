@@ -1,12 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Dashboard The Dashboard show a loading screen 1`] = `
+exports[`The Main Dashboard The Render Funcion show a loading screen 1`] = `
 <WithStyles(LoadingScreen)>
   Fetching Dashboard Data...
 </WithStyles(LoadingScreen)>
 `;
 
-exports[`Dashboard The Dashboard shows dashboard modal  1`] = `
+exports[`The Main Dashboard The Render Funcion shows dashboard modal  1`] = `
 <Styled(MuiBox)
   display="flex"
   flexDirection="row"
@@ -85,7 +85,7 @@ exports[`Dashboard The Dashboard shows dashboard modal  1`] = `
 </Styled(MuiBox)>
 `;
 
-exports[`Dashboard The Dashboard shows empty dashboard 1`] = `
+exports[`The Main Dashboard The Render Funcion shows empty dashboard 1`] = `
 <Styled(MuiBox)
   display="flex"
   flexDirection="row"
@@ -149,7 +149,7 @@ exports[`Dashboard The Dashboard shows empty dashboard 1`] = `
 </Styled(MuiBox)>
 `;
 
-exports[`Dashboard The Dashboard shows the dashboard 1`] = `
+exports[`The Main Dashboard The Render Funcion shows the dashboard 1`] = `
 <Styled(MuiBox)
   display="flex"
   flexDirection="row"

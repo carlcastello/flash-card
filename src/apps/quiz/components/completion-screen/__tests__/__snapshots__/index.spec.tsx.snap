@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`The Completion Screen The render Function shows the main container 1`] = `
+exports[`The Completion Page The render Function shows the main container 1`] = `
 <Styled(MuiBox)
   alignItems="center"
   display="flex"
