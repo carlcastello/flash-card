@@ -1,4 +1,5 @@
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 
 import { IReduxState } from '../../../types';
 
@@ -16,7 +17,9 @@ const mapDispatchToProps = {
   fetchCreatedQuizes 
 }
  
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Dashboard);
+export default withRouter(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(Dashboard)
+);

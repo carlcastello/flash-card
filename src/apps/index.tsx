@@ -14,32 +14,26 @@ import Quiz from './quiz';
 import QuizTheme from './quiz/theme';
 
 import Web  from './web';
-import WebsiteTheme from './web/theme';
-
-import { QuestionType } from './commons/types';
-
 
 
 class App extends Component {
 
   renderWebSwitch(): ReactNode {
     return (
-      <ThemeProvider theme={WebsiteTheme}>
-        <Switch>
-          <Route
-            exact
-            path="/"
-            component={Web}/>
-          <Route
-            exact
-            path="/dashboard/quiz"
-            component={Web}/>
-          <Route
-            exact
-            path="/dashboard/quiz/:quizId"
-            component={Web}/>
-        </Switch>
-      </ThemeProvider>
+      <Switch>
+        <Route
+          exact
+          path='/'
+          component={Web}/>
+        <Route
+          exact
+          path='/dashboard/quiz'
+          component={Web}/>
+        <Route
+          exact
+          path='/dashboard/quiz/:quizId'
+          component={Web}/>
+      </Switch>
     );
   }
 
@@ -49,32 +43,8 @@ class App extends Component {
         <Switch>
           <Route
             exact
-            path="/quiz"
-            component={() => 
-              <Quiz flashcards={[
-                {
-                  id: '123',
-                  question: 'What is the capital of Sri Lanka?',
-                  hint: 'India',
-                  questionType: QuestionType.QUESTIONAIRE,
-                  answer: 'potato'
-                },
-                {
-                  id: '222',
-                  question: 'Querer',
-                  subQuestion: 'v. irregular',
-                  questionType: QuestionType.WORD,
-                  answer: 'potato'
-                },
-                {
-                  id: '333',
-                  question: 'Querer',
-                  subQuestion: 'v. irregular',
-                  questionType: QuestionType.WORD,
-                  answer: 'potato'
-                }
-              ]}/>
-            }/>
+            path="/quiz/:quizId"
+            component={Quiz}/>
           </Switch>
       </ThemeProvider>
     );

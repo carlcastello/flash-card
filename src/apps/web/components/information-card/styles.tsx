@@ -7,7 +7,10 @@ export default (theme: Theme) => ({
   paperContainer: {
     borderLeft: `5px solid ${theme.palette.primary.main}`, 
     position: 'relative' as 'relative',
-    height: '100%'
+    height: '100%',
+    '&:hover': {
+      cursor: 'pointer'
+    }
   },
   iconButton: {
     padding: '2px',

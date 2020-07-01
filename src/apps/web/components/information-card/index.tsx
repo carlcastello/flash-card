@@ -1,29 +1,51 @@
-import React, { Component, ReactNode } from 'react';
+import React, { Component, ReactNode, MouseEvent } from 'react';
 
 import { Paper, Typography, Box, withStyles, IconButton } from '@material-ui/core';
 import { Edit, Delete } from '@material-ui/icons';
 
 import styles from './styles';
-import { IOwnProps } from './types';
+import { IOwnProps, IOwnState } from './types';
 
 
-class InformationCard extends Component<IOwnProps> {
+class InformationCard extends Component<IOwnProps, IOwnState> {
 
-  onDeleteIconClick = (): void => {
+  state: IOwnState = {
+    paperElevation: 3,
+  }
+
+  onCardClick = (): void => {
+    
+  }
+
+  onDeleteIconClick = (event: MouseEvent): void => {
     const {
       id,
       onDelete
     } = this.props;
+
+    event.stopPropagation();
     onDelete(id);
   };
 
-  onEditIconClick = (): void => {
+  onEditIconClick = (event: MouseEvent): void => {
     const {
       id,
       onEdit
     } = this.props;
+
+    event.stopPropagation();
     onEdit(id);
   };
+
+  onMouseHoverAction = (paperElevation: number) => (): void => {
+    const {
+      hasHoverEffect
+    } = this.props;
+
+    if (hasHoverEffect) {
+      this.setState({ paperElevation });
+    }
+  }
 
   renderButtons(): ReactNode {
     const {
@@ -72,19 +94,32 @@ class InformationCard extends Component<IOwnProps> {
 
   render(): ReactNode {
     const {
-      description,
-      classes: {
-        paperContainer
+      props: {
+        description,
+        children,
+        onClick,
+        classes: {
+          paperContainer
+        }
+      },
+      state: {
+        paperElevation
       }
-    } = this.props;
+    } = this;
     return (
-      <Paper className={paperContainer} elevation={3}>
+      <Paper
+        className={paperContainer}
+        elevation={paperElevation}
+        onClick={onClick}
+        onMouseOver={this.onMouseHoverAction(6)}
+        onMouseOut={this.onMouseHoverAction(3)}>
         <Box p={2}>
           {this.renderTitle()}
           {this.renderButtons()}
           <Typography variant="body2">
             {description}
           </Typography>
+          {children}
         </Box>
       </Paper>
     );

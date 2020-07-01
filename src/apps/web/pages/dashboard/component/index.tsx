@@ -24,11 +24,21 @@ class Dashboard extends Component<IOwnProps, IOwnState> {
     push('/dashboard/quiz');
   }
 
+  onQuizClick = (quizId: string) => (): void => {
+    const {
+      history: {
+        push
+      }
+    } = this.props;
+
+    push(`/quiz/${quizId}`);
+  }
+
   onQuizEdit = (id: string): void => {
     const {
       history: {
         push
-      }      
+      }
     } = this.props
 
     push(`/dashboard/quiz/${id}`);
@@ -51,7 +61,7 @@ class Dashboard extends Component<IOwnProps, IOwnState> {
 
   renderSelectionCard(): ReactNode {
     const {
-      createdQuizes
+      createdQuizes,
     } = this.props;
 
     return (
@@ -59,26 +69,22 @@ class Dashboard extends Component<IOwnProps, IOwnState> {
         {createdQuizes.map(({id, quizSummary}: IQuizSummaryCard) => (
           <Grid key={id} item sm={4}>
             <InformationCard
+              hasHoverEffect
               id={id}
               title={quizSummary.title}
               description={quizSummary.description}
               onEdit={this.onQuizEdit}
-              onDelete={this.onQuizDelete}/>
+              onDelete={this.onQuizDelete}
+              onClick={this.onQuizClick(id)}/>
           </Grid> 
         ))}
         <Grid item sm={4}>
-          <AddCard onClick={this.onQuizCreate}/>
+          <AddCard onClick={this.onQuizCreate} hasHoverEffect/>
         </Grid>
       </Grid>
     );
   }
  
-  // renderDeleteModal(): ReactNode {
-  //   return (
-
-  //   )
-  // }
-
   renderDashboard(): ReactNode {
     const {
       classes: {
