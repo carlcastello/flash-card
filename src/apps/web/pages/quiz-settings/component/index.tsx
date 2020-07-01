@@ -1,6 +1,17 @@
 import React, { Component, ReactNode } from 'react';
 
-import { withStyles, Grid, Paper, Box, Typography, Collapse } from '@material-ui/core';
+import {
+  withStyles,
+  Grid,
+  Paper,
+  Box,
+  Typography,
+  Collapse,
+  Button,
+  Fade,
+  IconButton
+} from '@material-ui/core';
+import { Close } from '@material-ui/icons';
 
 import Form from "../../../components/form";
 import InformationCard from '../../../components/information-card';
@@ -15,12 +26,12 @@ import { IFlashcard } from '../../../../commons/types';
 class QuizSettings extends Component<IOwnProps, IOwnState> {
   
   state: IOwnState = {
-    isAddQuestion: false
+    hasQuestionForm: false,
   }
 
-  onTitleIconClick = (): void => {
+  onOpenCloseClick = (): void => {
     this.setState((state: IOwnState) => ({
-      isAddQuestion: !state.isAddQuestion
+      hasQuestionForm: !state.hasQuestionForm
     }))
   }
 
@@ -66,16 +77,43 @@ class QuizSettings extends Component<IOwnProps, IOwnState> {
   }
 
   renderQuestionForm(): ReactNode {
+    const {
+      state: {
+        hasQuestionForm
+      },
+      props: {
+        classes: {
+          createQuestionPaper,
+          openCreateQuestionButton,
+          closeCreateQuestionButton
+        }
+      }
+    } = this;
+    
     return (
       <Box pb={2}>
-        <Paper elevation={3}>
-          <Box p={5}>
-            <Form 
-              fields={QuestionFields}
-              onSuccess={() => {console.log('hello Question')}}/>
+        <Paper elevation={3} className={createQuestionPaper}>
+          <Box px={5} py={2.5}>
+            <Fade in={hasQuestionForm}>
+              <IconButton onClick={this.onOpenCloseClick} className={closeCreateQuestionButton}>
+                <Close/>
+              </IconButton>
+            </Fade>
+            <Fade in={!hasQuestionForm}>
+              <Button color="primary" onClick={this.onOpenCloseClick} className={openCreateQuestionButton}>
+                Add Question 
+              </Button>
+            </Fade>        
+           <Collapse in={hasQuestionForm}>
+              <Box py={2.5}>
+                <Form 
+                  fields={QuestionFields}
+                  onSuccess={() => {console.log('hello Question')}}/>
+              </Box>
+            </Collapse> 
           </Box>
         </Paper>
-      </Box>
+    </Box>
     );
   }
 
@@ -118,9 +156,6 @@ class QuizSettings extends Component<IOwnProps, IOwnState> {
 
   renderQuizContainer(): ReactNode {
     const {
-      state: {
-        isAddQuestion
-      },
       props: {
         classes: {
           questionBoxContainer
@@ -130,13 +165,11 @@ class QuizSettings extends Component<IOwnProps, IOwnState> {
     return (
       <Box p={5} className={questionBoxContainer}>
         <Box pb={2}>
-          <TitleIcon onClick={this.onTitleIconClick}>
+          <TitleIcon onClick={this.onOpenCloseClick}>
             Quiz Questions
           </TitleIcon>
         </Box>
-        <Collapse in={isAddQuestion}>
-          {this.renderQuestionForm()}
-        </Collapse>
+        {this.renderQuestionForm()}
         {this.renderQuizCards()}
       </Box>
     );

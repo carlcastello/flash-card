@@ -7,5 +7,20 @@ export default (theme: Theme) => ({
   },
   gridContainer: {
     width: '100%'
+  },
+  createQuestionPaper: {
+    position: 'relative' as 'relative',
+  },
+  openCreateQuestionButton: {
+    position: 'absolute' as 'absolute',
+    width: '100%',
+    height: `${theme.spacing(5)}px`,
+    top: 0,
+    left: 0
+  },
+  closeCreateQuestionButton: {
+    position: 'absolute' as 'absolute',
+    top: `${theme.spacing(.5)}px`,
+    right: `${theme.spacing(.5)}px`,
   }
 });

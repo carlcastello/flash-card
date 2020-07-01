@@ -6,7 +6,8 @@ export default (theme: Theme) => ({
   },
   paperContainer: {
     borderLeft: `5px solid ${theme.palette.primary.main}`, 
-    position: 'relative' as 'relative'
+    position: 'relative' as 'relative',
+    height: '100%'
   },
   iconButton: {
     padding: '2px',
