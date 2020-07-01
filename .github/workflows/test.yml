@@ -1,0 +1,22 @@
+on:
+  push:
+    branches: 
+      - develop
+  pull_request:
+    branches:
+      - staging
+
+jobs: 
+  test-apps:
+    name: Testing React App
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v1
+
+      - name: Running Web Test
+        run: npm test ./apps/web
+      - name: Running Module Test
+        run: npm test ./apps/module
+      - name: Running Common Test
+        run: npm test ./apis
