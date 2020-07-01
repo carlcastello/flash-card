@@ -1,5 +1,5 @@
 import { MOCK_QUIZES } from './server_data';
-import { IQuiz, IQuizSummary } from '../apps/commons/types';
+import { IQuiz, IQuizSummary, IQuestionBase, QuestionType, IQuestion } from '../apps/commons/types';
 
 
 export const MOCK_FETCH_CREATED_QUIZES = new Promise((resolve) => {
@@ -34,7 +34,7 @@ function create_UUID(){
 
 export const MOCK_CREATE_QUIZ = (quizSummary: IQuizSummary) => new Promise((resolve) => {
   setTimeout(() => {
-    const newQuiz = { id: create_UUID(), quizSummary, quizQuestions: { flashcards: []} };
+    const newQuiz = { id: create_UUID(), quizSummary, quizQuestions: [] };
     MOCK_QUIZES.push(newQuiz);
     resolve(newQuiz);
   }, 800);
@@ -42,8 +42,59 @@ export const MOCK_CREATE_QUIZ = (quizSummary: IQuizSummary) => new Promise((reso
 
 export const MOCK_SAVE_QUIZ_SUMMARY = (quizId: string, quizSummary: IQuizSummary) => new Promise((resolve) => {
   setTimeout(() => {
-    // MOCK_QUIZES
-    //   .filter(({ id }: IQuiz) => id === quizId)
-    //   .map  
+    const hello = MOCK_QUIZES
+        .filter(({ id }: IQuiz) => id === quizId)
+        .map((quiz) => ({...quiz, quizSummary}))[0]
+    resolve(hello);
   }, 800);
+});
+
+
+
+export const MOCK_CREATE_QUESTION = (quizId: string, question: IQuestionBase) => new Promise((resolve) => {
+  setTimeout(() => {
+    const quiz: IQuiz = MOCK_QUIZES
+      .filter(({ id }: IQuiz) => id === quizId)
+      .map(({ id, quizSummary, quizQuestions }: IQuiz) => ({
+        id, quizSummary, quizQuestions: [...quizQuestions, {id: create_UUID(), ...question, questionType: QuestionType.QUESTIONAIRE}] 
+      }))
+      [0]
+    resolve(quiz);
+  }, 800);
+});
+
+export const MOCK_SAVE_QUESTION = (quizId: string, questionId: string, question: IQuestionBase) => new Promise((resolve) => {
+  setTimeout(() => {
+    const quiz: IQuiz = MOCK_QUIZES
+    .filter(({ id }: IQuiz) => id === quizId)
+    .map(({ id, quizSummary, quizQuestions }: IQuiz) => {
+      const newQuestions = quizQuestions.map((quizQuestion: IQuestion) => quizQuestion.id === questionId ? {...quizQuestion, ...question } : quizQuestion);
+      return ({
+        id,
+        quizSummary,
+        quizQuestions: newQuestions
+      })
+    })
+    [0]
+
+
+    resolve(quiz);
+  }, 800);
+});
+
+export const MOCK_DELETE_QUESTION = (quizId: string, questionId: string,) => new Promise((resolve) => {
+  setTimeout(() => {
+    const quiz: IQuiz = MOCK_QUIZES
+    .filter(({ id }: IQuiz) => id === quizId)
+    .map(({ id, quizSummary, quizQuestions }: IQuiz) => {
+      const newQuestions = quizQuestions.filter((quizQuestion: IQuestion) => quizQuestion.id !== questionId);
+      return ({
+        id,
+        quizSummary,
+        quizQuestions: newQuestions
+      })
+    })
+    [0]
+    resolve(quiz);
+  }, 1000)
 });

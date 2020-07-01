@@ -1,6 +1,6 @@
 import React, { Component, ReactNode } from 'react';
 
-import { withStyles, Grid } from '@material-ui/core';
+import { withStyles, Grid, Typography, Box } from '@material-ui/core';
 
 import { IQuizSummaryCard } from "../../../../commons/types";
 
@@ -8,7 +8,6 @@ import { IOwnProps, IOwnState } from './types';
 import styles from './styles';
 
 import InformationCard from '../../../components/information-card';
-import TitleIcon from '../../../components/title-icon';
 import AddCard from '../../../components/add-card';
 import LoadingScreen from '../../../components/loading-screen';
 
@@ -74,19 +73,20 @@ class Dashboard extends Component<IOwnProps, IOwnState> {
     );
   }
  
-  render(): ReactNode {
+  // renderDeleteModal(): ReactNode {
+  //   return (
+
+  //   )
+  // }
+
+  renderDashboard(): ReactNode {
     const {
-      isFullPageLoading,
       classes: {
         gridContainer
       }
     } = this.props;
-
     return (
-      isFullPageLoading ?
-        <LoadingScreen>
-          Fetching Dashboard Data...
-        </LoadingScreen> :
+      <Box>
         <Grid 
           container
           direction="row"
@@ -95,15 +95,30 @@ class Dashboard extends Component<IOwnProps, IOwnState> {
           spacing={2}
           className={gridContainer}>
           <Grid item sm={10}>
-            <TitleIcon 
-              onClick={this.onQuizCreate}>
+            <Typography variant="h4">
               My Quizes
-            </TitleIcon>  
+            </Typography>
           </Grid>
           <Grid item sm={10}>
             {this.renderSelectionCard()}
           </Grid>
         </Grid>
+        {/* {this.renderDeleteModal()} */}
+      </Box>
+    );
+  }
+
+  render(): ReactNode {
+    const {
+      isFullPageLoading,
+    } = this.props;
+
+    return (
+      isFullPageLoading ?
+        <LoadingScreen>
+          Fetching Dashboard Data...
+        </LoadingScreen> :
+        this.renderDashboard()
     )
   }
 }

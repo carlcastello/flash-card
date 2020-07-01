@@ -6,11 +6,13 @@ import {
   InputLabel,
   FormHelperText,
   Box,
-  Button
+  Button,
+  LinearProgress
 } from '@material-ui/core';
 
 import styles from './styles';
 import { IOwnProps, IField, IOwnState } from './types';
+
 
 class Form extends Component<IOwnProps, IOwnState> {
 
@@ -63,15 +65,31 @@ class Form extends Component<IOwnProps, IOwnState> {
     )
   }
 
+  renderButton(): ReactNode {
+    return (
+      <Button onClick={this.onClick}>
+        Save
+      </Button>
+    );
+  }
+
+  renderLoadingBar(): ReactNode {
+    return (
+      <Box mt={2} width="100%" flex flexDirection="row">
+        <LinearProgress color="secondary"/>
+      </Box>
+    );
+  }
+
   render(): ReactNode {
     const {
+      isLoading,
       fields,
       classes: {
         formControl,
         formLabel,
         formHelperText,
-        formBottomContainer
-      }
+        formBottomContainer      }
     } = this.props;
     const {
       fields: stateFields
@@ -100,9 +118,9 @@ class Form extends Component<IOwnProps, IOwnState> {
           </FormControl>
         )}
         <Box className={formBottomContainer}>
-          <Button onClick={this.onClick}>
-            Save
-          </Button>
+          {isLoading ?
+            this.renderLoadingBar() :
+            this.renderButton()}
         </Box>
       </form> 
     );

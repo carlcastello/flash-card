@@ -1,6 +1,6 @@
 export const QuizSummaryFields = (title: string, description: string) => ([
   {
-    id: 'quiz-title',
+    id: 'title',
     label: 'Title',
     type: 'text',
     value: title,
@@ -15,7 +15,7 @@ export const QuizSummaryFields = (title: string, description: string) => ([
     }
   },
   {
-    id: 'quiz-description',
+    id: 'description',
     label: 'Description',
     type: 'text',
     value: description,

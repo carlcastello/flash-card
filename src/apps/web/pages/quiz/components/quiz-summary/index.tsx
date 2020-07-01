@@ -18,28 +18,31 @@ import styles from './styles';
 
 class QuizSummary extends Component<IOwnProps> {
 
-  onFormSubmit = (data: IFormResponse) => {
+  onFormSubmit = (response: IFormResponse) => {
 
     const {
       quizId,
+      quizSummary,
       onCreateQuizSummary,
       onSaveQuizSummary,
     } = this.props;
 
-    const quizSummary: IQuizSummary = {
-      title: data['quiz-title'],
-      description: data['quiz-description'],
+    const newQuizSummary: IQuizSummary = {
+      ...{ title: '', description: '' },
+      ...quizSummary,
+      ...response
     }
 
     if (quizId) {
-      onSaveQuizSummary(quizId, quizSummary);
+      onSaveQuizSummary(quizId, newQuizSummary);
     } else {
-      onCreateQuizSummary(quizSummary);
+      onCreateQuizSummary(newQuizSummary);
     }
   }
 
   render(): ReactNode {
     const {
+      isLoading,
       quizSummary
     } = this.props;
 
@@ -55,6 +58,7 @@ class QuizSummary extends Component<IOwnProps> {
             </Typography>
           </Box>
           <Form 
+            isLoading={isLoading}
             fields={QuizSummaryFields(title, description)}
             onSuccess={this.onFormSubmit}/>
         </Box>

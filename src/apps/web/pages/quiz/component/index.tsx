@@ -15,7 +15,7 @@ import QuizSummary from '../components/quiz-summary';
 import { Redirect } from 'react-router-dom';
 
 
-class QuizSettings extends Component<IOwnProps, IOwnState> {
+class Quiz extends Component<IOwnProps, IOwnState> {
   
   componentDidMount(): void {
     const {
@@ -35,6 +35,7 @@ class QuizSettings extends Component<IOwnProps, IOwnState> {
 
   renderQuizSummaryForm(): ReactNode {
     const {
+      savingQuizSummary,
       quiz: {
         id,
         quizSummary,
@@ -45,6 +46,7 @@ class QuizSettings extends Component<IOwnProps, IOwnState> {
 
     return (
       <QuizSummary
+        isLoading={savingQuizSummary}
         quizId={id}
         quizSummary={quizSummary}
         onCreateQuizSummary={createQuizSummary}
@@ -53,9 +55,37 @@ class QuizSettings extends Component<IOwnProps, IOwnState> {
   }
 
   renderQuizContainer(): ReactNode {
-    return (
-      <QuizQuestions/>
-    );
+    const {
+      history: {
+        push
+      },
+      quiz: {
+        id,
+        quizQuestions,
+      },
+      isCreatingQuestion,
+      isSavingQuestion,
+      isDeletingQuestion,
+      createQuestion,
+      saveQuestion,
+      deleteQuestion
+    } = this.props;
+
+
+    if (id) { // Checked if ID exist before rendering 
+      return (
+        <QuizQuestions
+          quizId={id}
+          quizQuestions={quizQuestions || []}
+          createQuestion={createQuestion}
+          saveQuestion={saveQuestion}
+          isCreatingQuestion={isCreatingQuestion}
+          isSavingQuestion={isSavingQuestion}
+          isDeletingQuestion={isDeletingQuestion}
+          deleteQuestion={deleteQuestion}
+          push={push}/>
+      );
+    }
   }
 
 
@@ -123,4 +153,4 @@ class QuizSettings extends Component<IOwnProps, IOwnState> {
   }
 }
 
-export default withStyles(styles)(QuizSettings);
+export default withStyles(styles)(Quiz);

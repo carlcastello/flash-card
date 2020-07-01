@@ -4,7 +4,11 @@ export const QUIZ_QUESTIONS = 'quizQuestions';
 
 export const CREATE_QUIZ_SUMMARY_FORM = 'createQuizSummaryForm';
 export const SAVE_QUIZ_SUMMARY_FORM = 'saveQuizSummaryForm';
-export const QUIZ_QUESTION_FORM = 'quizQuestionForm';
+
+export const CREATE_QUESTION_FORM = 'createQuizQuestionForm';
+export const SAVE_QUESTION_FORM = 'saveQuizQuestionForm';
+export const DELETE_QUESTION_FORM = 'deleteQuizQuestionForm'
+
 
 export const DASHBOARD = 'dashboard';
 export const CREATED_QUIZES = 'createdQuizes';
