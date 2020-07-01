@@ -1,12 +1,5 @@
 import { FETCH_PAGE_DATA } from '../actions';
-import {
-  MOCK_FETCH_QUIZ,
-  MOCK_CREATE_QUIZ,
-  MOCK_SAVE_QUIZ_SUMMARY,
-  MOCK_CREATE_QUESTION,
-  MOCK_SAVE_QUESTION,
-  MOCK_DELETE_QUESTION
-} from '../../../../mocks/server_actions';
+import API from '../../../../apis';
 import { setComponentLoading } from '../../common/actions';
 import {
   QUIZ,
@@ -24,7 +17,7 @@ export const fetchQuiz = (quizId: string) => {
 
   return (dispatch: any) => {
     dispatch(setLoadingFunction(true));
-    return MOCK_FETCH_QUIZ(quizId).then((payload) => {
+    return API.FETCH_QUIZ(quizId).then((payload) => {
       dispatch({ type: FETCH_PAGE_DATA, payload });
       dispatch(setLoadingFunction(false));
     })
@@ -37,7 +30,7 @@ export const createQuizSummary = (quizSummary: IQuizSummary) => {
   
   return (dispatch: any) => {
     dispatch(setLoadingFunction(true));
-    return MOCK_CREATE_QUIZ(quizSummary).then((payload) => {
+    return API.CREATE_QUIZ(quizSummary).then((payload) => {
       dispatch({ type: FETCH_PAGE_DATA, payload });
       dispatch(setLoadingFunction(false));
     })
@@ -49,7 +42,7 @@ export const saveQuizSummary = (quizId: string, quizSummary: IQuizSummary) => {
 
   return (dispatch: any) => {
     dispatch(setLoadingFunction(true));
-    return MOCK_SAVE_QUIZ_SUMMARY(quizId, quizSummary).then((payload) => {
+    return API.SAVE_QUIZ_SUMMARY(quizId, quizSummary).then((payload) => {
       dispatch({ type: FETCH_PAGE_DATA, payload });
       dispatch(setLoadingFunction(false));
     })
@@ -62,7 +55,7 @@ export const createQuestion = (quizId: string, question: IQuestionBase) => {
   return (dispatch: any) => {
     dispatch(setLoadingFunction(true));
 
-    return MOCK_CREATE_QUESTION(quizId, question).then((payload) => {
+    return API.CREATE_QUESTION(quizId, question).then((payload) => {
       dispatch({ type: FETCH_PAGE_DATA, payload });
       dispatch(setLoadingFunction(false));
     })
@@ -75,7 +68,7 @@ export const saveQuestion = (quizId: string, questionId: string, question: IQues
   return (dispatch: any, getState: any) => {
     dispatch(setLoadingFunction(true));
 
-    return MOCK_SAVE_QUESTION(quizId, questionId, question).then((payload) => {
+    return API.SAVE_QUESTION(quizId, questionId, question).then((payload) => {
       dispatch({ type: FETCH_PAGE_DATA, payload });
       dispatch(setLoadingFunction(false));
     })
@@ -87,7 +80,7 @@ export const deleteQuestion = (quizId: string, questionId: string) => {
   return (dispatch: any) => {
     dispatch(setLoadingFunction(true));
 
-    return MOCK_DELETE_QUESTION(quizId, questionId).then((payload) => {
+    return API.DELETE_QUESTION(quizId, questionId).then((payload) => {
       dispatch({ type: FETCH_PAGE_DATA, payload });
       dispatch(setLoadingFunction(false));
     })

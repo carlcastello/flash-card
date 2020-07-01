@@ -52,7 +52,10 @@ class App extends Component {
 
   render(): ReactNode {
     return (
-      <Provider store={createStore(MainReducer, applyMiddleware(thunkMiddleware))}>
+      <Provider store={createStore(
+        MainReducer,
+        applyMiddleware(thunkMiddleware)
+      )}>
         <BrowserRouter>
           {this.renderWebSwitch()}
           {this.renderQuizSwitch()}

@@ -1,5 +1,5 @@
 import { FETCH_PAGE_DATA } from "../actions";
-import { MOCK_FETCH_CREATED_QUIZES, MOCK_DELETE_QUIZ } from "../../../../mocks/server_actions";
+import API from "../../../../apis";
 import { setComponentLoading } from "../../common/actions";
 import { 
   DASHBOARD,
@@ -12,7 +12,7 @@ export const fetchCreatedQuizes = () => {
 
   return (dispatch: any) => {
     dispatch(setLoadingFunction(true));
-    return MOCK_FETCH_CREATED_QUIZES.then((value) => {
+    return API.FETCH_CREATED_QUIZES().then((value) => {
       dispatch({type: FETCH_PAGE_DATA, payload: value});
       dispatch(setLoadingFunction(false));
     })
@@ -24,7 +24,7 @@ export const deleteCreatedQuiz = (quizId: string) => {
 
   return (dispatch: any) => {
     dispatch(setLoadingFunction(true));
-    return MOCK_DELETE_QUIZ(quizId).then((value) => {
+    return API.DELETE_QUIZ(quizId).then((value) => {
       dispatch({type: FETCH_PAGE_DATA, payload: value});
       dispatch(setLoadingFunction(false));
     })
