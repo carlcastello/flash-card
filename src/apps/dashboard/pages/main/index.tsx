@@ -3,7 +3,7 @@ import { withRouter } from 'react-router-dom';
 
 import { IReduxState } from '../../../types';
 
-import Dashboard from './component';
+import Main from './component';
 import {
   createdQuizesSelector,
   requiredDataSelector,
@@ -31,5 +31,5 @@ export default withRouter(
   connect(
     mapStateToProps,
     mapDispatchToProps
-  )(Dashboard)
+  )(Main)
 );

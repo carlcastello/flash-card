@@ -11,17 +11,17 @@ import CloseIcon from '@material-ui/icons/Close';
 import ProgressBar from '../../../components/progress-bar';
 import Flashcards from '../../../components/flash-card';
 import { FlashcardStatus } from '../../../components/flash-card/types';
-import CompletionScreen from '../components/completion-screen';
+import CompletionScreen from '../../../components/completion-screen';
+import LoadingScreen from '../../../../commons/components/loading-screen';
+import StyledModal from '../../../components/styled-modal';
+import EmptyScreen from '../../../components/empty-screen';
 
 import styles from './styles';
 import { IOwnProps, IOwnState } from './types';
 import { QuizStatus } from './enum';
-import LoadingScreen from '../../../../commons/components/loading-screen';
-import StyledModal from '../../../components/styled-modal';
-import EmptyScreen from '../components/empty-screen';
 
 
-export class Quiz extends Component<IOwnProps, IOwnState> {
+export class MainQuizPage extends Component<IOwnProps, IOwnState> {
 
   state = {
     questionIndex: 0,
@@ -247,8 +247,8 @@ export class Quiz extends Component<IOwnProps, IOwnState> {
     } else if (questions.length === 0) {
       return (
         <EmptyScreen
-         onClose={this.redirectToDashboard}
-         onAddQuestion={this.onEditQuiz}/>
+          onClose={this.redirectToDashboard}
+          onEdit={this.onEditQuiz}/>
       )
     } else if (quizStatus === QuizStatus.COMPLETED) {
       return (
@@ -267,4 +267,4 @@ export class Quiz extends Component<IOwnProps, IOwnState> {
   }
 }
 
-export default withStyles(styles)(Quiz);
+export default withStyles(styles)(MainQuizPage);

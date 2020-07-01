@@ -1,6 +1,6 @@
 export interface IOwnProps {
+  onEdit: () => void,
   onClose: () => void,
-  onAddQuestion: () => void,
   classes: {
 
   }

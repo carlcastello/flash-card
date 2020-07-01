@@ -1,27 +1,27 @@
 import React from "react";
 import { shallow } from "enzyme";
 
-import { EmptyScreen } from "../index";
+import { CompletionScreen } from "../index";
 import toJson from "enzyme-to-json";
 
 import { Typography, Button, IconButton } from "@material-ui/core";
 
-describe("The EmptyScreen", () => {
+describe("The Completion Page", () => {
 
   let onCloseFunction: any;
-  let onAddQuestionFunction: any;
+  let onReviewFunction: any;
 
   let wrapper: any;
 
   beforeEach(() => {
 
     onCloseFunction = jest.fn();
-    onAddQuestionFunction = jest.fn();
+    onReviewFunction = jest.fn();
 
     wrapper = shallow(
-      <EmptyScreen 
+      <CompletionScreen 
         onClose={onCloseFunction}
-        onAddQuestion={onAddQuestionFunction}
+        onReview={onReviewFunction}
         classes={{
           
         }}/>
@@ -38,9 +38,9 @@ describe("The EmptyScreen", () => {
 
 
   describe("The onClick", () => {
-    it("calls the onAddQuestionFunction", () => {
+    it("calls the onReviewFunction", () => {
       wrapper.find(Button).simulate("click");
-      expect(onAddQuestionFunction).toHaveBeenCalled();
+      expect(onReviewFunction).toHaveBeenCalled();
     });
 
     it("calls the onCloseFunction", () => {

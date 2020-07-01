@@ -12,7 +12,7 @@ import styles from './styles';
 import { IOwnProps } from './types';
 
 
-export class EmptyScreen extends Component<IOwnProps> {
+export class EmptyPage extends Component<IOwnProps> {
 
   renderCloseIcon(): ReactNode {
     const {
@@ -34,7 +34,7 @@ export class EmptyScreen extends Component<IOwnProps> {
 
   renderButton(): ReactNode {
     const {
-      onAddQuestion
+      onEdit,
     } = this.props;
 
     return (
@@ -47,7 +47,7 @@ export class EmptyScreen extends Component<IOwnProps> {
           variant="outlined"
           color="primary"
           size="large"
-          onClick={onAddQuestion}>
+          onClick={onEdit}>
           Add Questions              
         </Button>
       </Box>
@@ -76,4 +76,4 @@ export class EmptyScreen extends Component<IOwnProps> {
   }
 }
 
-export default withStyles(styles)(EmptyScreen)
+export default withStyles(styles)(EmptyPage)
