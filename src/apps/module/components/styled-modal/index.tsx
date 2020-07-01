@@ -37,21 +37,24 @@ class StyledModal extends Component<IOwnProps> {
     const {
       onIgnore,
       onConfirm
-    } = this.props
+    } = this.props;
     
     return (
-      onConfirm ?
-        <Box
-        display="flex" 
-        justifyContent="end">
+      <Grid 
+        container
+        spacing={1}
+        justify="flex-end">
+        <Grid item>
           <Button onClick={onIgnore}>
             No
           </Button>
+        </Grid>
+        <Grid item>
           <Button onClick={onConfirm} color="secondary">
             Yes
           </Button>
-        </Box> :
-        null
+        </Grid>
+      </Grid>
     )
   }
   
@@ -76,10 +79,12 @@ class StyledModal extends Component<IOwnProps> {
         <Paper
           elevation={3}
           className={modalPaperContainer}>
-          <Box px={5} pt={5} pb={onConfirm ? 2.5 : 5 } position="relative">
+          <Box px={5} pt={5} pb={onConfirm ? 2.5 : 5} position="relative">
             {this.renderCloseIcon()}
             {children}
-            {this.renderButton()}
+            {onConfirm ?
+              this.renderButton() :
+              null}
           </Box>
         </Paper>
       </Modal>

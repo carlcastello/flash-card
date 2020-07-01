@@ -4,17 +4,27 @@ import { withRouter } from 'react-router-dom';
 import { IReduxState } from '../../../types';
 
 import Dashboard from './component';
-import { createdQuizesSelector, requiredDataSelector, isFullPageLoading } from './selectors';
-import { fetchCreatedQuizes } from './actions';
+import {
+  createdQuizesSelector,
+  requiredDataSelector,
+  isFullPageLoading,
+  isDeletingQuiz
+} from './selectors';
+import {
+  fetchCreatedQuizes,
+  deleteCreatedQuiz
+} from './actions';
 
 const mapStateToProps = (state: IReduxState) => ({
   isFullPageLoading: isFullPageLoading(state),
   requiredData: requiredDataSelector(state),
-  createdQuizes: createdQuizesSelector(state)
+  createdQuizes: createdQuizesSelector(state),
+  isDeletingQuiz: isDeletingQuiz(state)
 });
 
 const mapDispatchToProps = {
-  fetchCreatedQuizes 
+  fetchCreatedQuizes,
+  deleteCreatedQuiz,
 }
  
 export default withRouter(

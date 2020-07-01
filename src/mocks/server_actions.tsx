@@ -10,6 +10,13 @@ export const MOCK_FETCH_CREATED_QUIZES = new Promise((resolve) => {
   }, 500);
 });
 
+export const MOCK_DELETE_QUIZ = (quizId: string) =>  new Promise((resolve) => {
+  setTimeout(() => {
+    resolve({
+      createdQuizes: MOCK_QUIZES.filter(({ id }: IQuiz) => id !== quizId)
+    });
+  }, 1000)
+})
 
 export const MOCK_FETCH_QUIZ = (quizId: string) => new Promise((resolve) => {
   setTimeout(() => {
