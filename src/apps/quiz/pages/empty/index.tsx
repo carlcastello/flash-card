@@ -12,20 +12,40 @@ import styles from './styles';
 import { IOwnProps } from './types';
 
 
-export class EmptyScreen extends Component<IOwnProps> {
+export class EmptyPage extends Component<IOwnProps> {
 
-  renderCloseIcon(): ReactNode {
+  redirectToDashboard = () => {
     const {
-      onClose
+      history: {
+        push
+      }
+    } = this.props;
+    push('/')
+  }
+
+  onEditQuiz = () => {
+    const {
+      match: {
+        params: {
+          quizId
+        }
+      },
+      history: {
+        push
+      }
     } = this.props;
 
+    push(`/dashboard/quiz/${quizId}`)
+  }
+
+  renderCloseIcon(): ReactNode {
     return (
       <Box
         position="absolute"
         top="0"
         right="0">
         <IconButton
-          onClick={onClose}>
+          onClick={this.redirectToDashboard}>
           <Close/>
         </IconButton>
       </Box>
@@ -33,10 +53,6 @@ export class EmptyScreen extends Component<IOwnProps> {
   }
 
   renderButton(): ReactNode {
-    const {
-      onAddQuestion
-    } = this.props;
-
     return (
       <Box
         mt={3}
@@ -47,7 +63,7 @@ export class EmptyScreen extends Component<IOwnProps> {
           variant="outlined"
           color="primary"
           size="large"
-          onClick={onAddQuestion}>
+          onClick={this.onEditQuiz}>
           Add Questions              
         </Button>
       </Box>
@@ -76,4 +92,4 @@ export class EmptyScreen extends Component<IOwnProps> {
   }
 }
 
-export default withStyles(styles)(EmptyScreen)
+export default withStyles(styles)(EmptyPage)

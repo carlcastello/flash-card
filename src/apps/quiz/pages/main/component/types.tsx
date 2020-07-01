@@ -1,5 +1,6 @@
-import { FlashcardStatus } from '../../../components/flash-card/types';
 import { RouteComponentProps } from 'react-router-dom';
+
+import { FlashcardStatus } from '../../../components/flash-card/types';
 import { IQuestionCard } from '../../../../commons/types';
 
 import { QuizStatus } from './enum';

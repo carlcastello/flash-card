@@ -1,12 +1,12 @@
 import React from "react";
 import { shallow } from "enzyme";
 
-import { CompletionScreen } from "../index";
+import { CompletionPage } from "../index";
 import toJson from "enzyme-to-json";
 
 import { Typography, Button, IconButton } from "@material-ui/core";
 
-describe("The Completion Screen", () => {
+describe("The Completion Page", () => {
 
   let onCloseFunction: any;
   let onReviewFunction: any;
@@ -19,7 +19,7 @@ describe("The Completion Screen", () => {
     onReviewFunction = jest.fn();
 
     wrapper = shallow(
-      <CompletionScreen 
+      <CompletionPage 
         onClose={onCloseFunction}
         onReview={onReviewFunction}
         classes={{

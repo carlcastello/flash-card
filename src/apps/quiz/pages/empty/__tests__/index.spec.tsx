@@ -1,7 +1,7 @@
 import React from "react";
 import { shallow } from "enzyme";
 
-import { EmptyScreen } from "../index";
+import { EmptyPage } from "../index";
 import toJson from "enzyme-to-json";
 
 import { Typography, Button, IconButton } from "@material-ui/core";
@@ -19,11 +19,10 @@ describe("The EmptyScreen", () => {
     onAddQuestionFunction = jest.fn();
 
     wrapper = shallow(
-      <EmptyScreen 
+      <EmptyPage 
         onClose={onCloseFunction}
         onAddQuestion={onAddQuestionFunction}
         classes={{
-          
         }}/>
     )
   });  

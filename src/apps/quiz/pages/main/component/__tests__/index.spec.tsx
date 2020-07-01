@@ -4,9 +4,8 @@ import { shallow } from "enzyme";
 import { QuizMainPage } from "../index";
 import toJson from "enzyme-to-json";
 import LoadingScreen from "../../../../../commons/components/loading-screen";
-import EmptyScreen from "../../components/empty-screen";
+import EmptyScreen from "../../../empty";
 import { QuizStatus } from "../enum";
-import CompletionScreen from "../../components/completion-screen";
 import { FlashcardStatus } from "../../../../components/flash-card/types";
 
 
