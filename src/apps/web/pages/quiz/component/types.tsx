@@ -16,6 +16,7 @@ export interface IOwnProps extends RouteComponentProps<any> {
     quizSummary?: IQuizSummary,
     quizQuestions?: IQuestionCard[]
   },
+
   fetchQuiz: (quizId: string) => Promise<any>,
   createQuizSummary: (quizSummary: IQuizSummary) => Promise<any>,
   saveQuizSummary: (quizId: string, quizSummary: IQuizSummary) => Promise<any>,

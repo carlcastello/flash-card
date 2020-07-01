@@ -1,12 +1,14 @@
 import { connect } from 'react-redux';
 
-import Quiz from './component';
 import { IReduxState } from '../../../types';
-import { QuestionType } from '../../../commons/types';
 
+import Quiz from './component';
+import { questionsSelectors } from './selectors';
+import { fetchQuiz } from './actions';
+import { requiredDataSelector } from '../selectors';
+import { QUESTIONS } from '../../common/constants';
 
-const mapStateToProps = (state: IReduxState) => ({
-  quiz: []
+ // quiz: pageDataSelector(state)
   // flashcards: [
   //   {
   //     id: '123',
@@ -30,8 +32,17 @@ const mapStateToProps = (state: IReduxState) => ({
   //     answer: 'potato'
   //   }
   // ]
-})
+const mapStateToProps = (state: IReduxState) => ({
+  questions: questionsSelectors(state),
+  requiredData: requiredDataSelector([QUESTIONS])(state),
+});
+
+const mapDispatchToProps = {
+  fetchQuiz
+};
+
 
 export default connect(
-  mapStateToProps
+  mapStateToProps,
+  mapDispatchToProps
 )(Quiz);

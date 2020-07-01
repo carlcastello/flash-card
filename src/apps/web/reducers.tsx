@@ -1,7 +1,7 @@
 
 import { combineReducers } from 'redux';
 
-import { pageDataReducer } from "./pages/reducers";
+import { pageDataReducer } from './pages/reducers';
 import { componentLoadingReducer } from './common/reducers';
 
 

@@ -2,7 +2,7 @@ import { IQuizSummary, IFlashcard, IQuizSummaryCard, IQuestionCard } from "./com
 
 
 export interface IModuleState {
-  pageData: Object
+  pageData: IPageData
 }
 
 export interface IComponentLoadingState {

@@ -9,7 +9,7 @@ import styles from './styles';
 
 import InformationCard from '../../../components/information-card';
 import AddCard from '../../../components/add-card';
-import LoadingScreen from '../../../components/loading-screen';
+import LoadingScreen from '../../../../commons/components/loading-screen';
 
 
 class Dashboard extends Component<IOwnProps, IOwnState> {

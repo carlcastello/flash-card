@@ -5,7 +5,7 @@ import {
   Grid,
 } from '@material-ui/core';
 
-import LoadingSreen from '../../../components/loading-screen';
+import LoadingSreen from '../../../../commons/components/loading-screen';
  
 import { IOwnProps, IOwnState } from './types';
 import styles from './styles';
