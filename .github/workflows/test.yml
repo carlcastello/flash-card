@@ -15,8 +15,8 @@ jobs:
       - uses: actions/checkout@v1
 
       - name: Running Web Test
-        run: npm test ./apps/web
+        run: npm test .src/apps/web
       - name: Running Module Test
-        run: npm test ./apps/quiz
+        run: npm test .src/apps/quiz
       - name: Running Common Test
-        run: npm test ./apis
+        run: npm test .src/apis
