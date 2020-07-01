@@ -17,6 +17,6 @@ jobs:
       - name: Running Web Test
         run: npm test ./apps/web
       - name: Running Module Test
-        run: npm test ./apps/module
+        run: npm test ./apps/quiz
       - name: Running Common Test
         run: npm test ./apis
