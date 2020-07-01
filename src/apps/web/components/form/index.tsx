@@ -14,7 +14,7 @@ import styles from './styles';
 import { IOwnProps, IField, IOwnState } from './types';
 
 
-class Form extends Component<IOwnProps, IOwnState> {
+export class Form extends Component<IOwnProps, IOwnState> {
 
   state: IOwnState = {
     fields: {}
@@ -75,7 +75,7 @@ class Form extends Component<IOwnProps, IOwnState> {
 
   renderLoadingBar(): ReactNode {
     return (
-      <Box mt={2} width="100%" flex flexDirection="row">
+      <Box mt={2} width="100%" display="flex" flexDirection="row">
         <LinearProgress color="secondary"/>
       </Box>
     );

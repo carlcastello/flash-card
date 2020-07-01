@@ -10,7 +10,6 @@ import {
   Button,
   Typography,
   Grid,
-  LinearProgress
 } from '@material-ui/core';
 import { Close } from '@material-ui/icons';
 
@@ -25,7 +24,7 @@ import { IFormResponse } from '../../../../components/form/types';
 import WebModal from '../../../../components/styled-modal';
 
 
-class QuizQuestion extends Component<IOwnProps, IOwnState> {
+export class QuizQuestion extends Component<IOwnProps, IOwnState> {
   
   emptyQuestion: IQuestionBase = { question: '', hint: '', answer: '', subQuestion: '' }
 
@@ -62,7 +61,7 @@ class QuizQuestion extends Component<IOwnProps, IOwnState> {
     this.setState((state: IOwnState) => ({
       ...state,
       deleteQuestionFormOpen: !state.deleteQuestionFormOpen,
-      toggledQuestionId: questionId,
+      toggledQuestionId: questionId
     }))
   }
 

@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`The Flash Card the render function renders 1`] = `
+<Styled(MuiBox)
+  pt={2.5}
+  px={5}
+>
+  <form>
+    <WithStyles(QuestionCard)
+      flashcardStatus="DEFAULT"
+      onSkip={[Function]}
+      questionObject={
+        Object {
+          "hint": "hint",
+          "question": "question",
+          "subQuestion": "sub-question",
+        }
+      }
+    />
+    <WithStyles(AnswerCard)
+      answer="answer"
+      flashcardStatus="DEFAULT"
+    />
+    <WithStyles(ButtonCard)
+      flashcardStatus="DEFAULT"
+      next={[Function]}
+      submit={[Function]}
+    />
+  </form>
+</Styled(MuiBox)>
+`;

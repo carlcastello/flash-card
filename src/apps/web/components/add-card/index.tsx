@@ -6,7 +6,7 @@ import { Add } from '@material-ui/icons';
 import { IOwnProps, IOwnState } from './types';
 import styles from './styles';
 
-class AddCard extends Component<IOwnProps, IOwnState> {
+export class AddCard extends Component<IOwnProps, IOwnState> {
 
   state: IOwnState = {
     paperElevation: 3,

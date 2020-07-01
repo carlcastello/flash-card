@@ -15,7 +15,7 @@ import QuizSummary from '../components/quiz-summary';
 import { Redirect } from 'react-router-dom';
 
 
-class Quiz extends Component<IOwnProps, IOwnState> {
+export class Quiz extends Component<IOwnProps, IOwnState> {
   
   componentDidMount(): void {
     const {
@@ -149,7 +149,7 @@ class Quiz extends Component<IOwnProps, IOwnState> {
       )        
     }
  
-      return (this.renderGrid())
+    return (this.renderGrid())
   }
 }
 

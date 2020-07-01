@@ -39,14 +39,14 @@ class App extends Component {
 
   renderQuizSwitch(): ReactNode {
     return (
-      <ThemeProvider theme={ModuleTheme}>
-        <Switch>
-          <Route
-            exact
-            path="/quiz/:quizId"
-            component={Module}/>
-          </Switch>
-      </ThemeProvider>
+      <Switch>
+        <ThemeProvider theme={ModuleTheme}>
+            <Route
+              exact
+              path="/quiz/:quizId"
+              component={Module}/>
+        </ThemeProvider>
+      </Switch>
     );
   }
 

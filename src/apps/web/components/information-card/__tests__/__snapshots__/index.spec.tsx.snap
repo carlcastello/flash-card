@@ -1,0 +1,109 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Infromation Card The Information Card Shows the Card with Subtitle 1`] = `
+<WithStyles(ForwardRef(Paper))
+  className="paper-container"
+  elevation={3}
+  onClick={[MockFunction]}
+  onMouseOut={[Function]}
+  onMouseOver={[Function]}
+>
+  <Styled(MuiBox)
+    p={2}
+  >
+    <Styled(MuiBox)
+      mb={1}
+    >
+      <WithStyles(ForwardRef(Typography))
+        className="inline-typography"
+        variant="h5"
+      >
+        Information Card
+      </WithStyles(ForwardRef(Typography))>
+      <WithStyles(ForwardRef(Typography))
+        className="inline-typography"
+        variant="subtitle1"
+      >
+         (
+        hello world
+        )
+      </WithStyles(ForwardRef(Typography))>
+    </Styled(MuiBox)>
+    <Styled(MuiBox)
+      className="icon-button-container"
+    >
+      <WithStyles(ForwardRef(IconButton))
+        className="icon-button"
+        onClick={[Function]}
+      >
+        <EditIcon
+          fontSize="inherit"
+        />
+      </WithStyles(ForwardRef(IconButton))>
+      <WithStyles(ForwardRef(IconButton))
+        className="icon-button"
+        onClick={[Function]}
+      >
+        <DeleteIcon
+          fontSize="inherit"
+        />
+      </WithStyles(ForwardRef(IconButton))>
+    </Styled(MuiBox)>
+    <WithStyles(ForwardRef(Typography))
+      variant="body2"
+    >
+      This is an Information Card
+    </WithStyles(ForwardRef(Typography))>
+  </Styled(MuiBox)>
+</WithStyles(ForwardRef(Paper))>
+`;
+
+exports[`Infromation Card The Information Card Shows the Card without Subtitle 1`] = `
+<WithStyles(ForwardRef(Paper))
+  className="paper-container"
+  elevation={3}
+  onClick={[MockFunction]}
+  onMouseOut={[Function]}
+  onMouseOver={[Function]}
+>
+  <Styled(MuiBox)
+    p={2}
+  >
+    <Styled(MuiBox)
+      mb={1}
+    >
+      <WithStyles(ForwardRef(Typography))
+        className="inline-typography"
+        variant="h5"
+      >
+        Information Card
+      </WithStyles(ForwardRef(Typography))>
+    </Styled(MuiBox)>
+    <Styled(MuiBox)
+      className="icon-button-container"
+    >
+      <WithStyles(ForwardRef(IconButton))
+        className="icon-button"
+        onClick={[Function]}
+      >
+        <EditIcon
+          fontSize="inherit"
+        />
+      </WithStyles(ForwardRef(IconButton))>
+      <WithStyles(ForwardRef(IconButton))
+        className="icon-button"
+        onClick={[Function]}
+      >
+        <DeleteIcon
+          fontSize="inherit"
+        />
+      </WithStyles(ForwardRef(IconButton))>
+    </Styled(MuiBox)>
+    <WithStyles(ForwardRef(Typography))
+      variant="body2"
+    >
+      This is an Information Card
+    </WithStyles(ForwardRef(Typography))>
+  </Styled(MuiBox)>
+</WithStyles(ForwardRef(Paper))>
+`;

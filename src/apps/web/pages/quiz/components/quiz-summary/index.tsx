@@ -16,7 +16,7 @@ import { IOwnProps } from './types';
 import styles from './styles';
 
 
-class QuizSummary extends Component<IOwnProps> {
+export class QuizSummary extends Component<IOwnProps> {
 
   onFormSubmit = (response: IFormResponse) => {
 

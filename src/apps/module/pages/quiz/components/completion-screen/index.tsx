@@ -12,7 +12,7 @@ import { Close } from '@material-ui/icons';
 import { IOwnProps } from './types';
 import styles from './styles';
 
-class CompletionScreen extends Component<IOwnProps> {
+export class CompletionScreen extends Component<IOwnProps> {
   
   renderCloseIcon(): ReactNode {
     const {

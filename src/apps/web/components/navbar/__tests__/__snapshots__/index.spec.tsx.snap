@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NavBar Renders the NavBar 1`] = `
+<WithStyles(ForwardRef(AppBar))
+  position="static"
+>
+  <WithStyles(ForwardRef(Toolbar))>
+    <WithStyles(ForwardRef(Typography))
+      variant="h5"
+    >
+      <Link
+        className="link"
+        to=""
+      >
+        Flashcard
+      </Link>
+    </WithStyles(ForwardRef(Typography))>
+  </WithStyles(ForwardRef(Toolbar))>
+</WithStyles(ForwardRef(AppBar))>
+`;

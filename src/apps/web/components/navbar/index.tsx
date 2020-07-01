@@ -8,7 +8,7 @@ import { IOwnProps } from './types';
 import styles from './styles';
 
 
-class Navbar extends Component<IOwnProps> {
+export class Navbar extends Component<IOwnProps> {
   render(): ReactNode {
     const {
       classes: {

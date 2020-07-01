@@ -10,7 +10,7 @@ import {
 import { FlashcardStatus } from '../../types';
 
 
-class QuestionCard extends Component<IOwnProps> {
+export class QuestionCard extends Component<IOwnProps> {
 
   renderSkip(): ReactNode {
     const {
