@@ -1,0 +1,74 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[` The render function renders as FlashcardStatus.DEFAULT with subQuestion 1`] = `
+<WithStyles(ForwardRef(Paper))
+  className="paper"
+  elevation={3}
+>
+  <Styled(MuiBox)
+    className="box-questionaire-container"
+    px={2}
+    py={4}
+  >
+    <WithStyles(ForwardRef(Typography))
+      className="question-typography"
+      variant="h3"
+    >
+      Potato Salad
+    </WithStyles(ForwardRef(Typography))>
+    <Styled(MuiBox)
+      className="box-button-container"
+      pb={1}
+      pr={2}
+    >
+      <WithStyles(ForwardRef(IconButton))
+        disabled={false}
+        onClick={[MockFunction]}
+      >
+        <SkipNextIcon />
+      </WithStyles(ForwardRef(IconButton))>
+    </Styled(MuiBox)>
+  </Styled(MuiBox)>
+</WithStyles(ForwardRef(Paper))>
+`;
+
+exports[` The render function renders as none FlashcardStatus.DEFAULT without subQuestion 1`] = `
+<WithStyles(ForwardRef(Paper))
+  className="paper"
+  elevation={3}
+>
+  <Styled(MuiBox)
+    className="box-questionaire-container"
+    px={2}
+    py={4}
+  >
+    <WithStyles(ForwardRef(Typography))
+      className="question-typography"
+      variant="h3"
+    >
+      Potato Salad
+    </WithStyles(ForwardRef(Typography))>
+    <Styled(MuiBox)
+      mt={0.5}
+    >
+      <WithStyles(ForwardRef(Typography))
+        variant="body1"
+      >
+        this is a sub
+      </WithStyles(ForwardRef(Typography))>
+    </Styled(MuiBox)>
+    <Styled(MuiBox)
+      className="box-button-container"
+      pb={1}
+      pr={2}
+    >
+      <WithStyles(ForwardRef(IconButton))
+        disabled={true}
+        onClick={[MockFunction]}
+      >
+        <SkipNextIcon />
+      </WithStyles(ForwardRef(IconButton))>
+    </Styled(MuiBox)>
+  </Styled(MuiBox)>
+</WithStyles(ForwardRef(Paper))>
+`;

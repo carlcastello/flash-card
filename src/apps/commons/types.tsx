@@ -14,17 +14,32 @@ export interface IFlashcard {
 
 export interface IQuiz {  
   id: string,
-  quizSummary: {
-    title: string,
-    description: string,
-  },
-  quizQuestions: {
-    flashcards: IFlashcard[]
-  }
+  quizSummary: IQuizSummary,
+  quizQuestions: IQuestionCard[]
 }
 
 export interface IQuizSummary {
-  id: string,
   title: string,
   description: string
 } 
+
+export interface IQuizSummaryCard {
+  id: string,
+  quizSummary: IQuizSummary
+}
+
+
+export interface IQuestionBase {
+  question: string,
+  subQuestion?: string,
+  hint?: string,
+  answer: string,
+}
+
+export interface IQuestionCard extends IQuestionBase {
+  id: string,
+}
+
+export interface IQuestion extends IQuestionCard {
+  // id: string,
+}

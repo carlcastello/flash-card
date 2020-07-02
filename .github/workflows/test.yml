@@ -22,9 +22,11 @@ jobs:
       - name: Install Packages
         run: npm install
 
-      - name: Running Web Test
-        run: npm test .src/apps/web
-      - name: Running Module Test
-        run: npm test .src/apps/quiz
-      - name: Running Common Test
-        run: npm test .src/apis
+      - name: Testing Apps/Commons
+        run: npm test ".src/apps/commons"
+      - name: Testing Apps/Dashboard
+        run: npm test ".src/apps/dashboard"
+      - name: Testing Apps/Quiz
+        run: npm test ".src/apps/quiz"
+      - name: Testing Apis
+        run: npm test ".src/apis"

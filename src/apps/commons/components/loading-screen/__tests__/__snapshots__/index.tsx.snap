@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`displays the loading screen 1`] = `
+<Styled(MuiBox)
+  className="box-container"
+>
+  <Styled(MuiBox)
+    className="box-content"
+  >
+    <WithStyles(ForwardRef(Typography))
+      className="typography"
+      variant="h4"
+    />
+    <WithStyles(ForwardRef(LinearProgress))
+      className="linear-progress-bar"
+      color="secondary"
+    />
+  </Styled(MuiBox)>
+</Styled(MuiBox)>
+`;

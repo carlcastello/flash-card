@@ -1,21 +1,37 @@
 import React, { Component, ReactNode, ChangeEvent } from 'react';
 
-import { withStyles, Paper, Input, Box, Typography } from '@material-ui/core';
+import {
+  withStyles,
+  Paper,
+  Input,
+  Box,
+  Typography,
+  Collapse
+} from '@material-ui/core';
 
 import { IOwnProps, IOwnState } from './types';
 import styles from './styles';
 import { FlashcardStatus } from '../../types';
 
 
-class AnswerCard extends Component<IOwnProps, IOwnState> {
+export class AnswerCard extends Component<IOwnProps, IOwnState> {
 
   state: IOwnState = {
-    answer: ''
+    answer: '',
+    hideAnswer: true
   }
 
   onInputChange = (event: ChangeEvent<HTMLInputElement>): void => {
     event.preventDefault();
-    this.setState({answer: event.target.value})
+    this.setState({answer: event.target.value});
+  }
+
+  onEnter = () => {
+    this.setState({ hideAnswer: false });
+  }
+
+  onExit = () => {
+    this.setState({ hideAnswer: true });
   }
 
   renderInput(): ReactNode {
@@ -45,18 +61,23 @@ class AnswerCard extends Component<IOwnProps, IOwnState> {
 
   renderCorrectAnswer(): ReactNode {
     const {
-      answer,
-      classes: {
-        input,
-        typography
+      props: {
+        answer,
+        classes: {
+          input,
+          typography
+        }
+      },
+      state: {
+        hideAnswer
       }
-    } = this.props;
+    } = this;
 
     return (
       <Box>
         <Typography className={typography} variant="subtitle2">Answer</Typography>
         <Input
-          value={answer}
+          value={hideAnswer ? '' : answer}
           className={input}
           margin='none'
           disabled
@@ -71,21 +92,24 @@ class AnswerCard extends Component<IOwnProps, IOwnState> {
       flashcardStatus,
     } = this.props;
 
-    switch (flashcardStatus) {
-      case FlashcardStatus.WRONG:
-        return (
-          <Box>
-            {this.renderInput()}
-            <Box pt={1.5}>
-              {this.renderCorrectAnswer()}
-            </Box>
+    return (
+      <Box>
+        {flashcardStatus !== FlashcardStatus.HINT ?
+          this.renderInput() :
+          null}
+        <Collapse
+          in={
+            flashcardStatus === FlashcardStatus.WRONG || 
+            flashcardStatus === FlashcardStatus.HINT
+          }
+          onEnter={this.onEnter}
+          onExit={this.onExit}>
+          <Box pt={1.5}>
+            {this.renderCorrectAnswer()}
           </Box>
-        )
-      case FlashcardStatus.HINT:
-        return (this.renderCorrectAnswer())        
-      default:
-        return (this.renderInput())
-    }
+        </Collapse>
+      </Box>     
+    );
   }
 
   render(): ReactNode {
@@ -105,7 +129,7 @@ class AnswerCard extends Component<IOwnProps, IOwnState> {
           </Box>
         </Paper>
       </Box>
-    )
+    );
   }
 }
 

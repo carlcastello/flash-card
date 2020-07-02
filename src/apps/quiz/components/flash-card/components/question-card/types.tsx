@@ -5,7 +5,7 @@ export interface IQuestionObject {
   question: string,
   subQuestion?: string,
   hint?: string,
-  questionType: QuestionType,
+  // questionType: QuestionType,
 }
 
 export interface IOwnProps {
@@ -15,6 +15,7 @@ export interface IOwnProps {
   classes: {
     paper: string,
     boxButtonContainer: string,
-    boxQuestionaireContainer: string
+    boxQuestionaireContainer: string,
+    questionTypography: string
   }
 }
