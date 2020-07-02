@@ -1,0 +1,2657 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`The Quiz Questions  The render function renders an empty view 1`] = `
+<Styled(MuiBox)
+  className="question-container"
+  p={5}
+>
+  <Styled(MuiBox)
+    pb={2}
+  >
+    <WithStyles(ForwardRef(Typography))
+      variant="h4"
+    >
+      Quiz Questions
+    </WithStyles(ForwardRef(Typography))>
+  </Styled(MuiBox)>
+  <Styled(MuiBox)
+    pb={2}
+  >
+    <WithStyles(ForwardRef(Paper))
+      className="paper-container"
+      elevation={3}
+    >
+      <Styled(MuiBox)
+        px={5}
+        py={2.5}
+      >
+        <ForwardRef(Fade)
+          in={false}
+        >
+          <WithStyles(ForwardRef(IconButton))
+            className="close-button"
+            onClick={[Function]}
+          >
+            <CloseIcon />
+          </WithStyles(ForwardRef(IconButton))>
+        </ForwardRef(Fade)>
+        <ForwardRef(Fade)
+          in={true}
+        >
+          <WithStyles(ForwardRef(Button))
+            className="open-form-button"
+            color="primary"
+            onClick={[Function]}
+          >
+            Add Question
+          </WithStyles(ForwardRef(Button))>
+        </ForwardRef(Fade)>
+        <WithStyles(ForwardRef(Collapse))
+          in={false}
+        >
+          <Styled(MuiBox)
+            py={2.5}
+          >
+            <WithStyles(Form)
+              fields={
+                Array [
+                  Object {
+                    "id": "question",
+                    "label": "Question",
+                    "required": true,
+                    "type": "text",
+                    "validator": [Function],
+                    "value": "",
+                  },
+                  Object {
+                    "id": "sub-question",
+                    "label": "Sub Question",
+                    "required": false,
+                    "type": "text",
+                    "validator": [Function],
+                    "value": "",
+                  },
+                  Object {
+                    "id": "hint",
+                    "label": "Hint",
+                    "required": false,
+                    "type": "text",
+                    "validator": [Function],
+                    "value": "",
+                  },
+                  Object {
+                    "id": "answer",
+                    "label": "Answer",
+                    "required": true,
+                    "type": "text",
+                    "validator": [Function],
+                    "value": "",
+                  },
+                ]
+              }
+              isLoading={false}
+              onSuccess={[Function]}
+            />
+          </Styled(MuiBox)>
+        </WithStyles(ForwardRef(Collapse))>
+      </Styled(MuiBox)>
+    </WithStyles(ForwardRef(Paper))>
+  </Styled(MuiBox)>
+  <WithStyles(ForwardRef(Grid))
+    container={true}
+    spacing={2}
+  >
+    <WithStyles(ForwardRef(Grid))
+      item={true}
+      sm={12}
+    >
+      <WithStyles(ForwardRef(Typography))
+        variant="body1"
+      >
+        This quiz has no questions.
+      </WithStyles(ForwardRef(Typography))>
+    </WithStyles(ForwardRef(Grid))>
+  </WithStyles(ForwardRef(Grid))>
+  <WithStyles(StyledModal)
+    isOpen={false}
+    onIgnore={[Function]}
+  >
+    <Styled(MuiBox)
+      pb={2}
+    >
+      <WithStyles(ForwardRef(Typography))
+        variant="h4"
+      >
+        Edit Question
+      </WithStyles(ForwardRef(Typography))>
+    </Styled(MuiBox)>
+    <WithStyles(Form)
+      fields={
+        Array [
+          Object {
+            "id": "question",
+            "label": "Question",
+            "required": true,
+            "type": "text",
+            "validator": [Function],
+            "value": "",
+          },
+          Object {
+            "id": "sub-question",
+            "label": "Sub Question",
+            "required": false,
+            "type": "text",
+            "validator": [Function],
+            "value": "",
+          },
+          Object {
+            "id": "hint",
+            "label": "Hint",
+            "required": false,
+            "type": "text",
+            "validator": [Function],
+            "value": "",
+          },
+          Object {
+            "id": "answer",
+            "label": "Answer",
+            "required": true,
+            "type": "text",
+            "validator": [Function],
+            "value": "",
+          },
+        ]
+      }
+      isLoading={false}
+      onSuccess={[Function]}
+    />
+  </WithStyles(StyledModal)>
+  <WithStyles(StyledModal)
+    isLoading={false}
+    isOpen={false}
+    onConfirm={[Function]}
+    onIgnore={[Function]}
+  >
+    <Styled(MuiBox)
+      pb={4}
+    >
+      <WithStyles(ForwardRef(Typography))
+        align="center"
+        variant="h4"
+      >
+        Are you sure to delete this question?
+      </WithStyles(ForwardRef(Typography))>
+    </Styled(MuiBox)>
+  </WithStyles(StyledModal)>
+</Styled(MuiBox)>
+`;
+
+exports[`The Quiz Questions  The render function renders the list view view 1`] = `
+<Styled(MuiBox)
+  className="question-container"
+  p={5}
+>
+  <Styled(MuiBox)
+    pb={2}
+  >
+    <WithStyles(ForwardRef(Typography))
+      variant="h4"
+    >
+      Quiz Questions
+    </WithStyles(ForwardRef(Typography))>
+  </Styled(MuiBox)>
+  <Styled(MuiBox)
+    pb={2}
+  >
+    <WithStyles(ForwardRef(Paper))
+      className="paper-container"
+      elevation={3}
+    >
+      <Styled(MuiBox)
+        px={5}
+        py={2.5}
+      >
+        <ForwardRef(Fade)
+          in={false}
+        >
+          <WithStyles(ForwardRef(IconButton))
+            className="close-button"
+            onClick={[Function]}
+          >
+            <CloseIcon />
+          </WithStyles(ForwardRef(IconButton))>
+        </ForwardRef(Fade)>
+        <ForwardRef(Fade)
+          in={true}
+        >
+          <WithStyles(ForwardRef(Button))
+            className="open-form-button"
+            color="primary"
+            onClick={[Function]}
+          >
+            Add Question
+          </WithStyles(ForwardRef(Button))>
+        </ForwardRef(Fade)>
+        <WithStyles(ForwardRef(Collapse))
+          in={false}
+        >
+          <Styled(MuiBox)
+            py={2.5}
+          >
+            <WithStyles(Form)
+              fields={
+                Array [
+                  Object {
+                    "id": "question",
+                    "label": "Question",
+                    "required": true,
+                    "type": "text",
+                    "validator": [Function],
+                    "value": "",
+                  },
+                  Object {
+                    "id": "sub-question",
+                    "label": "Sub Question",
+                    "required": false,
+                    "type": "text",
+                    "validator": [Function],
+                    "value": "",
+                  },
+                  Object {
+                    "id": "hint",
+                    "label": "Hint",
+                    "required": false,
+                    "type": "text",
+                    "validator": [Function],
+                    "value": "",
+                  },
+                  Object {
+                    "id": "answer",
+                    "label": "Answer",
+                    "required": true,
+                    "type": "text",
+                    "validator": [Function],
+                    "value": "",
+                  },
+                ]
+              }
+              isLoading={false}
+              onSuccess={[Function]}
+            />
+          </Styled(MuiBox)>
+        </WithStyles(ForwardRef(Collapse))>
+      </Styled(MuiBox)>
+    </WithStyles(ForwardRef(Paper))>
+  </Styled(MuiBox)>
+  <WithStyles(ForwardRef(Grid))
+    container={true}
+    spacing={2}
+  >
+    <WithStyles(ForwardRef(Grid))
+      item={true}
+      key="question-id"
+      sm={6}
+    >
+      <WithStyles(InformationCard)
+        description="this is an answer"
+        id="question-id"
+        onDelete={[Function]}
+        onEdit={[Function]}
+        subtitle="this is a sub question"
+        title="this is a question"
+      />
+    </WithStyles(ForwardRef(Grid))>
+  </WithStyles(ForwardRef(Grid))>
+  <WithStyles(StyledModal)
+    isOpen={false}
+    onIgnore={[Function]}
+  >
+    <Styled(MuiBox)
+      pb={2}
+    >
+      <WithStyles(ForwardRef(Typography))
+        variant="h4"
+      >
+        Edit Question
+      </WithStyles(ForwardRef(Typography))>
+    </Styled(MuiBox)>
+    <WithStyles(Form)
+      fields={
+        Array [
+          Object {
+            "id": "question",
+            "label": "Question",
+            "required": true,
+            "type": "text",
+            "validator": [Function],
+            "value": "",
+          },
+          Object {
+            "id": "sub-question",
+            "label": "Sub Question",
+            "required": false,
+            "type": "text",
+            "validator": [Function],
+            "value": "",
+          },
+          Object {
+            "id": "hint",
+            "label": "Hint",
+            "required": false,
+            "type": "text",
+            "validator": [Function],
+            "value": "",
+          },
+          Object {
+            "id": "answer",
+            "label": "Answer",
+            "required": true,
+            "type": "text",
+            "validator": [Function],
+            "value": "",
+          },
+        ]
+      }
+      isLoading={false}
+      onSuccess={[Function]}
+    />
+  </WithStyles(StyledModal)>
+  <WithStyles(StyledModal)
+    isLoading={false}
+    isOpen={false}
+    onConfirm={[Function]}
+    onIgnore={[Function]}
+  >
+    <Styled(MuiBox)
+      pb={4}
+    >
+      <WithStyles(ForwardRef(Typography))
+        align="center"
+        variant="h4"
+      >
+        Are you sure to delete this question?
+      </WithStyles(ForwardRef(Typography))>
+    </Styled(MuiBox)>
+  </WithStyles(StyledModal)>
+</Styled(MuiBox)>
+`;
+
+exports[`The Quiz Questions  The render function shows isCreatingQuestion 1`] = `
+<Styled(MuiBox)
+  className="question-container"
+  p={5}
+>
+  <Styled(MuiBox)
+    pb={2}
+  >
+    <WithStyles(ForwardRef(Typography))
+      variant="h4"
+    >
+      Quiz Questions
+    </WithStyles(ForwardRef(Typography))>
+  </Styled(MuiBox)>
+  <Styled(MuiBox)
+    pb={2}
+  >
+    <WithStyles(ForwardRef(Paper))
+      className="paper-container"
+      elevation={3}
+    >
+      <Styled(MuiBox)
+        px={5}
+        py={2.5}
+      >
+        <ForwardRef(Fade)
+          in={false}
+        >
+          <WithStyles(ForwardRef(IconButton))
+            className="close-button"
+            onClick={[Function]}
+          >
+            <CloseIcon />
+          </WithStyles(ForwardRef(IconButton))>
+        </ForwardRef(Fade)>
+        <ForwardRef(Fade)
+          in={true}
+        >
+          <WithStyles(ForwardRef(Button))
+            className="open-form-button"
+            color="primary"
+            onClick={[Function]}
+          >
+            Add Question
+          </WithStyles(ForwardRef(Button))>
+        </ForwardRef(Fade)>
+        <WithStyles(ForwardRef(Collapse))
+          in={false}
+        >
+          <Styled(MuiBox)
+            py={2.5}
+          >
+            <WithStyles(Form)
+              fields={
+                Array [
+                  Object {
+                    "id": "question",
+                    "label": "Question",
+                    "required": true,
+                    "type": "text",
+                    "validator": [Function],
+                    "value": "",
+                  },
+                  Object {
+                    "id": "sub-question",
+                    "label": "Sub Question",
+                    "required": false,
+                    "type": "text",
+                    "validator": [Function],
+                    "value": "",
+                  },
+                  Object {
+                    "id": "hint",
+                    "label": "Hint",
+                    "required": false,
+                    "type": "text",
+                    "validator": [Function],
+                    "value": "",
+                  },
+                  Object {
+                    "id": "answer",
+                    "label": "Answer",
+                    "required": true,
+                    "type": "text",
+                    "validator": [Function],
+                    "value": "",
+                  },
+                ]
+              }
+              isLoading={false}
+              onSuccess={[Function]}
+            />
+          </Styled(MuiBox)>
+        </WithStyles(ForwardRef(Collapse))>
+      </Styled(MuiBox)>
+    </WithStyles(ForwardRef(Paper))>
+  </Styled(MuiBox)>
+  <WithStyles(ForwardRef(Grid))
+    container={true}
+    spacing={2}
+  >
+    <WithStyles(ForwardRef(Grid))
+      item={true}
+      key="question-id"
+      sm={6}
+    >
+      <WithStyles(InformationCard)
+        description="this is an answer"
+        id="question-id"
+        onDelete={[Function]}
+        onEdit={[Function]}
+        subtitle="this is a sub question"
+        title="this is a question"
+      />
+    </WithStyles(ForwardRef(Grid))>
+  </WithStyles(ForwardRef(Grid))>
+  <WithStyles(StyledModal)
+    isOpen={false}
+    onIgnore={[Function]}
+  >
+    <Styled(MuiBox)
+      pb={2}
+    >
+      <WithStyles(ForwardRef(Typography))
+        variant="h4"
+      >
+        Edit Question
+      </WithStyles(ForwardRef(Typography))>
+    </Styled(MuiBox)>
+    <WithStyles(Form)
+      fields={
+        Array [
+          Object {
+            "id": "question",
+            "label": "Question",
+            "required": true,
+            "type": "text",
+            "validator": [Function],
+            "value": "",
+          },
+          Object {
+            "id": "sub-question",
+            "label": "Sub Question",
+            "required": false,
+            "type": "text",
+            "validator": [Function],
+            "value": "",
+          },
+          Object {
+            "id": "hint",
+            "label": "Hint",
+            "required": false,
+            "type": "text",
+            "validator": [Function],
+            "value": "",
+          },
+          Object {
+            "id": "answer",
+            "label": "Answer",
+            "required": true,
+            "type": "text",
+            "validator": [Function],
+            "value": "",
+          },
+        ]
+      }
+      isLoading={false}
+      onSuccess={[Function]}
+    />
+  </WithStyles(StyledModal)>
+  <WithStyles(StyledModal)
+    isLoading={false}
+    isOpen={false}
+    onConfirm={[Function]}
+    onIgnore={[Function]}
+  >
+    <Styled(MuiBox)
+      pb={4}
+    >
+      <WithStyles(ForwardRef(Typography))
+        align="center"
+        variant="h4"
+      >
+        Are you sure to delete this question?
+      </WithStyles(ForwardRef(Typography))>
+    </Styled(MuiBox)>
+  </WithStyles(StyledModal)>
+</Styled(MuiBox)>
+`;
+
+exports[`The Quiz Questions  The render function shows isCreatingQuestion 2`] = `
+<Styled(MuiBox)
+  className="question-container"
+  p={5}
+>
+  <Styled(MuiBox)
+    pb={2}
+  >
+    <WithStyles(ForwardRef(Typography))
+      variant="h4"
+    >
+      Quiz Questions
+    </WithStyles(ForwardRef(Typography))>
+  </Styled(MuiBox)>
+  <Styled(MuiBox)
+    pb={2}
+  >
+    <WithStyles(ForwardRef(Paper))
+      className="paper-container"
+      elevation={3}
+    >
+      <Styled(MuiBox)
+        px={5}
+        py={2.5}
+      >
+        <ForwardRef(Fade)
+          in={false}
+        >
+          <WithStyles(ForwardRef(IconButton))
+            className="close-button"
+            onClick={[Function]}
+          >
+            <CloseIcon />
+          </WithStyles(ForwardRef(IconButton))>
+        </ForwardRef(Fade)>
+        <ForwardRef(Fade)
+          in={true}
+        >
+          <WithStyles(ForwardRef(Button))
+            className="open-form-button"
+            color="primary"
+            onClick={[Function]}
+          >
+            Add Question
+          </WithStyles(ForwardRef(Button))>
+        </ForwardRef(Fade)>
+        <WithStyles(ForwardRef(Collapse))
+          in={false}
+        >
+          <Styled(MuiBox)
+            py={2.5}
+          >
+            <WithStyles(Form)
+              fields={
+                Array [
+                  Object {
+                    "id": "question",
+                    "label": "Question",
+                    "required": true,
+                    "type": "text",
+                    "validator": [Function],
+                    "value": "",
+                  },
+                  Object {
+                    "id": "sub-question",
+                    "label": "Sub Question",
+                    "required": false,
+                    "type": "text",
+                    "validator": [Function],
+                    "value": "",
+                  },
+                  Object {
+                    "id": "hint",
+                    "label": "Hint",
+                    "required": false,
+                    "type": "text",
+                    "validator": [Function],
+                    "value": "",
+                  },
+                  Object {
+                    "id": "answer",
+                    "label": "Answer",
+                    "required": true,
+                    "type": "text",
+                    "validator": [Function],
+                    "value": "",
+                  },
+                ]
+              }
+              isLoading={true}
+              onSuccess={[Function]}
+            />
+          </Styled(MuiBox)>
+        </WithStyles(ForwardRef(Collapse))>
+      </Styled(MuiBox)>
+    </WithStyles(ForwardRef(Paper))>
+  </Styled(MuiBox)>
+  <WithStyles(ForwardRef(Grid))
+    container={true}
+    spacing={2}
+  >
+    <WithStyles(ForwardRef(Grid))
+      item={true}
+      key="question-id"
+      sm={6}
+    >
+      <WithStyles(InformationCard)
+        description="this is an answer"
+        id="question-id"
+        onDelete={[Function]}
+        onEdit={[Function]}
+        subtitle="this is a sub question"
+        title="this is a question"
+      />
+    </WithStyles(ForwardRef(Grid))>
+  </WithStyles(ForwardRef(Grid))>
+  <WithStyles(StyledModal)
+    isOpen={false}
+    onIgnore={[Function]}
+  >
+    <Styled(MuiBox)
+      pb={2}
+    >
+      <WithStyles(ForwardRef(Typography))
+        variant="h4"
+      >
+        Edit Question
+      </WithStyles(ForwardRef(Typography))>
+    </Styled(MuiBox)>
+    <WithStyles(Form)
+      fields={
+        Array [
+          Object {
+            "id": "question",
+            "label": "Question",
+            "required": true,
+            "type": "text",
+            "validator": [Function],
+            "value": "",
+          },
+          Object {
+            "id": "sub-question",
+            "label": "Sub Question",
+            "required": false,
+            "type": "text",
+            "validator": [Function],
+            "value": "",
+          },
+          Object {
+            "id": "hint",
+            "label": "Hint",
+            "required": false,
+            "type": "text",
+            "validator": [Function],
+            "value": "",
+          },
+          Object {
+            "id": "answer",
+            "label": "Answer",
+            "required": true,
+            "type": "text",
+            "validator": [Function],
+            "value": "",
+          },
+        ]
+      }
+      isLoading={false}
+      onSuccess={[Function]}
+    />
+  </WithStyles(StyledModal)>
+  <WithStyles(StyledModal)
+    isLoading={false}
+    isOpen={false}
+    onConfirm={[Function]}
+    onIgnore={[Function]}
+  >
+    <Styled(MuiBox)
+      pb={4}
+    >
+      <WithStyles(ForwardRef(Typography))
+        align="center"
+        variant="h4"
+      >
+        Are you sure to delete this question?
+      </WithStyles(ForwardRef(Typography))>
+    </Styled(MuiBox)>
+  </WithStyles(StyledModal)>
+</Styled(MuiBox)>
+`;
+
+exports[`The Quiz Questions  The render function shows isDeletingQuestion 1`] = `
+<Styled(MuiBox)
+  className="question-container"
+  p={5}
+>
+  <Styled(MuiBox)
+    pb={2}
+  >
+    <WithStyles(ForwardRef(Typography))
+      variant="h4"
+    >
+      Quiz Questions
+    </WithStyles(ForwardRef(Typography))>
+  </Styled(MuiBox)>
+  <Styled(MuiBox)
+    pb={2}
+  >
+    <WithStyles(ForwardRef(Paper))
+      className="paper-container"
+      elevation={3}
+    >
+      <Styled(MuiBox)
+        px={5}
+        py={2.5}
+      >
+        <ForwardRef(Fade)
+          in={false}
+        >
+          <WithStyles(ForwardRef(IconButton))
+            className="close-button"
+            onClick={[Function]}
+          >
+            <CloseIcon />
+          </WithStyles(ForwardRef(IconButton))>
+        </ForwardRef(Fade)>
+        <ForwardRef(Fade)
+          in={true}
+        >
+          <WithStyles(ForwardRef(Button))
+            className="open-form-button"
+            color="primary"
+            onClick={[Function]}
+          >
+            Add Question
+          </WithStyles(ForwardRef(Button))>
+        </ForwardRef(Fade)>
+        <WithStyles(ForwardRef(Collapse))
+          in={false}
+        >
+          <Styled(MuiBox)
+            py={2.5}
+          >
+            <WithStyles(Form)
+              fields={
+                Array [
+                  Object {
+                    "id": "question",
+                    "label": "Question",
+                    "required": true,
+                    "type": "text",
+                    "validator": [Function],
+                    "value": "",
+                  },
+                  Object {
+                    "id": "sub-question",
+                    "label": "Sub Question",
+                    "required": false,
+                    "type": "text",
+                    "validator": [Function],
+                    "value": "",
+                  },
+                  Object {
+                    "id": "hint",
+                    "label": "Hint",
+                    "required": false,
+                    "type": "text",
+                    "validator": [Function],
+                    "value": "",
+                  },
+                  Object {
+                    "id": "answer",
+                    "label": "Answer",
+                    "required": true,
+                    "type": "text",
+                    "validator": [Function],
+                    "value": "",
+                  },
+                ]
+              }
+              isLoading={false}
+              onSuccess={[Function]}
+            />
+          </Styled(MuiBox)>
+        </WithStyles(ForwardRef(Collapse))>
+      </Styled(MuiBox)>
+    </WithStyles(ForwardRef(Paper))>
+  </Styled(MuiBox)>
+  <WithStyles(ForwardRef(Grid))
+    container={true}
+    spacing={2}
+  >
+    <WithStyles(ForwardRef(Grid))
+      item={true}
+      key="question-id"
+      sm={6}
+    >
+      <WithStyles(InformationCard)
+        description="this is an answer"
+        id="question-id"
+        onDelete={[Function]}
+        onEdit={[Function]}
+        subtitle="this is a sub question"
+        title="this is a question"
+      />
+    </WithStyles(ForwardRef(Grid))>
+  </WithStyles(ForwardRef(Grid))>
+  <WithStyles(StyledModal)
+    isOpen={false}
+    onIgnore={[Function]}
+  >
+    <Styled(MuiBox)
+      pb={2}
+    >
+      <WithStyles(ForwardRef(Typography))
+        variant="h4"
+      >
+        Edit Question
+      </WithStyles(ForwardRef(Typography))>
+    </Styled(MuiBox)>
+    <WithStyles(Form)
+      fields={
+        Array [
+          Object {
+            "id": "question",
+            "label": "Question",
+            "required": true,
+            "type": "text",
+            "validator": [Function],
+            "value": "",
+          },
+          Object {
+            "id": "sub-question",
+            "label": "Sub Question",
+            "required": false,
+            "type": "text",
+            "validator": [Function],
+            "value": "",
+          },
+          Object {
+            "id": "hint",
+            "label": "Hint",
+            "required": false,
+            "type": "text",
+            "validator": [Function],
+            "value": "",
+          },
+          Object {
+            "id": "answer",
+            "label": "Answer",
+            "required": true,
+            "type": "text",
+            "validator": [Function],
+            "value": "",
+          },
+        ]
+      }
+      isLoading={false}
+      onSuccess={[Function]}
+    />
+  </WithStyles(StyledModal)>
+  <WithStyles(StyledModal)
+    isLoading={false}
+    isOpen={false}
+    onConfirm={[Function]}
+    onIgnore={[Function]}
+  >
+    <Styled(MuiBox)
+      pb={4}
+    >
+      <WithStyles(ForwardRef(Typography))
+        align="center"
+        variant="h4"
+      >
+        Are you sure to delete this question?
+      </WithStyles(ForwardRef(Typography))>
+    </Styled(MuiBox)>
+  </WithStyles(StyledModal)>
+</Styled(MuiBox)>
+`;
+
+exports[`The Quiz Questions  The render function shows isDeletingQuestion 2`] = `
+<Styled(MuiBox)
+  className="question-container"
+  p={5}
+>
+  <Styled(MuiBox)
+    pb={2}
+  >
+    <WithStyles(ForwardRef(Typography))
+      variant="h4"
+    >
+      Quiz Questions
+    </WithStyles(ForwardRef(Typography))>
+  </Styled(MuiBox)>
+  <Styled(MuiBox)
+    pb={2}
+  >
+    <WithStyles(ForwardRef(Paper))
+      className="paper-container"
+      elevation={3}
+    >
+      <Styled(MuiBox)
+        px={5}
+        py={2.5}
+      >
+        <ForwardRef(Fade)
+          in={false}
+        >
+          <WithStyles(ForwardRef(IconButton))
+            className="close-button"
+            onClick={[Function]}
+          >
+            <CloseIcon />
+          </WithStyles(ForwardRef(IconButton))>
+        </ForwardRef(Fade)>
+        <ForwardRef(Fade)
+          in={true}
+        >
+          <WithStyles(ForwardRef(Button))
+            className="open-form-button"
+            color="primary"
+            onClick={[Function]}
+          >
+            Add Question
+          </WithStyles(ForwardRef(Button))>
+        </ForwardRef(Fade)>
+        <WithStyles(ForwardRef(Collapse))
+          in={false}
+        >
+          <Styled(MuiBox)
+            py={2.5}
+          >
+            <WithStyles(Form)
+              fields={
+                Array [
+                  Object {
+                    "id": "question",
+                    "label": "Question",
+                    "required": true,
+                    "type": "text",
+                    "validator": [Function],
+                    "value": "",
+                  },
+                  Object {
+                    "id": "sub-question",
+                    "label": "Sub Question",
+                    "required": false,
+                    "type": "text",
+                    "validator": [Function],
+                    "value": "",
+                  },
+                  Object {
+                    "id": "hint",
+                    "label": "Hint",
+                    "required": false,
+                    "type": "text",
+                    "validator": [Function],
+                    "value": "",
+                  },
+                  Object {
+                    "id": "answer",
+                    "label": "Answer",
+                    "required": true,
+                    "type": "text",
+                    "validator": [Function],
+                    "value": "",
+                  },
+                ]
+              }
+              isLoading={false}
+              onSuccess={[Function]}
+            />
+          </Styled(MuiBox)>
+        </WithStyles(ForwardRef(Collapse))>
+      </Styled(MuiBox)>
+    </WithStyles(ForwardRef(Paper))>
+  </Styled(MuiBox)>
+  <WithStyles(ForwardRef(Grid))
+    container={true}
+    spacing={2}
+  >
+    <WithStyles(ForwardRef(Grid))
+      item={true}
+      key="question-id"
+      sm={6}
+    >
+      <WithStyles(InformationCard)
+        description="this is an answer"
+        id="question-id"
+        onDelete={[Function]}
+        onEdit={[Function]}
+        subtitle="this is a sub question"
+        title="this is a question"
+      />
+    </WithStyles(ForwardRef(Grid))>
+  </WithStyles(ForwardRef(Grid))>
+  <WithStyles(StyledModal)
+    isOpen={false}
+    onIgnore={[Function]}
+  >
+    <Styled(MuiBox)
+      pb={2}
+    >
+      <WithStyles(ForwardRef(Typography))
+        variant="h4"
+      >
+        Edit Question
+      </WithStyles(ForwardRef(Typography))>
+    </Styled(MuiBox)>
+    <WithStyles(Form)
+      fields={
+        Array [
+          Object {
+            "id": "question",
+            "label": "Question",
+            "required": true,
+            "type": "text",
+            "validator": [Function],
+            "value": "",
+          },
+          Object {
+            "id": "sub-question",
+            "label": "Sub Question",
+            "required": false,
+            "type": "text",
+            "validator": [Function],
+            "value": "",
+          },
+          Object {
+            "id": "hint",
+            "label": "Hint",
+            "required": false,
+            "type": "text",
+            "validator": [Function],
+            "value": "",
+          },
+          Object {
+            "id": "answer",
+            "label": "Answer",
+            "required": true,
+            "type": "text",
+            "validator": [Function],
+            "value": "",
+          },
+        ]
+      }
+      isLoading={false}
+      onSuccess={[Function]}
+    />
+  </WithStyles(StyledModal)>
+  <WithStyles(StyledModal)
+    isLoading={true}
+    isOpen={false}
+    onConfirm={[Function]}
+    onIgnore={[Function]}
+  >
+    <Styled(MuiBox)
+      pb={4}
+    >
+      <WithStyles(ForwardRef(Typography))
+        align="center"
+        variant="h4"
+      >
+        Are you sure to delete this question?
+      </WithStyles(ForwardRef(Typography))>
+    </Styled(MuiBox)>
+  </WithStyles(StyledModal)>
+</Styled(MuiBox)>
+`;
+
+exports[`The Quiz Questions  The render function shows isSavingQuestion 1`] = `
+<Styled(MuiBox)
+  className="question-container"
+  p={5}
+>
+  <Styled(MuiBox)
+    pb={2}
+  >
+    <WithStyles(ForwardRef(Typography))
+      variant="h4"
+    >
+      Quiz Questions
+    </WithStyles(ForwardRef(Typography))>
+  </Styled(MuiBox)>
+  <Styled(MuiBox)
+    pb={2}
+  >
+    <WithStyles(ForwardRef(Paper))
+      className="paper-container"
+      elevation={3}
+    >
+      <Styled(MuiBox)
+        px={5}
+        py={2.5}
+      >
+        <ForwardRef(Fade)
+          in={false}
+        >
+          <WithStyles(ForwardRef(IconButton))
+            className="close-button"
+            onClick={[Function]}
+          >
+            <CloseIcon />
+          </WithStyles(ForwardRef(IconButton))>
+        </ForwardRef(Fade)>
+        <ForwardRef(Fade)
+          in={true}
+        >
+          <WithStyles(ForwardRef(Button))
+            className="open-form-button"
+            color="primary"
+            onClick={[Function]}
+          >
+            Add Question
+          </WithStyles(ForwardRef(Button))>
+        </ForwardRef(Fade)>
+        <WithStyles(ForwardRef(Collapse))
+          in={false}
+        >
+          <Styled(MuiBox)
+            py={2.5}
+          >
+            <WithStyles(Form)
+              fields={
+                Array [
+                  Object {
+                    "id": "question",
+                    "label": "Question",
+                    "required": true,
+                    "type": "text",
+                    "validator": [Function],
+                    "value": "",
+                  },
+                  Object {
+                    "id": "sub-question",
+                    "label": "Sub Question",
+                    "required": false,
+                    "type": "text",
+                    "validator": [Function],
+                    "value": "",
+                  },
+                  Object {
+                    "id": "hint",
+                    "label": "Hint",
+                    "required": false,
+                    "type": "text",
+                    "validator": [Function],
+                    "value": "",
+                  },
+                  Object {
+                    "id": "answer",
+                    "label": "Answer",
+                    "required": true,
+                    "type": "text",
+                    "validator": [Function],
+                    "value": "",
+                  },
+                ]
+              }
+              isLoading={false}
+              onSuccess={[Function]}
+            />
+          </Styled(MuiBox)>
+        </WithStyles(ForwardRef(Collapse))>
+      </Styled(MuiBox)>
+    </WithStyles(ForwardRef(Paper))>
+  </Styled(MuiBox)>
+  <WithStyles(ForwardRef(Grid))
+    container={true}
+    spacing={2}
+  >
+    <WithStyles(ForwardRef(Grid))
+      item={true}
+      key="question-id"
+      sm={6}
+    >
+      <WithStyles(InformationCard)
+        description="this is an answer"
+        id="question-id"
+        onDelete={[Function]}
+        onEdit={[Function]}
+        subtitle="this is a sub question"
+        title="this is a question"
+      />
+    </WithStyles(ForwardRef(Grid))>
+  </WithStyles(ForwardRef(Grid))>
+  <WithStyles(StyledModal)
+    isOpen={false}
+    onIgnore={[Function]}
+  >
+    <Styled(MuiBox)
+      pb={2}
+    >
+      <WithStyles(ForwardRef(Typography))
+        variant="h4"
+      >
+        Edit Question
+      </WithStyles(ForwardRef(Typography))>
+    </Styled(MuiBox)>
+    <WithStyles(Form)
+      fields={
+        Array [
+          Object {
+            "id": "question",
+            "label": "Question",
+            "required": true,
+            "type": "text",
+            "validator": [Function],
+            "value": "",
+          },
+          Object {
+            "id": "sub-question",
+            "label": "Sub Question",
+            "required": false,
+            "type": "text",
+            "validator": [Function],
+            "value": "",
+          },
+          Object {
+            "id": "hint",
+            "label": "Hint",
+            "required": false,
+            "type": "text",
+            "validator": [Function],
+            "value": "",
+          },
+          Object {
+            "id": "answer",
+            "label": "Answer",
+            "required": true,
+            "type": "text",
+            "validator": [Function],
+            "value": "",
+          },
+        ]
+      }
+      isLoading={false}
+      onSuccess={[Function]}
+    />
+  </WithStyles(StyledModal)>
+  <WithStyles(StyledModal)
+    isLoading={false}
+    isOpen={false}
+    onConfirm={[Function]}
+    onIgnore={[Function]}
+  >
+    <Styled(MuiBox)
+      pb={4}
+    >
+      <WithStyles(ForwardRef(Typography))
+        align="center"
+        variant="h4"
+      >
+        Are you sure to delete this question?
+      </WithStyles(ForwardRef(Typography))>
+    </Styled(MuiBox)>
+  </WithStyles(StyledModal)>
+</Styled(MuiBox)>
+`;
+
+exports[`The Quiz Questions  The render function shows isSavingQuestion 2`] = `
+<Styled(MuiBox)
+  className="question-container"
+  p={5}
+>
+  <Styled(MuiBox)
+    pb={2}
+  >
+    <WithStyles(ForwardRef(Typography))
+      variant="h4"
+    >
+      Quiz Questions
+    </WithStyles(ForwardRef(Typography))>
+  </Styled(MuiBox)>
+  <Styled(MuiBox)
+    pb={2}
+  >
+    <WithStyles(ForwardRef(Paper))
+      className="paper-container"
+      elevation={3}
+    >
+      <Styled(MuiBox)
+        px={5}
+        py={2.5}
+      >
+        <ForwardRef(Fade)
+          in={false}
+        >
+          <WithStyles(ForwardRef(IconButton))
+            className="close-button"
+            onClick={[Function]}
+          >
+            <CloseIcon />
+          </WithStyles(ForwardRef(IconButton))>
+        </ForwardRef(Fade)>
+        <ForwardRef(Fade)
+          in={true}
+        >
+          <WithStyles(ForwardRef(Button))
+            className="open-form-button"
+            color="primary"
+            onClick={[Function]}
+          >
+            Add Question
+          </WithStyles(ForwardRef(Button))>
+        </ForwardRef(Fade)>
+        <WithStyles(ForwardRef(Collapse))
+          in={false}
+        >
+          <Styled(MuiBox)
+            py={2.5}
+          >
+            <WithStyles(Form)
+              fields={
+                Array [
+                  Object {
+                    "id": "question",
+                    "label": "Question",
+                    "required": true,
+                    "type": "text",
+                    "validator": [Function],
+                    "value": "",
+                  },
+                  Object {
+                    "id": "sub-question",
+                    "label": "Sub Question",
+                    "required": false,
+                    "type": "text",
+                    "validator": [Function],
+                    "value": "",
+                  },
+                  Object {
+                    "id": "hint",
+                    "label": "Hint",
+                    "required": false,
+                    "type": "text",
+                    "validator": [Function],
+                    "value": "",
+                  },
+                  Object {
+                    "id": "answer",
+                    "label": "Answer",
+                    "required": true,
+                    "type": "text",
+                    "validator": [Function],
+                    "value": "",
+                  },
+                ]
+              }
+              isLoading={false}
+              onSuccess={[Function]}
+            />
+          </Styled(MuiBox)>
+        </WithStyles(ForwardRef(Collapse))>
+      </Styled(MuiBox)>
+    </WithStyles(ForwardRef(Paper))>
+  </Styled(MuiBox)>
+  <WithStyles(ForwardRef(Grid))
+    container={true}
+    spacing={2}
+  >
+    <WithStyles(ForwardRef(Grid))
+      item={true}
+      key="question-id"
+      sm={6}
+    >
+      <WithStyles(InformationCard)
+        description="this is an answer"
+        id="question-id"
+        onDelete={[Function]}
+        onEdit={[Function]}
+        subtitle="this is a sub question"
+        title="this is a question"
+      />
+    </WithStyles(ForwardRef(Grid))>
+  </WithStyles(ForwardRef(Grid))>
+  <WithStyles(StyledModal)
+    isOpen={false}
+    onIgnore={[Function]}
+  >
+    <Styled(MuiBox)
+      pb={2}
+    >
+      <WithStyles(ForwardRef(Typography))
+        variant="h4"
+      >
+        Edit Question
+      </WithStyles(ForwardRef(Typography))>
+    </Styled(MuiBox)>
+    <WithStyles(Form)
+      fields={
+        Array [
+          Object {
+            "id": "question",
+            "label": "Question",
+            "required": true,
+            "type": "text",
+            "validator": [Function],
+            "value": "",
+          },
+          Object {
+            "id": "sub-question",
+            "label": "Sub Question",
+            "required": false,
+            "type": "text",
+            "validator": [Function],
+            "value": "",
+          },
+          Object {
+            "id": "hint",
+            "label": "Hint",
+            "required": false,
+            "type": "text",
+            "validator": [Function],
+            "value": "",
+          },
+          Object {
+            "id": "answer",
+            "label": "Answer",
+            "required": true,
+            "type": "text",
+            "validator": [Function],
+            "value": "",
+          },
+        ]
+      }
+      isLoading={true}
+      onSuccess={[Function]}
+    />
+  </WithStyles(StyledModal)>
+  <WithStyles(StyledModal)
+    isLoading={false}
+    isOpen={false}
+    onConfirm={[Function]}
+    onIgnore={[Function]}
+  >
+    <Styled(MuiBox)
+      pb={4}
+    >
+      <WithStyles(ForwardRef(Typography))
+        align="center"
+        variant="h4"
+      >
+        Are you sure to delete this question?
+      </WithStyles(ForwardRef(Typography))>
+    </Styled(MuiBox)>
+  </WithStyles(StyledModal)>
+</Styled(MuiBox)>
+`;
+
+exports[`The Quiz Questions  The render function shows the create question form 1`] = `
+<Styled(MuiBox)
+  className="question-container"
+  p={5}
+>
+  <Styled(MuiBox)
+    pb={2}
+  >
+    <WithStyles(ForwardRef(Typography))
+      variant="h4"
+    >
+      Quiz Questions
+    </WithStyles(ForwardRef(Typography))>
+  </Styled(MuiBox)>
+  <Styled(MuiBox)
+    pb={2}
+  >
+    <WithStyles(ForwardRef(Paper))
+      className="paper-container"
+      elevation={3}
+    >
+      <Styled(MuiBox)
+        px={5}
+        py={2.5}
+      >
+        <ForwardRef(Fade)
+          in={false}
+        >
+          <WithStyles(ForwardRef(IconButton))
+            className="close-button"
+            onClick={[Function]}
+          >
+            <CloseIcon />
+          </WithStyles(ForwardRef(IconButton))>
+        </ForwardRef(Fade)>
+        <ForwardRef(Fade)
+          in={true}
+        >
+          <WithStyles(ForwardRef(Button))
+            className="open-form-button"
+            color="primary"
+            onClick={[Function]}
+          >
+            Add Question
+          </WithStyles(ForwardRef(Button))>
+        </ForwardRef(Fade)>
+        <WithStyles(ForwardRef(Collapse))
+          in={false}
+        >
+          <Styled(MuiBox)
+            py={2.5}
+          >
+            <WithStyles(Form)
+              fields={
+                Array [
+                  Object {
+                    "id": "question",
+                    "label": "Question",
+                    "required": true,
+                    "type": "text",
+                    "validator": [Function],
+                    "value": "",
+                  },
+                  Object {
+                    "id": "sub-question",
+                    "label": "Sub Question",
+                    "required": false,
+                    "type": "text",
+                    "validator": [Function],
+                    "value": "",
+                  },
+                  Object {
+                    "id": "hint",
+                    "label": "Hint",
+                    "required": false,
+                    "type": "text",
+                    "validator": [Function],
+                    "value": "",
+                  },
+                  Object {
+                    "id": "answer",
+                    "label": "Answer",
+                    "required": true,
+                    "type": "text",
+                    "validator": [Function],
+                    "value": "",
+                  },
+                ]
+              }
+              isLoading={false}
+              onSuccess={[Function]}
+            />
+          </Styled(MuiBox)>
+        </WithStyles(ForwardRef(Collapse))>
+      </Styled(MuiBox)>
+    </WithStyles(ForwardRef(Paper))>
+  </Styled(MuiBox)>
+  <WithStyles(ForwardRef(Grid))
+    container={true}
+    spacing={2}
+  >
+    <WithStyles(ForwardRef(Grid))
+      item={true}
+      key="question-id"
+      sm={6}
+    >
+      <WithStyles(InformationCard)
+        description="this is an answer"
+        id="question-id"
+        onDelete={[Function]}
+        onEdit={[Function]}
+        subtitle="this is a sub question"
+        title="this is a question"
+      />
+    </WithStyles(ForwardRef(Grid))>
+  </WithStyles(ForwardRef(Grid))>
+  <WithStyles(StyledModal)
+    isOpen={false}
+    onIgnore={[Function]}
+  >
+    <Styled(MuiBox)
+      pb={2}
+    >
+      <WithStyles(ForwardRef(Typography))
+        variant="h4"
+      >
+        Edit Question
+      </WithStyles(ForwardRef(Typography))>
+    </Styled(MuiBox)>
+    <WithStyles(Form)
+      fields={
+        Array [
+          Object {
+            "id": "question",
+            "label": "Question",
+            "required": true,
+            "type": "text",
+            "validator": [Function],
+            "value": "",
+          },
+          Object {
+            "id": "sub-question",
+            "label": "Sub Question",
+            "required": false,
+            "type": "text",
+            "validator": [Function],
+            "value": "",
+          },
+          Object {
+            "id": "hint",
+            "label": "Hint",
+            "required": false,
+            "type": "text",
+            "validator": [Function],
+            "value": "",
+          },
+          Object {
+            "id": "answer",
+            "label": "Answer",
+            "required": true,
+            "type": "text",
+            "validator": [Function],
+            "value": "",
+          },
+        ]
+      }
+      isLoading={false}
+      onSuccess={[Function]}
+    />
+  </WithStyles(StyledModal)>
+  <WithStyles(StyledModal)
+    isLoading={false}
+    isOpen={false}
+    onConfirm={[Function]}
+    onIgnore={[Function]}
+  >
+    <Styled(MuiBox)
+      pb={4}
+    >
+      <WithStyles(ForwardRef(Typography))
+        align="center"
+        variant="h4"
+      >
+        Are you sure to delete this question?
+      </WithStyles(ForwardRef(Typography))>
+    </Styled(MuiBox)>
+  </WithStyles(StyledModal)>
+</Styled(MuiBox)>
+`;
+
+exports[`The Quiz Questions  The render function shows the create question form 2`] = `
+<Styled(MuiBox)
+  className="question-container"
+  p={5}
+>
+  <Styled(MuiBox)
+    pb={2}
+  >
+    <WithStyles(ForwardRef(Typography))
+      variant="h4"
+    >
+      Quiz Questions
+    </WithStyles(ForwardRef(Typography))>
+  </Styled(MuiBox)>
+  <Styled(MuiBox)
+    pb={2}
+  >
+    <WithStyles(ForwardRef(Paper))
+      className="paper-container"
+      elevation={3}
+    >
+      <Styled(MuiBox)
+        px={5}
+        py={2.5}
+      >
+        <ForwardRef(Fade)
+          in={true}
+        >
+          <WithStyles(ForwardRef(IconButton))
+            className="close-button"
+            onClick={[Function]}
+          >
+            <CloseIcon />
+          </WithStyles(ForwardRef(IconButton))>
+        </ForwardRef(Fade)>
+        <ForwardRef(Fade)
+          in={false}
+        >
+          <WithStyles(ForwardRef(Button))
+            className="open-form-button"
+            color="primary"
+            onClick={[Function]}
+          >
+            Add Question
+          </WithStyles(ForwardRef(Button))>
+        </ForwardRef(Fade)>
+        <WithStyles(ForwardRef(Collapse))
+          in={true}
+        >
+          <Styled(MuiBox)
+            py={2.5}
+          >
+            <WithStyles(Form)
+              fields={
+                Array [
+                  Object {
+                    "id": "question",
+                    "label": "Question",
+                    "required": true,
+                    "type": "text",
+                    "validator": [Function],
+                    "value": "",
+                  },
+                  Object {
+                    "id": "sub-question",
+                    "label": "Sub Question",
+                    "required": false,
+                    "type": "text",
+                    "validator": [Function],
+                    "value": "",
+                  },
+                  Object {
+                    "id": "hint",
+                    "label": "Hint",
+                    "required": false,
+                    "type": "text",
+                    "validator": [Function],
+                    "value": "",
+                  },
+                  Object {
+                    "id": "answer",
+                    "label": "Answer",
+                    "required": true,
+                    "type": "text",
+                    "validator": [Function],
+                    "value": "",
+                  },
+                ]
+              }
+              isLoading={false}
+              onSuccess={[Function]}
+            />
+          </Styled(MuiBox)>
+        </WithStyles(ForwardRef(Collapse))>
+      </Styled(MuiBox)>
+    </WithStyles(ForwardRef(Paper))>
+  </Styled(MuiBox)>
+  <WithStyles(ForwardRef(Grid))
+    container={true}
+    spacing={2}
+  >
+    <WithStyles(ForwardRef(Grid))
+      item={true}
+      key="question-id"
+      sm={6}
+    >
+      <WithStyles(InformationCard)
+        description="this is an answer"
+        id="question-id"
+        onDelete={[Function]}
+        onEdit={[Function]}
+        subtitle="this is a sub question"
+        title="this is a question"
+      />
+    </WithStyles(ForwardRef(Grid))>
+  </WithStyles(ForwardRef(Grid))>
+  <WithStyles(StyledModal)
+    isOpen={false}
+    onIgnore={[Function]}
+  >
+    <Styled(MuiBox)
+      pb={2}
+    >
+      <WithStyles(ForwardRef(Typography))
+        variant="h4"
+      >
+        Edit Question
+      </WithStyles(ForwardRef(Typography))>
+    </Styled(MuiBox)>
+    <WithStyles(Form)
+      fields={
+        Array [
+          Object {
+            "id": "question",
+            "label": "Question",
+            "required": true,
+            "type": "text",
+            "validator": [Function],
+            "value": "",
+          },
+          Object {
+            "id": "sub-question",
+            "label": "Sub Question",
+            "required": false,
+            "type": "text",
+            "validator": [Function],
+            "value": "",
+          },
+          Object {
+            "id": "hint",
+            "label": "Hint",
+            "required": false,
+            "type": "text",
+            "validator": [Function],
+            "value": "",
+          },
+          Object {
+            "id": "answer",
+            "label": "Answer",
+            "required": true,
+            "type": "text",
+            "validator": [Function],
+            "value": "",
+          },
+        ]
+      }
+      isLoading={false}
+      onSuccess={[Function]}
+    />
+  </WithStyles(StyledModal)>
+  <WithStyles(StyledModal)
+    isLoading={false}
+    isOpen={false}
+    onConfirm={[Function]}
+    onIgnore={[Function]}
+  >
+    <Styled(MuiBox)
+      pb={4}
+    >
+      <WithStyles(ForwardRef(Typography))
+        align="center"
+        variant="h4"
+      >
+        Are you sure to delete this question?
+      </WithStyles(ForwardRef(Typography))>
+    </Styled(MuiBox)>
+  </WithStyles(StyledModal)>
+</Styled(MuiBox)>
+`;
+
+exports[`The Quiz Questions  The render function shows the deleteQuestionFormOpen 1`] = `
+<Styled(MuiBox)
+  className="question-container"
+  p={5}
+>
+  <Styled(MuiBox)
+    pb={2}
+  >
+    <WithStyles(ForwardRef(Typography))
+      variant="h4"
+    >
+      Quiz Questions
+    </WithStyles(ForwardRef(Typography))>
+  </Styled(MuiBox)>
+  <Styled(MuiBox)
+    pb={2}
+  >
+    <WithStyles(ForwardRef(Paper))
+      className="paper-container"
+      elevation={3}
+    >
+      <Styled(MuiBox)
+        px={5}
+        py={2.5}
+      >
+        <ForwardRef(Fade)
+          in={false}
+        >
+          <WithStyles(ForwardRef(IconButton))
+            className="close-button"
+            onClick={[Function]}
+          >
+            <CloseIcon />
+          </WithStyles(ForwardRef(IconButton))>
+        </ForwardRef(Fade)>
+        <ForwardRef(Fade)
+          in={true}
+        >
+          <WithStyles(ForwardRef(Button))
+            className="open-form-button"
+            color="primary"
+            onClick={[Function]}
+          >
+            Add Question
+          </WithStyles(ForwardRef(Button))>
+        </ForwardRef(Fade)>
+        <WithStyles(ForwardRef(Collapse))
+          in={false}
+        >
+          <Styled(MuiBox)
+            py={2.5}
+          >
+            <WithStyles(Form)
+              fields={
+                Array [
+                  Object {
+                    "id": "question",
+                    "label": "Question",
+                    "required": true,
+                    "type": "text",
+                    "validator": [Function],
+                    "value": "",
+                  },
+                  Object {
+                    "id": "sub-question",
+                    "label": "Sub Question",
+                    "required": false,
+                    "type": "text",
+                    "validator": [Function],
+                    "value": "",
+                  },
+                  Object {
+                    "id": "hint",
+                    "label": "Hint",
+                    "required": false,
+                    "type": "text",
+                    "validator": [Function],
+                    "value": "",
+                  },
+                  Object {
+                    "id": "answer",
+                    "label": "Answer",
+                    "required": true,
+                    "type": "text",
+                    "validator": [Function],
+                    "value": "",
+                  },
+                ]
+              }
+              isLoading={false}
+              onSuccess={[Function]}
+            />
+          </Styled(MuiBox)>
+        </WithStyles(ForwardRef(Collapse))>
+      </Styled(MuiBox)>
+    </WithStyles(ForwardRef(Paper))>
+  </Styled(MuiBox)>
+  <WithStyles(ForwardRef(Grid))
+    container={true}
+    spacing={2}
+  >
+    <WithStyles(ForwardRef(Grid))
+      item={true}
+      key="question-id"
+      sm={6}
+    >
+      <WithStyles(InformationCard)
+        description="this is an answer"
+        id="question-id"
+        onDelete={[Function]}
+        onEdit={[Function]}
+        subtitle="this is a sub question"
+        title="this is a question"
+      />
+    </WithStyles(ForwardRef(Grid))>
+  </WithStyles(ForwardRef(Grid))>
+  <WithStyles(StyledModal)
+    isOpen={false}
+    onIgnore={[Function]}
+  >
+    <Styled(MuiBox)
+      pb={2}
+    >
+      <WithStyles(ForwardRef(Typography))
+        variant="h4"
+      >
+        Edit Question
+      </WithStyles(ForwardRef(Typography))>
+    </Styled(MuiBox)>
+    <WithStyles(Form)
+      fields={
+        Array [
+          Object {
+            "id": "question",
+            "label": "Question",
+            "required": true,
+            "type": "text",
+            "validator": [Function],
+            "value": "",
+          },
+          Object {
+            "id": "sub-question",
+            "label": "Sub Question",
+            "required": false,
+            "type": "text",
+            "validator": [Function],
+            "value": "",
+          },
+          Object {
+            "id": "hint",
+            "label": "Hint",
+            "required": false,
+            "type": "text",
+            "validator": [Function],
+            "value": "",
+          },
+          Object {
+            "id": "answer",
+            "label": "Answer",
+            "required": true,
+            "type": "text",
+            "validator": [Function],
+            "value": "",
+          },
+        ]
+      }
+      isLoading={false}
+      onSuccess={[Function]}
+    />
+  </WithStyles(StyledModal)>
+  <WithStyles(StyledModal)
+    isLoading={false}
+    isOpen={false}
+    onConfirm={[Function]}
+    onIgnore={[Function]}
+  >
+    <Styled(MuiBox)
+      pb={4}
+    >
+      <WithStyles(ForwardRef(Typography))
+        align="center"
+        variant="h4"
+      >
+        Are you sure to delete this question?
+      </WithStyles(ForwardRef(Typography))>
+    </Styled(MuiBox)>
+  </WithStyles(StyledModal)>
+</Styled(MuiBox)>
+`;
+
+exports[`The Quiz Questions  The render function shows the deleteQuestionFormOpen 2`] = `
+<Styled(MuiBox)
+  className="question-container"
+  p={5}
+>
+  <Styled(MuiBox)
+    pb={2}
+  >
+    <WithStyles(ForwardRef(Typography))
+      variant="h4"
+    >
+      Quiz Questions
+    </WithStyles(ForwardRef(Typography))>
+  </Styled(MuiBox)>
+  <Styled(MuiBox)
+    pb={2}
+  >
+    <WithStyles(ForwardRef(Paper))
+      className="paper-container"
+      elevation={3}
+    >
+      <Styled(MuiBox)
+        px={5}
+        py={2.5}
+      >
+        <ForwardRef(Fade)
+          in={false}
+        >
+          <WithStyles(ForwardRef(IconButton))
+            className="close-button"
+            onClick={[Function]}
+          >
+            <CloseIcon />
+          </WithStyles(ForwardRef(IconButton))>
+        </ForwardRef(Fade)>
+        <ForwardRef(Fade)
+          in={true}
+        >
+          <WithStyles(ForwardRef(Button))
+            className="open-form-button"
+            color="primary"
+            onClick={[Function]}
+          >
+            Add Question
+          </WithStyles(ForwardRef(Button))>
+        </ForwardRef(Fade)>
+        <WithStyles(ForwardRef(Collapse))
+          in={false}
+        >
+          <Styled(MuiBox)
+            py={2.5}
+          >
+            <WithStyles(Form)
+              fields={
+                Array [
+                  Object {
+                    "id": "question",
+                    "label": "Question",
+                    "required": true,
+                    "type": "text",
+                    "validator": [Function],
+                    "value": "",
+                  },
+                  Object {
+                    "id": "sub-question",
+                    "label": "Sub Question",
+                    "required": false,
+                    "type": "text",
+                    "validator": [Function],
+                    "value": "",
+                  },
+                  Object {
+                    "id": "hint",
+                    "label": "Hint",
+                    "required": false,
+                    "type": "text",
+                    "validator": [Function],
+                    "value": "",
+                  },
+                  Object {
+                    "id": "answer",
+                    "label": "Answer",
+                    "required": true,
+                    "type": "text",
+                    "validator": [Function],
+                    "value": "",
+                  },
+                ]
+              }
+              isLoading={false}
+              onSuccess={[Function]}
+            />
+          </Styled(MuiBox)>
+        </WithStyles(ForwardRef(Collapse))>
+      </Styled(MuiBox)>
+    </WithStyles(ForwardRef(Paper))>
+  </Styled(MuiBox)>
+  <WithStyles(ForwardRef(Grid))
+    container={true}
+    spacing={2}
+  >
+    <WithStyles(ForwardRef(Grid))
+      item={true}
+      key="question-id"
+      sm={6}
+    >
+      <WithStyles(InformationCard)
+        description="this is an answer"
+        id="question-id"
+        onDelete={[Function]}
+        onEdit={[Function]}
+        subtitle="this is a sub question"
+        title="this is a question"
+      />
+    </WithStyles(ForwardRef(Grid))>
+  </WithStyles(ForwardRef(Grid))>
+  <WithStyles(StyledModal)
+    isOpen={false}
+    onIgnore={[Function]}
+  >
+    <Styled(MuiBox)
+      pb={2}
+    >
+      <WithStyles(ForwardRef(Typography))
+        variant="h4"
+      >
+        Edit Question
+      </WithStyles(ForwardRef(Typography))>
+    </Styled(MuiBox)>
+    <WithStyles(Form)
+      fields={
+        Array [
+          Object {
+            "id": "question",
+            "label": "Question",
+            "required": true,
+            "type": "text",
+            "validator": [Function],
+            "value": "",
+          },
+          Object {
+            "id": "sub-question",
+            "label": "Sub Question",
+            "required": false,
+            "type": "text",
+            "validator": [Function],
+            "value": "",
+          },
+          Object {
+            "id": "hint",
+            "label": "Hint",
+            "required": false,
+            "type": "text",
+            "validator": [Function],
+            "value": "",
+          },
+          Object {
+            "id": "answer",
+            "label": "Answer",
+            "required": true,
+            "type": "text",
+            "validator": [Function],
+            "value": "",
+          },
+        ]
+      }
+      isLoading={false}
+      onSuccess={[Function]}
+    />
+  </WithStyles(StyledModal)>
+  <WithStyles(StyledModal)
+    isLoading={false}
+    isOpen={true}
+    onConfirm={[Function]}
+    onIgnore={[Function]}
+  >
+    <Styled(MuiBox)
+      pb={4}
+    >
+      <WithStyles(ForwardRef(Typography))
+        align="center"
+        variant="h4"
+      >
+        Are you sure to delete this question?
+      </WithStyles(ForwardRef(Typography))>
+    </Styled(MuiBox)>
+  </WithStyles(StyledModal)>
+</Styled(MuiBox)>
+`;
+
+exports[`The Quiz Questions  The render function shows the editQuestionForm 1`] = `
+<Styled(MuiBox)
+  className="question-container"
+  p={5}
+>
+  <Styled(MuiBox)
+    pb={2}
+  >
+    <WithStyles(ForwardRef(Typography))
+      variant="h4"
+    >
+      Quiz Questions
+    </WithStyles(ForwardRef(Typography))>
+  </Styled(MuiBox)>
+  <Styled(MuiBox)
+    pb={2}
+  >
+    <WithStyles(ForwardRef(Paper))
+      className="paper-container"
+      elevation={3}
+    >
+      <Styled(MuiBox)
+        px={5}
+        py={2.5}
+      >
+        <ForwardRef(Fade)
+          in={false}
+        >
+          <WithStyles(ForwardRef(IconButton))
+            className="close-button"
+            onClick={[Function]}
+          >
+            <CloseIcon />
+          </WithStyles(ForwardRef(IconButton))>
+        </ForwardRef(Fade)>
+        <ForwardRef(Fade)
+          in={true}
+        >
+          <WithStyles(ForwardRef(Button))
+            className="open-form-button"
+            color="primary"
+            onClick={[Function]}
+          >
+            Add Question
+          </WithStyles(ForwardRef(Button))>
+        </ForwardRef(Fade)>
+        <WithStyles(ForwardRef(Collapse))
+          in={false}
+        >
+          <Styled(MuiBox)
+            py={2.5}
+          >
+            <WithStyles(Form)
+              fields={
+                Array [
+                  Object {
+                    "id": "question",
+                    "label": "Question",
+                    "required": true,
+                    "type": "text",
+                    "validator": [Function],
+                    "value": "",
+                  },
+                  Object {
+                    "id": "sub-question",
+                    "label": "Sub Question",
+                    "required": false,
+                    "type": "text",
+                    "validator": [Function],
+                    "value": "",
+                  },
+                  Object {
+                    "id": "hint",
+                    "label": "Hint",
+                    "required": false,
+                    "type": "text",
+                    "validator": [Function],
+                    "value": "",
+                  },
+                  Object {
+                    "id": "answer",
+                    "label": "Answer",
+                    "required": true,
+                    "type": "text",
+                    "validator": [Function],
+                    "value": "",
+                  },
+                ]
+              }
+              isLoading={false}
+              onSuccess={[Function]}
+            />
+          </Styled(MuiBox)>
+        </WithStyles(ForwardRef(Collapse))>
+      </Styled(MuiBox)>
+    </WithStyles(ForwardRef(Paper))>
+  </Styled(MuiBox)>
+  <WithStyles(ForwardRef(Grid))
+    container={true}
+    spacing={2}
+  >
+    <WithStyles(ForwardRef(Grid))
+      item={true}
+      key="question-id"
+      sm={6}
+    >
+      <WithStyles(InformationCard)
+        description="this is an answer"
+        id="question-id"
+        onDelete={[Function]}
+        onEdit={[Function]}
+        subtitle="this is a sub question"
+        title="this is a question"
+      />
+    </WithStyles(ForwardRef(Grid))>
+  </WithStyles(ForwardRef(Grid))>
+  <WithStyles(StyledModal)
+    isOpen={false}
+    onIgnore={[Function]}
+  >
+    <Styled(MuiBox)
+      pb={2}
+    >
+      <WithStyles(ForwardRef(Typography))
+        variant="h4"
+      >
+        Edit Question
+      </WithStyles(ForwardRef(Typography))>
+    </Styled(MuiBox)>
+    <WithStyles(Form)
+      fields={
+        Array [
+          Object {
+            "id": "question",
+            "label": "Question",
+            "required": true,
+            "type": "text",
+            "validator": [Function],
+            "value": "",
+          },
+          Object {
+            "id": "sub-question",
+            "label": "Sub Question",
+            "required": false,
+            "type": "text",
+            "validator": [Function],
+            "value": "",
+          },
+          Object {
+            "id": "hint",
+            "label": "Hint",
+            "required": false,
+            "type": "text",
+            "validator": [Function],
+            "value": "",
+          },
+          Object {
+            "id": "answer",
+            "label": "Answer",
+            "required": true,
+            "type": "text",
+            "validator": [Function],
+            "value": "",
+          },
+        ]
+      }
+      isLoading={false}
+      onSuccess={[Function]}
+    />
+  </WithStyles(StyledModal)>
+  <WithStyles(StyledModal)
+    isLoading={false}
+    isOpen={false}
+    onConfirm={[Function]}
+    onIgnore={[Function]}
+  >
+    <Styled(MuiBox)
+      pb={4}
+    >
+      <WithStyles(ForwardRef(Typography))
+        align="center"
+        variant="h4"
+      >
+        Are you sure to delete this question?
+      </WithStyles(ForwardRef(Typography))>
+    </Styled(MuiBox)>
+  </WithStyles(StyledModal)>
+</Styled(MuiBox)>
+`;
+
+exports[`The Quiz Questions  The render function shows the editQuestionForm 2`] = `
+<Styled(MuiBox)
+  className="question-container"
+  p={5}
+>
+  <Styled(MuiBox)
+    pb={2}
+  >
+    <WithStyles(ForwardRef(Typography))
+      variant="h4"
+    >
+      Quiz Questions
+    </WithStyles(ForwardRef(Typography))>
+  </Styled(MuiBox)>
+  <Styled(MuiBox)
+    pb={2}
+  >
+    <WithStyles(ForwardRef(Paper))
+      className="paper-container"
+      elevation={3}
+    >
+      <Styled(MuiBox)
+        px={5}
+        py={2.5}
+      >
+        <ForwardRef(Fade)
+          in={false}
+        >
+          <WithStyles(ForwardRef(IconButton))
+            className="close-button"
+            onClick={[Function]}
+          >
+            <CloseIcon />
+          </WithStyles(ForwardRef(IconButton))>
+        </ForwardRef(Fade)>
+        <ForwardRef(Fade)
+          in={true}
+        >
+          <WithStyles(ForwardRef(Button))
+            className="open-form-button"
+            color="primary"
+            onClick={[Function]}
+          >
+            Add Question
+          </WithStyles(ForwardRef(Button))>
+        </ForwardRef(Fade)>
+        <WithStyles(ForwardRef(Collapse))
+          in={false}
+        >
+          <Styled(MuiBox)
+            py={2.5}
+          >
+            <WithStyles(Form)
+              fields={
+                Array [
+                  Object {
+                    "id": "question",
+                    "label": "Question",
+                    "required": true,
+                    "type": "text",
+                    "validator": [Function],
+                    "value": "",
+                  },
+                  Object {
+                    "id": "sub-question",
+                    "label": "Sub Question",
+                    "required": false,
+                    "type": "text",
+                    "validator": [Function],
+                    "value": "",
+                  },
+                  Object {
+                    "id": "hint",
+                    "label": "Hint",
+                    "required": false,
+                    "type": "text",
+                    "validator": [Function],
+                    "value": "",
+                  },
+                  Object {
+                    "id": "answer",
+                    "label": "Answer",
+                    "required": true,
+                    "type": "text",
+                    "validator": [Function],
+                    "value": "",
+                  },
+                ]
+              }
+              isLoading={false}
+              onSuccess={[Function]}
+            />
+          </Styled(MuiBox)>
+        </WithStyles(ForwardRef(Collapse))>
+      </Styled(MuiBox)>
+    </WithStyles(ForwardRef(Paper))>
+  </Styled(MuiBox)>
+  <WithStyles(ForwardRef(Grid))
+    container={true}
+    spacing={2}
+  >
+    <WithStyles(ForwardRef(Grid))
+      item={true}
+      key="question-id"
+      sm={6}
+    >
+      <WithStyles(InformationCard)
+        description="this is an answer"
+        id="question-id"
+        onDelete={[Function]}
+        onEdit={[Function]}
+        subtitle="this is a sub question"
+        title="this is a question"
+      />
+    </WithStyles(ForwardRef(Grid))>
+  </WithStyles(ForwardRef(Grid))>
+  <WithStyles(StyledModal)
+    isOpen={true}
+    onIgnore={[Function]}
+  >
+    <Styled(MuiBox)
+      pb={2}
+    >
+      <WithStyles(ForwardRef(Typography))
+        variant="h4"
+      >
+        Edit Question
+      </WithStyles(ForwardRef(Typography))>
+    </Styled(MuiBox)>
+    <WithStyles(Form)
+      fields={
+        Array [
+          Object {
+            "id": "question",
+            "label": "Question",
+            "required": true,
+            "type": "text",
+            "validator": [Function],
+            "value": "",
+          },
+          Object {
+            "id": "sub-question",
+            "label": "Sub Question",
+            "required": false,
+            "type": "text",
+            "validator": [Function],
+            "value": "",
+          },
+          Object {
+            "id": "hint",
+            "label": "Hint",
+            "required": false,
+            "type": "text",
+            "validator": [Function],
+            "value": "",
+          },
+          Object {
+            "id": "answer",
+            "label": "Answer",
+            "required": true,
+            "type": "text",
+            "validator": [Function],
+            "value": "",
+          },
+        ]
+      }
+      isLoading={false}
+      onSuccess={[Function]}
+    />
+  </WithStyles(StyledModal)>
+  <WithStyles(StyledModal)
+    isLoading={false}
+    isOpen={false}
+    onConfirm={[Function]}
+    onIgnore={[Function]}
+  >
+    <Styled(MuiBox)
+      pb={4}
+    >
+      <WithStyles(ForwardRef(Typography))
+        align="center"
+        variant="h4"
+      >
+        Are you sure to delete this question?
+      </WithStyles(ForwardRef(Typography))>
+    </Styled(MuiBox)>
+  </WithStyles(StyledModal)>
+</Styled(MuiBox)>
+`;
