@@ -1,8 +1,8 @@
 import { IQuizSummary, IFlashcard, IQuizSummaryCard, IQuestionCard } from "./commons/types";
 
 
-export interface IQuizState {
-
+export interface IModuleState {
+  pageData: IPageData
 }
 
 export interface IComponentLoadingState {
@@ -25,6 +25,7 @@ export interface IWebData {
 }
 
 export interface IReduxState {
-  quiz: IQuizState,
-  web: IWebData
+  module: IModuleState,
+  web: IWebData,
+  api: string
 }

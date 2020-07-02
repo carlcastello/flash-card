@@ -12,5 +12,6 @@ export interface IOwnProps {
 }
 
 export interface IOwnState {
-  answer: string
+  answer: string,
+  hideAnswer: boolean,
 }
