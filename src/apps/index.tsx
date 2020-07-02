@@ -10,79 +10,52 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import MainReducer from './reducer';
 
-import Quiz from './quiz';
-import QuizTheme from './quiz/theme';
+import QuizApp from './quiz';
+import QuizAppTheme from './quiz/theme';
 
-import Web  from './web';
-import WebsiteTheme from './web/theme';
-
-import { QuestionType } from './commons/types';
-
+import DashboardApp  from './dashboard';
 
 
 class App extends Component {
 
   renderWebSwitch(): ReactNode {
     return (
-      <ThemeProvider theme={WebsiteTheme}>
-        <Switch>
-          <Route
-            exact
-            path="/"
-            component={Web}/>
-          <Route
-            exact
-            path="/dashboard/quiz"
-            component={Web}/>
-          <Route
-            exact
-            path="/dashboard/quiz/:quizId"
-            component={Web}/>
-        </Switch>
-      </ThemeProvider>
+      <Switch>
+        <Route
+          exact
+          path='/'
+          component={DashboardApp}/>
+        <Route
+          exact
+          path='/dashboard/quiz'
+          component={DashboardApp}/>
+        <Route
+          exact
+          path='/dashboard/quiz/:quizId'
+          component={DashboardApp}/>
+      </Switch>
     );
   }
 
   renderQuizSwitch(): ReactNode {
     return (
-      <ThemeProvider theme={QuizTheme}>
-        <Switch>
-          <Route
-            exact
-            path="/quiz"
-            component={() => 
-              <Quiz flashcards={[
-                {
-                  id: '123',
-                  question: 'What is the capital of Sri Lanka?',
-                  hint: 'India',
-                  questionType: QuestionType.QUESTIONAIRE,
-                  answer: 'potato'
-                },
-                {
-                  id: '222',
-                  question: 'Querer',
-                  subQuestion: 'v. irregular',
-                  questionType: QuestionType.WORD,
-                  answer: 'potato'
-                },
-                {
-                  id: '333',
-                  question: 'Querer',
-                  subQuestion: 'v. irregular',
-                  questionType: QuestionType.WORD,
-                  answer: 'potato'
-                }
-              ]}/>
-            }/>
-          </Switch>
-      </ThemeProvider>
+      <Switch>
+        <ThemeProvider theme={QuizAppTheme}>
+            <Route
+              exact
+              path="/quiz/:quizId"
+              component={QuizApp}/>
+        </ThemeProvider>
+      </Switch>
     );
   }
 
   render(): ReactNode {
     return (
-      <Provider store={createStore(MainReducer, applyMiddleware(thunkMiddleware))}>
+      <Provider store={createStore(
+        MainReducer,
+        applyMiddleware(thunkMiddleware)
+      )}>
         <BrowserRouter>
           {this.renderWebSwitch()}
           {this.renderQuizSwitch()}
