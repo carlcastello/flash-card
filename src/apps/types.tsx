@@ -2,7 +2,7 @@ import { IQuizSummary, IFlashcard, IQuizSummaryCard, IQuestionCard } from "./com
 
 
 export interface IModuleState {
-  pageData: Object
+  pageData: IPageData
 }
 
 export interface IComponentLoadingState {
@@ -26,5 +26,6 @@ export interface IWebData {
 
 export interface IReduxState {
   module: IModuleState,
-  web: IWebData
+  web: IWebData,
+  api: string
 }

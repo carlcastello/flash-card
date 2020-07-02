@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`The Quiz Summary The render function renders the form container 1`] = `
+<WithStyles(ForwardRef(Paper))
+  elevation={3}
+>
+  <Styled(MuiBox)
+    p={5}
+  >
+    <Styled(MuiBox)
+      pb={2}
+    >
+      <WithStyles(ForwardRef(Typography))
+        variant="h4"
+      >
+        Quiz Summary
+      </WithStyles(ForwardRef(Typography))>
+    </Styled(MuiBox)>
+    <WithStyles(Form)
+      fields={
+        Array [
+          Object {
+            "id": "title",
+            "label": "Title",
+            "required": true,
+            "type": "text",
+            "validator": [Function],
+            "value": "",
+          },
+          Object {
+            "id": "description",
+            "label": "Description",
+            "type": "text",
+            "validator": [Function],
+            "value": "",
+          },
+        ]
+      }
+      isLoading={true}
+      onSuccess={[Function]}
+    />
+  </Styled(MuiBox)>
+</WithStyles(ForwardRef(Paper))>
+`;
