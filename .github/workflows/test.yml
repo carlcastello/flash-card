@@ -1,0 +1,32 @@
+on:
+  push:
+    branches: 
+      - develop
+  pull_request:
+    branches:
+      - staging
+
+jobs: 
+  test-apps:
+    name: Testing React App
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [12.x]
+    steps:
+      - uses: actions/checkout@v1
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Install Packages
+        run: npm install
+
+      - name: Testing Apps/Commons
+        run: npm test ".src/apps/commons"
+      - name: Testing Apps/Dashboard
+        run: npm test ".src/apps/dasboard"
+      - name: Testing Apps/Quiz
+        run: npm test ".src/apps/quiz"
+      - name: Testing Apis
+        run: npm test ".src/apis"

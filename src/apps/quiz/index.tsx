@@ -1,34 +1,18 @@
-import Quiz from './component';
-import { connect } from 'react-redux';
-import { IReduxState } from '../types';
-import { QuestionType } from '../commons/types';
+import React, { Component, ReactNode } from 'react';
+import { ThemeProvider } from '@material-ui/core';
 
-const mapStateToProps = (state: IReduxState) => ({
-  flashcards: [
-    {
-      id: '123',
-      question: 'What is the capital of Sri Lanka?',
-      hint: 'India',
-      questionType: QuestionType.QUESTIONAIRE,
-      answer: 'potato'
-    },
-    {
-      id: '222',
-      question: 'Querer',
-      subQuestion: 'v. irregular',
-      questionType: QuestionType.WORD,
-      answer: 'potato'
-    },
-    {
-      id: '333',
-      question: 'Querer',
-      subQuestion: 'v. irregular',
-      questionType: QuestionType.WORD,
-      answer: 'potato'
-    }
-  ]
-})
+import QuizRouter from './router';
+import theme from './theme';
 
-export default connect(
-  mapStateToProps
-)(Quiz);
+class Web extends Component {
+
+  render(): ReactNode {
+    return (
+      <ThemeProvider theme={theme}>
+        <QuizRouter/>
+      </ThemeProvider>
+    );
+  }
+}
+
+export default Web;
