@@ -1,0 +1,83 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`The Quiz Main Page Component The render function shows a loading screen if requiredData length is not 0 1`] = `
+<WithStyles(LoadingScreen)>
+  Loading Quiz...
+</WithStyles(LoadingScreen)>
+`;
+
+exports[`The Quiz Main Page Component The render function shows a loading screen if requiredData length is not 0 2`] = `
+<WithStyles(EmptyPage)
+  onClose={[Function]}
+  onEdit={[Function]}
+/>
+`;
+
+exports[`The Quiz Main Page Component The render function shows an empty screen if question length is 0 1`] = `
+<WithStyles(EmptyPage)
+  onClose={[Function]}
+  onEdit={[Function]}
+/>
+`;
+
+exports[`The Quiz Main Page Component The render function shows an empty screen if question length is 0 2`] = `
+<Styled(MuiBox)>
+  <Styled(MuiBox)
+    className="box-container"
+  >
+    <Styled(MuiBox)
+      className="box-content"
+    >
+      <Styled(MuiBox)
+        className="progressBarContainer"
+        px={5}
+      >
+        <WithStyles(ProgressBar)
+          currentQuestion={0}
+          flashcardStatus="DEFAULT"
+          totalQuestion={1}
+        />
+        <WithStyles(ForwardRef(IconButton))
+          className="icon-button"
+          onClick={[Function]}
+        >
+          <CloseIcon />
+        </WithStyles(ForwardRef(IconButton))>
+      </Styled(MuiBox)>
+      <WithStyles(Flashcard)
+        next={[Function]}
+        question={
+          Object {
+            "answer": "hint",
+            "hint": "hint",
+            "id": "id",
+            "question": "question",
+            "subQuestion": "sub-question",
+          }
+        }
+        update={[Function]}
+      />
+    </Styled(MuiBox)>
+  </Styled(MuiBox)>
+  <WithStyles(StyledModal)
+    isOpen={false}
+    onConfirm={[Function]}
+    onIgnore={[Function]}
+  >
+    <Styled(MuiBox)
+      pb={4}
+    >
+      <WithStyles(ForwardRef(Typography))>
+        Are you sure you want to close this quiz?
+      </WithStyles(ForwardRef(Typography))>
+    </Styled(MuiBox)>
+  </WithStyles(StyledModal)>
+</Styled(MuiBox)>
+`;
+
+exports[`The Quiz Main Page Component The render function shows the completion screen if quizStatus is complete 1`] = `
+<WithStyles(EmptyPage)
+  onClose={[Function]}
+  onEdit={[Function]}
+/>
+`;
