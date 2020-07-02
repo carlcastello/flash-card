@@ -25,7 +25,7 @@ jobs:
       - name: Testing Apps/Commons
         run: npm test ".src/apps/commons"
       - name: Testing Apps/Dashboard
-        run: npm test ".src/apps/dasboard"
+        run: npm test ".src/apps/dashboard"
       - name: Testing Apps/Quiz
         run: npm test ".src/apps/quiz"
       - name: Testing Apis
