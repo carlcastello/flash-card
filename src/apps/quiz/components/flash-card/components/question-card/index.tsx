@@ -8,10 +8,9 @@ import {
   IOwnProps
 } from './types';
 import { FlashcardStatus } from '../../types';
-import { QuestionType } from '../../../../../commons/types';
 
 
-class QuestionCard extends Component<IOwnProps> {
+export class QuestionCard extends Component<IOwnProps> {
 
   renderSkip(): ReactNode {
     const {
@@ -25,7 +24,6 @@ class QuestionCard extends Component<IOwnProps> {
     return (
       <Box pr={2} pb={1} className={boxButtonContainer}>
         <IconButton
-          color="primary"
           onClick={onSkip}
           disabled={flashcardStatus !== FlashcardStatus.DEFAULT}>
           <SkipNextIcon/>
@@ -41,18 +39,21 @@ class QuestionCard extends Component<IOwnProps> {
         subQuestion
       },
       classes: {
-        boxQuestionaireContainer
+        boxQuestionaireContainer,
+        questionTypography
       }
     } = this.props;
     return (
-      <Box py={7} px={2} className={boxQuestionaireContainer}>
-        <Typography variant="h2">
+      <Box py={4} px={2} className={boxQuestionaireContainer}>
+        <Typography variant="h3" className={questionTypography}>
           {question}
         </Typography>
         {subQuestion ?  
-          <Typography variant="body1">
-            {subQuestion}
-          </Typography> :
+          <Box mt={0.5}>
+            <Typography variant="body1">
+              {subQuestion}
+            </Typography>
+          </Box> :
           null
         }   
         {this.renderSkip()}     
@@ -70,7 +71,7 @@ class QuestionCard extends Component<IOwnProps> {
       }
     } = this.props;
     return ( 
-      <Box py={10} px={2} className={boxQuestionaireContainer}>
+      <Box py={5} px={2} className={boxQuestionaireContainer}>
         <Typography variant="body1">
           {question}
         </Typography>
@@ -79,17 +80,18 @@ class QuestionCard extends Component<IOwnProps> {
     )
   }
 
-  renderFlashcard(): ReactNode {
-    const {
-      questionObject: {
-        questionType,
-      },
-    } = this.props;
-    if (questionType === QuestionType.WORD) {
-      return (this.renderWordVariant());
-    } else if (questionType === QuestionType.QUESTIONAIRE) {
-      return (this.renderQuestionaireVariant());
-    }
+  renderQuestionCard(): ReactNode {
+    // const {
+    //   questionObject: {
+    //     questionType,
+    //   },
+    // } = this.props;
+    // if (questionType === QuestionType.WORD) {
+    //   return (this.renderWordVariant());
+    // } else if (questionType === QuestionType.QUESTIONAIRE) {
+    //   return (this.renderQuestionaireVariant());
+    // }
+    return (this.renderWordVariant())
   }
 
   render(): ReactNode {
@@ -100,7 +102,7 @@ class QuestionCard extends Component<IOwnProps> {
     } = this.props;
     return (
       <Paper className={paper} elevation={3}>
-        {this.renderFlashcard()}
+        {this.renderQuestionCard()}
       </Paper>
     );
   }

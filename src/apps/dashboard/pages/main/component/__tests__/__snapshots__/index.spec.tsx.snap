@@ -1,0 +1,229 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`The Main Dashboard The Render Funcion show a loading screen 1`] = `
+<WithStyles(LoadingScreen)>
+  Fetching Dashboard Data...
+</WithStyles(LoadingScreen)>
+`;
+
+exports[`The Main Dashboard The Render Funcion shows dashboard modal  1`] = `
+<Styled(MuiBox)
+  display="flex"
+  flexDirection="row"
+  justifyContent="center"
+>
+  <WithStyles(ForwardRef(Grid))
+    alignItems="center"
+    className="grid-container"
+    container={true}
+    direction="row"
+    justify="center"
+    spacing={2}
+  >
+    <WithStyles(ForwardRef(Grid))
+      item={true}
+      sm={10}
+    >
+      <WithStyles(ForwardRef(Typography))
+        variant="h4"
+      >
+        My Quizes
+      </WithStyles(ForwardRef(Typography))>
+    </WithStyles(ForwardRef(Grid))>
+    <WithStyles(ForwardRef(Grid))
+      item={true}
+      sm={10}
+    >
+      <WithStyles(ForwardRef(Grid))
+        container={true}
+        spacing={2}
+      >
+        <WithStyles(ForwardRef(Grid))
+          item={true}
+          key="489ebf1e-91b3-4cfb-9f07-3792310ded9d"
+          sm={4}
+        >
+          <WithStyles(InformationCard)
+            description="The quick "
+            hasHoverEffect={true}
+            id="489ebf1e-91b3-4cfb-9f07-3792310ded9d"
+            onClick={[Function]}
+            onDelete={[Function]}
+            onEdit={[Function]}
+            title="Quiz 1"
+          />
+        </WithStyles(ForwardRef(Grid))>
+        <WithStyles(ForwardRef(Grid))
+          item={true}
+          sm={4}
+        >
+          <WithStyles(AddCard)
+            hasHoverEffect={true}
+            onClick={[Function]}
+          />
+        </WithStyles(ForwardRef(Grid))>
+      </WithStyles(ForwardRef(Grid))>
+    </WithStyles(ForwardRef(Grid))>
+  </WithStyles(ForwardRef(Grid))>
+  <WithStyles(StyledModal)
+    isLoading={false}
+    isOpen={true}
+    onConfirm={[Function]}
+    onIgnore={[Function]}
+  >
+    <Styled(MuiBox)
+      pb={4}
+    >
+      <WithStyles(ForwardRef(Typography))
+        align="center"
+        variant="h4"
+      >
+        Are you sure to delete this Quiz?
+      </WithStyles(ForwardRef(Typography))>
+    </Styled(MuiBox)>
+  </WithStyles(StyledModal)>
+</Styled(MuiBox)>
+`;
+
+exports[`The Main Dashboard The Render Funcion shows empty dashboard 1`] = `
+<Styled(MuiBox)
+  display="flex"
+  flexDirection="row"
+  justifyContent="center"
+>
+  <WithStyles(ForwardRef(Grid))
+    alignItems="center"
+    className="grid-container"
+    container={true}
+    direction="row"
+    justify="center"
+    spacing={2}
+  >
+    <WithStyles(ForwardRef(Grid))
+      item={true}
+      sm={10}
+    >
+      <WithStyles(ForwardRef(Typography))
+        variant="h4"
+      >
+        My Quizes
+      </WithStyles(ForwardRef(Typography))>
+    </WithStyles(ForwardRef(Grid))>
+    <WithStyles(ForwardRef(Grid))
+      item={true}
+      sm={10}
+    >
+      <WithStyles(ForwardRef(Grid))
+        container={true}
+        spacing={2}
+      >
+        <WithStyles(ForwardRef(Grid))
+          item={true}
+          sm={4}
+        >
+          <WithStyles(AddCard)
+            hasHoverEffect={true}
+            onClick={[Function]}
+          />
+        </WithStyles(ForwardRef(Grid))>
+      </WithStyles(ForwardRef(Grid))>
+    </WithStyles(ForwardRef(Grid))>
+  </WithStyles(ForwardRef(Grid))>
+  <WithStyles(StyledModal)
+    isLoading={false}
+    isOpen={false}
+    onConfirm={[Function]}
+    onIgnore={[Function]}
+  >
+    <Styled(MuiBox)
+      pb={4}
+    >
+      <WithStyles(ForwardRef(Typography))
+        align="center"
+        variant="h4"
+      >
+        Are you sure to delete this Quiz?
+      </WithStyles(ForwardRef(Typography))>
+    </Styled(MuiBox)>
+  </WithStyles(StyledModal)>
+</Styled(MuiBox)>
+`;
+
+exports[`The Main Dashboard The Render Funcion shows the dashboard 1`] = `
+<Styled(MuiBox)
+  display="flex"
+  flexDirection="row"
+  justifyContent="center"
+>
+  <WithStyles(ForwardRef(Grid))
+    alignItems="center"
+    className="grid-container"
+    container={true}
+    direction="row"
+    justify="center"
+    spacing={2}
+  >
+    <WithStyles(ForwardRef(Grid))
+      item={true}
+      sm={10}
+    >
+      <WithStyles(ForwardRef(Typography))
+        variant="h4"
+      >
+        My Quizes
+      </WithStyles(ForwardRef(Typography))>
+    </WithStyles(ForwardRef(Grid))>
+    <WithStyles(ForwardRef(Grid))
+      item={true}
+      sm={10}
+    >
+      <WithStyles(ForwardRef(Grid))
+        container={true}
+        spacing={2}
+      >
+        <WithStyles(ForwardRef(Grid))
+          item={true}
+          key="489ebf1e-91b3-4cfb-9f07-3792310ded9d"
+          sm={4}
+        >
+          <WithStyles(InformationCard)
+            description="The quick "
+            hasHoverEffect={true}
+            id="489ebf1e-91b3-4cfb-9f07-3792310ded9d"
+            onClick={[Function]}
+            onDelete={[Function]}
+            onEdit={[Function]}
+            title="Quiz 1"
+          />
+        </WithStyles(ForwardRef(Grid))>
+        <WithStyles(ForwardRef(Grid))
+          item={true}
+          sm={4}
+        >
+          <WithStyles(AddCard)
+            hasHoverEffect={true}
+            onClick={[Function]}
+          />
+        </WithStyles(ForwardRef(Grid))>
+      </WithStyles(ForwardRef(Grid))>
+    </WithStyles(ForwardRef(Grid))>
+  </WithStyles(ForwardRef(Grid))>
+  <WithStyles(StyledModal)
+    isLoading={false}
+    isOpen={false}
+    onConfirm={[Function]}
+    onIgnore={[Function]}
+  >
+    <Styled(MuiBox)
+      pb={4}
+    >
+      <WithStyles(ForwardRef(Typography))
+        align="center"
+        variant="h4"
+      >
+        Are you sure to delete this Quiz?
+      </WithStyles(ForwardRef(Typography))>
+    </Styled(MuiBox)>
+  </WithStyles(StyledModal)>
+</Styled(MuiBox)>
+`;

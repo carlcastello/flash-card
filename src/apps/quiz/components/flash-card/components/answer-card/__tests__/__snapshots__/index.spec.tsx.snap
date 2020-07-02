@@ -1,0 +1,204 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`The AnswerCard the render funtion shows the answer card as FlashcardStatus.DEFAULT 1`] = `
+<Styled(MuiBox)
+  pt={2.5}
+>
+  <WithStyles(ForwardRef(Paper))
+    className="paper"
+    elevation={3}
+  >
+    <Styled(MuiBox)
+      p={2.5}
+    >
+      <Styled(MuiBox)>
+        <WithStyles(ForwardRef(Input))
+          className="string"
+          disableUnderline={true}
+          disabled={false}
+          fullWidth={true}
+          margin="none"
+          onChange={[Function]}
+          value=""
+        />
+        <WithStyles(ForwardRef(Collapse))
+          in={false}
+          onEnter={[Function]}
+          onExit={[Function]}
+        >
+          <Styled(MuiBox)
+            pt={1.5}
+          >
+            <Styled(MuiBox)>
+              <WithStyles(ForwardRef(Typography))
+                className="typography"
+                variant="subtitle2"
+              >
+                Answer
+              </WithStyles(ForwardRef(Typography))>
+              <WithStyles(ForwardRef(Input))
+                className="string"
+                disableUnderline={true}
+                disabled={true}
+                fullWidth={true}
+                margin="none"
+                value=""
+              />
+            </Styled(MuiBox)>
+          </Styled(MuiBox)>
+        </WithStyles(ForwardRef(Collapse))>
+      </Styled(MuiBox)>
+    </Styled(MuiBox)>
+  </WithStyles(ForwardRef(Paper))>
+</Styled(MuiBox)>
+`;
+
+exports[`The AnswerCard the render funtion shows the answer casrd as FlashcardStatus.CORRECT 1`] = `
+<Styled(MuiBox)
+  pt={2.5}
+>
+  <WithStyles(ForwardRef(Paper))
+    className="paper"
+    elevation={3}
+  >
+    <Styled(MuiBox)
+      p={2.5}
+    >
+      <Styled(MuiBox)>
+        <WithStyles(ForwardRef(Input))
+          className="string"
+          disableUnderline={true}
+          disabled={true}
+          fullWidth={true}
+          margin="none"
+          onChange={[Function]}
+          value=""
+        />
+        <WithStyles(ForwardRef(Collapse))
+          in={false}
+          onEnter={[Function]}
+          onExit={[Function]}
+        >
+          <Styled(MuiBox)
+            pt={1.5}
+          >
+            <Styled(MuiBox)>
+              <WithStyles(ForwardRef(Typography))
+                className="typography"
+                variant="subtitle2"
+              >
+                Answer
+              </WithStyles(ForwardRef(Typography))>
+              <WithStyles(ForwardRef(Input))
+                className="string"
+                disableUnderline={true}
+                disabled={true}
+                fullWidth={true}
+                margin="none"
+                value=""
+              />
+            </Styled(MuiBox)>
+          </Styled(MuiBox)>
+        </WithStyles(ForwardRef(Collapse))>
+      </Styled(MuiBox)>
+    </Styled(MuiBox)>
+  </WithStyles(ForwardRef(Paper))>
+</Styled(MuiBox)>
+`;
+
+exports[`The AnswerCard the render funtion shows the correct answer and removed the input when FlashcardStatus.HINT 1`] = `
+<Styled(MuiBox)
+  pt={2.5}
+>
+  <WithStyles(ForwardRef(Paper))
+    className="paper"
+    elevation={3}
+  >
+    <Styled(MuiBox)
+      p={2.5}
+    >
+      <Styled(MuiBox)>
+        <WithStyles(ForwardRef(Collapse))
+          in={true}
+          onEnter={[Function]}
+          onExit={[Function]}
+        >
+          <Styled(MuiBox)
+            pt={1.5}
+          >
+            <Styled(MuiBox)>
+              <WithStyles(ForwardRef(Typography))
+                className="typography"
+                variant="subtitle2"
+              >
+                Answer
+              </WithStyles(ForwardRef(Typography))>
+              <WithStyles(ForwardRef(Input))
+                className="string"
+                disableUnderline={true}
+                disabled={true}
+                fullWidth={true}
+                margin="none"
+                value="This is the correct answer"
+              />
+            </Styled(MuiBox)>
+          </Styled(MuiBox)>
+        </WithStyles(ForwardRef(Collapse))>
+      </Styled(MuiBox)>
+    </Styled(MuiBox)>
+  </WithStyles(ForwardRef(Paper))>
+</Styled(MuiBox)>
+`;
+
+exports[`The AnswerCard the render funtion shows the correct answer when FlashcardStatus.WRONG 1`] = `
+<Styled(MuiBox)
+  pt={2.5}
+>
+  <WithStyles(ForwardRef(Paper))
+    className="paper"
+    elevation={3}
+  >
+    <Styled(MuiBox)
+      p={2.5}
+    >
+      <Styled(MuiBox)>
+        <WithStyles(ForwardRef(Input))
+          className="string"
+          disableUnderline={true}
+          disabled={true}
+          fullWidth={true}
+          margin="none"
+          onChange={[Function]}
+          value=""
+        />
+        <WithStyles(ForwardRef(Collapse))
+          in={true}
+          onEnter={[Function]}
+          onExit={[Function]}
+        >
+          <Styled(MuiBox)
+            pt={1.5}
+          >
+            <Styled(MuiBox)>
+              <WithStyles(ForwardRef(Typography))
+                className="typography"
+                variant="subtitle2"
+              >
+                Answer
+              </WithStyles(ForwardRef(Typography))>
+              <WithStyles(ForwardRef(Input))
+                className="string"
+                disableUnderline={true}
+                disabled={true}
+                fullWidth={true}
+                margin="none"
+                value="This is the correct answer"
+              />
+            </Styled(MuiBox)>
+          </Styled(MuiBox)>
+        </WithStyles(ForwardRef(Collapse))>
+      </Styled(MuiBox)>
+    </Styled(MuiBox)>
+  </WithStyles(ForwardRef(Paper))>
+</Styled(MuiBox)>
+`;
