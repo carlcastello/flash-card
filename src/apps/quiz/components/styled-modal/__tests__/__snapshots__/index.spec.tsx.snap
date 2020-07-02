@@ -1,0 +1,80 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`The Styled Modal the render function show a dialog modal 1`] = `
+<ForwardRef(Modal)
+  className="modal-container"
+  onClose={[MockFunction]}
+  open={false}
+>
+  <WithStyles(ForwardRef(Paper))
+    className="modal-paper-container"
+    elevation={3}
+  >
+    <Styled(MuiBox)
+      pb={5}
+      position="relative"
+      pt={5}
+      px={5}
+    >
+      <WithStyles(ForwardRef(IconButton))
+        className="close-button"
+        onClick={[MockFunction]}
+      >
+        <CloseIcon />
+      </WithStyles(ForwardRef(IconButton))>
+    </Styled(MuiBox)>
+  </WithStyles(ForwardRef(Paper))>
+</ForwardRef(Modal)>
+`;
+
+exports[`The Styled Modal the render function shows a confirmation modal 1`] = `
+<ForwardRef(Modal)
+  className="modal-container"
+  onClose={[MockFunction]}
+  open={false}
+>
+  <WithStyles(ForwardRef(Paper))
+    className="modal-paper-container"
+    elevation={3}
+  >
+    <Styled(MuiBox)
+      pb={2.5}
+      position="relative"
+      pt={5}
+      px={5}
+    >
+      <WithStyles(ForwardRef(IconButton))
+        className="close-button"
+        onClick={[MockFunction]}
+      >
+        <CloseIcon />
+      </WithStyles(ForwardRef(IconButton))>
+      <WithStyles(ForwardRef(Grid))
+        container={true}
+        justify="flex-end"
+        spacing={1}
+      >
+        <WithStyles(ForwardRef(Grid))
+          item={true}
+        >
+          <WithStyles(ForwardRef(Button))
+            onClick={[MockFunction]}
+          >
+            No
+          </WithStyles(ForwardRef(Button))>
+        </WithStyles(ForwardRef(Grid))>
+        <WithStyles(ForwardRef(Grid))
+          item={true}
+        >
+          <WithStyles(ForwardRef(Button))
+            color="secondary"
+            onClick={[MockFunction]}
+          >
+            Yes
+          </WithStyles(ForwardRef(Button))>
+        </WithStyles(ForwardRef(Grid))>
+      </WithStyles(ForwardRef(Grid))>
+    </Styled(MuiBox)>
+  </WithStyles(ForwardRef(Paper))>
+</ForwardRef(Modal)>
+`;

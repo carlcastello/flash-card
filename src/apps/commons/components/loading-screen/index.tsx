@@ -6,7 +6,7 @@ import { IOwnProps } from "./types";
 import styles from "./styles";
 
 
-class LoadingScreen extends Component<IOwnProps> {
+export class LoadingScreen extends Component<IOwnProps> {
 
   render(): ReactNode {
     const {
