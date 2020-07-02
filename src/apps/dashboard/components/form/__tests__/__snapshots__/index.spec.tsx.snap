@@ -1,0 +1,74 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Form The Button Container Shows Button 1`] = `
+<form>
+  <WithStyles(ForwardRef(FormControl))
+    className="form-control"
+    error={false}
+    fullWidth={true}
+    key="form-0"
+    variant="outlined"
+  >
+    <WithStyles(ForwardRef(InputLabel))
+      className="form-label"
+      htmlFor="potato salad"
+    >
+      potato-salad
+    </WithStyles(ForwardRef(InputLabel))>
+    <WithStyles(ForwardRef(OutlinedInput))
+      className="form-input"
+      id="potato salad"
+      label="potato-salad"
+      onChange={[Function]}
+    />
+  </WithStyles(ForwardRef(FormControl))>
+  <Styled(MuiBox)
+    className="form-bottom-container"
+  >
+    <WithStyles(ForwardRef(Button))
+      onClick={[Function]}
+    >
+      Save
+    </WithStyles(ForwardRef(Button))>
+  </Styled(MuiBox)>
+</form>
+`;
+
+exports[`Form The Button Container Shows Loading 1`] = `
+<form>
+  <WithStyles(ForwardRef(FormControl))
+    className="form-control"
+    error={false}
+    fullWidth={true}
+    key="form-0"
+    variant="outlined"
+  >
+    <WithStyles(ForwardRef(InputLabel))
+      className="form-label"
+      htmlFor="potato salad"
+    >
+      potato-salad
+    </WithStyles(ForwardRef(InputLabel))>
+    <WithStyles(ForwardRef(OutlinedInput))
+      className="form-input"
+      id="potato salad"
+      label="potato-salad"
+      onChange={[Function]}
+    />
+  </WithStyles(ForwardRef(FormControl))>
+  <Styled(MuiBox)
+    className="form-bottom-container"
+  >
+    <Styled(MuiBox)
+      display="flex"
+      flexDirection="row"
+      mt={2}
+      width="100%"
+    >
+      <WithStyles(ForwardRef(LinearProgress))
+        color="secondary"
+      />
+    </Styled(MuiBox)>
+  </Styled(MuiBox)>
+</form>
+`;

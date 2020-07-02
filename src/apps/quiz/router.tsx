@@ -1,6 +1,7 @@
-import React, { Component, ReactNode } from 'react';
-import { Switch, Route } from 'react-router-dom';
-import Quiz from './pages/quiz';
+import React, { Component, ReactNode } from "react";
+import { Switch, Route } from "react-router-dom";
+
+import MainQuizPage from "./pages/main";
 
 
 class Router extends Component {
@@ -9,8 +10,8 @@ class Router extends Component {
       <Switch>
         <Route 
           exact
-          path='/quiz/:quidId'
-          component={Quiz}/>
+          path='/quiz/:quizId'
+          component={MainQuizPage}/>
       </Switch>
     );
   }

@@ -10,10 +10,10 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import MainReducer from './reducer';
 
-import Quiz from './quiz';
-import QuizTheme from './quiz/theme';
+import QuizApp from './quiz';
+import QuizAppTheme from './quiz/theme';
 
-import Web  from './web';
+import DashboardApp  from './dashboard';
 
 
 class App extends Component {
@@ -24,35 +24,38 @@ class App extends Component {
         <Route
           exact
           path='/'
-          component={Web}/>
+          component={DashboardApp}/>
         <Route
           exact
           path='/dashboard/quiz'
-          component={Web}/>
+          component={DashboardApp}/>
         <Route
           exact
           path='/dashboard/quiz/:quizId'
-          component={Web}/>
+          component={DashboardApp}/>
       </Switch>
     );
   }
 
   renderQuizSwitch(): ReactNode {
     return (
-      <ThemeProvider theme={QuizTheme}>
-        <Switch>
-          <Route
-            exact
-            path="/quiz/:quizId"
-            component={Quiz}/>
-          </Switch>
-      </ThemeProvider>
+      <Switch>
+        <ThemeProvider theme={QuizAppTheme}>
+            <Route
+              exact
+              path="/quiz/:quizId"
+              component={QuizApp}/>
+        </ThemeProvider>
+      </Switch>
     );
   }
 
   render(): ReactNode {
     return (
-      <Provider store={createStore(MainReducer, applyMiddleware(thunkMiddleware))}>
+      <Provider store={createStore(
+        MainReducer,
+        applyMiddleware(thunkMiddleware)
+      )}>
         <BrowserRouter>
           {this.renderWebSwitch()}
           {this.renderQuizSwitch()}

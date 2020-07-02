@@ -1,0 +1,80 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Quiz The Render Function renders just the quizSummary questionaire 1`] = `
+<WithStyles(ForwardRef(Grid))
+  alignItems="center"
+  className="grid-container"
+  container={true}
+  direction="row"
+  justify="center"
+  spacing={2}
+>
+  <WithStyles(ForwardRef(Grid))
+    item={true}
+    sm={10}
+  >
+    <WithStyles(QuizSummary)
+      isLoading={false}
+      onCreateQuizSummary={[MockFunction]}
+      onSaveQuizSummary={[MockFunction]}
+    />
+  </WithStyles(ForwardRef(Grid))>
+</WithStyles(ForwardRef(Grid))>
+`;
+
+exports[`Quiz The Render Function renders the full quiz 1`] = `
+<WithStyles(ForwardRef(Grid))
+  alignItems="center"
+  className="grid-container"
+  container={true}
+  direction="row"
+  justify="center"
+  spacing={2}
+>
+  <WithStyles(ForwardRef(Grid))
+    item={true}
+    sm={10}
+  >
+    <WithStyles(QuizSummary)
+      isLoading={false}
+      onCreateQuizSummary={[MockFunction]}
+      onSaveQuizSummary={[MockFunction]}
+      quizId="hello-world"
+    />
+  </WithStyles(ForwardRef(Grid))>
+  <WithStyles(ForwardRef(Grid))
+    item={true}
+    sm={10}
+  >
+    <WithStyles(QuizQuestion)
+      createQuestion={[MockFunction]}
+      deleteQuestion={[MockFunction]}
+      isCreatingQuestion={false}
+      isDeletingQuestion={false}
+      isSavingQuestion={false}
+      push={[MockFunction]}
+      quizId="hello-world"
+      quizQuestions={Array []}
+      saveQuestion={[MockFunction]}
+    />
+  </WithStyles(ForwardRef(Grid))>
+</WithStyles(ForwardRef(Grid))>
+`;
+
+exports[`Quiz The Render Function renders the loading page when creatingQuizSummary 1`] = `
+<WithStyles(LoadingScreen)>
+  Saving Created Quiz...
+</WithStyles(LoadingScreen)>
+`;
+
+exports[`Quiz The Render Function renders the loading page when page is loading 1`] = `
+<WithStyles(LoadingScreen)>
+  Loading Quiz Data...
+</WithStyles(LoadingScreen)>
+`;
+
+exports[`Quiz The Render Function renders the redirect 1`] = `
+<Redirect
+  to="/dashboard/quiz/hello-world"
+/>
+`;
