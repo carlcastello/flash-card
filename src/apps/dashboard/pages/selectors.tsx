@@ -1,10 +1,10 @@
 import { createSelector } from 'reselect';
-import { webDataSelector } from '../selectors';
-import { IWebData, IPageData } from '../../types';
+import { dashboardAppSelector } from '../selectors';
+import { IDashboardAppState, IPageData } from '../../types';
 
 export const pageDataSelector = createSelector(
-  webDataSelector,
-  (webData: IWebData) => webData.pageData,
+  dashboardAppSelector,
+  (dashboardAppState: IDashboardAppState) => dashboardAppState.pageData,
 )
 
 export const requiredDataSelector = (requiredData: string[]) => createSelector(
