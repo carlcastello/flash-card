@@ -50,7 +50,7 @@ describe("The Flash Card", () => {
   describe("the onSubmit Function", () => {
     it("calls the updateFunction with FlashcardStatus.CORRECT", () => {
       expect(wrapper.state().flashcardStatus).toEqual(FlashcardStatus.DEFAULT);
-      wrapper.instance().answerCardRef.current = { state: {answer: "answer"} };
+      instance.answerCardRef.current = { state: {answer: "answer"} };
 
       instance.onSubmit();
       expect(updateFunction).toHaveBeenCalledWith(FlashcardStatus.CORRECT);
