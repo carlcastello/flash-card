@@ -41,10 +41,12 @@ export class AnswerCard extends Component<IOwnProps, IOwnState> {
       flashcardStatus
     } = this.props;
    
-    if (flashcardStatus === FlashcardStatus.DEFAULT && prevProps.flashcardStatus !== flashcardStatus) {
-      this.inputRef.focus();
-    } else if (flashcardStatus !== FlashcardStatus.DEFAULT) {
-      this.inputRef.blur();
+    if (prevProps.flashcardStatus !== flashcardStatus) {
+      if (flashcardStatus === FlashcardStatus.DEFAULT) {
+        this.inputRef.focus();
+      } else {
+        this.inputRef.blur();
+      }
     }
   }
 
