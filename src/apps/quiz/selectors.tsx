@@ -1,3 +1,3 @@
 import { IReduxState } from '../types';
 
-export const quizAppSelector = (state: IReduxState) => state.quizApp;
+export const moduleDataSelector = (state: IReduxState) => state.module

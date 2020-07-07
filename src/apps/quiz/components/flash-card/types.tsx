@@ -8,11 +8,14 @@ export enum FlashcardStatus {
 }
 
 export interface IOwnProps {
-  flashcardStatus: FlashcardStatus,
   update: (flashcardStatus: FlashcardStatus) => void,
   next: () => void,
   question: IQuestionCard,
   classes: {
 
   }
+}
+
+export interface IOwnState {
+  flashcardStatus: FlashcardStatus
 }

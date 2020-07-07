@@ -1,5 +1,5 @@
 import { createSelector } from 'reselect';
-import { IDashboardAppState } from '../../../types';
+import { IWebData } from '../../../types';
 import {
   QUIZ,
   CREATE_QUIZ_SUMMARY_FORM,
@@ -8,40 +8,34 @@ import {
   SAVE_QUESTION_FORM,
   DELETE_QUESTION_FORM
 } from '../../common/constants';
-import { dashboardAppSelector } from '../../selectors';
+import { webDataSelector } from '../../selectors';
 
 export const isFullPageLoading = createSelector(
-  dashboardAppSelector,
-  (dashboardAppState: IDashboardAppState) =>
-    dashboardAppState.componentLoading[QUIZ]
+  webDataSelector,
+  (webData: IWebData) => webData.componentLoading[QUIZ]
 );
 
 export const isCreatingQuizSummary = createSelector(
-  dashboardAppSelector,
-  (dashboardAppState: IDashboardAppState) =>
-    dashboardAppState.componentLoading[CREATE_QUIZ_SUMMARY_FORM]
+  webDataSelector,
+  (webData: IWebData) => webData.componentLoading[CREATE_QUIZ_SUMMARY_FORM]
 );
 
 export const isSavingQuizSummary = createSelector(
-  dashboardAppSelector,
-  (dashboardAppState: IDashboardAppState) => 
-    dashboardAppState.componentLoading[SAVE_QUIZ_SUMMARY_FORM]
+  webDataSelector,
+  (webData: IWebData) => webData.componentLoading[SAVE_QUIZ_SUMMARY_FORM]
 );
 
 export const isCreatingQuestion = createSelector(
-  dashboardAppSelector,
-  (dashboardAppState: IDashboardAppState) =>
-    dashboardAppState.componentLoading[CREATE_QUESTION_FORM]
+  webDataSelector,
+  (webData: IWebData) => webData.componentLoading[CREATE_QUESTION_FORM]
 );
 
 export const isSavingQuestion = createSelector(
-  dashboardAppSelector,
-  (dashboardAppState: IDashboardAppState) =>
-    dashboardAppState.componentLoading[SAVE_QUESTION_FORM]
+  webDataSelector,
+  (webData: IWebData) => webData.componentLoading[SAVE_QUESTION_FORM]
 );
 
 export const isDeletingQuestion = createSelector(
-  dashboardAppSelector,
-  (dashboardAppState: IDashboardAppState) =>
-    dashboardAppState.componentLoading[DELETE_QUESTION_FORM]
+  webDataSelector,
+  (webData: IWebData) => webData.componentLoading[DELETE_QUESTION_FORM]
 );

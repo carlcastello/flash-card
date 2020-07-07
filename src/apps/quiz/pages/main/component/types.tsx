@@ -22,7 +22,7 @@ export interface IOwnProps extends RouteComponentProps<any> {
 export interface IOwnState {
   questionIndex: number,
   progressIndex: number,
-  flashcardStatus: FlashcardStatus,
+  currentFlashcardStatus: FlashcardStatus,
   quizStatus: QuizStatus,
   confirmModalToogle: boolean
 }

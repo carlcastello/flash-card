@@ -1,10 +1,10 @@
 import { createSelector } from 'reselect';
-import { quizAppSelector } from '../selectors';
-import { IQuizAppState, IPageData } from '../../types';
+import { moduleDataSelector } from '../selectors';
+import { IModuleState, IPageData } from '../../types';
 
 export const pageDataSelector = createSelector(
-  quizAppSelector,
-  (quizAppState: IQuizAppState) => quizAppState.pageData
+  moduleDataSelector,
+  (moduleData: IModuleState) => moduleData.pageData
 )
 
 export const requiredDataSelector = (requiredData: string[]) => createSelector(
