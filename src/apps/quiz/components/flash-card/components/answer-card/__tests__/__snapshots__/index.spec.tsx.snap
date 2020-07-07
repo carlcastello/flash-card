@@ -13,12 +13,10 @@ exports[`The AnswerCard the render funtion shows the answer card as FlashcardSta
     >
       <Styled(MuiBox)>
         <WithStyles(ForwardRef(Input))
-          autoFocus={true}
           className="string"
           disableUnderline={true}
           disabled={false}
           fullWidth={true}
-          inputRef={[Function]}
           margin="none"
           onChange={[Function]}
           value=""
@@ -68,12 +66,10 @@ exports[`The AnswerCard the render funtion shows the answer casrd as FlashcardSt
     >
       <Styled(MuiBox)>
         <WithStyles(ForwardRef(Input))
-          autoFocus={true}
           className="string"
           disableUnderline={true}
           disabled={true}
           fullWidth={true}
-          inputRef={[Function]}
           margin="none"
           onChange={[Function]}
           value=""
@@ -167,12 +163,10 @@ exports[`The AnswerCard the render funtion shows the correct answer when Flashca
     >
       <Styled(MuiBox)>
         <WithStyles(ForwardRef(Input))
-          autoFocus={true}
           className="string"
           disableUnderline={true}
           disabled={true}
           fullWidth={true}
-          inputRef={[Function]}
           margin="none"
           onChange={[Function]}
           value=""

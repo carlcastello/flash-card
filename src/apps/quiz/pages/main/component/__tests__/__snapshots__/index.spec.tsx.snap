@@ -24,7 +24,6 @@ exports[`The Quiz Main Page Component The render function shows an empty screen 
 <Styled(MuiBox)>
   <Styled(MuiBox)
     className="box-container"
-    tabIndex={0}
   >
     <Styled(MuiBox)
       className="box-content"
@@ -46,7 +45,6 @@ exports[`The Quiz Main Page Component The render function shows an empty screen 
         </WithStyles(ForwardRef(IconButton))>
       </Styled(MuiBox)>
       <WithStyles(Flashcard)
-        flashcardStatus="DEFAULT"
         next={[Function]}
         question={
           Object {

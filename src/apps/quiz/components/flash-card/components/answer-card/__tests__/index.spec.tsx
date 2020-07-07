@@ -8,18 +8,12 @@ import { Input, Collapse } from "@material-ui/core";
 
 describe("The AnswerCard", () => {
 
-  let focusFunction: any;
-  let blurFunction: any;
-
   let answer: string = "This is the correct answer";
 
   let wrapper: any;
   let instance: any;
 
   beforeEach(() => {
-    focusFunction = jest.fn();
-    blurFunction = jest.fn();
-
     wrapper = shallow(
       <AnswerCard
         answer={answer}
@@ -33,7 +27,6 @@ describe("The AnswerCard", () => {
     );
 
     instance = wrapper.instance();
-    instance.inputRef = { focus: focusFunction, blur: blurFunction };
   });
 
   describe("the render funtion", () => {
@@ -70,43 +63,6 @@ describe("The AnswerCard", () => {
       expect(toJson(wrapper)).toMatchSnapshot();
       expect(wrapper.find(Collapse).props().in).toEqual(true);
       expect(wrapper.find(Input)).toHaveLength(1);
-    });
-  });
-
-  describe("The componentDidUpdate", () => {
-    it("calls neither function if currentProps == prevProps", () => {
-      expect(focusFunction).toHaveBeenCalledTimes(0);
-      expect(blurFunction).toHaveBeenCalledTimes(0);
-
-      wrapper.setProps({ flashcardStatus: FlashcardStatus.DEFAULT });
-
-      expect(focusFunction).toHaveBeenCalledTimes(0);
-      expect(blurFunction).toHaveBeenCalledTimes(0);
-    });
-
-    it("calls focusFunction if FlashcardStatus.DEFAULT and currentProps != prevProps", () => {
-      expect(focusFunction).toHaveBeenCalledTimes(0);
-      expect(blurFunction).toHaveBeenCalledTimes(0);
-
-      // Updating the props to rogger on Focus between CORRECT -> DEFAULT
-      wrapper.setProps({ flashcardStatus: FlashcardStatus.CORRECT });
-      expect(focusFunction).toHaveBeenCalledTimes(0);
-      expect(blurFunction).toHaveBeenCalledTimes(1);
-
-      wrapper.setProps({ flashcardStatus: FlashcardStatus.DEFAULT });
-
-      expect(focusFunction).toHaveBeenCalledTimes(1);
-      expect(blurFunction).toHaveBeenCalledTimes(1);
-    });
-
-    it("calls blurFunction if not FlashcardStatus.DEFAULT and currentProps != prevProps", () => {
-      expect(focusFunction).toHaveBeenCalledTimes(0);
-      expect(blurFunction).toHaveBeenCalledTimes(0);
-
-      wrapper.setProps({ flashcardStatus: FlashcardStatus.CORRECT });
-
-      expect(focusFunction).toHaveBeenCalledTimes(0);
-      expect(blurFunction).toHaveBeenCalledTimes(1);
     });
   });
 

@@ -32,7 +32,6 @@ describe("The Flash Card", () => {
           hint: "hint",
           answer: "answer",
         }}
-        flashcardStatus={FlashcardStatus.DEFAULT}
         classes={{}}/>
     );
 
@@ -50,36 +49,46 @@ describe("The Flash Card", () => {
 
   describe("the onSubmit Function", () => {
     it("calls the updateFunction with FlashcardStatus.CORRECT", () => {
-      instance.answerCardRef.current = { state: {answer: "answer"} };
+      expect(wrapper.state().flashcardStatus).toEqual(FlashcardStatus.DEFAULT);
+      wrapper.instance().answerCardRef.current = { state: {answer: "answer"} };
 
       instance.onSubmit();
       expect(updateFunction).toHaveBeenCalledWith(FlashcardStatus.CORRECT);
+      expect(wrapper.state().flashcardStatus).toEqual(FlashcardStatus.CORRECT);
     });
 
     it("calls the updateFunction with FlashcardStatus.WRONG", () => {
+      expect(wrapper.state().flashcardStatus).toEqual(FlashcardStatus.DEFAULT);
       instance.answerCardRef.current = { state: {answer: "potato"} };
 
       instance.onSubmit();
       expect(updateFunction).toHaveBeenCalledWith(FlashcardStatus.WRONG);
+      expect(wrapper.state().flashcardStatus).toEqual(FlashcardStatus.WRONG);
     });
   });
 
   describe("the onNext Function", () => {
     it("calls the next", () => {
       const setStateFunction: any = jest.fn();
+      wrapper.setState({ flashcardStatus: FlashcardStatus.CORRECT });
 
       instance.answerCardRef.current = { setState: setStateFunction };
 
       instance.onNext();
 
       expect(nextFunction).toHaveBeenCalledTimes(1);
+      expect(wrapper.state().flashcardStatus).toEqual(FlashcardStatus.DEFAULT);
       expect(setStateFunction).toHaveBeenCalledWith({ answer: "" });
     });
   });
 
   describe("the onSkip Function", () => {
     it("calls the update function with FlashcardStatus.HINT", () => {
+      expect(wrapper.state().flashcardStatus).toEqual(FlashcardStatus.DEFAULT);
+
       instance.onSkip();
+
+      expect(wrapper.state().flashcardStatus).toEqual(FlashcardStatus.HINT);
       expect(updateFunction).toHaveBeenCalledWith(FlashcardStatus.HINT);
     });
   });

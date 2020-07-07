@@ -235,15 +235,15 @@ describe("The Quiz Main Page Component", () => {
 
     });
 
-    it("updates flashcardStatus and increment progressIndex onUpdateFlashcard", () => {
+    it("updates currentFlashcardStatus and increment progressIndex onUpdateFlashcard", () => {
       wrapper.setState({
-        flashcardStatus: FlashcardStatus.HINT,
+        currentFlashcardStatus: FlashcardStatus.HINT,
         progressIndex: 0,
       });
 
       instance.onUpdateFlashcard(FlashcardStatus.CORRECT);
 
-      expect(wrapper.state().flashcardStatus).toEqual(FlashcardStatus.CORRECT);
+      expect(wrapper.state().currentFlashcardStatus).toEqual(FlashcardStatus.CORRECT);
       expect(wrapper.state().progressIndex).toEqual(1);
     });
 

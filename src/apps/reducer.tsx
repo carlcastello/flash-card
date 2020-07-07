@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux';
 
-import dashboardAppReducer from './dashboard/reducers';
-import quizReducer from './quiz/reducers';
+import webAppDataReducer from './dashboard/reducers';
+import quizAppDataReducer from './quiz/reducers';
 
 
 export default combineReducers({
-  quizApp: quizReducer,
-  dashboardApp: dashboardAppReducer
+  module: quizAppDataReducer,
+  web: webAppDataReducer
 });
