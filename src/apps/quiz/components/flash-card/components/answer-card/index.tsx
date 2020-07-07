@@ -1,4 +1,4 @@
-import React, { Component, ReactNode, ChangeEvent } from 'react';
+import React, { Component, ReactNode, ChangeEvent, createRef } from 'react';
 
 import {
   withStyles,
@@ -15,6 +15,8 @@ import { FlashcardStatus } from '../../types';
 
 
 export class AnswerCard extends Component<IOwnProps, IOwnState> {
+
+  inputRef: any = createRef();
 
   state: IOwnState = {
     answer: '',
@@ -34,6 +36,20 @@ export class AnswerCard extends Component<IOwnProps, IOwnState> {
     this.setState({ hideAnswer: true });
   }
 
+  componentDidUpdate(prevProps: IOwnProps): void {
+    const {
+      flashcardStatus
+    } = this.props;
+   
+    if (prevProps.flashcardStatus !== flashcardStatus) {
+      if (flashcardStatus === FlashcardStatus.DEFAULT) {
+        this.inputRef.focus();
+      } else {
+        this.inputRef.blur();
+      }
+    }
+  }
+
   renderInput(): ReactNode {
     const {
       state: {
@@ -49,6 +65,8 @@ export class AnswerCard extends Component<IOwnProps, IOwnState> {
 
     return (
       <Input 
+        autoFocus
+        inputRef={(input) => this.inputRef = input}
         value={answer}
         className={input}
         margin='none'

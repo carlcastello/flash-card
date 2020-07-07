@@ -8,7 +8,9 @@ exports[`The Button Card The render function shows the next button 1`] = `
     elevation={3}
   >
     <WithStyles(ForwardRef(Button))
+      buttonRef={[Function]}
       className="button CORRECT"
+      focusRipple={false}
       onClick={[Function]}
       type="submit"
     >
@@ -30,7 +32,9 @@ exports[`The Button Card The render function shows the submit button 1`] = `
     elevation={3}
   >
     <WithStyles(ForwardRef(Button))
+      buttonRef={[Function]}
       className="button DEFAULT"
+      focusRipple={false}
       onClick={[Function]}
       type="submit"
     >

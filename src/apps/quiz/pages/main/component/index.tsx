@@ -1,4 +1,7 @@
-import React, { Component, ReactNode } from 'react';
+import React, {
+  Component,
+  ReactNode
+} from 'react';
 
 import {
   Box,
@@ -26,7 +29,7 @@ export class MainQuizPage extends Component<IOwnProps, IOwnState> {
   state = {
     questionIndex: 0,
     progressIndex: 0,
-    currentFlashcardStatus: FlashcardStatus.DEFAULT,
+    flashcardStatus: FlashcardStatus.DEFAULT,
     quizStatus: QuizStatus.IN_PROGRESS,
     confirmModalToogle: false
   }
@@ -87,10 +90,10 @@ export class MainQuizPage extends Component<IOwnProps, IOwnState> {
     )
   }
 
-  onUpdateFlashcard = (currentFlashcardStatus: FlashcardStatus) => {
+  onUpdateFlashcard = (flashcardStatus: FlashcardStatus) => {
     this.setState((state) => ({
         ...state,
-        currentFlashcardStatus, 
+        flashcardStatus, 
         progressIndex: state.progressIndex + 1
     }));
   }
@@ -116,7 +119,7 @@ export class MainQuizPage extends Component<IOwnProps, IOwnState> {
     if (questionIndex < questions.length - 1) {
       this.setState((state) => ({
         ...state,
-        currentFlashcardStatus: FlashcardStatus.DEFAULT,
+        flashcardStatus: FlashcardStatus.DEFAULT,
         questionIndex: state.questionIndex + 1
       }));
     } else {
@@ -146,7 +149,7 @@ export class MainQuizPage extends Component<IOwnProps, IOwnState> {
     const {
       state: {
         progressIndex,
-        currentFlashcardStatus
+        flashcardStatus
       },
       props: {
         questions,
@@ -160,7 +163,7 @@ export class MainQuizPage extends Component<IOwnProps, IOwnState> {
     return (
       <Box px={5} className={progressBarContainer}>
         <ProgressBar
-          flashcardStatus={currentFlashcardStatus}
+          flashcardStatus={flashcardStatus}
           currentQuestion={progressIndex}
           totalQuestion={questions.length}/>
         <IconButton
@@ -178,12 +181,14 @@ export class MainQuizPage extends Component<IOwnProps, IOwnState> {
         questions,
       },
       state: {
+        flashcardStatus,
         questionIndex,
       }
     } = this;
 
     return (
-      <Flashcards 
+      <Flashcards
+        flashcardStatus={flashcardStatus}
         question={questions[questionIndex]}
         update={this.onUpdateFlashcard}
         next={this.onNextFlashcard}/>
@@ -199,7 +204,7 @@ export class MainQuizPage extends Component<IOwnProps, IOwnState> {
     } = this.props;
 
     return(
-      <Box className={boxContainer}>
+      <Box className={boxContainer} tabIndex={0} >
         <Box className={boxContent}>
           {this.renderProgressBar()}
           {this.renderFlashcard()}
