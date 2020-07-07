@@ -6,17 +6,13 @@ import QuestionCard from './components/question-card';
 import AnswerCard from './components/answer-card';
 import ButtonCard from './components/button-card';
 
-import { IOwnProps, IOwnState, FlashcardStatus } from './types';
+import { IOwnProps, FlashcardStatus } from './types';
 import styles from './styles';
 
 
-export class Flashcard extends Component<IOwnProps, IOwnState> {
+export class Flashcard extends Component<IOwnProps> {
 
   answerCardRef: any = createRef();   
-
-  state = {
-    flashcardStatus: FlashcardStatus.DEFAULT,
-  }
 
   onSubmit = (): void => {
     const answer = this.answerCardRef.current.state.answer;
@@ -36,10 +32,7 @@ export class Flashcard extends Component<IOwnProps, IOwnState> {
       flashcardStatus = FlashcardStatus.WRONG;
     }
 
-    this.setState(
-      { flashcardStatus },
-      () => update(flashcardStatus)
-    );
+    update(flashcardStatus);
   }
 
 
@@ -48,32 +41,22 @@ export class Flashcard extends Component<IOwnProps, IOwnState> {
       next,
     } = this.props;
 
-    this.setState(
-      { flashcardStatus: FlashcardStatus.DEFAULT },
-      () => {
-        next();
-        this.answerCardRef.current.setState({answer: ''});
-      }
-    )
+    next();
+    this.answerCardRef.current.setState({answer: ''});
   }
 
   onSkip = (): void => {
     const {
       update,
     } = this.props;
-    var flashcardStatus: FlashcardStatus = FlashcardStatus.HINT;
-    this.setState(
-      { flashcardStatus },
-      () => update(flashcardStatus)
-    );
+
+    update(FlashcardStatus.HINT)
   }
 
   renderQuestionCard(): ReactNode {
     const {
-      state: {
-        flashcardStatus,
-      },
       props: {
+        flashcardStatus,
         question: {
           question,
           subQuestion,
@@ -100,7 +83,7 @@ export class Flashcard extends Component<IOwnProps, IOwnState> {
           answer,
         }
       },
-      state: {
+      props: {
         flashcardStatus
       }
     } = this;
@@ -116,7 +99,7 @@ export class Flashcard extends Component<IOwnProps, IOwnState> {
     const {
       onSubmit,
       onNext,
-      state: {
+      props: {
         flashcardStatus
       },
     } = this;

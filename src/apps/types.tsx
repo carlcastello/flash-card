@@ -1,7 +1,7 @@
 import { IQuizSummary, IFlashcard, IQuizSummaryCard, IQuestionCard } from "./commons/types";
 
 
-export interface IModuleState {
+export interface IQuizAppState {
   pageData: IPageData
 }
 
@@ -19,13 +19,13 @@ export interface IPageData {
   quizQuestions?: IQuestionCard[],
 }
 
-export interface IWebData {
+export interface IDashboardAppState {
   componentLoading: IComponentLoadingState,
   pageData: IPageData
 }
 
 export interface IReduxState {
-  module: IModuleState,
-  web: IWebData,
+  quizApp: IQuizAppState,
+  dashboardApp: IDashboardAppState,
   api: string
 }

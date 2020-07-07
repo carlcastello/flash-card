@@ -1,5 +1,5 @@
 import { createSelector } from 'reselect';
-import { IWebData } from '../../../types';
+import { IDashboardAppState } from '../../../types';
 import {
   QUIZ,
   CREATE_QUIZ_SUMMARY_FORM,
@@ -8,34 +8,40 @@ import {
   SAVE_QUESTION_FORM,
   DELETE_QUESTION_FORM
 } from '../../common/constants';
-import { webDataSelector } from '../../selectors';
+import { dashboardAppSelector } from '../../selectors';
 
 export const isFullPageLoading = createSelector(
-  webDataSelector,
-  (webData: IWebData) => webData.componentLoading[QUIZ]
+  dashboardAppSelector,
+  (dashboardAppState: IDashboardAppState) =>
+    dashboardAppState.componentLoading[QUIZ]
 );
 
 export const isCreatingQuizSummary = createSelector(
-  webDataSelector,
-  (webData: IWebData) => webData.componentLoading[CREATE_QUIZ_SUMMARY_FORM]
+  dashboardAppSelector,
+  (dashboardAppState: IDashboardAppState) =>
+    dashboardAppState.componentLoading[CREATE_QUIZ_SUMMARY_FORM]
 );
 
 export const isSavingQuizSummary = createSelector(
-  webDataSelector,
-  (webData: IWebData) => webData.componentLoading[SAVE_QUIZ_SUMMARY_FORM]
+  dashboardAppSelector,
+  (dashboardAppState: IDashboardAppState) => 
+    dashboardAppState.componentLoading[SAVE_QUIZ_SUMMARY_FORM]
 );
 
 export const isCreatingQuestion = createSelector(
-  webDataSelector,
-  (webData: IWebData) => webData.componentLoading[CREATE_QUESTION_FORM]
+  dashboardAppSelector,
+  (dashboardAppState: IDashboardAppState) =>
+    dashboardAppState.componentLoading[CREATE_QUESTION_FORM]
 );
 
 export const isSavingQuestion = createSelector(
-  webDataSelector,
-  (webData: IWebData) => webData.componentLoading[SAVE_QUESTION_FORM]
+  dashboardAppSelector,
+  (dashboardAppState: IDashboardAppState) =>
+    dashboardAppState.componentLoading[SAVE_QUESTION_FORM]
 );
 
 export const isDeletingQuestion = createSelector(
-  webDataSelector,
-  (webData: IWebData) => webData.componentLoading[DELETE_QUESTION_FORM]
+  dashboardAppSelector,
+  (dashboardAppState: IDashboardAppState) =>
+    dashboardAppState.componentLoading[DELETE_QUESTION_FORM]
 );

@@ -1,6 +1,5 @@
 import { IReduxState } from "../types";
 
 
-export const webDataSelector = (state: IReduxState) => {
-  return state.web;
-}
+export const dashboardAppSelector = (state: IReduxState) =>
+  state.dashboardApp;
